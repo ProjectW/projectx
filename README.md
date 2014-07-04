@@ -1,7 +1,7 @@
 projectx
 ========
 
-# First iteration of ProjectX
+# First iteration of ProjectxX
 
 ## Development
 > * All collaborators are added as such on the private github repo projectx. NOTE: Make sure your account is secure! Anyone who has access to your github account or ssh has accces to our project. 
