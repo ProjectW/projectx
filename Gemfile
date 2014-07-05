@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem 'mysql2', '0.3.16'
-gem 'haml-rails', '0.5.3', :group => :development
+gem 'haml-rails', '0.5.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
