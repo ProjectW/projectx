@@ -11,6 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140707043319) do
+
+  create_table "student_accounts", force: true do |t|
+    t.string   "first_name",                        null: false
+    t.string   "last_name",                         null: false
+    t.string   "middle_name"
+    t.string   "email",                             null: false
+    t.boolean  "verified",          default: false, null: false
+    t.integer  "school",                            null: false
+    t.integer  "graduation_year"
+    t.integer  "current_resume_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_accounts", ["email"], name: "index_on_email", using: :btree
+  add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
+  add_index "student_accounts", ["school"], name: "index_on_school", using: :btree
 
 end
