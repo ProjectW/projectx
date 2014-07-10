@@ -1,12 +1,36 @@
-.hello
-	hello, world! 
-.row
-	.medium-2.columns
-		2 columns
-	.medium-10.columns
-		10 columns
-.row
-	.medium-3.columns
-		3 columns
-	.medium-9.columns
-		9 columns
+%link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
+
+.contain-to-grid.sticky
+	%nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => ""}
+		%ul.title-area
+			%li.name
+				%h1
+					%a{href: "#"} QLytic
+			%li.toggle-topbar.menu-icon
+				%a{href: "#"}
+					%span Menu
+		%section.top-bar-section
+			%ul.right
+				%li
+					%a{href: "#"} How It Works
+				%li
+					%a{href: "#"} For Companies
+				%li
+					%a{href: "#"} Login
+= image_tag asset_path('homeImage.png')
+.content
+	%h1
+		For Students
+	%ul.small-block-grid-3
+		%li
+			= image_tag('discover.png', class: "icon")
+			%h4
+				Discover and connect with top start-ups.
+		%li
+			= image_tag('connect.png', class: "icon")
+			%h4
+				Talk to past interns and review company data.
+		%li
+			= image_tag('fit.png', class: "icon")
+			%h4
+				Choose and prepare for your best fit. 
