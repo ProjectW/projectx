@@ -1,4 +1,6 @@
 class StudentAccount < ActiveRecord::Base
+  devise :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
+   
   has_many :resumes
   has_one :current_resume, :class_name => 'Resume'
 

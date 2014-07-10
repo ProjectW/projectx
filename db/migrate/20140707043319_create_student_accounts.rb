@@ -15,7 +15,6 @@ class CreateStudentAccounts < ActiveRecord::Migration
 
     add_index "student_accounts", ["last_name", "first_name"], :name => "index_on_last_and_first_name"
     add_index "student_accounts", ["school", "email"], :name => "index_on_school_and_email"
-    add_index "student_accounts", ["active"], :name => "index_on_active"
   end
 
   def self.down

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707050433) do
+ActiveRecord::Schema.define(version: 20140710052757) do
+
+  create_table "companies", force: true do |t|
+    t.string   "name",         null: false
+    t.string   "display_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "company_accounts", force: true do |t|
+    t.integer  "company_id",    null: false
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                null: false
@@ -24,20 +39,31 @@ ActiveRecord::Schema.define(version: 20140707050433) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "student_accounts", force: true do |t|
-    t.string   "first_name",                        null: false
-    t.string   "last_name",                         null: false
+    t.string   "first_name",                            null: false
+    t.string   "last_name",                             null: false
     t.string   "middle_name"
-    t.string   "email",                             null: false
-    t.boolean  "verified",          default: false, null: false
-    t.integer  "school",                            null: false
+    t.integer  "school",                                null: false
     t.integer  "graduation_year"
     t.integer  "current_resume_id"
+    t.boolean  "active",                 default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
-  add_index "student_accounts", ["email"], name: "index_on_email", using: :btree
   add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
-  add_index "student_accounts", ["school"], name: "index_on_school", using: :btree
+  add_index "student_accounts", ["school", "email"], name: "index_on_school_and_email", using: :btree
 
 end
