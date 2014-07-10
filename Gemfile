@@ -42,3 +42,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#use compass and zurb for scss
+gem 'compass-rails'
+gem 'zurb-foundation'
