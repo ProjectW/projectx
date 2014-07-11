@@ -117,7 +117,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  foundation-rails
+  foundation-rails (= 5.3.0.1)
   haml-rails (= 0.5.3)
   jbuilder (~> 1.2)
   jquery-rails

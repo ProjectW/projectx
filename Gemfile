@@ -44,4 +44,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Use foundation
-gem 'foundation-rails'
+gem 'foundation-rails', '5.3.0.1'
