@@ -19,13 +19,18 @@
 					%a{href: "#"} Login
 
 .signIn
+	.row
+		.medium-12.columns
+			%h1.text
+				The Q Guide for Your Summer
 	%form{"name"  => "emailSignUp"}
-		.input
-			.row
-				.medium-5.columns
-					%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-				.medium-5.columns
-					%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+		.row
+			.medium-5.columns
+				%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+			.medium-5.columns
+				%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+			.medium-2.columns
+				%a.button.postfix{href: "#"} Sign Up
 	
 .content
 	%h1

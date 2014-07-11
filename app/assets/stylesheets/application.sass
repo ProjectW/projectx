@@ -3,8 +3,6 @@
 /*= require foundation */
 @import 'foundation_and_overrides'
 
-$include-html-top-bar-classes: $include-html-classes
-
 /* Background color for the top bar */
 $orange: #FF8547
 $teal: #29BBBB
@@ -51,9 +49,20 @@ h1, h2, h3, h4, h5, h6
 	background-image: image-url("homeImage.png")
 
 
-input.email, input.password
-	margin-top: 100px
+input.email, input.password, a.button.postfix
+	margin-top: 20px
 
+.button
+	background-color: $teal
+	border-color: $teal
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
 
+h1.text
+	margin-top: 0
+	padding-top: 50px
+	color: #fff
+
+h1
+	color: $teal
 
 
