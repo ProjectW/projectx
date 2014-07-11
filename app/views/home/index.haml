@@ -17,7 +17,16 @@
 					%a{href: "#"} For Companies
 				%li
 					%a{href: "#"} Login
-= image_tag asset_path('homeImage.png')
+
+.signIn
+	%form{"name"  => "emailSignUp"}
+		.input
+			.row
+				.medium-5.columns
+					%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+				.medium-5.columns
+					%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+	
 .content
 	%h1
 		For Students
