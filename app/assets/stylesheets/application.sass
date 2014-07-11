@@ -3,8 +3,6 @@
 /*= require foundation */
 @import 'foundation_and_overrides'
 
-$include-html-top-bar-classes: $include-html-classes
-
 /* Background color for the top bar */
 $orange: #FF8547
 $teal: #29BBBB
@@ -35,7 +33,6 @@ h1, h2, h3, h4, h5, h6
 	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
 
 .content
-	padding: 125px
 	padding-top: 25px
 	height: auto
 
@@ -52,9 +49,15 @@ h1, h2, h3, h4, h5, h6
 	background-image: image-url("homeImage.png")
 
 
-input.email, input.password
-	margin-top: 100px
+input.email, input.password, a.button.postfix
+	margin-top: 20px
 
+.button
+	background-color: $teal
+	border-color: $teal
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+
+<<<<<<< HEAD
 .footer
 	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
 	background-color: $teal
@@ -62,6 +65,14 @@ input.email, input.password
 	
 
 
+=======
+h1.text
+	margin-top: 0
+	padding-top: 50px
+	color: #fff
+>>>>>>> 2e6bb6fd1ad5ec8fbd4f916666c87287df8c5607
 
+h1
+	color: $teal
 
 
