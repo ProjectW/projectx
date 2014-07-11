@@ -1,2 +1,38 @@
-.hello
-	hello, world! whaddup beta : )
+%link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
+
+.signIn
+	.row
+		.medium-12.columns
+			%h1.text
+				The Q Guide for Your Summer
+	%form{"name"  => "emailSignUp"}
+		.row
+			.medium-5.columns
+				%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+			.medium-5.columns
+				%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+			.medium-2.columns
+				%a.button.postfix{href: "#"} Sign Up
+	
+.content
+	.row
+		.medium-12.columns
+			%h1
+				For Students
+			%ul.small-block-grid-3
+				%li
+					= image_tag('discover.png', class: "icon")
+					%h4
+						Discover and connect with top start-ups.
+				%li
+					= image_tag('connect.png', class: "icon")
+					%h4
+						Talk to past interns and review company data.
+				%li
+					= image_tag('fit.png', class: "icon")
+					%h4
+						Choose and prepare for your best fit.  
+
+				
+			
+

@@ -1,1 +1,93 @@
 @import './home.sass'
+@import 'foundation'
+/*= require foundation */
+@import 'foundation_and_overrides'
+
+/* Background color for the top bar */
+$orange: #FF8547
+$teal: #29BBBB
+$purple: #B19CD9
+
+$full-bleed: 100%
+
+.top-bar
+	background-color: $orange
+
+.contain-to-grid
+	background-color: $orange
+
+.top-bar-section li:not(.has-form) a:not(.button)
+	background-color: $orange
+
+img
+	width: $full-bleed
+
+body
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+
+h1, h2, h3, h4, h5, h6
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	overflow: hidden
+
+.top-bar-section ul li > a
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+
+.content
+	padding-top: 25px
+	height: auto
+
+.icon
+	width: 70px
+	height: 70px
+	float: left
+	margin-right: 10px
+
+.social
+	width: 32px
+	height: 32px
+
+.signIn
+	width: 100%
+	height: 70%
+	background-size: cover
+	background-image: image-url("homeImage.png")
+
+
+input.email, input.password, a.button.postfix
+	margin-top: 20px
+
+.button
+	background-color: $teal
+	border-color: $teal
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+
+.footer
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	background-color: $teal
+	padding: 20px
+	
+
+h1.text
+	margin-top: 0
+	padding-top: 50px
+	color: #fff
+
+h1
+	color: $teal
+
+a
+	color: #fff
+
+h4.footerLabel
+	color: #fff
+	padding-bottom: 10px
+
+[class*="block-grid-"] > li
+	padding: 0 0.625rem 0.5rem !important
+
+.top-bar .name h1
+	font-size: 2.2rem
+	padding-top: 3px
+
+.top-bar-section ul li > a
+	font-size: 1rem
