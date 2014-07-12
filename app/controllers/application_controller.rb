@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :authenticate_student_account!, except: [:index] # update this with non-authenticating sites and company sites
+  # before_action :authenticate_student_account!, except: [:index] # update this with non-authenticating sites and company sites
   
 end
