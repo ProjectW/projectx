@@ -1,5 +1,6 @@
 Projectx::Application.routes.draw do
-  devise_for :student_account
+  devise_for :student_account, path: "students"
+
   get "student_dashboard/index"
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
