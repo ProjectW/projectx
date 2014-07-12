@@ -1,4 +1,4 @@
-class Student::StudentDashboardController < ApplicationController
+class Student::StudentDashboardController < Student::StudentBaseController
   layout "home"
 
   def index
