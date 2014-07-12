@@ -4,6 +4,7 @@ Projectx::Application.routes.draw do
 
   namespace :student do
     get "student_dashboard/index"
+    devise_for :student_account, :path => 'account'
     resources :student_account
   end
 
