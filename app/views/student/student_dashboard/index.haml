@@ -1,12 +1,12 @@
 
-%head
-	%meta{charset: 'utf-8'}
-	%h1.title Student Dashboard
+/ %head
+/ 	%meta{charset: 'utf-8'}
+/ 	%h1.title Student Dashboard
 
 .profile
 	.row
 		.medium-4.columns 
-			%ul.small-block-grid-2
+			%ul.small-block-grid-2{style: "background-color: #fff"}
 				%li
 					= image_tag('profile.png', class: "icon")
 				%li 
@@ -15,34 +15,55 @@
 					Harvard
 					%br
 					Class of 2016
-			%a.button.expand{:href => "#"} Edit
+				%a.button.expand.sd{:href => "#"} Edit
 			%ul.small-block-grid-4
 				%li
-					= image_tag('Linkedin2.png', class: "social")
+					= image_tag('Linkedin2.png', class: "contact")
 				%li
-					= image_tag('Linkedin2.png', class: "social")
+					= image_tag('Linkedin2.png', class: "contact")
 				%li
-					= image_tag('Linkedin2.png', class: "social")
+					= image_tag('Linkedin2.png', class: "contact")
 				%li
-					%a.button.small{:class => "tiny", :href => "#"} Edit
-			%a.button.expand{:href => "#"} Recently Viewed Companies
+					%a.button.small.sd{:class => "tiny", :href => "#"} Edit
+			%ul.small-block-grid-1{style: "background-color: #fff"}
+				%li
+					%h4 Recently Viewed Companies
 
-		.medium-8.columns 
-			%h4
-				My Resumes
+
+		.medium-8.columns
+			%ul.small-block-grid-3{style: "background-color: #fff"} 
+				%li
+					%h4 My Resumes
+				%li
+				%li
+				%li
+					= image_tag('profile.png', class: "icon")
+				%li
+					= image_tag('profile.png', class: "icon")
+				%li
+					= image_tag('profile.png', class: "icon")
+			%a.button.expand.sd{:href => "#"} + Upload a New Resume
 			%ul.small-block-grid-3
 				%li
-					= image_tag('profile.png', class: "icon")
 				%li
-					= image_tag('profile.png', class: "icon")
 				%li
-					= image_tag('profile.png', class: "icon")
-			%a.button.expand{:href => "#"} + Upload a New Resume
-			%h4
-				My Reviews
-			%a.button.expand{:href => "#"} + Add a New Review
+			%ul.small-block-grid-2{style: "background-color: #fff"} 
+				%li
+					%h4 My Reviews
+				%li
+				%li
+					= image_tag('company.png', class: "company")
+				%li
+					%input#checkbox1{:type => "checkbox"}
+						%label{:for => "checkbox1"} Available to Private Message
+					%a.button.small.sd{:href => "#"} View/Edit Review
+			%a.button.expand.sd{:href => "#"} + Add a New Review
+			%ul.small-block-grid-3
+				%li
+				%li
+				%li
 			%a.button.expand{:href => "#"} View All Companies Reviews
-			
+				
 
 
 
