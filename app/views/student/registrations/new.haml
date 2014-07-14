@@ -1,0 +1,27 @@
+%h2
+  Join Us
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    %div
+      = f.label :email, 'Student Email Address (.edu)'
+      %br
+      = f.email_field :email, autofocus: true
+
+    %div
+      = f.label :password
+      %br
+      = f.password_field :password, autocomplete: "off"
+
+    %div
+      = f.label :password_confirmation, 'Confirm'
+      %br
+      = f.password_field :password_confirmation, autocomplete: "off"
+
+    %div
+      = f.submit "Sign Up"
+
+%div
+  Already have an account? 
+  = link_to "Login here.", new_session_path(resource_name)
