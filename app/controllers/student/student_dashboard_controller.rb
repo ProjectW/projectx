@@ -1,5 +1,5 @@
 class Student::StudentDashboardController < Student::StudentBaseController
-  layout "home"
+  layout "student"
 
   def index
   end

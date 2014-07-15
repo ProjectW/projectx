@@ -1,68 +1,56 @@
-
-/ %head
-/ 	%meta{charset: 'utf-8'}
-/ 	%h1.title Student Dashboard
-
 .profile
 	.row
 		.medium-4.columns 
-			%ul.small-block-grid-2{style: "background-color: #fff"}
-				%li
-					= image_tag('profile.png', class: "icon")
-				%li 
-					Lisa Wang 
-					%br
-					Harvard
-					%br
-					Class of 2016
-				%a.button.expand.sd{:href => "#"} Edit
-			%ul.small-block-grid-4
-				%li
-					= image_tag('Linkedin2.png', class: "contact")
-				%li
-					= image_tag('Linkedin2.png', class: "contact")
-				%li
-					= image_tag('Linkedin2.png', class: "contact")
-				%li
-					%a.button.small.sd{:class => "tiny", :href => "#"} Edit
-			%ul.small-block-grid-1{style: "background-color: #fff"}
-				%li
-					%h4 Recently Viewed Companies
+			.profpic
+				%ul.small-block-grid-2{style: "background-color: #fff"}
+					%li
+						= image_tag('profile.png', class: "profilepic")
+					%li.profileinfo{style: "padding-top: 25px !important"} 
+						Lisa Wang 
+						%br
+						Harvard
+						%br
+						Class of 2016
+					%a.button.expand.sd{:href => "#"} Edit
+					%ul.small-block-grid-4{style: "background-color: #f5f4f4; padding-left: 25px;"}
+						%li
+							.connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+						%li
+							.connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+						%li
+							.connect.fs1{"aria-hidden" => "true", "data-icon" => "\", style: "padding-top: 8px"}
+						%li
+							%a.button.expand.sd.edit{:href => "#"} Edit
+			.companies
+				%ul.small-block-grid-1{style: "background-color: #fff"}
+					%h6 Recently Viewed Companies
+					
 
 
 		.medium-8.columns
-			%ul.small-block-grid-3{style: "background-color: #fff"} 
-				%li
-					%h4 My Resumes
-				%li
-				%li
-				%li
-					= image_tag('profile.png', class: "icon")
-				%li
-					= image_tag('profile.png', class: "icon")
-				%li
-					= image_tag('profile.png', class: "icon")
-			%a.button.expand.sd{:href => "#"} + Upload a New Resume
-			%ul.small-block-grid-3
-				%li
-				%li
-				%li
-			%ul.small-block-grid-2{style: "background-color: #fff"} 
-				%li
-					%h4 My Reviews
-				%li
-				%li
-					= image_tag('company.png', class: "company")
-				%li
-					%input#checkbox1{:type => "checkbox"}
-						%label{:for => "checkbox1"} Available to Private Message
-					%a.button.small.sd{:href => "#"} View/Edit Review
-			%a.button.expand.sd{:href => "#"} + Add a New Review
-			%ul.small-block-grid-3
-				%li
-				%li
-				%li
-			%a.button.expand{:href => "#"} View All Companies Reviews
+			.resumes
+				%ul.small-block-grid-3{style: "background-color: #fff"} 
+					%h6 My Resumes
+					%li
+						= image_tag('profile.png', class: "resume")
+					%li
+						= image_tag('profile.png', class: "resume")
+					%li
+						= image_tag('profile.png', class: "resume")
+					%a.button.expand.sd{:href => "#"} + Upload a New Resume
+			.reviews
+				%ul.small-block-grid-2{style: "background-color: #fff"} 
+					%h6 My Reviews
+					%li
+						= image_tag('company.png', class: "company")
+					%li
+						.options
+							%input#checkbox1{:type => "checkbox"}
+								%label{:for => "checkbox1"} Students can email me about this company
+							%a.button.expand.sd.edit{:href => "#"} View/Edit Review
+					%a.button.expand.sd{:href => "#"} + Add a New Review
+			
+					%a.button.expand.more{:href => "#"} View All Companies Reviews
 				
 
 

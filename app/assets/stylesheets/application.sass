@@ -1,4 +1,5 @@
 @import './home.sass'
+@import './icons.sass'
 @import 'foundation'
 /*= require foundation */
 @import 'foundation_and_overrides'
@@ -10,6 +11,7 @@ $purple: #B19CD9
 
 $full-bleed: 100%
 
+/* GENERAL SASS
 .top-bar
 	background-color: $orange
 
@@ -36,71 +38,15 @@ h1, h2, h3, h4, h5, h6
 	padding-top: 25px
 	height: auto
 
-.icon
-	width: 70px
-	height: 70px
-	float: left
-	margin-right: 10px
-
-.profilepic
-	padding: 2px
-
-.profile
-	padding: 25px
-	height: auto
-	background-color: #F0FFFF
-
-.social
-	width: 32px
-	height: 32px
-
-.contact
-	padding-top: 5px
-	width: 32px
-	height: 32px
-
-.company
-	padding-left: 25px
-	padding-bottom: 75px
-	width: 75%
-	height: auto
-
-.signIn
-	width: 100%
-	height: 70%
-	background-size: cover
-	background-image: image-url("homeImage.png")
-
-
-input.email, input.password, a.button.postfix
-	margin-top: 20px
-
 .button
 	background-color: $teal
 	border-color: $teal
 	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
 
-.sd
-	background-color: $purple
-	border-color: $purple
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
-	height: 10px
-	padding-top: 0.5rem
-	padding-bottom: 1.5rem
-	margin-bottom: 0
-
 .footer
 	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
 	background-color: $teal
 	padding: 20px
-	
-h1.title
-	text-align: center
-
-h1.text
-	margin-top: 0
-	padding-top: 50px
-	color: #fff
 
 h1
 	color: $teal
@@ -118,12 +64,14 @@ h4.footerLabel
 [class*="block-grid-"] > li
 	padding: 0 0.625rem 0.5rem !important
 
-.register
-
-
 .top-bar .name h1
 	font-size: 2.2rem
 	padding-top: 3px
 
 .top-bar-section ul li > a
 	font-size: 1rem
+
+.social
+	width: 32px
+	height: 32px
+
