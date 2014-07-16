@@ -1,2 +1,2 @@
-class Student::ReviewController < ApplicationController
+class Student::ReviewController < Student::StudentBaseController
 end
