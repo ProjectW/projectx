@@ -13,11 +13,16 @@ Projectx::Application.routes.draw do
     # resources :student_account
   end
 
+  namespace :company do
+    get "company_dashboard/index"
+    get "payment/index"
+  end
+
   # get "student_dashboard/index"
   get "home/index"
-
-root to: 'home#index'
   get "/about_us" => 'home#about_us'
+root to: 'home#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

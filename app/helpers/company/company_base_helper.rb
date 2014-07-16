@@ -1,0 +1,2 @@
+module Company::CompanyBaseHelper
+end
