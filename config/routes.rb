@@ -19,8 +19,8 @@ Projectx::Application.routes.draw do
 root to: 'home#index'
   get "/about_us" => 'home#about_us'
 
-root to: 'home#index'
-  get "/for_companies" => 'home#for_companies'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
