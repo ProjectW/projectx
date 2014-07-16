@@ -32,7 +32,11 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
+# Using byebug
+gem 'byebug', group: [:development, :test]
+
+# Both ruby-debug and debugger aren't supported on 2.x
+# gem 'ruby-debug', group: [:development, :test]
 # gem 'debugger', group: [:development, :test]
 
 # Use foundation
