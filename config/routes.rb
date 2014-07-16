@@ -7,7 +7,9 @@ Projectx::Application.routes.draw do
     # note devise helpers will now be called as the following line
     # :authenticate_student_student_account rather than :authenticate_student_account
     devise_for :student_account, :path => 'account', :path_names => {
-      :sign_in => 'login', :sign_out => 'logout'
+      :sign_in => 'login', 
+      :sign_out => 'logout',
+      :sign_up => 'register'
     } 
 
     # resources :student_account
