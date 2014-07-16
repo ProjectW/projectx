@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710052757) do
+ActiveRecord::Schema.define(version: 20140716013543) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         null: false
@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 20140710052757) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "student_accounts", force: true do |t|
-    t.string   "first_name",                            null: false
-    t.string   "last_name",                             null: false
     t.string   "middle_name"
     t.integer  "school",                                null: false
     t.integer  "graduation_year"
@@ -61,9 +59,10 @@ ActiveRecord::Schema.define(version: 20140710052757) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "full_name",                             null: false
   end
 
-  add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
+  add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree
   add_index "student_accounts", ["school", "email"], name: "index_on_school_and_email", using: :btree
 
 end
