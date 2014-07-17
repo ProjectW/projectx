@@ -3,7 +3,11 @@ class ChangeStudentAccounts < ActiveRecord::Migration
     change_table :student_accounts do |t|
       t.remove :first_name
       t.remove :last_name
-      t.string :full_name,           :null => false
+      t.remove :middle_name
+      t.string :full_name,                      :null => false
+
+      # devise reconfirmable
+      t.string :unconfirmed_email,              :null => false, :default => ''
     end
 
     # remove_index 'student_accounts', :name => 'index_on_last_and_first_name' 
@@ -12,9 +16,11 @@ class ChangeStudentAccounts < ActiveRecord::Migration
 
   def self.down
     change_table :student_accounts do |t|
+      t.remove :unconfirmed_email
       t.remove :full_name
       t.string :first_name,         :null => false
       t.string :last_name,          :null => false
+      t.string :middle_name
     end
 
     # remove_index 'student_accounts', :name => 'index_on_full_name'

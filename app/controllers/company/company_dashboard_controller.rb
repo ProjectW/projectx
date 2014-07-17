@@ -1,2 +1,3 @@
-class Company::CompanyDashboardController < ApplicationController
+class Company::CompanyDashboardController < Company::CompanyBaseController
+	
 end
