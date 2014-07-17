@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20140716013543) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "full_name",                             null: false
-
   end
 
   add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree
