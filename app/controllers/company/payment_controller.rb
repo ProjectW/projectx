@@ -1,2 +1,3 @@
-class Company::PaymentController < ApplicationController
+class Company::PaymentController < Company::CompanyBaseController
+	
 end
