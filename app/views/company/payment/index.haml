@@ -1,0 +1,63 @@
+= stylesheet_link_tag "company/payment"
+
+.content
+	.row
+		.medium-12.columns
+			%h1.about
+				We've been in your shoes. 
+.row
+	.medium-12.columns
+		%ul.small-block-grid-3
+		%h1.aboutHead Our Story
+		
+		%h5.summary
+			QLytic helps students connect with top companies and recruiters - response guaranteed. Our platform allows students to connect with past interns and evaluate data on the internship experience. This collaborative effort will help students select and better prepare for their internships, as well as provide companies feedback about their internship programs and top talent. 
+		%h1.aboutHead Our Story
+		/ %ul.pricing-table
+		/   %li.title Standard
+		/ /    %li.price Free
+		/ / 	 %li.description An awesome description
+		/ / 	  %li.bullet-item 1 Database
+		/ / 	  %li.bullet-item 5GB Storage
+		/ / 	  %li.bullet-item 20 Users
+		/ / 	  %li.cta-button
+		/  	    %a.button{:href => "#"} Sign Up Now
+
+		/ / %ul.pricing-table
+		/ / 	  %li.title Standard
+		/ / 	  %li.price Free
+		/ / 	  %li.description An awesome description
+		/ / 	  %li.bullet-item 1 Database
+		/ / 	  %li.bullet-item 5GB Storage
+		/ / 	  %li.bullet-item 20 Users
+		/ / 	  %li.cta-button
+		/ / 	    %a.button{:href => "#"} Sign Up Now
+
+		/ / %ul.pricing-table
+		/ / 	  %li.title Standard
+		/ / 	  %li.price Free
+		/ / 	  %li.description An awesome description
+		/ / 	  %li.bullet-item 1 Database
+		/ / 	  %li.bullet-item 5GB Storage
+		/ / 	  %li.bullet-item 20 Users
+		/ / 	  %li.cta-button
+		/ / 	    %a.button{:href => "#"} Sign Up Now
+
+		.contact_us
+			%h1.aboutHead How it Works
+			
+			%form{"name"  => "emailSignUp"}
+				.row
+					.medium-6.columns
+						%input.name{"type" => "text", "name" => "name", "placeholder" => "Name"}
+					.medium-6.columns
+						%input.name{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+				.row
+					.medium-12.columns
+						%input.name{"type" => "text", "name" => "subject", "placeholder" => "Subject"}
+				.row
+					.medium-12.columns
+						%textarea.name{"type" => "text", "name" => "address", "placeholder" => "Subject", "rows" => 5}
+				.row
+					.medium-2.columns.sendemail
+						%a.button.postfix.send{href: "#"} Send

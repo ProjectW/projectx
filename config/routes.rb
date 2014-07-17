@@ -23,7 +23,9 @@ Projectx::Application.routes.draw do
   # get "student_dashboard/index"
   get "home/index"
   get "/about_us" => 'home#about_us'
+
 root to: 'home#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
