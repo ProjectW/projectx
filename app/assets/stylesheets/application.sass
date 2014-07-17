@@ -2,6 +2,10 @@
 @import './icons.sass'
 @import 'foundation'
 /*= require foundation */
+/*= require jquery.ui.core */
+/*= require jquery.ui.theme */
+/*= require jquery.ui.resizable */
+/*= require jquery.ui.selectable */
 @import 'foundation_and_overrides'
 
 /* Background color for the top bar */
@@ -25,27 +29,33 @@ img
 	width: $full-bleed
 
 body
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-weight: 100
 
 h1, h2, h3, h4, h5, h6
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
 	overflow: hidden
+	font-weight: 100
 
 .top-bar-section ul li > a
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-weight: 100
 
 .content
 	padding-top: 25px
 	height: auto
+	position: relative
 
 .button
 	background-color: $teal
 	border-color: $teal
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-weight: 100
 
 .footer
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
 	background-color: $teal
+	font-weight: 100
 	padding: 20px
 
 h1
@@ -67,6 +77,8 @@ h4.footerLabel
 .top-bar .name h1
 	font-size: 2.2rem
 	padding-top: 3px
+	font-family: "Avenir", Arial, Helvetica, sans-serif
+	font-weight: 100
 
 .top-bar-section ul li > a
 	font-size: 1rem
