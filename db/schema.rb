@@ -39,10 +39,7 @@ ActiveRecord::Schema.define(version: 20140716013543) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "student_accounts", force: true do |t|
-<<<<<<< HEAD
-=======
     t.string   "middle_name"
->>>>>>> info_pages
     t.integer  "school",                                null: false
     t.integer  "graduation_year"
     t.integer  "current_resume_id"
@@ -63,10 +60,6 @@ ActiveRecord::Schema.define(version: 20140716013543) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "full_name",                             null: false
-<<<<<<< HEAD
-    t.string   "unconfirmed_email",      default: "",   null: false
-=======
->>>>>>> info_pages
   end
 
   add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree
