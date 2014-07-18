@@ -14,7 +14,13 @@ Projectx::Application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.default_url_options = { host: '0.0.0.0:3000' } # devise
-
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: 'projectkwl.email@gmail.com', 
+    password: 'projectY', 
+    authentication: 'plain'
+  }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
