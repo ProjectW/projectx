@@ -11,23 +11,26 @@ Projectx::Application.routes.draw do
     get 'review' => 'review#index'
 
     # note devise helpers will now be called as:
-    # :authenticate_student_student_account rather than :authenticate_student_account
+    # :authenticate_student_student_account
     devise_for :student_account, :path => 'account', :path_names => {
       :sign_in => 'login', 
       :sign_out => 'logout',
       :sign_up => 'register'
     } 
 
-    # resources :student_account
   end
 
   namespace :company do
-    get 'company_dashboard/index'
+
+    match 'dashboard/(:action)',
+      :controller => :company_dashboard, 
+      :via => [:get],
+      :defaults => { :action => 'show' }
+
     get 'payment/index'
   end
 
-  # get "student_dashboard/index"
-  get 'home/index'
+  # get 'home/index'
   get '/about_us' => 'home#about_us'
 
 root to: 'home#index'
