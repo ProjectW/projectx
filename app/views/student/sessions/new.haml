@@ -1,33 +1,32 @@
-:css
-  a {
-    color: blue;
-  }
+= # need to make own sass file for this
+= stylesheet_link_tag "student/register"
 
-%h2
-  Login
-%h3
-  Company? 
-  %a Click Here.
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div
-    = f.label :email, 'Email'
-    %br
-    = f.email_field :email, autofocus: true
-  %div
-    = f.label :password, 'Password'
-    %br
-    = f.password_field :password, autocomplete: "off"
+.row.join
+  .medium-12.medium-centered
+    %h1.head Login
 
-  - if devise_mapping.rememberable?
+.row.join
+  %p
+    Company? 
+    %a Click Here.
+
+.row.join
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %div
-      = f.check_box :remember_me
-      = f.label :remember_me
+      = f.label :email, 'Email Address'
+      %br
+      = f.email_field :email, autofocus: true, placeholder: 'Text input'
+    %div
+      = f.label :password, 'Password'
+      %br
+      = f.password_field :password, autocomplete: "off", placeholder: 'Text input'
 
-  = link_to "Sign up", new_registration_path(resource_name)
-  %br
-  %div
-    = f.submit "Sign in"
-  = link_to "Forgot your password?", new_password_path(resource_name)
-  %br
+    %br
+    %div
+      = link_to 'Forgot password?', new_password_path(resource_name)
+      = f.submit 'Login'
+    %br
 
-/ = render 'devise/shared/links'
+    %div
+      Don't have an account?
+      = link_to "Register here.", new_registration_path(resource_name)
