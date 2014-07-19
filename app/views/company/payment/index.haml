@@ -1,63 +1,68 @@
 = stylesheet_link_tag "company/payment"
+.row
 
-.content
-	.row
-		.medium-12.columns
-			%h1.about
-				We've been in your shoes. 
 .row
 	.medium-12.columns
+		%h1.title Pricing Packages
 		%ul.small-block-grid-3
-		%h1.aboutHead Our Story
-		
-		%h5.summary
-			QLytic helps students connect with top companies and recruiters - response guaranteed. Our platform allows students to connect with past interns and evaluate data on the internship experience. This collaborative effort will help students select and better prepare for their internships, as well as provide companies feedback about their internship programs and top talent. 
-		%h1.aboutHead Our Story
-		/ %ul.pricing-table
-		/   %li.title Standard
-		/ /    %li.price Free
-		/ / 	 %li.description An awesome description
-		/ / 	  %li.bullet-item 1 Database
-		/ / 	  %li.bullet-item 5GB Storage
-		/ / 	  %li.bullet-item 20 Users
-		/ / 	  %li.cta-button
-		/  	    %a.button{:href => "#"} Sign Up Now
+			%li
+				%ul.pricing-table
+					%li.title BASIC
+					%li.price Free
+					%li.description "An entry tool for recruiting + branding" 
+					%li.bullet-item View company profile
+					%li.bullet-item Evaluate feedback from past interns
+					%li.bullet-item Stay connected with brand ambassadors
+					%li.cta-button
+						%a.button{:href => "#"} Sign Up Now
+			%li
+				%ul.pricing-table
+					%li.title GROWTH
+					%li.price $350/month
+					%li.description "An integrated solution to recruiting + branding"
+					%li.bullet-item Receive up to 50 resumes/month
+					%li.bullet-item Build Company Profile
+					%li.bullet-item Conduct customizable searches
+					%li.cta-button
+						%a.button{:href => "#"} Upgrade Now
 
-		/ / %ul.pricing-table
-		/ / 	  %li.title Standard
-		/ / 	  %li.price Free
-		/ / 	  %li.description An awesome description
-		/ / 	  %li.bullet-item 1 Database
-		/ / 	  %li.bullet-item 5GB Storage
-		/ / 	  %li.bullet-item 20 Users
-		/ / 	  %li.cta-button
-		/ / 	    %a.button{:href => "#"} Sign Up Now
-
-		/ / %ul.pricing-table
-		/ / 	  %li.title Standard
-		/ / 	  %li.price Free
-		/ / 	  %li.description An awesome description
-		/ / 	  %li.bullet-item 1 Database
-		/ / 	  %li.bullet-item 5GB Storage
-		/ / 	  %li.bullet-item 20 Users
-		/ / 	  %li.cta-button
-		/ / 	    %a.button{:href => "#"} Sign Up Now
+			%li
+				%ul.pricing-table
+					%li.title SCALE
+					%li.price $500/month
+					%li.description "An advanced platform for top talent + branding"
+					%li.bullet-item Receive up to 100 resumes/month
+					%li.bullet-item Post info session dates and events to all students
+					%li.bullet-item Customizable searches of resumes and students
+					%li.cta-button
+						%a.button{:href => "#"} Upgrade Now
 
 		.contact_us
 			%h1.aboutHead How it Works
-			
-			%form{"name"  => "emailSignUp"}
-				.row
-					.medium-6.columns
-						%input.name{"type" => "text", "name" => "name", "placeholder" => "Name"}
-					.medium-6.columns
-						%input.name{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-				.row
-					.medium-12.columns
-						%input.name{"type" => "text", "name" => "subject", "placeholder" => "Subject"}
-				.row
-					.medium-12.columns
-						%textarea.name{"type" => "text", "name" => "address", "placeholder" => "Subject", "rows" => 5}
-				.row
-					.medium-2.columns.sendemail
-						%a.button.postfix.send{href: "#"} Send
+
+			%ul.small-block-grid-3
+				%li
+					.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+					%h4.subtitle
+						Receive resumes from top college students.
+				%li
+					.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+					%h4.subtitle
+						Analyze real feedback about your internship program.
+				%li
+					.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+					%h4.subtitle
+						Evolve the internship to better fit students.
+				%li
+				%li
+				%li
+					%h1.aboutHeads Testimonials
+			%u1.small-block-grid-2
+				%li
+					%h4 QLytic has provided us an easy, seamless way to establish "brand ambassadors" for our company.
+				%li
+					= image_tag('profile.png', class: "testimonial1")
+				%li
+					= image_tag('profile.png', class: "testimonial2")
+				%li
+					%h4 QLytic has provided us an easy, seamless way to establish "brand ambassadors" for our company.
