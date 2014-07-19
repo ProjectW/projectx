@@ -10,9 +10,7 @@ Projectx::Application.routes.draw do
 
     get 'review' => 'review#index'
 
-    # note devise helpers will now be called as:
-    # :authenticate_student_student_account
-    devise_for :student_account, :path => 'account', :path_names => {
+    devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
       :sign_out => 'logout',
       :sign_up => 'register'
