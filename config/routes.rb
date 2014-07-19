@@ -2,10 +2,15 @@ Projectx::Application.routes.draw do
   # use rake routes to see the routing
 
   namespace :student do
-    get "student_dashboard/index"
-    get "review/index"
 
-    # note devise helpers will now be called as the following line
+    match 'dashboard/(:action)', 
+      :controller => :student_dashboard, 
+      :via => [:get], 
+      :defaults => { :action => 'show' }
+
+    get 'review' => 'review#index'
+
+    # note devise helpers will now be called as:
     # :authenticate_student_student_account rather than :authenticate_student_account
     devise_for :student_account, :path => 'account', :path_names => {
       :sign_in => 'login', 
@@ -17,13 +22,13 @@ Projectx::Application.routes.draw do
   end
 
   namespace :company do
-    get "company_dashboard/index"
-    get "payment/index"
+    get 'company_dashboard/index'
+    get 'payment/index'
   end
 
   # get "student_dashboard/index"
-  get "home/index"
-  get "/about_us" => 'home#about_us'
+  get 'home/index'
+  get '/about_us' => 'home#about_us'
 
 root to: 'home#index'
 
