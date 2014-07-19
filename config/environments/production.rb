@@ -15,13 +15,7 @@ Projectx::Application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.default_url_options = { host: '104.131.138.241' } # devise
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
-    user_name: 'projectkwl.email@gmail.com', 
-    password: 'projectY', 
-    authentication: 'plain'
-  }
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
