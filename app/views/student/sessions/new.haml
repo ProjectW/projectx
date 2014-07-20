@@ -1,32 +1,37 @@
 = # need to make own sass file for this
-= stylesheet_link_tag "student/register"
+%link{href: "/assets/mobile.sass", media: "screen and (max-device-width: 700px)", rel: "stylesheet"}
 
 .row.join
   .medium-12.medium-centered
     %h1.head Login
 
 .row.join
-  %p
+  .subs
     Company? 
-    %a Click Here.
+    %a
+      Click Here.
 
 .row.join
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %div
       = f.label :email, 'Email Address'
-      %br
       = f.email_field :email, autofocus: true, placeholder: 'Text input'
     %div
       = f.label :password, 'Password'
-      %br
       = f.password_field :password, autocomplete: "off", placeholder: 'Text input'
 
-    %br
     %div
-      = link_to 'Forgot password?', new_password_path(resource_name)
-      = f.submit 'Login'
-    %br
+      .endLogin
+        %div.button.postfix
+          = f.submit "Login"
+      .register
+        = link_to "New? Create an account here.", new_registration_path(resource_name)
+        %br
+        %br
+        = link_to 'Forgot password?', new_password_path(resource_name)
 
-    %div
-      Don't have an account?
-      = link_to "Register here.", new_registration_path(resource_name)
+      
+
+    %br
+    %br
+    %br

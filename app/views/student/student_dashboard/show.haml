@@ -1,3 +1,5 @@
+= stylesheet_link_tag "student/student_dashboard"
+
 .profile
 	.row
 		.medium-4.columns 
@@ -53,26 +55,5 @@
 					%a.button.expand.more{:href => "#"} View All Companies Reviews
 				
 
-
-
-
-
-.register
-	.row
-		.medium-12.columns
-			%h1
-				Join Us
-	%form{"name"  => "emailSignUp"}
-		%ul.small-block-grid-1
-		.row
-			.medium-5.columns
-				%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-		.row
-			.medium-5.columns
-				%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-				%a.button{:href => "#"} Sign Up
-		.row
-			%h4
-				Already have an account? Login here.
 
 
