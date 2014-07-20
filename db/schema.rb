@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716013543) do
+ActiveRecord::Schema.define(version: 20140720052918) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         null: false
@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(version: 20140716013543) do
   end
 
   create_table "resumes", force: true do |t|
-    t.integer  "student_account_id",                null: false
-    t.string   "file_name",                         null: false
-    t.boolean  "active",             default: true, null: false
+    t.integer  "student_account_id",                 null: false
+    t.boolean  "active",              default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
