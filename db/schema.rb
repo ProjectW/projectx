@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20140720052918) do
     t.boolean  "active",              default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "resume_file_name"
-    t.string   "resume_content_type"
-    t.integer  "resume_file_size"
-    t.datetime "resume_updated_at"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
   end
 
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree

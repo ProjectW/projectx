@@ -4,7 +4,7 @@ class AddFileToResumes < ActiveRecord::Migration
       t.remove :file_name
     end
     
-    add_attachment :resumes, :resume
+    add_attachment :resumes, :upload
   end
 
   def self.down
@@ -12,6 +12,6 @@ class AddFileToResumes < ActiveRecord::Migration
       t.string :file_name,      :null => false
     end
 
-    remove_attachment :resumes, :resume
+    remove_attachment :resumes, :upload
   end
 end
