@@ -1,4 +1,5 @@
 class Student::RegistrationsController < Devise::RegistrationsController
+  layout "student"
   before_action :update_sanitized_params
 
   def destroy
