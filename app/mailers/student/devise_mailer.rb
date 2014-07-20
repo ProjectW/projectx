@@ -1,3 +1,7 @@
 class Student::DeviseMailer < Devise::Mailer
-  default from: "from@example.com"
+  self.delivery_method = :sendmail
+  
+  default from: "no-reply@104.131.138.241"
+  default reply_to: "no-reply@104.131.138.241"
+
 end
