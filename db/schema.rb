@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140720052918) do
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                  null: false
     t.boolean  "deleted",             default: false, null: false
+    t.boolean  "current",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "upload_file_name"
@@ -42,14 +43,13 @@ ActiveRecord::Schema.define(version: 20140720052918) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "student_accounts", force: true do |t|
-    t.integer  "school",                                null: false
+    t.integer  "school",                                 null: false
     t.integer  "graduation_year"
-    t.integer  "current_resume_id"
-    t.boolean  "active",                 default: true, null: false
+    t.boolean  "deleted",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140720052918) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "full_name",                             null: false
-    t.string   "unconfirmed_email",      default: "",   null: false
+    t.string   "full_name",                              null: false
+    t.string   "unconfirmed_email",      default: "",    null: false
   end
 
   add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree

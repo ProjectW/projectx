@@ -7,9 +7,8 @@ class CreateStudentAccounts < ActiveRecord::Migration
       t.string        :email,                 :null => false
       t.boolean       :verified,              :null => false,       :default => false
       t.integer       :school,                :null => false
-      t.integer       :graduation_year     
-      t.integer       :current_resume_id      # will need a foreign key on this            
-      t.boolean       :active,                :null => false,       :default => true
+      t.integer       :graduation_year
+      t.boolean       :deleted,               :null => false,       :default => false
       t.timestamps
     end
 
