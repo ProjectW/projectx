@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716013543) do
+ActiveRecord::Schema.define(version: 20140720052918) do
 
   create_table "companies", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "display_name", null: false
+    t.string   "name",         default: "", null: false
+    t.string   "display_name",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,24 +29,27 @@ ActiveRecord::Schema.define(version: 20140716013543) do
   end
 
   create_table "resumes", force: true do |t|
-    t.integer  "student_account_id",                null: false
-    t.string   "file_name",                         null: false
-    t.boolean  "active",             default: true, null: false
+    t.integer  "student_account_id",                  null: false
+    t.boolean  "deleted",             default: false, null: false
+    t.boolean  "current",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
   end
 
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "student_accounts", force: true do |t|
-    t.integer  "school",                                null: false
+    t.integer  "school",                                 null: false
     t.integer  "graduation_year"
-    t.integer  "current_resume_id"
-    t.boolean  "active",                 default: true, null: false
+    t.boolean  "deleted",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140716013543) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "full_name",                             null: false
-    t.string   "unconfirmed_email",      default: "",   null: false
+    t.string   "full_name",                              null: false
+    t.string   "unconfirmed_email",      default: "",    null: false
   end
 
   add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree

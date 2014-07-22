@@ -8,6 +8,10 @@ class Student::StudentBaseController < ApplicationController
   
   layout "student"
 
-  def index
+  private
+
+  def get_current_student
+    @current_student = current_student_account
   end
+
 end
