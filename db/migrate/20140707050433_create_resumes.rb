@@ -3,7 +3,7 @@ class CreateResumes < ActiveRecord::Migration
     create_table :resumes do |t|
       t.integer :student_account_id,    :null => false
       t.string :file_name,              :null => false
-      t.boolean :active,                :null => false,       :default => true
+      t.boolean :deleted,               :null => false,       :default => false
       t.timestamps
     end
 

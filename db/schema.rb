@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20140720052918) do
 
   create_table "companies", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "display_name", null: false
+    t.string   "name",         default: "", null: false
+    t.string   "display_name",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140720052918) do
   end
 
   create_table "resumes", force: true do |t|
-    t.integer  "student_account_id",                 null: false
-    t.boolean  "active",              default: true, null: false
+    t.integer  "student_account_id",                  null: false
+    t.boolean  "deleted",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "upload_file_name"
