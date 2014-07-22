@@ -8,12 +8,15 @@ class Student::ResumesController < Student::StudentBaseController
   def create
     @resume = Resume.new(resume_params)
     @resume.student_account = @current_student
-    @current_student.current_resume = @resume # FIXME old resume should not have nil student
 
-    if @resume.save && @current_student.save
+    if !@resume.save
+      throw "Resume did not save correctly"
+    end
+
+    if @current_student.set_current_resume(@resume)
       redirect_to :student_dashboard
     else
-      throw "error!"
+      throw "Resume was not set as current"
     end
   end
 
@@ -21,11 +24,23 @@ class Student::ResumesController < Student::StudentBaseController
     @resume = @current_student.resumes.find_by_id(params.fetch(:id))
     if @resume == nil
       render :status => 404
-    elsif !@resume.upload.exists? 
-      throw "The resume with id #{@resume.id} does not exist"      
+    elsif !@resume.upload.exists?
+      throw "The resume with id #{@resume.id} does not exist"
     end
 
-    send_file(@resume.upload.path, :filename => 'resume.pdf', :type => 'application/pdf', :disposition => 'inline')
+    send_file(
+      @resume.upload.path,
+      :filename => 'resume.pdf',
+      :type => 'application/pdf',
+      :disposition => 'inline')
+  end
+
+  def destroy
+    @resume = @current_student.resumes.find_by_id(params.fetch(:id))
+    if @resume == nil
+      render :status => 404
+    end
+    @resume.upload.destroy
   end
 
   private
