@@ -18,10 +18,11 @@ class Student::ResumesController < Student::StudentBaseController
   end
 
   def show
-    @resume = Resume.find(params.fetch(:id))
-    
-    if @resume.student_account_id != @current_student.id
-      throw "Error: unauthorized id access"
+    @resume = @current_student.resumes.find_by_id(params.fetch(:id))
+    if @resume == nil
+      render :status => 404
+    elsif !@resume.upload.exists? 
+      throw "The resume with id #{@resume.id} does not exist"      
     end
 
     send_file(@resume.upload.path, :filename => 'resume.pdf', :type => 'application/pdf', :disposition => 'inline')
