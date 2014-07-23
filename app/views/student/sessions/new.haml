@@ -23,7 +23,8 @@
     %div
       .endLogin
         %div.button.postfix
-          = f.submit "Login"
+          %span
+            = f.submit "Login"
       .register
         = link_to "New? Create an account here.", new_registration_path(resource_name)
         %br
