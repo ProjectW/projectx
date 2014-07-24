@@ -2,6 +2,8 @@ class StudentAccount < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
    
   has_many :resumes
+  has_one :attributes, :class_name => "StudentAttributes"
+  belongs_to :school
 
   validates :first_name, presence: true
   validates :last_name, presence: true
