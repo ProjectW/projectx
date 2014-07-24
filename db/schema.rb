@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140724035445) do
   add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
   add_index "student_accounts", ["school_id"], name: "index_on_school_id", using: :btree
 
-  create_table "student_attributes", force: true do |t|
+  create_table "student_attribute_lists", force: true do |t|
     t.integer  "student_account_id", null: false
     t.string   "github_url"
     t.string   "website_url"

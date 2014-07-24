@@ -1,6 +1,6 @@
-class CreateStudentAttributes < ActiveRecord::Migration
+class CreateStudentAttributeLists < ActiveRecord::Migration
   def self.up
-    create_table :student_attributes do |t|
+    create_table :student_attribute_lists do |t|
       t.integer :student_account_id,        :null => false
       t.string  :github_url
       t.string  :website_url
@@ -11,7 +11,7 @@ class CreateStudentAttributes < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :student_attributes
+    drop_table :student_attribute_lists
   end
 
 end
