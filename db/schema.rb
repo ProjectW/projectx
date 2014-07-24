@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720052918) do
+ActiveRecord::Schema.define(version: 20140724035445) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
-    t.string   "display_name",              null: false
+    t.string   "display_name", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20140720052918) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "interested_roles", force: true do |t|
+    t.integer  "student_attributes_id", null: false
+    t.integer  "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interested_roles", ["role"], name: "index_on_role", using: :btree
+  add_index "interested_roles", ["student_attributes_id"], name: "index_on_student_attributes_id", using: :btree
 
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                  null: false
@@ -42,9 +52,22 @@ ActiveRecord::Schema.define(version: 20140720052918) do
 
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
+  create_table "schools", force: true do |t|
+    t.string   "name",         default: "", null: false
+    t.string   "display_name", default: "", null: false
+    t.integer  "degree_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schools", ["name"], name: "index_on_name", using: :btree
+
   create_table "student_accounts", force: true do |t|
-    t.integer  "school",                                 null: false
-    t.integer  "graduation_year"
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "middle_name"
+    t.integer  "school_id",                              null: false
+    t.integer  "graduation_year",                        null: false
     t.boolean  "deleted",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,11 +84,21 @@ ActiveRecord::Schema.define(version: 20140720052918) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "full_name",                              null: false
     t.string   "unconfirmed_email",      default: "",    null: false
   end
 
-  add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree
-  add_index "student_accounts", ["school", "email"], name: "index_on_school_and_email", using: :btree
+  add_index "student_accounts", ["email"], name: "index_on_email", using: :btree
+  add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
+  add_index "student_accounts", ["school_id"], name: "index_on_school_id", using: :btree
+
+  create_table "student_attribute_lists", force: true do |t|
+    t.integer  "student_account_id", null: false
+    t.string   "github_url"
+    t.string   "website_url"
+    t.integer  "technical_level"
+    t.integer  "major"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -25,9 +25,12 @@ class AddDeviseColumnsToStudentAccount < ActiveRecord::Migration
       t.string   :confirmation_token
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
+
+      # devise reconfirmable
+      t.string :unconfirmed_email,              :null => false, :default => ''
+
     end
 
-    remove_index :student_accounts, :name => 'index_on_school_and_email'
-    add_index :student_accounts, ['school', 'email'], :name => 'index_on_school_and_email'
+    add_index :student_accounts, ['email'], :name => 'index_on_email'
   end
 end

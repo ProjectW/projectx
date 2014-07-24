@@ -30,12 +30,16 @@
       %h5 You're almost done, we just need a little more information about you.
     
     %div.fullname
-      = f.label :full_name
-      = f.text_field :full_name
+      = f.label :first_name
+      = f.text_field :first_name
+
+    %div.fullname
+      = f.label :last_name
+      = f.text_field :last_name
 
     %div
-      = f.label :school
-      = f.text_field :school # will need some work here with auto-completes + limited inputs
+      = f.label :school_id
+      = f.text_field :school_id # will need some work here with auto-completes + limited inputs
 
     %div
       = f.label :graduation_year
