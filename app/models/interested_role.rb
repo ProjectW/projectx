@@ -1,3 +1,3 @@
 class InterestedRole < ActiveRecord::Base
-  belongs_to :student_attributes
+  belongs_to :student_attribute_list
 end
