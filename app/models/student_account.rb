@@ -3,9 +3,11 @@ class StudentAccount < ActiveRecord::Base
    
   has_many :resumes
 
-  validates :full_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } # TODO make .edu
-  validates :school, presence: true
+  validates :school_id, presence: true
+  validates :graduation_year, presence: true
 
   def set_current_resume(resume)
     if resume.student_account_id != self.id 
