@@ -6,11 +6,6 @@ class Student::RegistrationsController < Devise::RegistrationsController
     throw "Can't delete student accounts"
   end
 
-  def create
-    byebug
-    super
-  end
-
   protected 
   
   def update_sanitized_params
