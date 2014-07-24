@@ -1,12 +1,13 @@
 require 'test_helper'
 
-class StudentTest < ActiveSupport::TestCase
+class StudentAccountTest < ActiveSupport::TestCase
  
   test 'validations' do
     student = StudentAccount.new
     assert_not student.save, 'Saved without full_name, email, and school'
     
-    student.full_name = 'Willy Xiao'
+    student.first_name = 'Willy'
+    student.last_name = 'Xiao'
     assert_not student.save, 'Saved without email and school'
 
     student.school = 1
@@ -19,3 +20,4 @@ class StudentTest < ActiveSupport::TestCase
   end
 
 end
+
