@@ -6,7 +6,8 @@ Projectx::Application.routes.draw do
     match 'dashboard/(:action)', 
       :controller => :student_dashboard, 
       :via => [:get], 
-      :defaults => { :action => 'show' }
+      :defaults => { :action => 'show' }, 
+      :as => :dashboard
 
     get 'review' => 'review#index'
 
@@ -16,6 +17,7 @@ Projectx::Application.routes.draw do
       :sign_up => 'register'
     } 
 
+    resources :resumes
   end
 
   namespace :company do
