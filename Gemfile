@@ -16,6 +16,7 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'devise', '~> 3.2.4'
 gem 'paperclip', '~> 4.1'
 
+gem 'active_enum', github: 'adzap/active_enum'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 
