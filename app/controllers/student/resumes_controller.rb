@@ -22,11 +22,9 @@ class Student::ResumesController < Student::StudentBaseController
 
   def show
     @resume = @current_student.resumes.find_by_id(params.fetch(:id))
-    if @resume == nil
-      render :status => 404
-    elsif !@resume.upload.exists?
-      throw "The resume with id #{@resume.id} does not exist"
-    end
+    
+    render :status => 404 unless @resume
+    throw "The resume with id #{@resume.id} does not exist" unless @resume.upload.exists?
 
     send_file(
       @resume.upload.path,
@@ -37,9 +35,7 @@ class Student::ResumesController < Student::StudentBaseController
 
   def destroy
     @resume = @current_student.resumes.find_by_id(params.fetch(:id))
-    if @resume == nil
-      render :status => 404
-    end
+    render :status => 404 unless @resume
     @resume.upload.destroy
   end
 
