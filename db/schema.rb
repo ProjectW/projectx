@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140724035445) do
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                  null: false
     t.boolean  "deleted",             default: false, null: false
-    t.boolean  "current",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "upload_file_name"
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140724035445) do
     t.string   "middle_name"
     t.integer  "school_id",                              null: false
     t.integer  "graduation_year",                        null: false
+    t.integer  "current_resume_id"
     t.boolean  "deleted",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -4,7 +4,6 @@ class CreateResumes < ActiveRecord::Migration
       t.integer :student_account_id,    :null => false
       t.string :file_name,              :null => false
       t.boolean :deleted,               :null => false,       :default => false
-      t.boolean :current,               :null => false,       :default => false
       t.timestamps
     end
 

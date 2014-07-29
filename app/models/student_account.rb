@@ -4,6 +4,7 @@ class StudentAccount < ActiveRecord::Base
   has_many :resumes
   has_one :attribute_list, :class_name => "StudentAttributeList"
   belongs_to :school
+  belongs_to :current_resume, :class_name => "Resume"
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -16,9 +17,8 @@ class StudentAccount < ActiveRecord::Base
       throw 'Resume does not belong to current student account'
     end
 
-    self.resumes.update_all( :current => false )
-    resume.current = true
-    resume.save
+    self.current_resume = resume
+    self.save
   end
 
 end
