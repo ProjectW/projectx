@@ -13,10 +13,12 @@ gem 'jquery-ui-rails', '~> 5.0.0'
 
 gem 'foundation-rails', '~> 5.3.0.1'
 
-gem 'devise', '~> 3.2.4'
-gem 'paperclip', '~> 4.1'
+gem 'devise', '~> 3.2.4' # login authentication
+gem 'paperclip', '~> 4.1' # attachments on models
 
+# use github to support rails 4.1.2
 gem 'active_enum', github: 'adzap/active_enum'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 
@@ -35,6 +37,6 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', '~> 3.2.0', group: :development
 
 gem 'byebug', group: [:development, :test]
