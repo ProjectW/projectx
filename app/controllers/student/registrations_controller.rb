@@ -9,7 +9,7 @@ class Student::RegistrationsController < Devise::RegistrationsController
   protected 
   
   def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up).push(:full_name, :school, :graduation_year)
+    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :school_id, :graduation_year)
   end
 
 end

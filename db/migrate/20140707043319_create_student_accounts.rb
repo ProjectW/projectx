@@ -6,15 +6,16 @@ class CreateStudentAccounts < ActiveRecord::Migration
       t.string        :middle_name               
       t.string        :email,                 :null => false
       t.boolean       :verified,              :null => false,       :default => false
-      t.integer       :school,                :null => false
-      t.integer       :graduation_year     
-      t.integer       :current_resume_id      # will need a foreign key on this            
-      t.boolean       :active,                :null => false,       :default => true
+      t.integer       :school_id,             :null => false
+      t.integer       :graduation_year,       :null => false
+      t.integer       :current_resume_id
+      t.boolean       :deleted,               :null => false,       :default => false
       t.timestamps
     end
 
     add_index "student_accounts", ["last_name", "first_name"], :name => "index_on_last_and_first_name"
-    add_index "student_accounts", ["school", "email"], :name => "index_on_school_and_email"
+    add_index "student_accounts", ["school_id"],  :name => "index_on_school_id"
+    add_index "student_accounts", ["email"], :name => "index_on_email"
   end
 
   def self.down
