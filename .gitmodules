@@ -1,3 +1,6 @@
 [submodule "vendor/active_enum"]
 	path = vendor/active_enum
 	url = git@github.com:adzap/active_enum.git
+[submodule "vendor/capistrano-get-submodule-strategy"]
+	path = vendor/capistrano-get-submodule-strategy
+	url = git@github.com:i-ekho/capistrano-git-submodule-strategy.git

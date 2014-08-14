@@ -16,7 +16,7 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
-# use github to support rails 4.1.2
+# using master branch of git because rubygems version doesn't support rails 4
 gem 'active_enum', path: './vendor/active_enum'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -39,7 +39,8 @@ end
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.2.0'
-  # gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-git-submodule-strategy', '~> 0.1', :path => './vendor/capistrano-git-submodule-strategy'
 end
 
 gem 'byebug', group: [:development, :test]
