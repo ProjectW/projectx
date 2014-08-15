@@ -4,8 +4,8 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-# role :app, %w{deploy@example.com}
-role :web, %w{root@pinpeg.io} # need to change to deploy@pinpeg.io
+role :app, %w{root@pinpeg.io} # need to change to deploy@pinpeg.io
+# role :web, %w{root@pinpeg.io}
 # role :db,  %w{deploy@example.com}
 
 
