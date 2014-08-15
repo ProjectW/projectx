@@ -3,7 +3,9 @@ lock '3.2.1'
 
 set :application, 'pinpeg'
 set :repo_url, 'git@github.com:ProjectW/projectx.git'
-set :branch, 'finishing_cap'
+set :branch, 'beta'
+
+set :stage, :production
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -13,7 +15,6 @@ set :branch, 'finishing_cap'
 
 # Default value for :scm is :git
 # set :scm, :git
-# set :git_strategy, Capistrano::Git::SubmoduleStrategy
 
 # Default value for :format is :pretty
 # set :format, :pretty
