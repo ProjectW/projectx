@@ -20,7 +20,7 @@ gem 'paperclip', '~> 4.1' # attachments on models
 gem 'active_enum', github: 'adzap/active_enum'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 1.2'
