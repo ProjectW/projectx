@@ -1,5 +1,6 @@
-PATH
-  remote: ./vendor/active_enum
+GIT
+  remote: git://github.com/adzap/active_enum.git
+  revision: 14fc08b0080c44f4d68611c9e63cd163d4586a12
   specs:
     active_enum (0.9.12)
       activesupport (>= 3.0)
