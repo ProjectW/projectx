@@ -17,7 +17,7 @@ gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
 # using master branch of git because rubygems version doesn't support rails 4
-gem 'active_enum', path: './vendor/active_enum'
+gem 'active_enum', github: 'adzap/active_enum'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
