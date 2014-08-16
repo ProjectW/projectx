@@ -10,7 +10,7 @@ class StudentAccountTest < ActiveSupport::TestCase
     student.last_name = 'Xiao'
     assert_not student.save, 'Saved without email and school'
 
-    student.school = 1
+    student.school = schools(:harvard)
     assert_not student.save, 'Saved without email'
 
     ['hello@tom', 'bob', '@bob.com'].each do |email| # TODO add .edu requirement into test
