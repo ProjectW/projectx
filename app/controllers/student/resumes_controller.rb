@@ -1,5 +1,5 @@
 class Student::ResumesController < Student::StudentBaseController
-  before_action :get_current_student
+  before_action :set_current_student
 
   def new
     @resume = Resume.new
