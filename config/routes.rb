@@ -1,8 +1,7 @@
+# use rake routes to see the routing
 Projectx::Application.routes.draw do
-  # use rake routes to see the routing
 
   namespace :student do
-
     match 'dashboard/(:action)', 
       :controller => :student_dashboard, 
       :via => [:get], 
@@ -21,7 +20,6 @@ Projectx::Application.routes.draw do
   end
 
   namespace :company do
-
     match 'dashboard/(:action)',
       :controller => :company_dashboard, 
       :via => [:get],
