@@ -10,8 +10,7 @@ class Student::StudentBaseController < ApplicationController
 
   private
 
-  def get_current_student
+  def set_current_student
     @current_student = current_student_account
   end
-
 end

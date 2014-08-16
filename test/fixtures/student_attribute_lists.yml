@@ -2,5 +2,5 @@ willy_attribute_list:
   student_account: willy
   github_url: http://github.com/willyxiao
   website_url: willyxiao.com
-  technical_level: 0 # something here
+  technical_level: 200 # medium
   major: 0 # something here
