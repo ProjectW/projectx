@@ -1,0 +1,6 @@
+willy_attribute_list:
+  student_account: willy
+  github_url: http://github.com/willyxiao
+  website_url: willyxiao.com
+  technical_level: 0 # something here
+  major: 0 # something here
