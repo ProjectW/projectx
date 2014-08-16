@@ -19,5 +19,15 @@ class StudentAccountTest < ActiveSupport::TestCase
     end
   end
 
+  test 'set current_resume fail' do
+    assert_raises RuntimeError do
+      student_accounts(:willy).set_current_resume!(resumes(:karine_resume))
+    end
+  end
+
+  test 'set current_resume success' do
+    assert student_accounts(:willy).set_current_resume!(resumes(:willy_resume)), "Failed to set current_resume"
+  end
+
 end
 

@@ -10,13 +10,13 @@ class Student::ResumesController < Student::StudentBaseController
     @resume.student_account = @current_student
 
     if !@resume.save
-      throw "Resume did not save correctly"
+      raise "Resume did not save correctly"
     end
 
-    if @current_student.set_current_resume(@resume)
+    if @current_student.set_current_resume!(@resume)
       redirect_to :student_dashboard
     else
-      throw "Resume was not set as current"
+      raise "Resume was not set as current"
     end
   end
 
@@ -24,7 +24,7 @@ class Student::ResumesController < Student::StudentBaseController
     @resume = @current_student.resumes.find_by_id(params.fetch(:id))
     
     render :status => 404 unless @resume
-    throw "The resume with id #{@resume.id} does not exist" unless @resume.upload.exists?
+    raise "The resume with id #{@resume.id} does not exist" unless @resume.upload.exists?
 
     send_file(
       @resume.upload.path,
