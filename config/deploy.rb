@@ -4,7 +4,7 @@ lock '3.2.1'
 set :application, 'pinpeg'
 
 set :repo_url, 'git@github.com:ProjectW/projectx.git'
-set :branch, 'beta'
+set :branch, ENV['branch'] || 'beta' # TODO move to master
 
 set :stage, :production
 
