@@ -2,23 +2,22 @@
 %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js", type: "text/javascript"}
 = javascript_include_tag 'jquery.stellar.min'
 = javascript_include_tag 'parallax.js'
-= javascript_include_tag "waypoints.min"
-.signIn
-	.signBack
-		.row.firstSlide
-			.medium-12.columns
-				%h2.text
-					Pin up companies you love. Peg down your perfect fit.
-				%h3.text
-					Share your job experiences and discover new companies and student reviews to find your next internship. 
-			.signForm
-				%form{"name"  => "emailSignUp"}
-					.medium-5.columns
-						%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-					.medium-5.columns
-						%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-					.medium-2.columns
-						%a.button.postfix.enter{href: "#"} Sign Up
+
+.signIn{"data-stellar-background-ratio" => "0.5"}
+	.row.firstSlide
+		.medium-12.columns
+			%h2.text
+				Pin up companies you love. Peg down your perfect fit.
+			%h3.text
+				Share your job experiences and discover new companies and student reviews to find your next internship. 
+		.signForm
+			%form{"name"  => "emailSignUp"}
+				.medium-5.columns
+					%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+				.medium-5.columns
+					%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+				.medium-2.columns
+					%a.button.postfix.enter{href: "#"} Sign Up
 .imageYay{"data-stellar-background-ratio" => "0.5"}	
 
 .content{"data-stellar-background-ratio" => "1"}
