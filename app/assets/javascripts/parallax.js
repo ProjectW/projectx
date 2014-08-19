@@ -1,4 +1,6 @@
-$(window).stellar();
+if(!Modernizr.touch){ 
+    $.stellar();
+}
 
 $(document).ready(function(){
 	$( ".firstSlide" ).fadeIn( 1000, function() {
