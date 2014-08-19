@@ -3,23 +3,25 @@
 = javascript_include_tag 'jquery.stellar.min'
 = javascript_include_tag 'parallax.js'
 = javascript_include_tag "waypoints.min"
-.signIn{"data-stellar-background-ratio" => "0.5"}
-	.row.firstSlide
-		.medium-12.columns
-			%h2.text
-				Pin up companies you love
-				%br
-				Peg down your perfect fit
-
-
-	%form{"name"  => "emailSignUp"}
+.signIn
+	.signBack
 		.row.firstSlide
-			.medium-6.columns.signForm
-				%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-				%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-				%a.button.postfix{href: "#"} Sign Up
+			.medium-12.columns
+				%h2.text
+					Pin up companies you love. Peg down your perfect fit.
+				%h3.text
+					Share your job experiences and discover new companies and student reviews to find your next internship. 
+			.signForm
+				%form{"name"  => "emailSignUp"}
+					.medium-5.columns
+						%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+					.medium-5.columns
+						%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+					.medium-2.columns
+						%a.button.postfix.enter{href: "#"} Sign Up
+.imageYay{"data-stellar-background-ratio" => "0.5"}	
 
-.content{"data-stellar-background-ratio" => "1.5"}
+.content{"data-stellar-background-ratio" => "1"}
 	.info
 		.row
 			.medium-12.columns
@@ -44,27 +46,22 @@
 					Take a moment. 
 					Learn more about different internships.
 
-.imageYay{"data-stellar-background-ratio" => "0.5"}	 
 
-.screenshots{"data-stellar-background-ratio" => "1.5"}
+
+.screenshots{"data-stellar-background-ratio" => "0.5"}
 	.howItWorks
 		.row
-			.medium-12.columns
-				%ul.small-block-grid-2
-					%li
-						%h3
-							View and contribute to comprehensive analytics on startups and their  internships.
-						%h3
-							Discover and connect with top startups - 
-							%i	
-								response guaranteed. 
-					%li	
-						=image_tag('dashboard.png', class: "screenshotImages")
-				%h2.sub
-					Find your needle in the haystack. 
+			.medium-6.columns
+				/ %h3
+				/ 	View and contribute to comprehensive analytics on startups and their  internships.
+				/ %h3
+				/ 	Discover and connect with top startups - 
+				/ 	%i	
+				/ 		response guaranteed. 
+				
 
-
-.image2Yay{"data-stellar-background-ratio" => "0.5"} 	
+/  
+/ .image2Yay{"data-stellar-background-ratio" => "1.5"} 	
 
 / .content{"data-stellar-background-ratio" => "1.5"}
 / 	.row
@@ -85,4 +82,11 @@
 	.row
 		.medium-12.columns
 			%h1.title Get Started 
-			%a.button.postfix.signup{href: "#"} Sign Up Now
+			.signForm
+				%form{"name"  => "emailSignUp"}
+					.medium-5.columns
+						%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+					.medium-5.columns
+						%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+					.medium-2.columns
+						%a.button.postfix.enter{href: "#"} Sign Up

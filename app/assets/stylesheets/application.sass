@@ -15,6 +15,21 @@ $purple: #B19CD9
 
 $full-bleed: 100%
 
+@font-face
+	font-family: "Mathilde"
+	src: font-url("mathilde.otf") unquote("format('opentype')")
+
+@font-face
+	font-family: "Lato"
+	src: font-url("Lato-Thin.ttf")
+	
+@font-face
+	font-family: "Lato"
+	src: url("Lato-Regular.ttf")
+	font-weight: bold
+
+$mathilde: 'Mathilde'
+$linux: 'Lato'
 /* GENERAL SASS
 .top-bar
 	background-color: $orange
@@ -29,16 +44,16 @@ img
 	width: $full-bleed
 
 body
-	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	font-weight: 100
 
 h1, h2, h3, h4, h5, h6
-	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	overflow: hidden
 	font-weight: 100
 
 .top-bar-section ul li > a
-	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	font-weight: 100
 
 .content
@@ -49,11 +64,11 @@ h1, h2, h3, h4, h5, h6
 .button
 	background-color: $teal
 	border-color: $teal
-	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	font-weight: 100
 
 .footer
-	font-family: "Proxima Nova", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	background-color: $teal
 	font-weight: 100
 	padding: 20px
@@ -78,9 +93,9 @@ h4.footerLabel
 	padding: 0 0.625rem 0.5rem !important
 
 .top-bar .name h1
-	font-size: 2.2rem
+	font-size: 3.5rem
 	padding-top: 3px
-	font-family: "Avenir", Arial, Helvetica, sans-serif
+	font-family: $mathilde, Arial, Helvetica, sans-serif
 	font-weight: 100
 
 .top-bar-section ul li > a
@@ -94,7 +109,7 @@ input[type="submit"]
 	border: none
 	background-color: transparent
 	color: #fff
-	font-family: "Josefin Sans", Arial, Helvetica, sans-serif
+	font-family: $linux, Arial, Helvetica, sans-serif
 	font-size: 1rem
 
 h1.head
@@ -103,5 +118,7 @@ h1.head
 	margin-top: 20px
 	font-size: 3.5rem
 
-	
+.top-bar .name h1 a
+	margin-top: -10px
+
 
