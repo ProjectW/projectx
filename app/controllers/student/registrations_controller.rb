@@ -3,7 +3,7 @@ class Student::RegistrationsController < Devise::RegistrationsController
   before_action :update_sanitized_params
 
   def destroy
-    throw "Can't delete student accounts"
+    raise "Can't delete student accounts"
   end
 
   protected 

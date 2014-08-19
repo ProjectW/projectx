@@ -12,4 +12,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def login_student
+    # to call this function, include Devise::TestHelpers in your TestCase
+    @request.env['Devise.mapping'] = Devise.mappings[:student_account]
+    sign_in student_accounts(:willy)
+  end
 end

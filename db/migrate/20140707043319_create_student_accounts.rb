@@ -8,6 +8,7 @@ class CreateStudentAccounts < ActiveRecord::Migration
       t.boolean       :verified,              :null => false,       :default => false
       t.integer       :school_id,             :null => false
       t.integer       :graduation_year,       :null => false
+      t.integer       :current_resume_id
       t.boolean       :deleted,               :null => false,       :default => false
       t.timestamps
     end
