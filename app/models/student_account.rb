@@ -12,9 +12,9 @@ class StudentAccount < ActiveRecord::Base
   validates :school_id, presence: true
   validates :graduation_year, presence: true
 
-  def set_current_resume(resume)
+  def set_current_resume!(resume)
     if resume.student_account_id != self.id 
-      throw 'Resume does not belong to current student account'
+      raise 'Resume does not belong to current student account'
     end
 
     self.current_resume = resume

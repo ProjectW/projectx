@@ -1,7 +1,22 @@
-<% 100.times do |n| %>
-student_<%= n %>:
-  full_name: <%= "first last#{n}" %>
-  school: <%= n %>
-  email: <%= "student#{n}@example.edu" %>
-<% end %>
+willy:
+  first_name: Willy
+  last_name: Xiao
+  middle_name: Shun
+  school: harvard
+  graduation_year: 2016
+  email: wxiao@college.harvard.edu
+  current_resume: willy_resume
 
+lisa:
+  first_name: Lisa
+  last_name: Wang
+  school: harvard
+  graduation_year: 2016
+  email: lisawang01@college.harvard.edu
+
+karine:
+  first_name: karine
+  last_name: Hsu
+  school: harvard
+  graduation_year: 2017
+  email: karinehsu@college.harvard.edu
