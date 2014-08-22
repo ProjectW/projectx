@@ -32,21 +32,95 @@
 				First Interview
 			.row.type
 				.medium-3.columns
-					= f.radio_button :first_type, 'Quantitative', :value => "quantitative", :id => "first"
-					%label{"for" => "first"}
+					= f.radio_button :first_type, 'Quantitative', :value => "quantitative", :id => "firstq"
+					%label{"for" => "firstq"}
 						Quantitative 
-					= f.radio_button :first_type, 'Fit', :value => "fit", :id => "second"
-					%label{"for" => "second"}
+					= f.radio_button :first_type, 'Fit', :value => "fit", :id => "firstf"
+					%label{"for" => "firstf"}
 						Fit
 			.row
 				.medium-6.columns
 					= f.text_area :first_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
 				.medium-6.columns
 					= f.text_area :first_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"
+			.second		
+				%h5
+					Second Interview
+				.row.type
+					.medium-3.columns
+						= f.radio_button :second_type, 'Quantitative', :value => "quantitative", :id => "secondq"
+						%label{"for" => "secondq"}
+							Quantitative 
+						= f.radio_button :second_type, 'Fit', :value => "fit", :id => "secondf"
+						%label{"for" => "secondf"}
+							Fit
+				.row
+					.medium-6.columns
+						= f.text_area :second_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
+					.medium-6.columns
+						= f.text_area :second_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"
+			.third		
+				%h5
+					Third Interview
+				.row.type
+					.medium-3.columns
+						= f.radio_button :third_type, 'Quantitative', :value => "quantitative", :id => "thirdq"
+						%label{"for" => "thirdq"}
+							Quantitative 
+						= f.radio_button :third_type, 'Fit', :value => "fit", :id => "thirdf"
+						%label{"for" => "thirdf"}
+							Fit
+				.row
+					.medium-6.columns
+						= f.text_area :third_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
+					.medium-6.columns
+						= f.text_area :third_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"
+			.fourth	
+				%h5
+					Fourth Interview
+				.row.type
+					.medium-3.columns
+						= f.radio_button :fourth_type, 'Quantitative', :value => "quantitative", :id => "fourthq"
+						%label{"for" => "fourthq"}
+							Quantitative 
+						= f.radio_button :fourth_type, 'Fit', :value => "fit", :id => "fourthf"
+						%label{"for" => "fourthf"}
+							Fit
+				.row
+					.medium-6.columns
+						= f.text_area :fourth_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
+					.medium-6.columns
+						= f.text_area :fourth_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"	
+			.fifth	
+				%h5
+					Fifth Interview
+				.row.type
+					.medium-3.columns
+						= f.radio_button :fifth_type, 'Quantitative', :value => "quantitative", :id => "fifthq"
+						%label{"for" => "fifthq"}
+							Quantitative 
+						= f.radio_button :fifth_type, 'Fit', :value => "fit", :id => "fifthf"
+						%label{"for" => "fifthf"}
+							Fit
+				.row
+					.medium-6.columns
+						= f.text_area :fifth_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
+					.medium-6.columns
+						= f.text_area :fifth_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"	
+			.rant
+				%h5
+					Brutal. Please rant here on your ridiculous number of interviews. 
+					= f.text_area :rant
 			.row
-				.medium-3.columns
-					%div.button.postfix.send
-						Add Another Interview
+				.medium-6.columns
+					%div.button.postfix.send.add
+						Add an Interview
+				.medium-6.columns
+					%div.button.postfix.send.remove
+						Remove an Interview
+				.medium-6.columns
+					%div.button.postfix.send.removerant
+						Remove Rant
 
 			%h3
 				Now, about that internship...
