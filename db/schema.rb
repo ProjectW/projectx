@@ -52,18 +52,18 @@ ActiveRecord::Schema.define(version: 20140820233438) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.string   "email",             null: false
-    t.string   "first_name",        null: false
-    t.string   "last_name",         null: false
-    t.string   "company",           null: false
-    t.integer  "net_promoter",      null: false
-    t.integer  "number_interns",    null: false
-    t.string   "position_title",    null: false
-    t.string   "season",            null: false
-    t.integer  "year",              null: false
-    t.integer  "weeks",             null: false
-    t.integer  "start_time",        null: false
-    t.integer  "end_time",          null: false
+    t.string   "first_name",                           null: false
+    t.string   "last_name",                            null: false
+    t.string   "email",                                null: false
+    t.string   "company",                              null: false
+    t.string   "position_title",                       null: false
+    t.integer  "net_promoter",      default: 0,        null: false
+    t.integer  "number_interns",    default: 0,        null: false
+    t.string   "season",            default: "Summer", null: false
+    t.integer  "year",              default: 0,        null: false
+    t.integer  "weeks"
+    t.float    "start_time",        default: 0.0,      null: false
+    t.float    "end_time",          default: 0.0,      null: false
     t.integer  "salary"
     t.integer  "managers"
     t.string   "first_type"
@@ -82,14 +82,14 @@ ActiveRecord::Schema.define(version: 20140820233438) do
     t.integer  "fifth_difficulty"
     t.string   "fifth_questions"
     t.string   "rant"
-    t.integer  "company_rank",      null: false
-    t.integer  "culture",           null: false
-    t.integer  "mgmt",              null: false
+    t.integer  "company_rank"
+    t.integer  "culture"
+    t.integer  "mgmt"
     t.string   "projects"
     t.boolean  "offer"
     t.boolean  "return"
-    t.integer  "recommend",         null: false
-    t.string   "explain",           null: false
+    t.integer  "recommend"
+    t.string   "explain"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

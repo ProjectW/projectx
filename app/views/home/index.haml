@@ -11,7 +11,7 @@
 			%h3.text
 				Share your job experiences and discover new companies and student reviews to find your next internship. 
 		.signForm{"name"  => "emailSignUp"}
-			= form_for :student_account do |f| 
+			= form_for (:student_account)do |f| 
 				.medium-5.columns
 					= f.email_field :email, autofocus: true, :placeholder => "Email Address"
 					/ %input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}

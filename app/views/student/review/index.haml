@@ -5,49 +5,72 @@
 		%h1
 			Review Your Internship
 .row
-	
-	%form{"name" => "review"}
+	= form_for(:reviews) do |f|
 		.medium-12.columns
 			%h3
-				General
-		.medium-6.columns
-			%input.name{"type" => "text", "name" => "position", "placeholder" => "Position Title"}
-			%input.name{"type" => "text", "name" => "hours", "placeholder" => "Hours Worked"}
-		.medium-6.columns
-			%input.name{"type" => "text", "name" => "timeframe", "placeholder" => "Time Frame (ex. Summer 2014)"}
-			%input.name{"type" => "text", "name" => "numberInterns", "placeholder" => "Total Number of Interns"}
-		.medium-12.columns
+				First, some general info, good sir/madam. 
+			.row
+				.medium-6.columns
+					= f.text_field :first_name, :placeholder => "First Name"
+				.medium-6.columns
+					= f.text_field :last_name, :placeholder => "Last Name"
+			.row
+				.medium-6.columns
+					= f.text_field :email, :placeholder => "Email Address"
+				.medium-6.columns
+					= f.text_field :position_title, :placeholder => "Position Title"
+			.row
+				.medium-6.columns
+					= f.text_field :company, :placeholder => "Company Name"
+				.medium-3.columns
+					= f.select :season, options_for_select([['Summer', 'summer'],['Winter', 'winter']])
+				.medium-3.columns
+					= f.select :year, options_for_select([['Year',nil],[2010], [2011],[2012],[2013],[2014]])
 			%h3
-				Before the Internship
-		.medium-6.columns
-			%select
-				%option{disabled: "disabled", selected: "selected", value: ""}Number of Interviews
-				%option{value: "1"}1
-				%option{value: "2"}2
-				%option{value: "3"}3
-				%option{value: "4"}4
-				%option{value: "5"}5
-		.medium-6.columns
-			.choice
-				%input#easy{type: "radio", name: "difficulty"}
-					%label{for: "easy", value: "easy"} Easy
-			.choice
-				%input#medium{type: "radio", name: "difficulty"}
-					%label{for: "medium", value: "medium"} Medium
-			.choice
-				%input#hard{type: "radio", name: "difficulty"}
-					%label{for: "hard", value: "hard"} Hard
+				How bout dem interviews?
+			%h5
+				First Interview
+			.row.type
+				.medium-3.columns
+					= f.radio_button :first_type, 'Quantitative', :value => "quantitative", :id => "first"
+					%label{"for" => "first"}
+						Quantitative 
+					= f.radio_button :first_type, 'Fit', :value => "fit", :id => "second"
+					%label{"for" => "second"}
+						Fit
+			.row
+				.medium-6.columns
+					= f.text_area :first_questions, :placeholder => "What kind of questions were asked? ex. Fermi Estimation, Algorithmic, Personality", :rows => "4"
+				.medium-6.columns
+					= f.text_area :first_difficulty, :placeholder => "How difficult was the interview?", :rows =>"4"
+			.row
+				.medium-3.columns
+					%div.button.postfix.send
+						Add Another Interview
 
-		.medium-12.columns
 			%h3
-				During the Internship
-			%textarea.name{"type" => "text", "name" => "address", "placeholder" => "Describe what kind of projects you worked on.", "rows" => 5}
-		.medium-12.columns
-			%h3
-				Reflect
-			%textarea.name{"type" => "text", "name" => "address", "placeholder" => "Why or why not would you recommend this internship?", "rows" => 5}
+				Now, about that internship...
+			.row
+				.medium-3.columns
+					= f.select :net_promoter, options_for_select([['Net Promoter Score',nil],[0],[1]])
+				.medium-3.columns
+					= f.number_field :number_interns, :placeholder => "Number of Interns"
+				.medium-3.columns
+					= f.select :start_time, options_for_select([['Day starts at',nil],["04:00 AM", 4], ["04:30 AM", 4.5],["05:00 AM", 5],["05:30 AM", 5.5],["06:00 AM", 6],["06:30 AM", 6.5], ["07:00 AM", 7], ["07:30 AM", 7.5],["08:00 AM", 8], ["08:30 AM", 8.5], ["09:00 AM", 9], ["09:30 AM", 9.5], ["10:00 AM", 10],["10:30 AM", 10.5], ["11:00 AM", 11], ["11:30 AM", 11.5], ["All day, err day", 12], ["Flexible",13]])
+				.medium-3.columns
+					= f.select :end_time, options_for_select([['Day ends at',nil],["04:00 PM", 4], ["04:30 PM", 4.5],["05:00 PM", 5],["05:30 PM", 5.5],["06:00 PM", 6],["06:30 PM", 6.5], ["07:00 PM", 7], ["07:30 PM", 7.5],["08:00 PM", 8], ["08:30 PM", 8.5], ["09:00 PM", 9], ["09:30 PM", 9.5], ["10:00 PM", 10],["10:30 PM", 10.5], ["11:00 PM", 11], ["11:30 PM", 11.5], ["All day, err day", 12], ["Flexible",13]])
+			.row
+				.medium-3.columns
+					= f.text_field :salary, :placeholder => "Salary"
+				.medium-3.columns
+					= f.text_field :managers, :placeholder => "Number of Managers"
+				
+			
+
+		
 		.medium-2.columns.sendemail
 			%span
-				%a.button.postfix.send{href: "#"} Submit
+				%div.button.postfix.send
+					= f.submit "Submit"
 
 			
