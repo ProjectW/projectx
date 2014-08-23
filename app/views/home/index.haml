@@ -4,88 +4,94 @@
 = javascript_include_tag 'parallax.js'
 
 .signIn{"data-stellar-background-ratio" => "0.5"}
-	.row.firstSlide
-		.medium-12.columns
-			%h2.text
-				Pin up companies you love. Peg down your perfect fit.
-			%h3.text
-				Share your job experiences and discover new companies and student reviews to find your next internship. 
-		.signForm
-			%form{"name"  => "emailSignUp"}
-				.medium-5.columns
-					%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-				.medium-5.columns
-					%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-				.medium-2.columns
-					%a.button.postfix.enter{href: "#"} Sign Up
-.imageYay{"data-stellar-background-ratio" => "0.5"}	
+  .row.firstSlide
+    .medium-12.columns
+      %h2.text
+        Pin up companies you love. Peg down your perfect fit.
+      %h3.text
+        Share your job experiences and discover new companies and student reviews to find your next internship. 
+    .signForm
+      %form{"name"  => "emailSignUp", "action" => "/student/account/register", "method" => "get"}
+        .medium-5.columns
+          %input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+          /= f.email_field :email, autofocus: true, :placeholder => "Email Address"
+           
+        .medium-5.columns
+          %input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+          /= f.password_field :password, autocomplete: "off", :placeholder => "Password"
+           
+        .medium-2.columns
+          .button.postfix.enter
+            %input{"type" => "submit", "value" => "Sign Up"}
+.imageYay{"data-stellar-background-ratio" => "0.5"} 
 
 .content{"data-stellar-background-ratio" => "1"}
-	.info
-		.row
-			.medium-12.columns
-				.infotop
-					%h1
-						For Students
+  .info
+    .row
+      .medium-12.columns
+        .infotop
+          %h1
+            For Students
 
-					%ul.small-block-grid-3
-						%li
-							.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
-							%h4.subtitle
-								Discover and connect with top start-ups.
-						%li
-							.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
-							%h4.subtitle
-								Talk to past interns and review company data.
-						%li
-							.icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
-							%h4.subtitle
-								Choose and prepare for your best fit. 
-				%h2.sub
-					Take a moment. 
-					Learn more about different internships.
+          %ul.small-block-grid-3
+            %li
+              .icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+              %h4.subtitle
+                Discover and connect with top start-ups.
+            %li
+              .icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+              %h4.subtitle
+                Talk to past interns and review company data.
+            %li
+              .icon.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+              %h4.subtitle
+                Choose and prepare for your best fit. 
+        %h2.sub
+          Take a moment. 
+          Learn more about different internships.
 
 
 
 .screenshots{"data-stellar-background-ratio" => "0.5"}
-	.howItWorks
-		.row
-			.medium-6.columns
-				/ %h3
-				/ 	View and contribute to comprehensive analytics on startups and their  internships.
-				/ %h3
-				/ 	Discover and connect with top startups - 
-				/ 	%i	
-				/ 		response guaranteed. 
-				
+  .howItWorks
+    .row
+      .medium-6.columns
+        / %h3
+        /   View and contribute to comprehensive analytics on startups and their  internships.
+        / %h3
+        /   Discover and connect with top startups - 
+        /   %i  
+        /     response guaranteed. 
+        
 
 /  
-/ .image2Yay{"data-stellar-background-ratio" => "1.5"} 	
+/ .image2Yay{"data-stellar-background-ratio" => "1.5"}  
 
 / .content{"data-stellar-background-ratio" => "1.5"}
-/ 	.row
-/ 		.medium-12.columns
-/ 			%u1.small-block-grid-3
-/ 				%li
-/ 					%h1
-/ 						Testimonials
-/ 		.medium-11.columns
-/ 			%ul.small-block-grid-2
-/ 				%li
-/ 					%h2 QLytic allowed me to connect with a past intern and find the perfect internship. 
-/ 					%br - Tina Fey, Student
-/ 				%li
-/ 					=image_tag('willy.png', class: "biopic")
+/   .row
+/     .medium-12.columns
+/       %u1.small-block-grid-3
+/         %li
+/           %h1
+/             Testimonials
+/     .medium-11.columns
+/       %ul.small-block-grid-2
+/         %li
+/           %h2 QLytic allowed me to connect with a past intern and find the perfect internship. 
+/           %br - Tina Fey, Student
+/         %li
+/           =image_tag('willy.png', class: "biopic")
 
 .getStarted{"data-stellar-background-ratio" => "0.5"}
-	.row
-		.medium-12.columns
-			%h1.title Get Started 
-			.signForm
-				%form{"name"  => "emailSignUp"}
-					.medium-5.columns
-						%input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-					.medium-5.columns
-						%input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-					.medium-2.columns
-						%a.button.postfix.enter{href: "#"} Sign Up
+  .row
+    .medium-12.columns
+      %h1.title Get Started 
+      .signForm
+        %form{"name"  => "emailSignUp", "action" => "/student/account/register", "method" => "get"}
+          .medium-5.columns
+            %input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
+          .medium-5.columns
+            %input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
+          .medium-2.columns
+            .button.postfix.enter
+              %input{"type" => "submit", "value" => "Sign Up"}
