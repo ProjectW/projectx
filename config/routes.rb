@@ -18,16 +18,16 @@ Projectx::Application.routes.draw do
     resources :reviews
   end
 
-  namespace :company do
-    match 'dashboard/(:action)',
-      :controller => :company_dashboard, 
-      :via => [:get],
-      :defaults => { :action => 'show' }
+  # namespace :company do
+  #   match 'dashboard/(:action)',
+  #     :controller => :company_dashboard, 
+  #     :via => [:get],
+  #     :defaults => { :action => 'show' }
 
-    get 'payment/index'
-  end
+  #   get 'payment/index'
+  # end
 
-  # get 'home/index'
+  get 'home/index'
   get '/about_us' => 'home#about_us'
 
 root to: 'home#index'
