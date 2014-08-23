@@ -1,19 +1,8 @@
-:css
-  .wrapper{
-    background-color: #f5f4f4;
-    text-align: center;
-    font-family: "Proxima Nova"
-  }
-
-  a{
-    text-decoration: none;
-    font-weight: 600;
-    color: #61abb0;
-  }
 
 
-%img{:src =>"https://dl.dropboxusercontent.com/u/80118923/Screen%20Shot%202014-08-23%20at%201.20.26%20AM.png"}
-.wrapper
+
+%img{:src =>"https://dl.dropboxusercontent.com/u/80118923/Screen%20Shot%202014-08-23%20at%201.20.26%20AM.png", :style => "width: 100%;"}
+.wrapper{:style => "font-family: 'Proxima Nova'; text-align: center; width: 100%; font-size: 1rem;"}
   %h3
     Welcome
     = @email
