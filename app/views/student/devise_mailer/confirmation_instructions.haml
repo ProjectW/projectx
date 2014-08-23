@@ -1,14 +1,28 @@
-.header{:style => "background-image: src('https://dl.dropboxusercontent.com/u/80118923/Screen%20Shot%202014-08-23%20at%201.20.26%20AM.png'"}
+:css
+  .wrapper{
+    background-color: #f5f4f4;
+    text-align: center;
+    font-family: "Proxima Nova"
+  }
 
-%p
-  Welcome
-  = @email
-  !
+  a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #61abb0;
+  }
 
-%p
-  You can confirm your account email through the link below:
 
-%p
-  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+%img{:src =>"https://dl.dropboxusercontent.com/u/80118923/Screen%20Shot%202014-08-23%20at%201.20.26%20AM.png"}
+.wrapper
+  %h3
+    Welcome
+    = @email
+    !
+
+  %p
+    Confirm your account email through the link below:
+
+  %p
+    = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
 
 %img{:src => "https://dl.dropboxusercontent.com/u/80118923/strawberry.jpg", :style => "width: 100%;"}
