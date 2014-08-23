@@ -8,8 +8,6 @@ Projectx::Application.routes.draw do
       :defaults => { :action => 'show' }, 
       :as => :dashboard
 
-    get 'review' => 'review#index'
-
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
       :sign_out => 'logout',
@@ -17,6 +15,7 @@ Projectx::Application.routes.draw do
     } 
 
     resources :resumes
+    resources :reviews
   end
 
   namespace :company do
