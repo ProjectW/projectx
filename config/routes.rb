@@ -1,15 +1,12 @@
+# use rake routes to see the routing
 Projectx::Application.routes.draw do
-  # use rake routes to see the routing
 
   namespace :student do
-
     match 'dashboard/(:action)', 
       :controller => :student_dashboard, 
       :via => [:get], 
       :defaults => { :action => 'show' }, 
       :as => :dashboard
-
-    get 'review' => 'review#index'
 
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
@@ -18,10 +15,10 @@ Projectx::Application.routes.draw do
     } 
 
     resources :resumes
+    resources :reviews
   end
 
   namespace :company do
-
     match 'dashboard/(:action)',
       :controller => :company_dashboard, 
       :via => [:get],
