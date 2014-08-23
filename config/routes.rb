@@ -15,7 +15,7 @@ Projectx::Application.routes.draw do
     } 
 
     resources :resumes
-    resources :review
+    resources :reviews
   end
 
   namespace :company do
