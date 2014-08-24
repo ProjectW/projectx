@@ -27,7 +27,7 @@
 				.medium-3.columns
 					= f.select :year, options_for_select([['Year',nil],[2010], [2011],[2012],[2013],[2014]])
 			%h3
-				How bout dem interviews?
+				How 'bout them interviews?
 			%h5
 				First Interview
 			.row.type
@@ -114,7 +114,7 @@
 			.row
 				.medium-6.columns
 					%div.button.postfix.send.add
-						Add an Interview
+						+ Add an Interview
 				.medium-6.columns
 					%div.button.postfix.send.remove
 						Remove an Interview
@@ -126,7 +126,7 @@
 				Now, about that internship...
 			.row
 				.medium-3.columns
-					= f.select :net_promoter, options_for_select([['Net Promoter Score',nil],[0],[1]])
+					= f.select :net_promoter, options_for_select([['Would You Recommend the Internship?',nil],[0],[1]])
 				.medium-3.columns
 					= f.number_field :number_interns, :placeholder => "Number of Interns"
 				.medium-3.columns
@@ -135,10 +135,14 @@
 					= f.select :end_time, options_for_select([['Day ends at',nil],["04:00 PM", 4], ["04:30 PM", 4.5],["05:00 PM", 5],["05:30 PM", 5.5],["06:00 PM", 6],["06:30 PM", 6.5], ["07:00 PM", 7], ["07:30 PM", 7.5],["08:00 PM", 8], ["08:30 PM", 8.5], ["09:00 PM", 9], ["09:30 PM", 9.5], ["10:00 PM", 10],["10:30 PM", 10.5], ["11:00 PM", 11], ["11:30 PM", 11.5], ["All day, err day", 12], ["Flexible",13]])
 			.row
 				.medium-3.columns
-					= f.text_field :salary, :placeholder => "Salary"
+					= f.text_field :salary, :placeholder => "Salary (optional)"
 				.medium-3.columns
 					= f.text_field :managers, :placeholder => "Number of Managers"
-				
+			%h3
+				Time to Reflect
+			.row
+				.medium-6.columns
+						/ = f.text_area :fifth_questions, :placeholder => "Describe what kinds of project you worked on during your internship. The more detailed you can be, the better!", :rows => "4"
 			
 
 		
