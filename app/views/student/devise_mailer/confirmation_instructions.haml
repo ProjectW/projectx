@@ -1,10 +1,14 @@
-%p
-  Welcome
-  = @email
-  !
+%img{:src =>"https://dl.dropboxusercontent.com/u/80118923/Screen%20Shot%202014-08-23%20at%201.20.26%20AM.png", :style => "width: 100%;"}
+.wrapper{:style => "font-family: 'Proxima Nova'; text-align: center; width: 100%; font-size: 1rem;"}
+  %h3
+    Welcome
+    = @email
+    !
 
-%p
-  You can confirm your account email through the link below:
+  %p
+    Confirm your account email through the link below:
 
-%p
-  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+  %p
+    = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+
+%img{:src => "https://dl.dropboxusercontent.com/u/80118923/strawberry.jpg", :style => "width: 100%;"}

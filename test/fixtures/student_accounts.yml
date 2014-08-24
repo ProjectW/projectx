@@ -6,6 +6,14 @@ willy:
   graduation_year: 2016
   email: wxiao@college.harvard.edu
   current_resume: willy_resume
+  encrypted_password: $2a$10$3lUrjr.ywEMn/iTvWtOtn.3K8gPfph/tmLzDCff4xL5itKwldvcUS # passwordfortest
+  confirmation_token: 400136159982b40ad9c3c67878c900aaae752195175fd4ec91f65976ba0c87f4
+  confirmation_sent_at: 2014-08-21 05:40:28
+  reset_password_token: _f1Z9Ryzxb6ziq3TceY3
+  created_at: 2014-08-21 05:40:28
+  updated_at: 2014-08-24 19:59:54
+  sign_in_count: 0
+  confirmed_at: 2014-08-21 05:43:28
 
 lisa:
   first_name: Lisa
@@ -13,6 +21,14 @@ lisa:
   school: harvard
   graduation_year: 2016
   email: lisawang01@college.harvard.edu
+  encrypted_password: $2a$10$3lUrjr.ywEMn/iTvWtOtn.3K8gPfph/tmLzDCff4xL5itKwldvcUS
+  confirmation_token: 400136159982b40ad9c3c67878c900aaae752195175fd4ec91f65976ba0c87f4
+  confirmation_sent_at: 2014-08-21 05:40:28
+  reset_password_token: _f1Z9Ryzxb6ziq3TceY3
+  created_at: 2014-08-21 05:40:28
+  updated_at: 2014-08-24 19:59:54
+  sign_in_count: 0
+  confirmed_at: 2014-08-21 05:43:28
 
 karine:
   first_name: karine
@@ -20,3 +36,11 @@ karine:
   school: harvard
   graduation_year: 2017
   email: karinehsu@college.harvard.edu
+  encrypted_password: $2a$10$3lUrjr.ywEMn/iTvWtOtn.3K8gPfph/tmLzDCff4xL5itKwldvcUS
+  confirmation_token: 400136159982b40ad9c3c67878c900aaae752195175fd4ec91f65976ba0c87f4
+  confirmation_sent_at: 2014-08-21 05:40:28
+  reset_password_token: _f1Z9Ryzxb6ziq3TceY3
+  created_at: 2014-08-21 05:40:28
+  updated_at: 2014-08-24 19:59:54
+  sign_in_count: 0
+  confirmed_at: 2014-08-21 05:43:28

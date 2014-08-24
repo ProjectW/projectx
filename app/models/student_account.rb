@@ -8,7 +8,7 @@ class StudentAccount < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } # TODO make .edu
+  validates :email, format: { with: /\A([^@\s]+)@college\.harvard\.edu\Z/i }
   validates :school_id, presence: true
   validates :graduation_year, presence: true
 
@@ -19,6 +19,12 @@ class StudentAccount < ActiveRecord::Base
 
     self.current_resume = resume
     self.save
+  end
+
+  # TODO remove hardcoded Harvard from save
+  def save
+    self.school_id = 1 # Harvard College
+    super
   end
 
 end
