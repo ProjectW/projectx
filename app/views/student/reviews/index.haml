@@ -26,6 +26,30 @@
 					= f.select :season, options_for_select([['Summer', 'summer'],['Winter', 'winter']])
 				.medium-3.columns
 					= f.select :year, options_for_select([['Year',nil],[2010], [2011],[2012],[2013],[2014]])
+			.row
+				.medium-6.columns
+					= f.select :net_promoter, options_for_select([['Would You Recommend the Internship?',nil],["yes", 1],["no", 0]])
+			%h3
+				Now, about that internship...
+			.row
+				.medium-3.columns
+					= f.select :net_promoter, options_for_select([['Would You Recommend the Internship?',nil],[0],[1]])
+				.medium-3.columns
+					= f.number_field :number_interns, :placeholder => "Number of Interns"
+				.medium-3.columns
+					= f.select :start_time, options_for_select([['Day starts at',nil],["04:00 AM", 4], ["04:30 AM", 4.5],["05:00 AM", 5],["05:30 AM", 5.5],["06:00 AM", 6],["06:30 AM", 6.5], ["07:00 AM", 7], ["07:30 AM", 7.5],["08:00 AM", 8], ["08:30 AM", 8.5], ["09:00 AM", 9], ["09:30 AM", 9.5], ["10:00 AM", 10],["10:30 AM", 10.5], ["11:00 AM", 11], ["11:30 AM", 11.5], ["All day, err day", 12], ["Flexible",13]])
+				.medium-3.columns
+					= f.select :end_time, options_for_select([['Day ends at',nil],["04:00 PM", 4], ["04:30 PM", 4.5],["05:00 PM", 5],["05:30 PM", 5.5],["06:00 PM", 6],["06:30 PM", 6.5], ["07:00 PM", 7], ["07:30 PM", 7.5],["08:00 PM", 8], ["08:30 PM", 8.5], ["09:00 PM", 9], ["09:30 PM", 9.5], ["10:00 PM", 10],["10:30 PM", 10.5], ["11:00 PM", 11], ["11:30 PM", 11.5], ["All day, err day", 12], ["Flexible",13]])
+			.row
+				.medium-3.columns
+					= f.text_field :salary, :placeholder => "Salary (optional)"
+				.medium-3.columns
+					= f.text_field :managers, :placeholder => "Number of Managers"
+			%h3
+				Time to Reflect
+			.row
+				.medium-6.columns
+					= f.text_area :projects, :placeholder => "Describe what kinds of project you worked on during your internship. The more detailed you can be, the better!", :rows => "4"
 			%h3
 				How 'bout them interviews?
 			%h5
@@ -120,32 +144,7 @@
 						Remove an Interview
 				.medium-6.columns
 					%div.button.postfix.send.removerant
-						Remove Rant
-
-			%h3
-				Now, about that internship...
-			.row
-				.medium-3.columns
-					= f.select :net_promoter, options_for_select([['Would You Recommend the Internship?',nil],[0],[1]])
-				.medium-3.columns
-					= f.number_field :number_interns, :placeholder => "Number of Interns"
-				.medium-3.columns
-					= f.select :start_time, options_for_select([['Day starts at',nil],["04:00 AM", 4], ["04:30 AM", 4.5],["05:00 AM", 5],["05:30 AM", 5.5],["06:00 AM", 6],["06:30 AM", 6.5], ["07:00 AM", 7], ["07:30 AM", 7.5],["08:00 AM", 8], ["08:30 AM", 8.5], ["09:00 AM", 9], ["09:30 AM", 9.5], ["10:00 AM", 10],["10:30 AM", 10.5], ["11:00 AM", 11], ["11:30 AM", 11.5], ["All day, err day", 12], ["Flexible",13]])
-				.medium-3.columns
-					= f.select :end_time, options_for_select([['Day ends at',nil],["04:00 PM", 4], ["04:30 PM", 4.5],["05:00 PM", 5],["05:30 PM", 5.5],["06:00 PM", 6],["06:30 PM", 6.5], ["07:00 PM", 7], ["07:30 PM", 7.5],["08:00 PM", 8], ["08:30 PM", 8.5], ["09:00 PM", 9], ["09:30 PM", 9.5], ["10:00 PM", 10],["10:30 PM", 10.5], ["11:00 PM", 11], ["11:30 PM", 11.5], ["All day, err day", 12], ["Flexible",13]])
-			.row
-				.medium-3.columns
-					= f.text_field :salary, :placeholder => "Salary (optional)"
-				.medium-3.columns
-					= f.text_field :managers, :placeholder => "Number of Managers"
-			%h3
-				Time to Reflect
-			.row
-				.medium-6.columns
-						/ = f.text_area :fifth_questions, :placeholder => "Describe what kinds of project you worked on during your internship. The more detailed you can be, the better!", :rows => "4"
-			
-
-		
+						Remove Rant		
 		.medium-2.columns.sendemail
 			%span
 				%div.button.postfix.send
