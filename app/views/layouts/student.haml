@@ -21,16 +21,16 @@
           %a{href: "#"}
             %span Menu
       %section.top-bar-section
-        %ul.right
-          %li
-            %a{href: "#"} How It Works
-          %li
-            %a{href: "#"} Company Reviews
-          %li
-            - if student_account_signed_in?
-              = link_to('Logout', destroy_student_account_session_path)
-            - else
-              = link_to('Login', new_student_account_session_path)
+        / %ul.right
+        /   %li
+        /     %a{href: "#"} How It Works
+        /   %li
+        /     %a{href: "#"} Company Reviews
+        /   %li
+        /     - if student_account_signed_in?
+        /       = link_to('Logout', destroy_student_account_session_path)
+        /     - else
+        /       = link_to('Login', new_student_account_session_path)
 
   %body
     = yield
