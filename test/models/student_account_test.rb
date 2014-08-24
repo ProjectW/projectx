@@ -3,20 +3,35 @@ require 'test_helper'
 class StudentAccountTest < ActiveSupport::TestCase
  
   test 'validations' do
-    student = StudentAccount.new
-    assert_not student.save, 'Saved without full_name, email, and school'
-    
-    student.first_name = 'Willy'
-    student.last_name = 'Xiao'
-    assert_not student.save, 'Saved without email and school'
+    student = student_accounts(:willy)
 
-    student.school = schools(:harvard)
-    assert_not student.save, 'Saved without email'
+    first_name = student.first_name
+    student.first_name = nil
+    assert_not student.save, 'Saved without first and last name'
+    student.first_name = first_name 
 
-    ['hello@tom', 'bob', '@bob.com'].each do |email| # TODO add .edu requirement into test
+    school_id = student.school_id
+    student.school_id = nil
+    assert_not student.save, 'Saved without school'
+    student.school_id = school_id
+
+    email = student.email
+    emails_to_fail = [
+      '',
+      'hello@tom', 
+      'bob', 
+      '@bob.com', 
+      'willy@chenxiao.us', 
+      'wxiao@example.edu', 
+      'wxiao@college.harvard.edu.fake',
+    ]
+    emails_to_fail.each do |email|
       student.email = email
-      assert_not student.save, 'Email saved without correct format'
+      assert_not student.save, "Email #{email} saved without correct format"
     end
+
+    student.email = email
+    assert student.save, 'StudentAccount failed to save correctly'
   end
 
   test 'set current_resume fail' do
