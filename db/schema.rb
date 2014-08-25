@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20140825010927) do
   end
 
   create_table "interested_roles", force: true do |t|
-    t.integer  "student_attributes_list_id", null: false
+    t.integer  "student_attribute_list_id", null: false
     t.integer  "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "interested_roles", ["role"], name: "index_on_role", using: :btree
-  add_index "interested_roles", ["student_attributes_list_id"], name: "index_on_student_attributes_list_id", using: :btree
+  add_index "interested_roles", ["student_attribute_list_id"], name: "index_on_student_attribute_list_id", using: :btree
 
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                  null: false
