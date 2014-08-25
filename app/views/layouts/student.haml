@@ -21,16 +21,16 @@
           %a{href: "#"}
             %span Menu
       %section.top-bar-section
-        %ul.right
-          %li
-            %a{href: "#"} How It Works
-          %li
-            %a{href: "#"} Company Reviews
-          %li
-            - if student_account_signed_in?
-              = link_to('Logout', destroy_student_account_session_path)
-            - else
-              = link_to('Login', new_student_account_session_path)
+        / %ul.right
+        /   %li
+        /     %a{href: "#"} How It Works
+        /   %li
+        /     %a{href: "#"} Company Reviews
+        /   %li
+        /     - if student_account_signed_in?
+        /       = link_to('Logout', destroy_student_account_session_path)
+        /     - else
+        /       = link_to('Login', new_student_account_session_path)
 
   %body
     = yield
@@ -39,10 +39,10 @@
       .row
         .medium-6.columns
           %h4.footerLabel
-            2014 QLytic, All Rights Reserved.
+            2014 pinpeg, All Rights Reserved.
           %ul.small-block-grid-1 
             %li
-              %a{href: "#"} About Us
+              %a{href: "/about_us"} About Us
             %li
               %a{href: "#"} For Students
             %li
@@ -63,3 +63,6 @@
               = image_tag('linkedin.png', class: "social")
             %li.footer
               = image_tag('google+.png', class: "social")
+
+:javascript
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-54034291-1', 'auto'); ga('send', 'pageview');
