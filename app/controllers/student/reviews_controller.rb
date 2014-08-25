@@ -20,6 +20,9 @@ class Student::ReviewsController < Student::StudentBaseController
     end
   end
 
+  def show
+  end
+
   def review_params
     params.require(:reviews).permit(
       :email, 
