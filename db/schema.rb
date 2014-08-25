@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20140825010927) do
     t.string   "projects"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hours",                             null: false
-    t.string   "mentorship",                        null: false
-    t.string   "end",                               null: false
+    t.text     "hours",                             null: false
+    t.text     "mentorship",                        null: false
+    t.text     "end",                               null: false
   end
 
   add_index "reviews", ["email"], name: "index_on_email", using: :btree
