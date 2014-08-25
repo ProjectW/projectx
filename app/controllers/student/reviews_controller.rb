@@ -16,8 +16,11 @@ class Student::ReviewsController < Student::StudentBaseController
     if !@review.save
       raise "Review did not save correctly"
     else
-      redirect_to "/about"
+      redirect_to "/student/reviews/submit"
     end
+  end
+
+  def show
   end
 
   def review_params
