@@ -35,14 +35,14 @@
 				.medium-6.columns
 					= f.select :hours, options_for_select([['How were the hours?',nil],["Dude, I worked whenever I wanted."],["Reasonable. Ya know, the usual 9-5."],["Not bad. Stayed late sometimes, but it was chill."],["Brutal. I don't remember what sleep is anymore."]])
 				.medium-3.columns
-					= f.number_field :number_interns, :placeholder => "Number of Interns"
+					= f.number_field :number_interns, :placeholder => "Number of Interns", :min => "1"
 				.medium-3.columns
 					= f.text_field :salary, :placeholder => "Salary (optional)"
 			.row
 				.medium-6.columns
-					= f.text_area :mentorship, :placeholder => "How was the mentorship at your internship?", :rows => "4"
+					= f.text_area :mentorship, :placeholder => "How was the mentorship?", :rows => "4"
 				.medium-6.columns
-					= f.text_area :projects, :placeholder => "What kinds of projects you worked on during your internship?", :rows => "4"				
+					= f.text_area :projects, :placeholder => "What kinds of projects did you work on?", :rows => "4"				
 			%h3
 				To wrap up...
 			.row	
