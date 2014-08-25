@@ -9,6 +9,7 @@ set :branch, ENV['branch'] || 'beta' # TODO move to master
 set :stage, :production
 
 set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
+set :normalize_asset_timestamps, %{ public/images }
 
 namespace :deploy do
 

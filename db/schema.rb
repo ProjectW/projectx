@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140820233438) do
-=======
 ActiveRecord::Schema.define(version: 20140825010927) do
->>>>>>> reviews
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
@@ -33,14 +29,14 @@ ActiveRecord::Schema.define(version: 20140825010927) do
   end
 
   create_table "interested_roles", force: true do |t|
-    t.integer  "student_attributes_id", null: false
+    t.integer  "student_attribute_list_id", null: false
     t.integer  "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "interested_roles", ["role"], name: "index_on_role", using: :btree
-  add_index "interested_roles", ["student_attributes_id"], name: "index_on_student_attributes_id", using: :btree
+  add_index "interested_roles", ["student_attribute_list_id"], name: "index_on_student_attribute_list_id", using: :btree
 
   create_table "resumes", force: true do |t|
     t.integer  "student_account_id",                  null: false
@@ -56,48 +52,6 @@ ActiveRecord::Schema.define(version: 20140825010927) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "reviews", force: true do |t|
-<<<<<<< HEAD
-    t.string   "first_name",                           null: false
-    t.string   "last_name",                            null: false
-    t.string   "email",                                null: false
-    t.string   "company",                              null: false
-    t.string   "position_title",                       null: false
-    t.integer  "net_promoter",      default: 0,        null: false
-    t.integer  "number_interns",    default: 0,        null: false
-    t.string   "season",            default: "Summer", null: false
-    t.integer  "year",              default: 0,        null: false
-    t.integer  "weeks"
-    t.float    "start_time",        default: 0.0,      null: false
-    t.float    "end_time",          default: 0.0,      null: false
-    t.integer  "salary"
-    t.integer  "managers"
-    t.string   "first_type"
-    t.string   "first_difficulty"
-    t.string   "first_questions"
-    t.string   "second_type"
-    t.string   "second_difficulty"
-    t.string   "second_questions"
-    t.string   "third_type"
-    t.string   "third_difficulty"
-    t.string   "third_questions"
-    t.string   "fourth_type"
-    t.string   "fourth_difficulty"
-    t.string   "fourth_questions"
-    t.string   "fifth_type"
-    t.string   "fifth_difficulty"
-    t.string   "fifth_questions"
-    t.string   "rant"
-    t.integer  "company_rank"
-    t.integer  "culture"
-    t.integer  "mgmt"
-    t.string   "projects"
-    t.boolean  "offer"
-    t.boolean  "return"
-    t.integer  "recommend"
-    t.string   "explain"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
     t.string   "first_name",                        null: false
     t.string   "last_name",                         null: false
     t.string   "email",                             null: false
@@ -108,13 +62,12 @@ ActiveRecord::Schema.define(version: 20140825010927) do
     t.string   "season",         default: "Summer", null: false
     t.integer  "year",           default: 0,        null: false
     t.integer  "salary"
-    t.string   "projects"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hours",                             null: false
-    t.string   "mentorship",                        null: false
-    t.string   "end",                               null: false
->>>>>>> reviews
+    t.text     "projects",                          null: false
+    t.text     "mentorship",                        null: false
+    t.text     "end",                               null: false
   end
 
   add_index "reviews", ["email"], name: "index_on_email", using: :btree
