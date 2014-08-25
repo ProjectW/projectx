@@ -29,7 +29,7 @@ Projectx::Application.routes.draw do
 
   # get 'home/index'
   # get '/about_us' => 'home#about_us'
-
+  get '/student/reviews/submit' => 'student/reviews#submit'
 
 root to: 'student/reviews#index'
 # root to: 'home#index'
