@@ -32,14 +32,10 @@
 			%h3
 				Now, about that internship...
 			.row
-				.medium-3.columns
-					= f.select :net_promoter, options_for_select([['Would You Recommend the Internship?',nil],[0],[1]])
+				.medium-6.columns
+					= f.select :net_promoter, options_for_select([['How were the hours?',nil],["Dude, I worked whenever I wanted."],["Reasonable. Ya know, the usual 9-5"],["Not bad. Stayed late sometimes, but it was chill."],["Brutal. I don't remember what sleep is anymore."]])
 				.medium-3.columns
 					= f.number_field :number_interns, :placeholder => "Number of Interns"
-				.medium-3.columns
-					= f.select :start_time, options_for_select([['Day starts at',nil],["04:00 AM", 4], ["04:30 AM", 4.5],["05:00 AM", 5],["05:30 AM", 5.5],["06:00 AM", 6],["06:30 AM", 6.5], ["07:00 AM", 7], ["07:30 AM", 7.5],["08:00 AM", 8], ["08:30 AM", 8.5], ["09:00 AM", 9], ["09:30 AM", 9.5], ["10:00 AM", 10],["10:30 AM", 10.5], ["11:00 AM", 11], ["11:30 AM", 11.5], ["All day, err day", 12], ["Flexible",13]])
-				.medium-3.columns
-					= f.select :end_time, options_for_select([['Day ends at',nil],["04:00 PM", 4], ["04:30 PM", 4.5],["05:00 PM", 5],["05:30 PM", 5.5],["06:00 PM", 6],["06:30 PM", 6.5], ["07:00 PM", 7], ["07:30 PM", 7.5],["08:00 PM", 8], ["08:30 PM", 8.5], ["09:00 PM", 9], ["09:30 PM", 9.5], ["10:00 PM", 10],["10:30 PM", 10.5], ["11:00 PM", 11], ["11:30 PM", 11.5], ["All day, err day", 12], ["Flexible",13]])
 			.row
 				.medium-3.columns
 					= f.text_field :salary, :placeholder => "Salary (optional)"
