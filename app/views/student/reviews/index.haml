@@ -5,7 +5,7 @@
 		%h1
 			Review Your Internship
 .row
-	= form_for(:reviews) do |f|
+	= form_for :reviews, :html => { :id => 'review-form' } do |f|
 		.medium-12.columns
 			%h3
 				First, some general info, good sir/madam. 
@@ -28,12 +28,12 @@
 					= f.select :year, options_for_select([[2014],[2013], [2012],[2011],[2010]]), :required => true
 			.row
 				.medium-6.columns
-					= f.select :net_promoter, options_for_select([['Would you recommend this internship?',nil],["Yes", 1],["No", 0]]), :required => true
+					= f.select :net_promoter, options_for_select([["Yes", 1],["No", 0]]), { :include_blank => 'Would you recommend this internship?' }, { :class => 'not-blank-validated', :required => true }
 			%h3
 				Now, about that internship...
 			.row
 				.medium-6.columns
-					= f.select :hours, options_for_select([['How were the hours?',nil],["Dude, I worked whenever I wanted."],["Reasonable. Ya know, the usual 9-5."],["Not bad. Stayed late sometimes, but it was chill."],["Brutal. I don't remember what sleep is anymore."]]), :required => true
+					= f.select :hours, options_for_select([["Dude, I worked whenever I wanted."],["Reasonable. Ya know, the usual 9-5."],["Not bad. Stayed late sometimes, but it was chill."],["Brutal. I don't remember what sleep is anymore."]]), { :include_blank => 'How were the hours?' }, { :class => 'not-blank-validated', :required => true }
 				.medium-3.columns
 					= f.number_field :number_interns, :placeholder => "Number of Interns", :min => "1", :required => true
 				.medium-3.columns
