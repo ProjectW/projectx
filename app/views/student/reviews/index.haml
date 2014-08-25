@@ -8,7 +8,7 @@
 	= form_for :reviews, :html => { :id => 'review-form' } do |f|
 		.medium-12.columns
 			%h3
-				First, some general info, good sir/madam. 
+				Some general info required of thou:
 			.row
 				.medium-6.columns
 					= f.text_field :first_name, :placeholder => "First Name", :required => true
@@ -26,30 +26,28 @@
 					= f.select :season, options_for_select([['Summer', 'summer'],['Winter', 'winter']]), :required => true
 				.medium-3.columns
 					= f.select :year, options_for_select([[2014],[2013], [2012],[2011],[2010]]), :required => true
-			.row
-				.medium-6.columns
-					= f.select :net_promoter, options_for_select([["Yes", 1],["No", 0]]), { :include_blank => 'Would you recommend this internship?' }, :required => true
 			%h3
 				Now, about that internship...
 			.row
 				.medium-6.columns
-					= f.select :hours, options_for_select([["Dude, I worked whenever I wanted."],["Reasonable. Ya know, the usual 9-5."],["Not bad. Stayed late sometimes, but it was chill."],["Brutal. I don't remember what sleep is anymore."]]), { :include_blank => 'How were the hours?' }, :required => true
+					= f.select :net_promoter, options_for_select([["Yes", 1],["No", 0]]), { :include_blank => 'Would you recommend it to a friend?' }, :required => true
+			.row
+				.medium-6.columns
+					= f.select :hours, options_for_select([["Not much, could've come and gone as I pleased", "small"],["Standard. Ya know, the usual 9-5."],["Not bad. Had to stay late sometimes, but it was chill.", "medium"],["Brutal. I don't remember what sleep is anymore.", "large"]]), { :include_blank => 'What were the hours expected of you?' }, :required => true
 				.medium-3.columns
 					= f.number_field :number_interns, :placeholder => "Number of Interns", :min => "1", :required => true
 				.medium-3.columns
-					= f.text_field :salary, :placeholder => "Total Salary (optional)"
+					= f.text_field :salary, :placeholder => "Salary / Month (optional)"
 			.row
 				.medium-6.columns
 					= f.text_area :mentorship, :placeholder => "How was the mentorship?", :rows => "4", :required => true
 				.medium-6.columns
 					= f.text_area :projects, :placeholder => "What kinds of projects did you work on?", :rows => "4", :required => true			
 			%h3
-				To wrap up...
+				Express your love or hate
 			.row	
 				.medium-12.columns
-					= f.text_area :end, :placeholder => "Final Words. Tell the world anything else notable about your internship (i.e., culture, interview process, recommendation explanation). ", :rows => "4", :required => true
-			.row.type
-				.medium-3.columns
+					= f.text_area :end, :placeholder => "Tell the world anything else notable about your internship (e.g. company culture, interview process, explain your recommendation, there was an elephant sitting in the snack room at all times etc.,). ", :rows => "4", :required => true
 		.medium-2.columns.sendemail
 			%span
 				%div.button.postfix.send
