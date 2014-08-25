@@ -11,11 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140820233438) do
+=======
+ActiveRecord::Schema.define(version: 20140825010927) do
+>>>>>>> reviews
 
   create_table "companies", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "display_name", null: false
+    t.string   "name",         default: "", null: false
+    t.string   "display_name", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140820233438) do
   add_index "interested_roles", ["student_attributes_id"], name: "index_on_student_attributes_id", using: :btree
 
   create_table "resumes", force: true do |t|
-    t.integer  "student_account_id",                 null: false
-    t.boolean  "active",              default: true, null: false
+    t.integer  "student_account_id",                  null: false
+    t.boolean  "deleted",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "upload_file_name"
@@ -52,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140820233438) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "reviews", force: true do |t|
+<<<<<<< HEAD
     t.string   "first_name",                           null: false
     t.string   "last_name",                            null: false
     t.string   "email",                                null: false
@@ -92,6 +97,24 @@ ActiveRecord::Schema.define(version: 20140820233438) do
     t.string   "explain"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.string   "first_name",                        null: false
+    t.string   "last_name",                         null: false
+    t.string   "email",                             null: false
+    t.string   "company",                           null: false
+    t.string   "position_title",                    null: false
+    t.integer  "net_promoter",   default: 0,        null: false
+    t.integer  "number_interns", default: 0,        null: false
+    t.string   "season",         default: "Summer", null: false
+    t.integer  "year",           default: 0,        null: false
+    t.integer  "salary"
+    t.string   "projects"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "hours",                             null: false
+    t.string   "mentorship",                        null: false
+    t.string   "end",                               null: false
+>>>>>>> reviews
   end
 
   add_index "reviews", ["email"], name: "index_on_email", using: :btree
@@ -107,14 +130,17 @@ ActiveRecord::Schema.define(version: 20140820233438) do
   add_index "schools", ["name"], name: "index_on_name", using: :btree
 
   create_table "student_accounts", force: true do |t|
-    t.integer  "school",                                null: false
-    t.integer  "graduation_year"
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "middle_name"
+    t.integer  "school_id",                              null: false
+    t.integer  "graduation_year",                        null: false
     t.integer  "current_resume_id"
-    t.boolean  "active",                 default: true, null: false
+    t.boolean  "deleted",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -126,12 +152,12 @@ ActiveRecord::Schema.define(version: 20140820233438) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "full_name",                             null: false
-    t.string   "unconfirmed_email",      default: "",   null: false
+    t.string   "unconfirmed_email",      default: "",    null: false
   end
 
-  add_index "student_accounts", ["full_name"], name: "index_on_full_name", using: :btree
-  add_index "student_accounts", ["school", "email"], name: "index_on_school_and_email", using: :btree
+  add_index "student_accounts", ["email"], name: "index_on_email", using: :btree
+  add_index "student_accounts", ["last_name", "first_name"], name: "index_on_last_and_first_name", using: :btree
+  add_index "student_accounts", ["school_id"], name: "index_on_school_id", using: :btree
 
   create_table "student_attribute_lists", force: true do |t|
     t.integer  "student_account_id", null: false

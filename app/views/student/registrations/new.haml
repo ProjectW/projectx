@@ -1,5 +1,3 @@
-
-
 .row.join
   .medium-12.medium-centered
     %h1.head Join Us
@@ -14,20 +12,15 @@
 
     %div
       = f.label :email, 'Student Email Address (.edu)'
-      = f.email_field :email, autofocus: true
+      = f.email_field :email, :value => params[:email], autofocus: true
 
     %div
       = f.label :password
-      = f.password_field :password, autocomplete: "off"
+      = f.password_field :password, autocomplete: "off", :value => params[:password]
 
     %div
       = f.label :password_confirmation, 'Confirm'
       = f.password_field :password_confirmation, autocomplete: "off"
-
-   
-    %h3
-      Congrats! 
-      %h5 You're almost done, we just need a little more information about you.
     
     %div.fullname
       = f.label :first_name
@@ -38,8 +31,8 @@
       = f.text_field :last_name
 
     %div
-      = f.label :school_id
-      = f.text_field :school_id # will need some work here with auto-completes + limited inputs
+      / = f.label :school_id
+      / = f.text_field :school_id # will need some work here with auto-completes + limited inputs
 
     %div
       = f.label :graduation_year

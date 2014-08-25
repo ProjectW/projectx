@@ -33,4 +33,9 @@ Projectx::Application.configure do
   config.sass.preferred_syntax = :sass
   config.sass.line_comments = false
   config.sass.cache = false
+
+  # extend devise class for pre-population
+  # config.to_prepare do
+  #   Devise::RegistrationsController.send(:include, DeviseRegistrationsControllerDecorator)
+  # end
 end

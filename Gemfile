@@ -17,7 +17,7 @@ gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
 # using master branch of git because rubygems version doesn't support rails 4
-gem 'active_enum', github: 'adzap/active_enum'
+gem 'active_enum', github: 'adzap/active_enum', ref: '14fc08b0080c44f4d68611c9e63cd163d4586a12'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
