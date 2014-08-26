@@ -11,6 +11,7 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def create
+    `echo 'review submitted' | sendmail -t willyxiao@gmail.com`
     @review = Review.new(review_params)
 
     if !@review.save
