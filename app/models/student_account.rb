@@ -21,10 +21,4 @@ class StudentAccount < ActiveRecord::Base
     self.save
   end
 
-  # TODO remove hardcoded Harvard from save
-  def save
-    self.school_id = 1 # Harvard College
-    super
-  end
-
 end
