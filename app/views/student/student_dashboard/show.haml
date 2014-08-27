@@ -1,10 +1,7 @@
-%div
-	%label
-		Name:
-	%input{ 'type' => 'text', 'ng-model' => 'yourName', 'placeholder' => 'Enter a name here' }
-		%hr
-		%h1
-			Hello {{ yourName }}
+%div{ 'ng-controller' => 'studentDashboardController' }
+	%li{ 'ng-repeat' => 'todo in todos' }
+		%input{ 'type' => 'checkbox', 'ng-model' => 'todo.done' }
+		%span {{ todo.text }}
 
 / .profile
 / 	.row
