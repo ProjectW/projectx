@@ -1,7 +1,5 @@
 class Student::ReviewsController < Student::StudentBaseController
-  # FIXME authenticate reviews again 
-  # before_action :set_current_student
-  skip_before_filter :authenticate_student_account!
+  before_action :set_current_student
 
   def index
   end
