@@ -1,5 +1,5 @@
 class Student::RegistrationsController < Devise::RegistrationsController
-  layout "student"
+  layout "student/student_base"
   before_action :update_sanitized_params
 
   def destroy
@@ -7,7 +7,8 @@ class Student::RegistrationsController < Devise::RegistrationsController
   end
 
   protected 
-  
+
+  # TODO remove hard-coded Harvard  
   def sign_up_params
     super.merge(:school_id => 1)
   end
