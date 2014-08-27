@@ -35,8 +35,8 @@
                 = link_to('Logout', destroy_student_account_session_path)
               - else
                 = link_to('Login', new_student_account_session_path)
-    .wrapper{:style => "min-height: 55%;"}
-      = yield
+    / .wrapper{:style => "min-height: 55%;"}
+    = yield
     .footer
       .row
         .medium-12.columns

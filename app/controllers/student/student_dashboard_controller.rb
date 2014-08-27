@@ -1,4 +1,4 @@
 class Student::StudentDashboardController < Student::StudentBaseController
-  layout "student/dashboard"
+  layout "student/student_dashboard"
 
 end

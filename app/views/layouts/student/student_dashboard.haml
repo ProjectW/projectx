@@ -1,40 +1,39 @@
 !!!
 %html{lang: "en"}
   %head
-  %meta{ :charset => "utf-8" }
-  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-  %meta{ :property => "og:site_name", :content => "pinpeg" }
-  %title 
-    Dashboard
-  = stylesheet_link_tag 'application'
-  = stylesheet_link_tag 'student/student_account'
-  = stylesheet_link_tag 'student/student_dashboard'
-  = javascript_include_tag "angular.min"
-  = csrf_meta_tags
-  %link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
-
-  .contain-to-grid.sticky
-    %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => ""}
-      %ul.title-area
-        %li.name
-          %h1
-            %a{href: "/"} pinpeg
-        %li.toggle-topbar.menu-icon
-          %a{href: "#"}
-            %span Menu
-      %section.top-bar-section
-        %ul.right
-          %li
-            %a{href: "#"} How It Works
-          %li
-            %a{href: "#"} Company Reviews
-          %li
-            - if student_account_signed_in?
-              = link_to('Logout', destroy_student_account_session_path)
-            - else
-              = link_to('Login', new_student_account_session_path)
+    %meta{ :charset => "utf-8" }
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+    %meta{ :property => "og:site_name", :content => "pinpeg" }
+    %title 
+      Dashboard
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'student/student_account'
+    = stylesheet_link_tag 'student/student_dashboard'
+    = javascript_include_tag "angular.min"
+    = csrf_meta_tags
+    %link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
 
   %body
+    .contain-to-grid.sticky
+      %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => ""}
+        %ul.title-area
+          %li.name
+            %h1
+              %a{href: "/"} pinpeg
+          %li.toggle-topbar.menu-icon
+            %a{href: "#"}
+              %span Menu
+        %section.top-bar-section
+          %ul.right
+            %li
+              %a{href: "#"} How It Works
+            %li
+              %a{href: "#"} Company Reviews
+            %li
+              - if student_account_signed_in?
+                = link_to('Logout', destroy_student_account_session_path)
+              - else
+                = link_to('Login', new_student_account_session_path)
     = yield
     .footer
       .row
