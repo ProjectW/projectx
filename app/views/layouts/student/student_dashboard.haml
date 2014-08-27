@@ -1,5 +1,5 @@
 !!!
-%html{lang: "en"}
+%html{ :lang => "en", "ng-app" => "" }
   %head
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
@@ -9,7 +9,8 @@
     = stylesheet_link_tag 'application'
     = stylesheet_link_tag 'student/student_account'
     = stylesheet_link_tag 'student/student_dashboard'
-    = javascript_include_tag "angular.min"
+    = javascript_include_tag 'angular.min'
+    = javascript_include_tag 'angular-resource.min'
     = csrf_meta_tags
     %link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
 
