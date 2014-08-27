@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui/effect.all
 //= require jquery_ujs
+// // = require jquery.stellar.min
 //= require jquery.validate.min
 //= require foundation
 //= require_tree .
