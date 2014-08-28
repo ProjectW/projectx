@@ -6,12 +6,11 @@
     %meta{ :property => "og:title", :content => "Review your internship" }
     %meta{ :property => "og:site_name", :content => "pinpeg" }
     %title pinpeg
-    = javascript_include_tag 'vendor/modernizr'
+    / = javascript_include_tag 'vendor/modernizr'
     = stylesheet_link_tag 'application'
     = javascript_include_tag "application"
     = stylesheet_link_tag 'student/student_account'
     = csrf_meta_tags
-    %link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
 
   %body
     .contain-to-grid.sticky
