@@ -17,6 +17,4 @@
 //= require jquery.validate.min
 //= require foundation
 
-// TODO get rid of require_tree? Should require by page
-
 $(function(){ $(document).foundation(); });
