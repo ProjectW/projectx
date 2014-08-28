@@ -4,16 +4,12 @@
     %meta{ :charset => "utf-8" }
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
     %meta{ :property => "og:site_name", :content => "pinpeg" }
-    %title Dashboard
+    %title= content_for?(:title) ? yield(:title): "pinpeg"
     = stylesheet_link_tag 'application'
-    = stylesheet_link_tag 'student/student_account'
-    = stylesheet_link_tag 'student/student_dashboard'
     = javascript_include_tag 'angular.min'
     = javascript_include_tag 'angular-resource.min'
     = javascript_include_tag 'angular-route.min'
-    = javascript_include_tag 'angular/student/student_dashboard/studentDashboardApp'
     = csrf_meta_tags
-    %link{href: "http://fonts.googleapis.com/css?family=Josefin+Sans", rel: "stylesheet", type: "text/css"}
 
   %body
     .contain-to-grid.sticky

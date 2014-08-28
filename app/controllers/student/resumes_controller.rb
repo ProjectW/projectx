@@ -1,6 +1,21 @@
 class Student::ResumesController < Student::StudentBaseController
   before_action :set_current_student
 
+  def index
+    render :json => [
+      {
+        :id => 1,
+        :name => 'resume1', 
+        :path => ActionController::Base.helpers.asset_path('city2.jpg'),
+      },
+      {
+        :id => 2,
+        :name => 'zresume2',
+        :path => ActionController::Base.helpers.asset_path('profile.png')
+      }
+    ]
+  end
+
   def new
     @resume = Resume.new
   end
