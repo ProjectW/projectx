@@ -1,5 +1,5 @@
 class Student::StudentDashboardController < Student::StudentBaseController
   def show
-    render layout: 'angular', title: 'Dashboard'
+    render layout: 'angular'
   end
 end
