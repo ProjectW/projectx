@@ -16,8 +16,5 @@
 // // = require jquery.stellar.min
 //= require jquery.validate.min
 //= require foundation
-//= require_tree .
-
-// TODO get rid of require_tree? Should require by page
 
 $(function(){ $(document).foundation(); });

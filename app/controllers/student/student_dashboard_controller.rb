@@ -1,4 +1,5 @@
 class Student::StudentDashboardController < Student::StudentBaseController
-  layout "student/student_dashboard"
-
+  def show
+    render layout: 'angular', title: 'Dashboard'
+  end
 end
