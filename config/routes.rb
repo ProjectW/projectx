@@ -8,12 +8,18 @@ Projectx::Application.routes.draw do
       :defaults => { :action => 'show' }, 
       :as => :dashboard
 
+    match 'company/:id',
+      :controller => :company_profile,
+      :via => [:get], 
+      :defaults => { :action => 'show'}
+
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
       :sign_out => 'logout',
       :sign_up => 'register'
     } 
 
+    # resources :companies
     resources :resumes
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
