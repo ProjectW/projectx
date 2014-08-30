@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.5'
 gem 'mysql2', '0.3.16'
 
 gem 'haml-rails', '~> 0.5.3'
@@ -15,9 +15,6 @@ gem 'foundation-rails', '~> 5.3.0.1'
 
 gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
-
-# using master branch of git because rubygems version doesn't support rails 4
-gem 'active_enum', github: 'adzap/active_enum', ref: '14fc08b0080c44f4d68611c9e63cd163d4586a12'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
