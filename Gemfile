@@ -16,6 +16,8 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
+gem 'therubyracer', platforms: :ruby
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
