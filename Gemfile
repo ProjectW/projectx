@@ -24,7 +24,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# gem 'unicorn'
+gem 'unicorn', '~> 4.8', group: [:production]
 
 # Use Capistrano for deployment
 group :development do
