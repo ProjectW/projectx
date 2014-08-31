@@ -16,6 +16,7 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
+# for rake secrets
 gem 'therubyracer', platforms: :ruby
 
 group :doc do
@@ -29,6 +30,7 @@ end
 group :development do
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm', '~> 0.1'
 end
 
 gem 'byebug', group: [:development, :test]
