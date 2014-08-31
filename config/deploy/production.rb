@@ -1,5 +1,6 @@
 role :app, %w{root@pinpeg.io} # need to change to deploy@pinpeg.io
 
+# FIXME capistrano/rvm fails for production
 namespace :deploy do
 
   desc 'Restart application'
