@@ -6,8 +6,8 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       within '/var/www/pinpeg/current' do
-        execute 'kill `cat /home/unicorn/pids/unicorn.pid`'
-        execute 'bundle exec unicorn_rails -c config/unicorn.rb -D -E production'
+        execute 'kill `cat /home/unicorn/pids/unicorn.pid`; true' # don't care about exit status
+        execute :bundle, :exec, 'unicorn_rails -c config/unicorn.rb -D -E production'
       end
     end
   end
