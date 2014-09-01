@@ -4,7 +4,7 @@
       %a.button.expand.sd{:href => "#"} Upload your resume now to be seen by all of our partnership companies.
     .medium-4.columns
       .profpic
-        %ul.small-block-grid-2{style: "background-color: #fff"}
+        %ul.small-block-grid-2{style: "background-color: #fff; padding-left: 25px;"}
           %li
             = image_tag('profile.png', class: "profilepic")
           %li.profileinfo{style: "padding-top: 25px !important"} 
@@ -14,7 +14,7 @@
             %br
             Class of 2016
           / %a.button.expand.sd{:href => "#"} Edit
-          %ul.small-block-grid-4{style: "background-color: #f5f4f4; padding-left: 25px;"}
+          %ul.small-block-grid-4{style: "background-color: #fff"}
             %li
               .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
             %li
@@ -22,10 +22,9 @@
             %li
               .connect.fs1{"aria-hidden" => "true", "data-icon" => "\", style: "padding-top: 8px"}
             %li
-              / %a.button.expand.sd.edit{:href => "#"} Edit
-              %a.button.expand.sd.fs1{"aria-hidden" => "true", "data-icon" => "j"}
+              %a.button.expand.sd.edit.fs1{"aria-hidden" => "true", "data-icon" => "j"}
       .companies
-        %ul.small-block-grid-1{style: "background-color: #fff"}
+        %ul.small-block-grid-1{style: "background-color: #fff;"}
           %h6{style:"text-align: center;"} About 
           %li.profileinfo{style: "padding-top: 10px !important"}
             Website | github URL 
@@ -41,19 +40,49 @@
 
 
     .medium-8.columns
-      .resumes
-        %h6 My Resumes
-        %ul.small-block-grid-3{style: "background-color: #fff", 'ng-repeat' => 'resume in resumes | orderBy:orderProp'} 
-          %li
-            {{ resume.name }}:
-            %img{ 'ng-src' => "{{ resume.path }}"}
-            / = image_tag("{{ resumes.path }} ", :class => 'resume')
-          /   = image_tag('profile.png', class: "resume")
-          / %li
-          /   = image_tag('profile.png', class: "resume")
-          / %li
-          /   = image_tag('profile.png', class: "resume")
-        %a.button.expand.sd{:href => "#"} + Upload a New Resume
+      .reviews{style: "background-color: #fff"}
+        %h6 My Reviews
+        %a.button.expand.sd{:href => "#"} + Write a Review
+      .companies
+        %table{:role => "grid"}
+          %thead
+            %tr
+              %th{:width => "200"} Company
+              %th Submitted
+              %th{:width => "150"} Review Status
+              %th{:width => "150"} Viewed By
+          %tbody
+            %tr
+              %td 
+                %ul.none
+                  %li
+                    = image_tag('company.png', class: "company")
+              %td 8/9/14 at 3:00PM EST
+              %td Approved
+              %td 19 users
+
+            %tr
+              %td Content Goes Here
+              %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
+              %td Content Goes Here
+              %td Content Goes Here
+            %tr
+              %td Content Goes Here
+              %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
+              %td Content Goes Here
+              %td Content Goes Here
+        / %ul.small-block-grid-3{style: "background-color: #fff", 'ng-repeat' => 'resume in resumes | orderBy:orderProp'} 
+        /   %li
+        /     {{ resume.name }}:
+        /     %img{ 'ng-src' => "{{ resume.path }}"}
+        /     / = image_tag("{{ resumes.path }} ", :class => 'resume')
+        /   /   = image_tag('profile.png', class: "resume")
+        /   / %li
+        /   /   = image_tag('profile.png', class: "resume")
+        /   / %li
+        /   /   = image_tag('profile.png', class: "resume")
+
+        / %a.button.expand.sd{:href => "#"} + Upload a New Resume
       .reviews
         %ul.small-block-grid-2{style: "background-color: #fff"} 
           %h6 My Reviews
