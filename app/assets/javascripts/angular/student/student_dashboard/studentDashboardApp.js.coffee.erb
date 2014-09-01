@@ -1,4 +1,4 @@
-studentDashboardApp = angular.module 'studentDashboardApp', ['ngRoute','studentDashboardControllers']
+studentDashboardApp = angular.module 'studentDashboardApp', ['ngRoute','studentDashboardControllers', 'resources.resumes', 'resources.reviews']
 
 studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
@@ -6,7 +6,7 @@ studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/dashboardView") %>',
       controller: 'StudentDashboardCtrl'
     )
-    .when('/resumes/:resumeId', 
+    .when('/resumes/:resumeId',
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/resumeView") %>',
       controller: 'ResumeCtrl'
     )

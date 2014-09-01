@@ -1,0 +1,10 @@
+= javascript_include_tag 'jquery.stellar.min'
+
+:javascript
+  $(document).ready(function(){
+    if(!Modernizr.touch){ 
+      $.stellar();
+    }
+  });
+  
+.company

@@ -1,10 +1,8 @@
 studentDashboardControllers = angular.module 'studentDashboardControllers', []
 
-studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http', ($scope, $http) ->
-  $http.get('resumes')
-    .success (data) ->
-      $scope.resumes = data
-
+studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http', 'Resume', 'Review', ($scope, $http, Resume, Review) ->
+  $scope.resumes = Resume.query()
+  $scope.reviews = Review.query()
   $scope.orderProp = 'name'
 ]
 

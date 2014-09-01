@@ -2,6 +2,7 @@ class Student::ReviewsController < Student::StudentBaseController
   before_action :set_current_student
 
   def index
+    render :json => []
   end
 
   def new
@@ -9,7 +10,6 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def create
-    `echo 'review submitted' | sendmail -t willyxiao@gmail.com`
     @review = Review.new(review_params)
 
     if !@review.save
@@ -24,12 +24,12 @@ class Student::ReviewsController < Student::StudentBaseController
 
   def review_params
     params.require(:reviews).permit(
-      :email, 
-      :first_name, 
-      :last_name, 
-      :company, 
-      :position_title, 
-      :salary, 
+      :email,
+      :first_name,
+      :last_name,
+      :company,
+      :position_title,
+      :salary,
       :projects,
       :mentorship,
       :number_interns,
