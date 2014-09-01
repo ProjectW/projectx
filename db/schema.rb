@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825010927) do
+ActiveRecord::Schema.define(version: 20140901193617) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
@@ -52,25 +52,23 @@ ActiveRecord::Schema.define(version: 20140825010927) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.string   "first_name",                        null: false
-    t.string   "last_name",                         null: false
-    t.string   "email",                             null: false
-    t.string   "company",                           null: false
-    t.string   "position_title",                    null: false
-    t.integer  "net_promoter",   default: 0,        null: false
-    t.integer  "number_interns", default: 0,        null: false
-    t.string   "season",         default: "Summer", null: false
-    t.integer  "year",           default: 0,        null: false
+    t.string   "position_title",                        null: false
+    t.integer  "net_promoter",       default: 0,        null: false
+    t.integer  "number_interns",     default: 0,        null: false
+    t.string   "season",             default: "Summer", null: false
+    t.integer  "year",               default: 0,        null: false
     t.integer  "salary"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hours",                             null: false
-    t.text     "projects",                          null: false
-    t.text     "mentorship",                        null: false
-    t.text     "end",                               null: false
+    t.string   "hours",                                 null: false
+    t.text     "projects",                              null: false
+    t.text     "mentorship",                            null: false
+    t.text     "end",                                   null: false
+    t.integer  "student_account_id",                    null: false
+    t.integer  "company_id"
   end
 
-  add_index "reviews", ["email"], name: "index_on_email", using: :btree
+  add_index "reviews", ["company_id", "student_account_id"], name: "index_on_company_id_and_student_account_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "name",         default: "", null: false

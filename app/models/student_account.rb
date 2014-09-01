@@ -2,6 +2,7 @@ class StudentAccount < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
   has_many :resumes
+  has_many :reviews
   has_one :attribute_list, :class_name => "StudentAttributeList"
   belongs_to :school
   belongs_to :current_resume, :class_name => "Resume"
