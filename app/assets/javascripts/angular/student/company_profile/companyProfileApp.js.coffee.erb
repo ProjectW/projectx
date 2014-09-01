@@ -1,0 +1,8 @@
+companyProfileApp = angular.module 'companyProfileApp', ['ngRoute','companyProfileControllers']
+
+companyProfileApp.config ['$routeProvider', ($routeProvider) -> 
+  $routeProvider
+    .when('/', 
+      templateUrl: '<%= asset_path("angular/student/company_profile/views/profileView") %>'
+    )
+]
