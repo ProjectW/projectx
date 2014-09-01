@@ -8,7 +8,7 @@ Projectx::Application.routes.draw do
       :defaults => { :action => 'show' }, 
       :as => :dashboard
 
-    match 'company/:id',
+    match 'company/(:id)',
       :controller => :company_profile,
       :via => [:get], 
       :defaults => { :action => 'show'}
