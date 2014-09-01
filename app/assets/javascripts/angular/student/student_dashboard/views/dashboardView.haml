@@ -1,5 +1,7 @@
 .profile
   .row
+    .medium-12.columns
+      %a.button.expand.sd{:href => "#"} Upload your resume now to be seen by all of our partnership companies.
     .medium-4.columns
       .profpic
         %ul.small-block-grid-2{style: "background-color: #fff"}
@@ -11,7 +13,7 @@
             Harvard
             %br
             Class of 2016
-          %a.button.expand.sd{:href => "#"} Edit
+          / %a.button.expand.sd{:href => "#"} Edit
           %ul.small-block-grid-4{style: "background-color: #f5f4f4; padding-left: 25px;"}
             %li
               .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
@@ -20,10 +22,23 @@
             %li
               .connect.fs1{"aria-hidden" => "true", "data-icon" => "\", style: "padding-top: 8px"}
             %li
-              %a.button.expand.sd.edit{:href => "#"} Edit
+              / %a.button.expand.sd.edit{:href => "#"} Edit
+              %a.button.expand.sd.fs1{"aria-hidden" => "true", "data-icon" => "j"}
+      .companies
+        %ul.small-block-grid-1{style: "background-color: #fff"}
+          %h6{style:"text-align: center;"} About 
+          %li.profileinfo{style: "padding-top: 10px !important"}
+            Website | github URL 
+            %br
+            Interested in Software Engineering, Mobile Development
+        
+         
+          
       .companies
         %ul.small-block-grid-1{style: "background-color: #fff"}
           %h6 Recently Viewed Companies
+          
+
 
     .medium-8.columns
       .resumes
@@ -51,4 +66,4 @@
               %a.button.expand.sd.edit{:href => "#"} View/Edit Review
           %a.button.expand.sd{:href => "#"} + Add a New Review
 
-          %a.button.expand.more{:href => "#"} View All Companies Reviews
+          / %a.button.expand.more{:href => "#"} View All Companies Reviews
