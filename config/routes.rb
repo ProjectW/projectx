@@ -2,16 +2,20 @@
 Projectx::Application.routes.draw do
 
   namespace :student do
-    match 'dashboard/(:action)', 
-      :controller => :student_dashboard, 
-      :via => [:get], 
-      :defaults => { :action => 'show' }, 
-      :as => :dashboard
+    get '/dashboard' => 'student_dashboard#show'
 
-    match 'company/(:id)',
-      :controller => :company_profile,
-      :via => [:get], 
-      :defaults => { :action => 'show'}
+    get '/company' => 'company_profile#show'
+
+    # match 'dashboard/(:action)', 
+    #   :controller => :student_dashboard, 
+    #   :via => [:get], 
+    #   :defaults => { :action => 'show' }, 
+    #   :as => :dashboard
+
+    # match 'company/(:action/(:id))',
+    #   :controller => :company_profile,
+    #   :via => [:get], 
+    #   :defaults => { :action => 'show'}
 
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
