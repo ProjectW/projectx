@@ -2,6 +2,16 @@ class Student::ReviewsController < Student::StudentBaseController
   before_action :set_current_student
 
   def index
+    render :json => [
+      {
+        :id => 1,
+        :name => 'review1',
+      },
+      {
+        :id => 2,
+        :name => 'revew2',
+      }
+    ]
   end
 
   def new
