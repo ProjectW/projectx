@@ -14,15 +14,15 @@ set :normalize_asset_timestamps, %{ public/images }
 set :rvm_type, :system
 set :rvm_ruby_version, '2.1.2'
 
-# namespace :deploy do
+namespace :deploy do
 
-#   desc 'Restart application'
-#   task :restart do
-#     on roles(:app), in: :sequence, wait: 5 do
-#       execute 'service unicorn restart'
-#     end
-#   end
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute 'service unicorn restart'
+    end
+  end
 
-#   after :publishing, :restart
+  after :publishing, :restart
 
-# end
+end
