@@ -8,8 +8,14 @@ set :branch, ENV['branch'] || 'beta' # TODO move to master
 
 set :stage, :production
 
+set :conditionally_migrate, true
+set :assets_roles, [:app]
+
 set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
 set :normalize_asset_timestamps, %{ public/images }
+
+set :rvm_type, :system
+set :rvm_ruby_version, '2.1.2'
 
 namespace :deploy do
 

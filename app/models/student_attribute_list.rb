@@ -2,10 +2,10 @@ class StudentAttributeList < ActiveRecord::Base
   belongs_to :student_account
   has_many :interested_roles
 
-  enumerate :technical_level do
-    value :name => 'none',    :id => 0
-    value :name => 'low',     :id => 100
-    value :name => 'medium',  :id => 200
-    value :name => 'high',    :id => 300
-  end
+  enum technical_level: {
+    no_tech: 0,
+    low_tech: 100,
+    mid_tech: 200,
+    high_tech: 300
+  }
 end
