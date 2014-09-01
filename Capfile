@@ -6,7 +6,6 @@ require 'capistrano/deploy'
 
 # https://github.com/capistrano/rails
 require 'capistrano/rails'
-load 'deploy/assets'
 
 # https://github.com/capistrano/rvm
 require 'capistrano/rvm'
