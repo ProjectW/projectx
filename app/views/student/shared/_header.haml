@@ -8,6 +8,16 @@
         %a{href: "#"}
           %span Menu
     %section.top-bar-section
+      %ul.left
+        %li.has-form{style: "background-color: #FF8547;"}
+          .row.collapse
+            .large-8.small-9.columns
+              %input{:placeholder => "Search for companies", :type => "text"}
+            .large-4.small-3.columns
+              %a.button{:href => "#"} Search
+            / %li{style: "background-color: #29BBBB;"}
+            /   .icon.fs1{"aria-hidden" => "true", "data-icon" => "U"}
+             
       %ul.right
         %li
           %a{href: "#"} How It Works
