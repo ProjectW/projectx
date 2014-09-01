@@ -5,8 +5,8 @@
         %ul.small-block-grid-2{style: "background-color: #fff"}
           %li
             = image_tag('profile.png', class: "profilepic")
-          %li.profileinfo{style: "padding-top: 25px !important"}
-            Lisa Wang
+          %li.profileinfo{style: "padding-top: 25px !important"} 
+            Lisa Wang 
             %br
             Harvard
             %br
@@ -28,17 +28,22 @@
     .medium-8.columns
       .resumes
         %h6 My Resumes
-        %ul.small-block-grid-3{ style: "background-color: #fff" }
-          %li{ 'ng-repeat' => 'resume in resumes | orderBy:orderProp' }
+        %ul.small-block-grid-3{style: "background-color: #fff", 'ng-repeat' => 'resume in resumes | orderBy:orderProp'} 
+          %li
             {{ resume.name }}:
-            %img{ 'ng-src' => "{{ resume.path }}" }
+            %img{ 'ng-src' => "{{ resume.path }}"}
+            / = image_tag("{{ resumes.path }} ", :class => 'resume')
+          /   = image_tag('profile.png', class: "resume")
+          / %li
+          /   = image_tag('profile.png', class: "resume")
+          / %li
+          /   = image_tag('profile.png', class: "resume")
         %a.button.expand.sd{:href => "#"} + Upload a New Resume
       .reviews
-        %h6 My Reviews
-        %ul.small-block-grid-2{ style: "background-color: #fff" }
-          %li{ 'ng-repeat' => 'review in reviews' }
-            {{ review.name }}
-            %img.company{ 'ng-src' => 'company.png' }
+        %ul.small-block-grid-2{style: "background-color: #fff"} 
+          %h6 My Reviews
+          %li
+            = image_tag('company.png', class: "company")
           %li
             .options
               %input#checkbox1{:type => "checkbox"}
