@@ -1,2 +1,1 @@
-# nothing set yet
-role :app, %w{root@104.131.27.192} # need to change to deploy@pinpeg.io
+role :app, %w{root@pinpeg.io} # need to change to deploy@pinpeg.io
