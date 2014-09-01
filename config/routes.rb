@@ -27,7 +27,7 @@ Projectx::Application.routes.draw do
     resources :resumes
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
-    resources :companies do
+    resources :companies, :only => [:show] do
       member do
         get :reviews
       end
