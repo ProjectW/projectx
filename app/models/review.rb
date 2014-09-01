@@ -2,10 +2,10 @@ class Review < ActiveRecord::Base
   belongs_to :student_account
   belongs_to :company
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@college\.harvard\.edu\Z/i }
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
+  # validates :email, presence: true
+  # validates :email, format: { with: /\A([^@\s]+)@college\.harvard\.edu\Z/i }
   validates :position_title, presence: true
   validates :company, presence: true
   validates :season, presence: true
