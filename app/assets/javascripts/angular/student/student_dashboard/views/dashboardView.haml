@@ -30,9 +30,8 @@
         %h6 My Resumes
         %ul.small-block-grid-3{ style: "background-color: #fff" }
           %li{ 'ng-repeat' => 'resume in resumes | orderBy:orderProp' }
-            {{ resume.name }}:
-            %img{ 'ng-src' => "{{ resume.path }}" }
-        %a.button.expand.sd{:href => "#"} + Upload a New Resume
+            {{ resume.uploadFileName }}:
+        %a.button.expand.sd{:href => "resumes/new"} + Upload a New Resume
       .reviews
         %h6 My Reviews
         %ul.small-block-grid-2{ style: "background-color: #fff" }
