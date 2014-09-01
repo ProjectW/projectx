@@ -2,7 +2,7 @@ resumes = angular.module 'resources.resumes', ['ngResource']
 
 resumes.factory 'Resume', ['$resource', ($resource) ->
   $resource 'resumes/', {},
-    getAll:
+    query:
       method: 'GET'
       isArray: true
 ]
