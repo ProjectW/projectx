@@ -1,8 +1,9 @@
 - content_for :title do
   Dashboard
-  
+
 = stylesheet_link_tag 'student/student_account'
 = stylesheet_link_tag 'student/student_dashboard'
+= javascript_include_tag 'angular/student/shared/resources/resumes'
 = javascript_include_tag 'angular/student/student_dashboard/studentDashboardApp'
 = javascript_include_tag 'angular/student/student_dashboard/studentDashboardControllers'
 %div{ 'ng-app' => 'studentDashboardApp' }

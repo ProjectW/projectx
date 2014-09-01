@@ -29,8 +29,8 @@
       .resumes
         %h6 My Resumes
         %ul.small-block-grid-3{style: "background-color: #fff", 'ng-repeat' => 'resume in resumes | orderBy:orderProp'} 
-          %li 
-            {{ resume.name }}: 
+          %li
+            {{ resume.name }}:
             %img{ 'ng-src' => "{{ resume.path }}"}
             / = image_tag("{{ resumes.path }} ", :class => 'resume')
           /   = image_tag('profile.png', class: "resume")
