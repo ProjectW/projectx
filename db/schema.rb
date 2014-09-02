@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901193617) do
+ActiveRecord::Schema.define(version: 20140902005526) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140901193617) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "companies", ["name"], name: "index_on_name", unique: true, using: :btree
 
   create_table "company_accounts", force: true do |t|
     t.integer  "company_id",    null: false
@@ -78,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140901193617) do
     t.datetime "updated_at"
   end
 
-  add_index "schools", ["name"], name: "index_on_name", using: :btree
+  add_index "schools", ["name"], name: "index_on_name", unique: true, using: :btree
 
   create_table "student_accounts", force: true do |t|
     t.string   "first_name",                             null: false
