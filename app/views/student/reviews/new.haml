@@ -5,18 +5,11 @@
 		%h1
 			Review Your Internship
 .row
-	= form_for :reviews, :html => { :id => 'review-form' } do |f|
+	= form_for [:student, @review], :html => { :id => 'review-form' } do |f|
 		.medium-12.columns
 			%h3
 				First, some general info:
 			.row
-				.medium-6.columns
-					= f.text_field :first_name, :placeholder => "First Name", :required => true
-				.medium-6.columns
-					= f.text_field :last_name, :placeholder => "Last Name", :required => true
-			.row
-				.medium-6.columns
-					= f.text_field :email, :placeholder => "Email Address (@college.harvard.edu)", :required => true
 				.medium-6.columns
 					= f.text_field :position_title, :placeholder => "Position Title", :required => true
 			.row
@@ -45,10 +38,10 @@
 					= f.text_area :projects, :placeholder => "What kinds of projects did you work on?", :rows => "4", :required => true			
 			%h3
 				Express your love or hate
-			.row	
+			.row
 				.medium-12.columns
 					= f.text_area :end, :placeholder => "Tell the world anything else notable about your internship (e.g. company culture, interview process, explain your recommendation, there was an elephant sitting in the snack room at all times etc.,). ", :rows => "4", :required => true
 		.medium-2.columns.sendemail
 			%span
 				%div.button.postfix.send
-					= f.submit "Submit"			
+					= f.submit "Submit"

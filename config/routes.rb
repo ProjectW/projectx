@@ -2,11 +2,20 @@
 Projectx::Application.routes.draw do
 
   namespace :student do
-    match 'dashboard/(:action)', 
-      :controller => :student_dashboard, 
-      :via => [:get], 
-      :defaults => { :action => 'show' }, 
-      :as => :dashboard
+    get '/dashboard' => 'student_dashboard#show'
+
+    get '/company' => 'company_profile#show'
+
+    # match 'dashboard/(:action)', 
+    #   :controller => :student_dashboard, 
+    #   :via => [:get], 
+    #   :defaults => { :action => 'show' }, 
+    #   :as => :dashboard
+
+    # match 'company/(:action/(:id))',
+    #   :controller => :company_profile,
+    #   :via => [:get], 
+    #   :defaults => { :action => 'show'}
 
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login', 
@@ -14,6 +23,7 @@ Projectx::Application.routes.draw do
       :sign_up => 'register'
     } 
 
+    # resources :companies
     resources :resumes
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
@@ -30,7 +40,7 @@ Projectx::Application.routes.draw do
 
   get 'home/index'
   get '/about_us' => 'home#about_us'
-  
+
 # root to: 'student/reviews#index'
 root to: 'home#index'
 

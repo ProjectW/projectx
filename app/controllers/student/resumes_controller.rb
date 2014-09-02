@@ -1,19 +1,18 @@
 class Student::ResumesController < Student::StudentBaseController
+  include Student::AngularHelper
+
   before_action :set_current_student
 
   def index
-    render :json => [
-      {
-        :id => 1,
-        :name => 'resume1', 
-        :path => ActionController::Base.helpers.asset_path('city2.jpg'),
-      },
-      {
-        :id => 2,
-        :name => 'zresume2',
-        :path => ActionController::Base.helpers.asset_path('profile.png')
-      }
-    ]
+    render :json =>
+      camelize_symbolize_keys(@current_student.undeleted_resumes.map do |resume|
+                                {
+                                  id: resume.id,
+                                  upload_file_name: resume.upload_file_name,
+                                  updated_at: resume.updated_at
+                                }
+                              end
+      )
   end
 
   def new
@@ -37,7 +36,7 @@ class Student::ResumesController < Student::StudentBaseController
 
   def show
     @resume = @current_student.resumes.find_by_id(params.fetch(:id))
-    
+
     render :status => 404 unless @resume
     raise "The resume with id #{@resume.id} does not exist" unless @resume.upload.exists?
 
@@ -59,5 +58,4 @@ class Student::ResumesController < Student::StudentBaseController
   def resume_params
     params.require(:resume).permit(:upload)
   end
-
 end
