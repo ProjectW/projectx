@@ -8,6 +8,14 @@
         %a{href: "#"}
           %span Menu
     %section.top-bar-section
+      %ul.left
+        %li.has-form{style: "background-color: #FF8547;"}
+          .row.collapse
+            .large-9.small-10.columns
+              %input{:placeholder => "Search for companies", :type => "text"}
+            .large-3.small-2.columns
+              %a.button.fs1{"aria-hidden" => "true", "data-icon" => "U"}
+          
       %ul.right
         %li
           %a{href: "#"} How It Works
