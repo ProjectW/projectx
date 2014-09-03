@@ -1,10 +1,10 @@
 .profile
   .row
     .medium-12.columns
-      %a.button.expand.sd{:href => "#"} Upload your resume now to be seen by all of our partnership companies.
+      %a.button.expand.sd.alerting{:href => "#"} Click here to upload your resume now and be seen by all of our partnership companies.
     .medium-4.columns
       .profpic
-        %ul.small-block-grid-2{style: "background-color: #fff; padding-left: 25px;"}
+        %ul.small-block-grid-2{style: "background-color: #fff; padding-left: 25px; padding-right: 25px"}
           %li
             = image_tag('profile.png', class: "profilepic")
           %li.profileinfo{style: "padding-top: 25px !important"} 
@@ -85,14 +85,14 @@
         / %a.button.expand.sd{:href => "#"} + Upload a New Resume
       .reviews
         %ul.small-block-grid-2{style: "background-color: #fff"} 
-          %h6 My Reviews
-          %li
-            = image_tag('company.png', class: "company")
-          %li
-            .options
-              %input#checkbox1{:type => "checkbox"}
-                %label{:for => "checkbox1"} Students can email me about this company
-              %a.button.expand.sd.edit{:href => "#"} View/Edit Review
-          %a.button.expand.sd{:href => "#"} + Add a New Review
+          %h6 My Resumes
+          / %li
+          /   = image_tag('company.png', class: "company")
+          / %li
+          /   .options
+          /     %input#checkbox1{:type => "checkbox"}
+          /       %label{:for => "checkbox1"} Students can email me about this company
+          /     %a.button.expand.sd.edit{:href => "#"} View/Edit Review
+          / %a.button.expand.sd{:href => "#"} + Add a New Review
 
           / %a.button.expand.more{:href => "#"} View All Companies Reviews
