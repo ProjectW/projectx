@@ -1,0 +1,1 @@
+companyProfileControllers = angular.module 'companyProfileControllers', []

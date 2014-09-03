@@ -1,0 +1,8 @@
+- content_for :title do
+  Company Profile
+  
+= stylesheet_link_tag 'student/student_account'
+= javascript_include_tag 'angular/student/company_profile/companyProfileApp'
+= javascript_include_tag 'angular/student/student_dashboard/companyProfileControllers'
+%div{ 'ng-app' => 'companyProfileApp' }
+  %div{ 'ng-view' => '' }
