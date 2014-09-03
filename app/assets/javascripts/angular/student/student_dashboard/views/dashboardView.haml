@@ -7,8 +7,8 @@
         %ul.small-block-grid-2{style: "background-color: #fff; padding-left: 25px; padding-right: 25px"}
           %li
             = image_tag('profile.png', class: "profilepic")
-          %li.profileinfo{style: "padding-top: 25px !important"} 
-            Lisa Wang 
+          %li.profileinfo{style: "padding-top: 25px !important"}
+            Lisa Wang
             %br
             Harvard
             %br
@@ -94,5 +94,25 @@
           /       %label{:for => "checkbox1"} Students can email me about this company
           /     %a.button.expand.sd.edit{:href => "#"} View/Edit Review
           / %a.button.expand.sd{:href => "#"} + Add a New Review
+
+      .resumes
+        %h6 My Resumes
+        %ul.small-block-grid-3{ style: "background-color: #fff" }
+          %li{ 'ng-repeat' => 'resume in resumes | orderBy:orderProp' }
+            %a{ 'ng-href' => 'resumes/{{ resume.id }}', 'target' => '_blank' }
+              {{ resume.uploadFileName }}
+        %a.button.expand.sd{:href => "resumes/new"} + Upload a New Resume
+      .reviews
+        %h6 My Reviews
+        %ul.small-block-grid-2{ style: "background-color: #fff" }
+          %li{ 'ng-repeat' => 'review in reviews' }
+            {{ review.name }}
+            %img.company{ 'ng-src' => 'company.png' }
+          %li
+            .options
+              %input#checkbox1{:type => "checkbox"}
+                %label{:for => "checkbox1"} Students can email me about this company
+              %a.button.expand.sd.edit{:href => "#"} View/Edit Review
+          %a.button.expand.sd{:href => "#"} + Add a New Review
 
           / %a.button.expand.more{:href => "#"} View All Companies Reviews
