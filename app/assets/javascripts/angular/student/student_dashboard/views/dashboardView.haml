@@ -34,8 +34,16 @@
       .reviews
         %h6 My Reviews
         %a.button.expand.sd{:href => "reviews/new"} + Write a New Review
-        %ul.small-block-grid-2{ style: "background-color: #fff" }
-          %li{ 'ng-repeat' => 'review in reviews' }
-            {{ review.name }}
-          %li{ 'ng-if' => 'reviews.length == 0' }
-            You don't have any reviews yet, please write one!
+        %table{ :role => 'grid', 'ng-if' => 'reviews.length > 0' }
+          %thead
+            %tr
+              %th Company
+              %th Submitted
+              %th Available to Message?
+          %tbody
+            %tr{ 'ng-repeat' => 'review in reviews' }
+              %td
+              %td
+                {{ review.createdAt | date : 'short' }}
+        %div{ 'ng-if' => 'reviews.length == 0' }
+          You don't have any reviews yet, please write one!
