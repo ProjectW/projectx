@@ -33,15 +33,9 @@
           Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
       .reviews
         %h6 My Reviews
+        %a.button.expand.sd{:href => "reviews/new"} + Write a New Review
         %ul.small-block-grid-2{ style: "background-color: #fff" }
           %li{ 'ng-repeat' => 'review in reviews' }
             {{ review.name }}
-            %img.company{ 'ng-src' => 'company.png' }
-          %li
-            .options
-              %input#checkbox1{:type => "checkbox"}
-                %label{:for => "checkbox1"} Students can email me about this company
-              %a.button.expand.sd.edit{:href => "#"} View/Edit Review
-          %a.button.expand.sd{:href => "#"} + Add a New Review
-
-          %a.button.expand.more{:href => "#"} View All Companies Reviews
+          %li{ 'ng-if' => 'reviews.length == 0' }
+            You don't have any reviews yet, please write one!
