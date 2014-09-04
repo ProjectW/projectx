@@ -9,5 +9,5 @@ company.factory 'Company', ['$resource', ($resource) ->
       method: 'GET'
       params: 
         id: '@id'
-
+      isArray: true
 ]

@@ -14,16 +14,25 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-    byebug
     @company = Company.find(params.fetch(:id))
 
-    render :json =>
-      camelize_symbolize_keys(@company.reviews.map do |review|
-                                {
-                                  id: review.id
-                                }
-                              end
-      )
+    render :json => [
+      {
+        :id => 1,
+        :text => 'hello testing 1'
+      },
+      {
+        :id => 2,
+        :text => 'hello testing 2'
+      }
+    ]
+    # render :json =>
+    #   camelize_symbolize_keys(@company.reviews.map do |review|
+    #                             {
+    #                               id: review.id
+    #                             }
+    #                           end
+    #   )
   end
 
   def show

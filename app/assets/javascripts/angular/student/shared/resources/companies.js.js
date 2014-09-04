@@ -14,7 +14,8 @@ company.factory('Company', [
         method: 'GET',
         params: {
           id: '@id'
-        }
+        },
+        isArray: true
       }
     });
   }
