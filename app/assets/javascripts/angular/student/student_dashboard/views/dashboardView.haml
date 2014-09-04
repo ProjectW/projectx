@@ -1,7 +1,5 @@
 .profile
   .row
-    .medium-12.columns
-      %a.button.expand.sd.alerting{:href => "#"} Click here to upload your resume now and be seen by all of our partnership companies.
     .medium-4.columns
       .profpic
         %ul.small-block-grid-2{style: "background-color: #fff; padding-left: 25px; padding-right: 25px"}
@@ -30,17 +28,15 @@
             Website | github URL 
             %br
             Interested in Software Engineering, Mobile Development
-        
-         
           
       .companies
         %ul.small-block-grid-1{style: "background-color: #fff"}
           %h6 Recently Viewed Companies
           
 
-
     .medium-8.columns
       .reviews{style: "background-color: #fff"}
+        %a.button.expand.sd.alerting{:href => "#"} Click here to upload your resume now and be seen by all of our partnership companies.
         %h6 My Reviews
         %a.button.expand.sd{:href => "#"} + Write a Review
       .companies
@@ -49,8 +45,8 @@
             %tr
               %th{:width => "200"} Company
               %th Submitted
-              %th{:width => "150"} Review Status
-              %th{:width => "150"} Viewed By
+              %th{:width => "200"} Available to Message (Y/N)
+              
           %tbody
             %tr
               %td 
@@ -58,19 +54,24 @@
                   %li
                     = image_tag('company.png', class: "company")
               %td 8/9/14 at 3:00PM EST
-              %td Approved
-              %td 19 users
+              %td 
+                %ul.none
+                  %li
+                    .options
+                      %input#checkbox1{:type => "checkbox"}
+                        %label{:for => "checkbox1"} 
+             
 
             %tr
               %td Content Goes Here
               %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
               %td Content Goes Here
-              %td Content Goes Here
+              
             %tr
               %td Content Goes Here
               %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
               %td Content Goes Here
-              %td Content Goes Here
+             
         / %ul.small-block-grid-3{style: "background-color: #fff", 'ng-repeat' => 'resume in resumes | orderBy:orderProp'} 
         /   %li
         /     {{ resume.name }}:
@@ -83,17 +84,7 @@
         /   /   = image_tag('profile.png', class: "resume")
 
         / %a.button.expand.sd{:href => "#"} + Upload a New Resume
-      .reviews
-        %ul.small-block-grid-2{style: "background-color: #fff"} 
-          %h6 My Resumes
-          / %li
-          /   = image_tag('company.png', class: "company")
-          / %li
-          /   .options
-          /     %input#checkbox1{:type => "checkbox"}
-          /       %label{:for => "checkbox1"} Students can email me about this company
-          /     %a.button.expand.sd.edit{:href => "#"} View/Edit Review
-          / %a.button.expand.sd{:href => "#"} + Add a New Review
+      
 
       .resumes
         %h6 My Resumes
