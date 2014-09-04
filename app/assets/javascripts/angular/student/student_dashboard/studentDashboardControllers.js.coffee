@@ -1,7 +1,7 @@
 studentDashboardControllers = angular.module 'studentDashboardControllers', []
 
 studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http', 'Resume', 'Review', ($scope, $http, Resume, Review) ->
-  $scope.resumes = Resume.query()
+  $scope.resume = Resume.current()
   $scope.reviews = Review.query()
   $scope.orderProp = 'name'
 ]

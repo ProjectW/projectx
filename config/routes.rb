@@ -18,13 +18,18 @@ Projectx::Application.routes.draw do
     #   :defaults => { :action => 'show'}
 
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
-      :sign_in => 'login', 
+      :sign_in => 'login',
       :sign_out => 'logout',
       :sign_up => 'register'
-    } 
+    }
 
     # resources :companies
-    resources :resumes
+    resources :resumes do
+      collection do
+        get 'current'
+      end
+    end
+
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
     resources :companies, :only => [:show] do
@@ -45,7 +50,7 @@ Projectx::Application.routes.draw do
 
   get 'home/index'
   get '/about_us' => 'home#about_us'
-  
+
 # root to: 'student/reviews#index'
 root to: 'home#index'
 

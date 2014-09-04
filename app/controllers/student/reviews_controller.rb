@@ -23,10 +23,7 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def review_params
-    params.require(:reviews).permit(
-      :email,
-      :first_name,
-      :last_name,
+    params.require(:review).permit(
       :company,
       :position_title,
       :salary,
