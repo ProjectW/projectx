@@ -4,13 +4,17 @@ class Resume < ActiveRecord::Base
   validates :student_account_id, presence: true
 
   # https://github.com/thoughtbot/paperclip
-  PATH_TO_RESUME = '/resumes/account:student_account_id/:style:updated_at.:extension'  
+  PATH_TO_RESUME = '/resumes/account:student_account_id/:style:updated_at.:extension'
   has_attached_file :upload, {
     :preserve_files => 'true',
     :url => PATH_TO_RESUME,
     :path => ':rails_root/tmp' + PATH_TO_RESUME
   }
   validates_attachment_content_type :upload, :content_type => ['application/pdf', 'application/x-pdf']
+
+  def current?
+    self.student_account.current_resume == self
+  end
 
   def dir_path
     Resume.resumes_root_path.join('account' + self.student_account_id.to_s)
