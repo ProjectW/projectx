@@ -1,4 +1,6 @@
 class Student::ReviewsController < Student::StudentBaseController
+  include Student::AngularHelper
+
   before_action :set_current_student
 
   def index
