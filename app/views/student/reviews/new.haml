@@ -14,7 +14,7 @@
 					= f.text_field :position_title, :placeholder => "Position Title", :required => true
 			.row
 				.medium-6.columns
-					= f.text_field :company, :placeholder => "Company Name", :required => true
+					= f.number_field :company_id, :placeholder => "Company ID", :min => "1", :required => true
 				.medium-3.columns
 					= f.select :season, options_for_select([['Summer', 'summer'],['Winter', 'winter']]), :required => true
 				.medium-3.columns

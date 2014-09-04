@@ -2,7 +2,7 @@ class Student::ReviewsController < Student::StudentBaseController
   before_action :set_current_student
 
   def index
-    render :json => []
+    render :json => @current_student.reviews.map{ |review| get_review_json(review) }
   end
 
   def new
@@ -11,6 +11,7 @@ class Student::ReviewsController < Student::StudentBaseController
 
   def create
     @review = Review.new(review_params)
+    @review.student_account = @current_student
 
     if !@review.save
       raise "Review did not save correctly"
@@ -22,9 +23,11 @@ class Student::ReviewsController < Student::StudentBaseController
   def show
   end
 
+  private
+
   def review_params
     params.require(:review).permit(
-      :company,
+      :company_id,
       :position_title,
       :salary,
       :projects,
@@ -36,6 +39,15 @@ class Student::ReviewsController < Student::StudentBaseController
       :end,
       :hours
     )
+  end
+
+  def get_review_json(review)
+    camelize_symbolize_keys({
+      id: review.id,
+      company_id: review.company_id,
+      created_at: review.created_at,
+      can_contact: true # TODO write this migration
+    })
   end
 
 end
