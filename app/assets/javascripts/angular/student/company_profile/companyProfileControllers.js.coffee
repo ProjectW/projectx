@@ -1,6 +1,7 @@
 companyProfileControllers = angular.module 'companyProfileControllers', []
 
-companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$http', 'Company', ($scope, $http, Company) ->
-  $scope.company = new Company({id: 123})
+companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routeParams', '$http', 'Company', ($scope, $routeParams, $http, Company) ->
+  $scope.companyId = $routeParams.companyId
+  $scope.company = new Company(id: $scope.companyId)
   $scope.reviews = $scope.company.$reviews()
 ]

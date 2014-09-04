@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 20140902005526) do
     t.string   "season",             default: "Summer", null: false
     t.integer  "year",               default: 0,        null: false
     t.integer  "salary"
+    t.string   "projects"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hours",                                 null: false
-    t.text     "projects",                              null: false
-    t.text     "mentorship",                            null: false
-    t.text     "end",                                   null: false
+    t.string   "mentorship",                            null: false
+    t.string   "end",                                   null: false
     t.integer  "student_account_id",                    null: false
     t.integer  "company_id"
   end

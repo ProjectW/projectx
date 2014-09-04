@@ -14,6 +14,7 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
+    byebug
     @company = Company.find(params.fetch(:id))
 
     render :json =>

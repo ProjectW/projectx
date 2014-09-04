@@ -2,7 +2,7 @@ companyProfileApp = angular.module 'companyProfileApp', ['ngRoute','companyProfi
 
 companyProfileApp.config ['$routeProvider', ($routeProvider) -> 
   $routeProvider
-    .when('/:id', 
+    .when('/:companyId', 
       templateUrl: '<%= asset_path("angular/student/company_profile/views/profileView") %>',
       controller: 'CompanyProfileCtrl'
     )
