@@ -5,4 +5,7 @@ resumes.factory 'Resume', ['$resource', ($resource) ->
     query:
       method: 'GET'
       isArray: true
+    current:
+      method: 'GET'
+      url: 'resumes/current'
 ]

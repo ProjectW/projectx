@@ -26,13 +26,11 @@
           %h6 Recently Viewed Companies
 
     .medium-8.columns
-      .resumes
-        %h6 My Resumes
-        %ul.small-block-grid-3{ style: "background-color: #fff" }
-          %li{ 'ng-repeat' => 'resume in resumes | orderBy:orderProp' }
-            %a{ 'ng-href' => 'resumes/{{ resume.id }}', 'target' => '_blank' }
-              {{ resume.uploadFileName }}
-        %a.button.expand.sd{:href => "resumes/new"} + Upload a New Resume
+      .resumes{ 'ng-switch' => 'resume.id' }
+        %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
+          + Upload a New Resume
+        %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
+          Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
       .reviews
         %h6 My Reviews
         %ul.small-block-grid-2{ style: "background-color: #fff" }
