@@ -1,13 +1,11 @@
 company = angular.module 'resources.companies', ['ngResource']
 
 company.factory 'Company', ['$resource', ($resource) ->
-  $resource 'companies/:id', {},
-    query:
-      method: 'GET'
+  $resource 'companies/:id', { id: '@id' },
     reviews:
       url: 'companies/:id/reviews'
       method: 'GET'
-      params: 
+      params:
         id: '@id'
       isArray: true
 ]

@@ -2,6 +2,7 @@ class Student::CompaniesController < Student::StudentBaseController
   include Student::AngularHelper
 
   before_action :set_current_student
+  before_action :set_current_company, only: [:reviews, :show]
 
   def index
     render :json =>
@@ -14,16 +15,19 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-    @company = Company.find(params.fetch(:id))
 
+      # render :json => {
+      #   # :id => 2,
+      #   :name => "Hello my name is willy"
+      # }
     render :json => [
       {
         :id => 1,
-        :text => 'hello testing 1'
+        :name => 'hello testing 1'
       },
       {
         :id => 2,
-        :text => 'hello testing 2'
+        :name => 'hello testing 2'
       }
     ]
     # render :json =>
@@ -36,6 +40,20 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def show
-    
+    render :json => get_company_json(@company)
   end
+
+  private
+
+  def set_current_company
+    @company = Company.find(params.fetch(:id))
+  end
+
+  def get_company_json(company)
+    {
+      id: company.id,
+      name: company.display_name
+    }
+  end
+
 end
