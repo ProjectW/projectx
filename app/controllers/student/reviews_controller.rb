@@ -47,8 +47,9 @@ class Student::ReviewsController < Student::StudentBaseController
     camelize_symbolize_keys({
       id: review.id,
       company_id: review.company_id,
+      company_name: review.company.display_name,
       created_at: review.created_at,
-      can_contact: true # TODO write this migration
+      can_contact: false # TODO write this migration
     })
   end
 

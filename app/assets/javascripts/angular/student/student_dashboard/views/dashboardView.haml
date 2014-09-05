@@ -33,17 +33,28 @@
           Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
       .reviews
         %h6 My Reviews
-        %a.button.expand.sd{:href => "reviews/new"} + Write a New Review
-        %table{ :role => 'grid', 'ng-if' => 'reviews.length > 0' }
+        %a.button.expand.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px' }
+          + Write a New Review
+        %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
           %thead
             %tr
               %th Company
               %th Submitted
-              %th Available to Message?
+              %th{ 'style' => 'width: 30%' } Available to Message?
           %tbody
             %tr{ 'ng-repeat' => 'review in reviews' }
               %td
+                {{ review.companyName }}
               %td
                 {{ review.createdAt | date : 'short' }}
+              %td{'style' => 'padding:0 ; margin: 0'}
+                
+
+                %a.button{ 'ng-if' => 'review.canContact', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
+                  %span{ 'style' => 'display:inline-block;vertical-align:middle' }
+                    YES
+                %a.button.expand{ 'ng-if' => '!review.canContact', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
+                  %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle' }
+                    NO
         %div{ 'ng-if' => 'reviews.length == 0' }
           You don't have any reviews yet, please write one!
