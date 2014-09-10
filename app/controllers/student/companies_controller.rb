@@ -15,28 +15,13 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-
-      # render :json => {
-      #   # :id => 2,
-      #   :name => "Hello my name is willy"
-      # }
-    render :json => [
-      {
-        :id => 1,
-        :name => 'hello testing 1'
-      },
-      {
-        :id => 2,
-        :name => 'hello testing 2'
-      }
-    ]
-    # render :json =>
-    #   camelize_symbolize_keys(@company.reviews.map do |review|
-    #                             {
-    #                               id: review.id
-    #                             }
-    #                           end
-    #   )
+    render :json =>
+      camelize_symbolize_keys(@company.reviews.map do |review|
+                                {
+                                  id: review.id
+                                }
+                              end
+      )
   end
 
   def show
