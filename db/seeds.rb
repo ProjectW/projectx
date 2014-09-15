@@ -21,7 +21,7 @@ companies = [
 
 def seed_database(model, records)
   records.each do |record|
-    model_instance = model.send(:find, record[:id])
+    model_instance = model.send(:where, { :id => record[:id] }).first
     if model_instance.nil?
       model.send(:create, record)
     else
