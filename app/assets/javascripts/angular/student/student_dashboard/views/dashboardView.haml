@@ -3,9 +3,8 @@
     .medium-4.columns
       .profpic
         %ul.small-block-grid-2{style: "background-color: #fff"}
-          %li
-            = image_tag('profile.png', class: "profilepic")
           %li.profileinfo{style: "padding-top: 25px !important"}
+            {{ }}
             Lisa Wang
             %br
             Harvard
@@ -48,8 +47,6 @@
               %td
                 {{ review.createdAt | date : 'short' }}
               %td{'style' => 'padding:0 ; margin: 0'}
-                
-
                 %a.button{ 'ng-if' => 'review.canContact', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
                   %span{ 'style' => 'display:inline-block;vertical-align:middle' }
                     YES
