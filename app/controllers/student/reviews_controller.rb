@@ -2,6 +2,7 @@ class Student::ReviewsController < Student::StudentBaseController
   include Student::AngularHelper
 
   before_action :set_current_student
+  around_action :with_render_exception, :only => [:index, :update]
 
   def index
     render :json => @current_student.reviews.map{ |review| get_review_json(review) }
@@ -20,6 +21,22 @@ class Student::ReviewsController < Student::StudentBaseController
     else
       redirect_to "/student/reviews/submit"
     end
+  end
+
+  def update
+    @review = Review.find(params[:id])
+
+    if @review.student_account != @current_student
+      raise "Unauthorized, review not owned by student id: #{current_student.id}"
+    end
+
+    @review.contactable = params[:contactable]
+
+    if !@review.save
+      raise 'Could not save review'
+    end
+
+    render :json => { :success => true }
   end
 
   def show
@@ -49,7 +66,7 @@ class Student::ReviewsController < Student::StudentBaseController
       company_id: review.company_id,
       company_name: review.company.display_name,
       created_at: review.created_at,
-      can_contact: false # TODO write this migration
+      contactable: review.contactable
     })
   end
 

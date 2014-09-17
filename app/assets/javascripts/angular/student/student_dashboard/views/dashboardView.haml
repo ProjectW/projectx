@@ -47,10 +47,10 @@
               %td
                 {{ review.createdAt | date : 'short' }}
               %td{'style' => 'padding:0 ; margin: 0'}
-                %a.button{ 'ng-if' => 'review.canContact', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
+                %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
                   %span{ 'style' => 'display:inline-block;vertical-align:middle' }
                     YES
-                %a.button.expand{ 'ng-if' => '!review.canContact', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
+                %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
                   %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle' }
                     NO
         %div{ 'ng-if' => 'reviews.length == 0' }

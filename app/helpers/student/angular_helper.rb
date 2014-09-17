@@ -13,4 +13,13 @@ module Student::AngularHelper
       jsonable
     end
   end
+
+  def with_render_exception
+    begin
+      yield
+    rescue Exception => e
+      logger.fatal e.message
+      render :json => { :success => false, :message => e.message }, :status => 422
+    end
+  end
 end
