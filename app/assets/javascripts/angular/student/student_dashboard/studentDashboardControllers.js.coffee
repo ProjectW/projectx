@@ -5,10 +5,10 @@ studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http
   $scope.reviews = Review.query()
   $scope.toggleContactable = (review) ->
     review.contactable = !review.contactable
-    review.$update({}, (->) , (v, r) ->
+    review.$update {}, (->) , (v, r) ->
+      # FIXME shouldn't have to get response from server
       review.contactable = !review.contactable
       alert "Error: " + if v.data then v.data.message else v
-    )
 ]
 
 studentDashboardControllers.controller 'ResumeCtrl', ['$scope', '$routeParams', ($scope, $routeParams) ->

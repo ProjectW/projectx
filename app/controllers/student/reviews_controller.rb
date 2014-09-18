@@ -36,7 +36,7 @@ class Student::ReviewsController < Student::StudentBaseController
       raise 'Could not save review'
     end
 
-    render :json => { :success => true }
+    render :json => get_review_json(@review)
   end
 
   def show
