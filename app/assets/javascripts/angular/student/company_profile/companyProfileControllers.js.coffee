@@ -1,4 +1,8 @@
-companyProfileControllers = angular.module 'companyProfileControllers', []
+companyProfileControllers = angular.module 'companyProfileControllers'
+
+companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', ($scope, $http) ->
+  # alert('hello')
+]
 
 companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routeParams', '$http', 'Company', ($scope, $routeParams, $http, Company) ->
   companyId = $routeParams.companyId
