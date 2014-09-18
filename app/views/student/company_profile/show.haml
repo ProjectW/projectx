@@ -7,8 +7,9 @@
 = javascript_include_tag 'jquery.stellar.min'
 = javascript_include_tag 'parallax'
 = javascript_include_tag 'angular/student/shared/resources/companies'
-= javascript_include_tag 'angular/student/company_profile/companyProfileApp'
 = javascript_include_tag 'angular/student/company_profile/companyProfileControllers'
+= javascript_include_tag 'angular/student/company_profile/companyProfileApp'
+
 #company{"data-stellar-background-ratio" => "0.5"}
 %div{ 'ng-app' => 'companyProfileApp', "data-stellar-background-ratio" => "1.5" }
   %div{ 'ng-view' => ''}
