@@ -32,6 +32,10 @@ Projectx::Application.routes.draw do
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
     resources :companies, :only => [:show] do
+      collection do
+        get :search
+      end
+
       member do
         get :reviews
       end

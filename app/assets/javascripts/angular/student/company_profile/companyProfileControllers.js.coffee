@@ -1,7 +1,12 @@
 companyProfileControllers = angular.module 'companyProfileControllers', []
 
-companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', ($scope, $http) ->
-  $scope.text = "hello, world!"
+companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', 'Company', ($scope, $http, Company) ->
+  $scope.searchText
+
+  $scope.search = () ->
+    Company.search({ searchText: $scope.searchText}, (r, v) -> 
+      alert r
+    )
 ]
 
 companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routeParams', '$http', 'Company', ($scope, $routeParams, $http, Company) ->

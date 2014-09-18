@@ -3,6 +3,7 @@ class Student::CompaniesController < Student::StudentBaseController
 
   before_action :set_current_student
   before_action :set_current_company, only: [:reviews, :show]
+  around_action :with_render_exception
 
   def index
     render :json =>
@@ -22,6 +23,10 @@ class Student::CompaniesController < Student::StudentBaseController
                                 }
                               end
       )
+  end
+
+  def search
+    search_text = params.get(:searchText)
   end
 
   def show

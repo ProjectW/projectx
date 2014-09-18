@@ -8,4 +8,8 @@ company.factory 'Company', ['$resource', ($resource) ->
       params:
         id: '@id'
       isArray: true
+    search:
+      url: 'companies/search'
+      method: 'GET'
+      isArray: true
 ]
