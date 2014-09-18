@@ -1,8 +1,11 @@
 class Student::ReviewsController < Student::StudentBaseController
+  include Student::AngularHelper
+
   before_action :set_current_student
+  around_action :with_render_exception, :only => [:index, :update]
 
   def index
-    render :json => []
+    render :json => @current_student.reviews.map{ |review| get_review_json(review) }
   end
 
   def new
@@ -11,6 +14,7 @@ class Student::ReviewsController < Student::StudentBaseController
 
   def create
     @review = Review.new(review_params)
+    @review.student_account = @current_student
 
     if !@review.save
       raise "Review did not save correctly"
@@ -19,12 +23,30 @@ class Student::ReviewsController < Student::StudentBaseController
     end
   end
 
+  def update
+    @review = Review.find(params[:id])
+
+    if @review.student_account != @current_student
+      raise "Unauthorized, review not owned by student id: #{current_student.id}"
+    end
+
+    @review.contactable = params[:contactable]
+
+    if !@review.save
+      raise 'Could not save review'
+    end
+
+    render :json => get_review_json(@review)
+  end
+
   def show
   end
 
+  private
+
   def review_params
     params.require(:review).permit(
-      :company,
+      :company_id,
       :position_title,
       :salary,
       :projects,
@@ -36,6 +58,16 @@ class Student::ReviewsController < Student::StudentBaseController
       :end,
       :hours
     )
+  end
+
+  def get_review_json(review)
+    camelize_symbolize_keys({
+      id: review.id,
+      company_id: review.company_id,
+      company_name: review.company.display_name,
+      created_at: review.created_at,
+      contactable: review.contactable
+    })
   end
 
 end

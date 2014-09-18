@@ -1,8 +1,14 @@
 - content_for :title do
   Company Profile
-  
+
 = stylesheet_link_tag 'student/student_account'
+= stylesheet_link_tag 'student/company_profile'
+= javascript_include_tag 'vendor/modernizr'
+= javascript_include_tag 'jquery.stellar.min'
+= javascript_include_tag 'parallax'
+= javascript_include_tag 'angular/student/shared/resources/companies'
 = javascript_include_tag 'angular/student/company_profile/companyProfileApp'
-= javascript_include_tag 'angular/student/student_dashboard/companyProfileControllers'
-%div{ 'ng-app' => 'companyProfileApp' }
-  %div{ 'ng-view' => '' }
+= javascript_include_tag 'angular/student/company_profile/companyProfileControllers'
+
+%div{ 'ng-app' => 'companyProfileApp'}
+  %div{ 'ng-view' => ''}

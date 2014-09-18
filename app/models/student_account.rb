@@ -22,6 +22,11 @@ class StudentAccount < ActiveRecord::Base
     self.save
   end
 
+  # TODO rollback_current_resume
+  # def rollback_current_resume
+  #   self.undeleted_resumes.
+  # end
+
   def undeleted_resumes
     self.resumes.where( deleted: false )
   end

@@ -3,7 +3,6 @@ Projectx::Application.routes.draw do
 
   namespace :student do
     get '/dashboard' => 'student_dashboard#show'
-
     get '/company' => 'company_profile#show'
 
     # match 'dashboard/(:action)', 
@@ -18,15 +17,29 @@ Projectx::Application.routes.draw do
     #   :defaults => { :action => 'show'}
 
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
-      :sign_in => 'login', 
+      :sign_in => 'login',
       :sign_out => 'logout',
       :sign_up => 'register'
-    } 
+    }
 
     # resources :companies
-    resources :resumes
+    resources :resumes do
+      collection do
+        get :current
+      end
+    end
+
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews
+    resources :companies, :only => [:show] do
+      collection do
+        get :search
+      end
+
+      member do
+        get :reviews
+      end
+    end
   end
 
   # namespace :company do
@@ -41,56 +54,6 @@ Projectx::Application.routes.draw do
   get 'home/index'
   get '/about_us' => 'home#about_us'
 
-# root to: 'student/reviews#index'
-root to: 'home#index'
-
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # root to: 'student/reviews#index'
+  root to: 'home#index'
 end
