@@ -16,13 +16,27 @@ companies = [
   { id: 3, name: 'facebook', display_name: 'Facebook' },
   { id: 4, name: 'harvard_management_company', display_name: 'Harvard Management Company' },
   { id: 5, name: 'liveramp', display_name: 'LiveRamp' },
-  { id: 6, name: 'cueball', display_name: 'CueBall' }
+  { id: 6, name: 'cueball', display_name: 'Cue Ball' }
 ]
 
-schools.each do |school|
-  School.create(school) if School.where(school).empty?
+def seed_database(model, records)
+  records.each do |record|
+    model_instance = model.send(:where, { :id => record[:id] }).first
+    if model_instance.nil?
+      model.send(:create, record)
+    else
+      model_instance.update_attributes(record)
+    end
+  end
 end
 
-companies.each do |company|
-  Company.create(company) if Company.where(company).empty?
-end
+seed_database(School, schools)
+seed_database(Company, companies)
+
+# schools.each do |school|
+#   School.create(school) if School.where(school).empty?
+# end
+
+# companies.each do |company|
+#   Company.create(company) if Company.where(company).empty?
+# end
