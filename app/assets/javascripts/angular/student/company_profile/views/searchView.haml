@@ -1,4 +1,6 @@
 %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()'}
 
 %div{ 'ng-repeat' => 'company in companies' }
-  {{ company.id }} : {{ company.name }}
+  {{ company.id }} : 
+  %a{ 'ng-href' => '#/{{ company.id }}'} 
+    {{ company.name }}
