@@ -4,6 +4,10 @@ companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', 'C
   $scope.searchText
   $scope.companies = []
   $scope.search = () ->
+    if not $scope.searchText
+      $scope.companies = []
+      return
+
     Company.search({ searchText: $scope.searchText}, (r, v) ->
       $scope.companies = r
     )
