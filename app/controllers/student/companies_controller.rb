@@ -26,7 +26,10 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def search
-    search_text = params.get(:searchText)
+    search_text = params[:searchText]
+    companies = Company.where('display_name LIKE ?', '%' + search_text + '%')
+
+    render :json => companies.map{|company| get_company_json(company) }
   end
 
   def show

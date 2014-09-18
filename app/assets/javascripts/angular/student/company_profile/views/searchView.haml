@@ -1,3 +1,4 @@
-%input{ 'type' => 'text', 'ng-model' => 'searchText' }
+%input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()'}
 
-{{ searchText }}
+%div{ 'ng-repeat' => 'company in companies' }
+  {{ company.id }} : {{ company.name }}
