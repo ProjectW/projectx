@@ -11,8 +11,9 @@ class Student::AccountsController < Student::StudentBaseController
       includes(:company).
       where(:student_account => @current_student).
       order(created_at: :desc).
-      select('DISTINCT company_id').
-      limit(VIEWS_LIMIT)
+      to_a.
+      uniq(&:company_id).
+      slice(0, VIEWS_LIMIT)
     render :json => camelize_symbolize_keys(views.map{ |view| get_view_json(view) })
   end
 
