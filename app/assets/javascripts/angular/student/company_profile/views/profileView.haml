@@ -1,29 +1,7 @@
-
-= javascript_include_tag 'jquery.stellar.min'
-
-:javascript
-  $(document).ready(function(){
-    if(!Modernizr.touch){
-      $.stellar();
-    }
-  });
-
-{{ company.name }}
-/ #company{"data-stellar-background-ratio" => "0.5"}
-/   %div{"data-stellar-background-ratio" => "1.5" }
-
-/ .company
-/ #wrapper{"data-stellar-background-ratio" => "1.0"}
-/   .col
-/     .row
-/       .medium-6.columns.left-column
-/         %h1
-/           {{ company.name }}
-/         %h3
-/           New York City, NY, United States
-/         %h4
-/           Type: Architecture
-/         %h4
-/           Founded: 2009
-/         %h4
-/           Founded: Series A
+.row
+  .large-12
+    %h1
+      %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
+        {{ company.name }}
+    %div{ 'ng-repeat' => 'review in reviews' }
+      Review with id: {{ review.id }} by {{ review.studentName }}

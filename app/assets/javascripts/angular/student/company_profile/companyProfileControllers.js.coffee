@@ -22,8 +22,5 @@ companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routePar
     $scope.company = company
     Company.view({ id: companyId }) # TODO handle errors
   )
-  # NOTE you MUST call reviews as a static function
-  $scope.reviews = Company.reviews({ id: companyId }, (reviews) ->
-    $scope.review = reviews[0]
-  )
+  $scope.reviews = Company.reviews({ id: companyId })
 ]
