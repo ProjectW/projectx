@@ -26,7 +26,8 @@ class Student::AccountsController < Student::StudentBaseController
   def get_account_json(account)
     {
       id: account.id,
-      name: account.first_name + " " + account.last_name,
+      first_name: account.first_name,
+      last_name: account.last_name,
       graduation_year: account.graduation_year,
       school: account.school.display_name
     }

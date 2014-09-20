@@ -4,7 +4,7 @@
   .prof-info
     .row
       .medium-12.columns
-        %h1 {{ account.name }}
+        %h1 {{ account.firstName }} {{ account.lastName }}
     .row
       .medium-12.columns
         %h2 {{ account.school }}, Class of {{ account.graduationYear }}
@@ -16,13 +16,12 @@
   .row
     .medium-12.columns
       %h5{:style=> "float:left;"}
-        Hi {{ account.name }}, you look great today.
-      
+        Hi {{ account.firstName }}, you look great today.
       %h5.wish
         If you wish, I can change your information 
         %a
           %strong
-            here.  
+            here.
     .medium-4.columns.company_list
       %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit"}
         %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
