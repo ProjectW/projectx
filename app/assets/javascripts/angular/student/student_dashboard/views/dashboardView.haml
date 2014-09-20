@@ -1,31 +1,3 @@
-:css
-  h5{
-    font-family: 'mathilde';
-    font-size: 2.5rem;
-  }
-  .prof-info{
-    background-color: #ff8547;
-    color: white;
-    text-align: center;
-    margin:0;
-    padding-top: 15px;
-  }
-
-  .profile{
-    padding:0;
-  }
-  h1, h2{
-    font-family: 'mathilde';
-    color: white;
-    line-height:0.8
-  }
-  h2{
-    font-size: 1.8rem;
-  }
-  .wish{
-    font-size: 2rem;
-    float:right;
-  }
 
 %hr{:style => "margin: 0;"}
 .profile
@@ -43,20 +15,21 @@
         .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
   .row
     .medium-12.columns
-      %h5
+      %h5{:style => "float:left"}
         Hi Lisa, you look great today.
+      
       %h5.wish
         If you wish, I can change your information 
         %a
           %strong
             here.  
-    .medium-4.columns
-      .companies
-        %h6 Recently Viewed Companies
-        %ul.small-block-grid-1{style: "background-color: #fff"}
-          %li{ 'ng-repeat' => 'companyView in companyViews' }
-            %a{ 'ng-href' => 'company#/{{ companyView.companyId}}'}
-              {{ companyView.companyName }}
+    .medium-4.columns.company_list
+      %ul.small-block-grid-1{style: "background-color: #fff"}
+        %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
+        %hr
+        %li{ 'ng-repeat' => 'companyView in companyViews' }
+          %a{ 'ng-href' => 'company#/{{ companyView.companyId}}'}
+            {{ companyView.companyName }}
 
 
     .medium-8.columns
@@ -65,30 +38,32 @@
           + Upload a New Resume
         %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
           Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
-      .reviews       
-        %a.button.expand.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px' }
-          + Write a New Review
-        %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
-          %thead
-            %tr{:style => 'margin: 0; padding:0'} 
-              %th{:colspan=>'3', :style => 'margin:0; padding:0'}
-                %h6{:style => 'margin:0'} My Reviews
-            %tr
-              %th Company
-              %th Submitted
-              %th{ 'style' => 'width: 30%' } Available to Message?
-          %tbody
-            %tr{ 'ng-repeat' => 'review in reviews' }
-              %td
-                {{ review.companyName }}
-              %td
-                {{ review.createdAt | date : 'short' }}
-              %td{'style' => 'padding:0 ; margin: 0'}
-                %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
-                  %span{ 'style' => 'display:inline-block;vertical-align:middle; padding-top: 5px;' }
-                    YES
-                %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
-                  %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
-                    NO
+      .reviews      
+        %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit;"} 
+          %li{:style => "padding:20px !important; font-size: 1.2rem"} My Reviews
+          %hr
+          %li
+            %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
+              %thead
+                %tr
+                  %th Company
+                  %th Submitted
+                  %th{ 'style' => 'width: 30%' } Available to Message?
+              %tbody
+                %tr{ 'ng-repeat' => 'review in reviews' }
+                  %td
+                    {{ review.companyName }}
+                  %td
+                    {{ review.createdAt | date : 'short' }}
+                  %td{'style' => 'padding:0 ; margin: 0'}
+                    %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
+                      %span{ 'style' => 'display:inline-block;vertical-align:middle; padding-top: 5px;' }
+                        YES
+                    %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
+                      %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
+                        NO
+          %li
+            %a.button.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
+              + WRITE A REVIEW
         %div{ 'ng-if' => 'reviews.length == 0' }
           You don't have any reviews yet, please write one!
