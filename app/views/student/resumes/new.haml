@@ -1,3 +1,6 @@
-= form_for [:student, @resume], :html => { :multipart => true } do |f|
-  = f.file_field :upload
-  = f.submit "Submit"
+= stylesheet_link_tag 'student/resume'
+
+.wrapper
+  = form_for [:student, @resume], :html => { :multipart => true } do |f|
+    = f.file_field :upload
+    = f.submit "Submit"
