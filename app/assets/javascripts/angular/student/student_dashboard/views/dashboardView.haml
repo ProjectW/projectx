@@ -4,10 +4,10 @@
   .prof-info
     .row
       .medium-12.columns
-        %h1 Lisa Wang
-    .row 
-      .medium-12.columns{:style => "padding-bottom: 15px;"}
-        %h2 Harvard, Class of 2016
+        %h1 {{ account.name }}
+    .row
+      .medium-12.columns
+        %h2 {{ account.school }}, Class of {{ account.graduationYear }}
     / .row
     /   .medium-12.columns{:style => "padding-bottom: 20px;"}
     /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
@@ -15,8 +15,8 @@
     /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
   .row
     .medium-12.columns
-      %h5{:style => "float:left"}
-        Hi Lisa, you look great today.
+      %h5{:style=> "float:left;"}
+        Hi {{ account.name }}, you look great today.
       
       %h5.wish
         If you wish, I can change your information 
@@ -30,8 +30,6 @@
         %li{ 'ng-repeat' => 'companyView in companyViews' }
           %a{ 'ng-href' => 'company#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
             {{ companyView.companyName }}
-
-
     .medium-8.columns
       .resumes{ 'ng-switch' => 'resume.id' }
         %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 

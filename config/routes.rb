@@ -21,7 +21,7 @@ Projectx::Application.routes.draw do
       :sign_out => 'logout',
       :sign_up => 'register'
     }
-    resource :account, :only => [] do
+    resource :account, :only => [:show] do
       member do
         get :company_views
       end

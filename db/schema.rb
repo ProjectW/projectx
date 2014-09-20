@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920151227) do
+ActiveRecord::Schema.define(version: 20140920164233) do
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
     t.string   "display_name", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "companies", ["name"], name: "index_on_name", unique: true, using: :btree
