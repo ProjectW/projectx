@@ -32,10 +32,10 @@
   .prof-info
     .row
       .medium-12.columns
-        %h1 Lisa Wang
-    .row 
+        %h1 {{ account.name }}
+    .row
       .medium-12.columns
-        %h2 Harvard, Class of 2016
+        %h2 {{ account.school }}, Class of {{ account.graduationYear }}
     .row
       .medium-12.columns{:style => "padding-bottom: 20px;"}
         .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
@@ -44,7 +44,7 @@
   .row
     .medium-12.columns
       %h5
-        Hi Lisa, you look great today.
+        Hi {{ account.name }}, you look great today.
       %h5.wish
         If you wish, I can change your information 
         %a

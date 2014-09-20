@@ -1,9 +1,10 @@
 studentDashboardControllers = angular.module 'studentDashboardControllers', []
 
 studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http', 'Resume', 'Review', 'Account', ($scope, $http, Resume, Review, Account) ->
+  $scope.account = Account.get()
   $scope.resume = Resume.current()
-  $scope.companyViews = Account.companyViews()
   $scope.reviews = Review.query()
+  $scope.companyViews = Account.companyViews()
 
   $scope.toggleContactable = (review) ->
     review.contactable = !review.contactable
