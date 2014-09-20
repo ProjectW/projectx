@@ -1,6 +1,8 @@
 = stylesheet_link_tag 'student/resume'
 
 .wrapper
+  %h1
+    Dang, that resume is looking fine. Upload it here and share with companies. 
   = form_for [:student, @resume], :html => { :multipart => true } do |f|
     = f.file_field :upload
     = f.submit "Submit"
