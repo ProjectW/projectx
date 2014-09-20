@@ -21,8 +21,12 @@
             %li
               %a.button.expand.sd.edit{:href => "#"} Edit
       .companies
+        %h6 Recently Viewed Companies
         %ul.small-block-grid-1{style: "background-color: #fff"}
-          %h6 Recently Viewed Companies
+          %li{ 'ng-repeat' => 'companyView in companyViews' }
+            %a{ 'ng-href' => 'company#/{{ companyView.companyId}}'}
+              {{ companyView.companyName }}
+
 
     .medium-8.columns
       .resumes{ 'ng-switch' => 'resume.id' }

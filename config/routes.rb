@@ -21,8 +21,12 @@ Projectx::Application.routes.draw do
       :sign_out => 'logout',
       :sign_up => 'register'
     }
+    resource :account, :only => [] do
+      member do
+        get :company_views
+      end
+    end
 
-    # resources :companies
     resources :resumes do
       collection do
         get :current
