@@ -16,5 +16,5 @@ studentDashboardControllers.controller 'DashboardCtrl', ['$scope', '$http', 'Res
 ]
 
 studentDashboardControllers.controller 'ReviewCtrl', ['$scope', ($scope) ->
-  $scope.text = "hello, world!"
+  $scope.review = {}
 ]

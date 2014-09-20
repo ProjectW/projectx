@@ -23,10 +23,10 @@
 				Now, about that internship...
 			.row
 				.medium-6.columns
-					= f.select :net_promoter, options_for_select([["Yes", 1],["No", 0]]), { :include_blank => 'Would you recommend it to a friend?' }, :required => true
+					/ = f.select :net_promoter, options_for_select([["Yes", 1],["No", 0]]), { :include_blank => 'Would you recommend it to a friend?' }, :required => true
 			.row
 				.medium-6.columns
-					= f.select :hours, options_for_select([["Not much, could've come and gone as I pleased", "small"],["Standard. Ya know, the usual 9-5."],["Not bad. Had to stay late sometimes, but it was chill.", "medium"],["Brutal. I don't remember what sleep is anymore.", "large"]]), { :include_blank => 'What were the hours expected of you?' }, :required => true
+					/ = f.select :hours, options_for_select([["Not much, could've come and gone as I pleased", "small"],["Standard. Ya know, the usual 9-5."],["Not bad. Had to stay late sometimes, but it was chill.", "medium"],["Brutal. I don't remember what sleep is anymore.", "large"]]), { :include_blank => 'What were the hours expected of you?' }, :required => true
 				.medium-3.columns
 					= f.number_field :number_interns, :placeholder => "Number of Interns", :min => "1", :required => true
 				.medium-3.columns
@@ -40,7 +40,7 @@
 				Express your love or hate
 			.row
 				.medium-12.columns
-					= f.text_area :end, :placeholder => "Tell the world anything else notable about your internship (e.g. company culture, interview process, explain your recommendation, there was an elephant sitting in the snack room at all times etc.,). ", :rows => "4", :required => true
+					/ = f.text_area :end, :placeholder => "Tell the world anything else notable about your internship (e.g. company culture, interview process, explain your recommendation, there was an elephant sitting in the snack room at all times etc.,). ", :rows => "4", :required => true
 		.medium-2.columns.sendemail
 			%span
 				%div.button.postfix.send
