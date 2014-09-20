@@ -22,4 +22,8 @@ module Student::AngularHelper
       render :json => { :success => false, :message => e.message }, :status => 422
     end
   end
+
+  def render_success
+    render :json => { :success => true }
+  end
 end

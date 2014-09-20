@@ -17,6 +17,7 @@ companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routePar
   companyId = $routeParams.companyId
   company = Company.get({ id: companyId }, (company) ->
     $scope.company = company
+    Company.view({ id: companyId }) # TODO handle errors
   )
   # NOTE you MUST call reviews as a static function
   $scope.reviews = Company.reviews({ id: companyId }, (reviews) ->

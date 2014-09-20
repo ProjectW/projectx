@@ -32,6 +32,16 @@ class Student::CompaniesController < Student::StudentBaseController
     render :json => companies.map{|company| get_company_json(company) }
   end
 
+  def view
+    company_id = params[:id]
+    if not CompanyProfileView.create(company_id: company_id, student_account_id: @current_student.id)
+      raise "Error saving profile view"
+    else
+      render_success
+    end
+
+  end
+
   def show
     render :json => get_company_json(@company)
   end
