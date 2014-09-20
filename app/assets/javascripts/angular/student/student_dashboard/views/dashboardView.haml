@@ -49,7 +49,7 @@
         If you wish, I can change your information 
         %a
           %strong
-            here.  
+            here.
     .medium-4.columns
       .companies
         %h6 Recently Viewed Companies
@@ -65,7 +65,7 @@
           + Upload a New Resume
         %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
           Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
-      .reviews       
+      .reviews
         %a.button.expand.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px' }
           + Write a New Review
         %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }

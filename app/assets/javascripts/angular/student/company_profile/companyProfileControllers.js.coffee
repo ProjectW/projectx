@@ -2,7 +2,10 @@ companyProfileControllers = angular.module 'companyProfileControllers', []
 
 companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', 'Company', ($scope, $http, Company) ->
   $scope.searchText
+
   $scope.companies = []
+
+  # TODO debounce me
   $scope.search = () ->
     if not $scope.searchText
       $scope.companies = []

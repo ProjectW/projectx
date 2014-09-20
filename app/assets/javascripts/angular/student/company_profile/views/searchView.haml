@@ -1,6 +1,14 @@
-%input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()'}
+.row
+  .large-12
 
-%div{ 'ng-repeat' => 'company in companies' }
-  {{ company.id }} : 
-  %a{ 'ng-href' => '#/{{ company.id }}'} 
-    {{ company.name }}
+    %form
+      .row
+        .large-12.columns
+          %label
+            Search for a company:
+            %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()'}
+
+    %div{ 'ng-repeat' => 'company in companies' }
+      {{ company.id }} :
+      %a{ 'ng-href' => '#/{{ company.id }}'}
+        {{ company.name }}
