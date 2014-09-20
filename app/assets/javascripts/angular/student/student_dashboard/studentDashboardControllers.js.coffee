@@ -1,6 +1,6 @@
 studentDashboardControllers = angular.module 'studentDashboardControllers', []
 
-studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http', 'Resume', 'Review', 'Account', ($scope, $http, Resume, Review, Account) ->
+studentDashboardControllers.controller 'DashboardCtrl', ['$scope', '$http', 'Resume', 'Review', 'Account', ($scope, $http, Resume, Review, Account) ->
   $scope.account = Account.get()
   $scope.resume = Resume.current()
   $scope.reviews = Review.query()
@@ -15,6 +15,6 @@ studentDashboardControllers.controller 'StudentDashboardCtrl', ['$scope', '$http
 
 ]
 
-studentDashboardControllers.controller 'ResumeCtrl', ['$scope', '$routeParams', ($scope, $routeParams) ->
-  $scope.resumeId = $routeParams.resumeId
+studentDashboardControllers.controller 'ReviewCtrl', ['$scope', ($scope) ->
+  $scope.text = "hello, world!"
 ]
