@@ -18,4 +18,11 @@ class Review < ActiveRecord::Base
   validates :story, presence: true
   validates :culture, presence: true
 
+  enum season: {
+    spring: 1,
+    summer: 2,
+    fall: 3,
+    winter: 4
+  }
+
 end
