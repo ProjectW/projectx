@@ -12,4 +12,7 @@ company.factory 'Company', ['$resource', ($resource) ->
       url: 'companies/search'
       method: 'GET'
       isArray: true
+    view:
+      url: 'companies/:id/view'
+      method: 'POST'
 ]

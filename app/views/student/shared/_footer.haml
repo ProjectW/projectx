@@ -1,10 +1,8 @@
 .footer
   .row
-    .medium-12.columns
+    .medium-6.columns
       %h4.footerLabel
         2014 PINPEG
-      / %h4.footerLabel{:style => "width: 100%; text-align: center"}
-      /   All the usual footer links currently under construction. 
       %ul.small-block-grid-1 
         %li
           %a{href: "/about_us"} About Us
@@ -21,7 +19,7 @@
         Contact Us
       %ul.small-block-grid-4
         %li.footer
-          = image_tag('twitter3.png', class: "social")
+          = link_to image_tag("twitter3.png", class: "social"), "http://twitter.com/pinpegio", target: '_blank'
         %li.footer
           = image_tag('facebook3.png', class: "social")
         %li.footer

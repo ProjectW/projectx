@@ -1,13 +1,24 @@
-studentDashboardApp = angular.module 'studentDashboardApp', ['ngRoute','studentDashboardControllers', 'resources.resumes', 'resources.reviews']
+studentDashboardApp = angular.module 'studentDashboardApp',
+  [
+    'ngRoute',
+    'studentDashboardControllers',
+    'resources.resumes',
+    'resources.reviews',
+    'resources.account'
+  ]
+
+studentDashboardApp.config ["$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
 
 studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
     .when('/',
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/dashboardView") %>',
-      controller: 'StudentDashboardCtrl'
+      controller: 'DashboardCtrl'
     )
-    .when('/resumes/:resumeId',
-      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/resumeView") %>',
-      controller: 'ResumeCtrl'
+    .when('/review',
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/reviewView") %>',
+      controller: 'ReviewCtrl'
     )
 ]

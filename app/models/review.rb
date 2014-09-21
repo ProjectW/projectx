@@ -10,11 +10,19 @@ class Review < ActiveRecord::Base
   validates :company, presence: true
   validates :season, presence: true
   validates :year, presence: true
-  validates :net_promoter, presence: true
-  validates :hours, presence: true
+  # validates :net_promoter, presence: true
+  # validates :hours, presence: true
   validates :number_interns, presence: true, numericality: { only_integer: true }
   validates :mentorship, presence: true
   validates :projects, presence: true
-  validates :end, presence: true
+  validates :story, presence: true
+  validates :culture, presence: true
+
+  enum season: {
+    spring: 1,
+    summer: 2,
+    fall: 3,
+    winter: 4
+  }
 
 end

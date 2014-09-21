@@ -1,57 +1,69 @@
-.profile
-  .row
-    .medium-4.columns
-      .profpic
-        %ul.small-block-grid-2{style: "background-color: #fff"}
-          %li.profileinfo{style: "padding-top: 25px !important"}
-            {{ }}
-            Lisa Wang
-            %br
-            Harvard
-            %br
-            Class of 2016
-          %a.button.expand.sd{:href => "#"} Edit
-          %ul.small-block-grid-4{style: "background-color: #f5f4f4; padding-left: 25px;"}
+.wrapper
+  %hr{:style => "margin: 0;"}
+  .profile
+    .prof-info
+      .row
+        .medium-12.columns
+          %h1 {{ account.firstName }} {{ account.lastName }}
+      .row
+        .medium-12.columns
+          %h2 {{ account.school }}, Class of {{ account.graduationYear }}
+      .row
+        .medium-12.columns
+          %h5.wish
+            Change your information 
+            %a
+              %strong
+                here.
+      
+      / .row
+      /   .medium-12.columns{:style => "padding-bottom: 20px;"}
+      /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+      /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+      /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+    .row
+      .medium-12.columns
+        %h5
+          Hi {{ account.firstName }}, you look great today.
+      .medium-4.columns.company_list
+        %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit"}
+          %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
+          %hr
+          %li{ 'ng-repeat' => 'companyView in companyViews' }
+            %a{ 'ng-href' => 'company#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
+              {{ companyView.companyName }}
+      .medium-8.columns
+        .resumes{ 'ng-switch' => 'resume.id' }
+          %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
+            + Upload a New Resume
+          %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
+            Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
+        .reviews      
+          %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
+            %li{:style => "padding:20px !important; font-size: 1.2rem"} My Reviews
+            %hr
             %li
-              .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
+              %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
+                %thead
+                  %tr
+                    %th Company
+                    %th Submitted
+                    %th{ 'style' => 'width: 30%' } Available to Message?
+                %tbody
+                  %tr{ 'ng-repeat' => 'review in reviews' }
+                    %td
+                      {{ review.companyName }}
+                    %td
+                      {{ review.createdAt | date : 'short' }}
+                    %td{'style' => 'padding:0 ; margin: 0'}
+                      %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
+                        %span{ 'style' => 'display:inline-block;vertical-align:middle; padding-top: 5px;' }
+                          YES
+                      %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
+                        %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
+                          NO
             %li
-              .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
-            %li
-              .connect.fs1{"aria-hidden" => "true", "data-icon" => "\", style: "padding-top: 8px"}
-            %li
-              %a.button.expand.sd.edit{:href => "#"} Edit
-      .companies
-        %ul.small-block-grid-1{style: "background-color: #fff"}
-          %h6 Recently Viewed Companies
-
-    .medium-8.columns
-      .resumes{ 'ng-switch' => 'resume.id' }
-        %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
-          + Upload a New Resume
-        %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
-          Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
-      .reviews
-        %h6 My Reviews
-        %a.button.expand.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px' }
-          + Write a New Review
-        %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
-          %thead
-            %tr
-              %th Company
-              %th Submitted
-              %th{ 'style' => 'width: 30%' } Available to Message?
-          %tbody
-            %tr{ 'ng-repeat' => 'review in reviews' }
-              %td
-                {{ review.companyName }}
-              %td
-                {{ review.createdAt | date : 'short' }}
-              %td{'style' => 'padding:0 ; margin: 0'}
-                %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
-                  %span{ 'style' => 'display:inline-block;vertical-align:middle' }
-                    YES
-                %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
-                  %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle' }
-                    NO
-        %div{ 'ng-if' => 'reviews.length == 0' }
-          You don't have any reviews yet, please write one!
+              %a.button.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
+                + WRITE A REVIEW
+          %div{ 'ng-if' => 'reviews.length == 0' }
+            You don't have any reviews yet, please write one!

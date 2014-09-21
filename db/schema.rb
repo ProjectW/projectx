@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917004508) do
+ActiveRecord::Schema.define(version: 20140920200252) do
+
+  create_table "cities", force: true do |t|
+    t.string  "name",                  null: false
+    t.string  "state",      limit: 2
+    t.integer "country_id",            null: false
+    t.float   "latitude",   limit: 24
+    t.float   "longitude",  limit: 24
+  end
+
+  add_index "cities", ["country_id"], name: "index_on_country_id", using: :btree
+  add_index "cities", ["state"], name: "index_on_state", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name",         default: "", null: false
     t.string   "display_name", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "companies", ["name"], name: "index_on_name", unique: true, using: :btree
@@ -28,6 +40,20 @@ ActiveRecord::Schema.define(version: 20140917004508) do
     t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "company_profile_views", force: true do |t|
+    t.integer  "company_id",         null: false
+    t.integer  "student_account_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "company_profile_views", ["company_id", "student_account_id"], name: "index_on_company_student_account_id", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string "name",                   null: false
+    t.string "maxmind_code", limit: 2
   end
 
   create_table "interested_roles", force: true do |t|
@@ -54,23 +80,27 @@ ActiveRecord::Schema.define(version: 20140917004508) do
   add_index "resumes", ["student_account_id"], name: "index_on_student_account_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.string   "position_title",                        null: false
-    t.integer  "net_promoter",       default: 0,        null: false
-    t.integer  "number_interns",     default: 0,        null: false
-    t.string   "season",             default: "Summer", null: false
-    t.integer  "year",               default: 0,        null: false
+    t.string   "position_title",                     null: false
+    t.integer  "number_interns",     default: 0,     null: false
+    t.integer  "year",               default: 0,     null: false
     t.integer  "salary"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hours",                                 null: false
-    t.text     "projects",                              null: false
-    t.text     "mentorship",                            null: false
-    t.text     "end",                                   null: false
-    t.integer  "student_account_id",                    null: false
+    t.text     "projects",                           null: false
+    t.text     "mentorship",                         null: false
+    t.integer  "student_account_id",                 null: false
     t.integer  "company_id"
-    t.boolean  "contactable",        default: false,    null: false
+    t.boolean  "contactable",        default: false, null: false
+    t.integer  "city_id",                            null: false
+    t.integer  "season",                             null: false
+    t.integer  "number_hours",                       null: false
+    t.boolean  "recommend",                          null: false
+    t.text     "story",                              null: false
+    t.text     "culture",                            null: false
+    t.text     "extra"
   end
 
+  add_index "reviews", ["city_id"], name: "index_on_city_id", using: :btree
   add_index "reviews", ["company_id", "student_account_id"], name: "index_on_company_id_and_student_account_id", using: :btree
 
   create_table "schools", force: true do |t|

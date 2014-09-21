@@ -16,13 +16,14 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-    render :json =>
-      camelize_symbolize_keys(@company.reviews.map do |review|
-                                {
-                                  id: review.id
-                                }
-                              end
-      )
+    reviews = Review.includes(:student_account).where(:company_id => @company.id).map do |review|
+      {
+        id: review.id,
+        student_name: review.student_account.first_name + " " + review.student_account.last_name
+      }
+    end
+
+    render :json => camelize_symbolize_keys(reviews)
   end
 
   def search
@@ -30,6 +31,16 @@ class Student::CompaniesController < Student::StudentBaseController
     companies = Company.where('display_name LIKE ?', '%' + search_text + '%')
 
     render :json => companies.map{|company| get_company_json(company) }
+  end
+
+  def view
+    company_id = params[:id]
+    if not CompanyProfileView.create(company_id: company_id, student_account_id: @current_student.id)
+      raise "Error saving profile view"
+    else
+      render_success
+    end
+
   end
 
   def show
@@ -45,7 +56,8 @@ class Student::CompaniesController < Student::StudentBaseController
   def get_company_json(company)
     {
       id: company.id,
-      name: company.display_name
+      name: company.display_name,
+      url: company.url
     }
   end
 

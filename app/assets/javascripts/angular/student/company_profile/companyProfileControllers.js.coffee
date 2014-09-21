@@ -2,7 +2,10 @@ companyProfileControllers = angular.module 'companyProfileControllers', []
 
 companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', 'Company', ($scope, $http, Company) ->
   $scope.searchText
+
   $scope.companies = []
+
+  # TODO debounce me
   $scope.search = () ->
     if not $scope.searchText
       $scope.companies = []
@@ -17,9 +20,7 @@ companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routePar
   companyId = $routeParams.companyId
   company = Company.get({ id: companyId }, (company) ->
     $scope.company = company
+    Company.view({ id: companyId }) # TODO handle errors
   )
-  # NOTE you MUST call reviews as a static function
-  $scope.reviews = Company.reviews({ id: companyId }, (reviews) ->
-    $scope.review = reviews[0]
-  )
+  $scope.reviews = Company.reviews({ id: companyId })
 ]
