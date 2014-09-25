@@ -21,4 +21,8 @@ studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/reviewView") %>',
       controller: 'ReviewCtrl'
     )
+    .when('/edit'
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/editView") %>',
+      controller: 'EditCtrl'
+    )
 ]

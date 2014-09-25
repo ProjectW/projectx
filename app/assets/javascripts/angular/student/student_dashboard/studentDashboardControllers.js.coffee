@@ -18,3 +18,9 @@ studentDashboardControllers.controller 'DashboardCtrl', ['$scope', '$http', 'Res
 studentDashboardControllers.controller 'ReviewCtrl', ['$scope', ($scope) ->
   $scope.review = {}
 ]
+
+studentDashboardControllers.controller 'EditCtrl', ['$scope', 'Account', ($scope, Account) ->
+  $scope.account = Account.get()
+  $scope.getSchools = (searchText) ->
+    ['Harvard', 'Harvardian', 'bob', 'yale']
+]
