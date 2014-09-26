@@ -9,12 +9,17 @@
           %span Menu
     %section.top-bar-section
       %ul.right
-        %li
-          %a{href: "#"} How It Works
-        %li
-          %a{href: "#"} Company Reviews
-        %li
-          - if student_account_signed_in?
+        - if student_account_signed_in?
+          %li
+            %a{ href: "dashboard" } Dashboard
+          %li
+            %a{ href: "company" } Reviews
+          %li
             = link_to('Logout', destroy_student_account_session_path)
-          - else
+        - else
+          %li
+            %a{href: "#"} How It Works
+          %li
+            %a{href: "#"} Company Reviews
+          %li
             = link_to('Login', new_student_account_session_path)
