@@ -1,4 +1,20 @@
 module Student::AngularHelper
+
+  def snakefy_symbolize_keys(jsonable)
+    case jsonable
+    when Array
+      jsonable.map{ |child| snakefy_symbolize_keys(child) }
+    when Hash
+      hash = {}
+      jsonable.each do |key, value|
+        hash[key.to_s.underscore.to_sym] = snakefy_symbolize_keys(value)
+      end
+      hash
+    else
+      jsonable
+    end
+  end
+
   def camelize_symbolize_keys(jsonable)
     case jsonable
     when Array

@@ -1,8 +1,23 @@
-%input{ 'type' => 'text', 'ng-model' => 'account.firstName' }
-%input{ 'type' => 'text', 'ng-model' => 'account.lastName' }
-{{ account.school }}
-%select{ 'ng-model' => 'account.graduationYear' }
-  %option{ 'value' => 2015 } 2015
-  %option{ 'value' => 2016 } 2016
-  %option{ 'value' => 2017 } 2017
-  %option{ 'value' => 2018 } 2018
+.row
+  .medium-12
+    %label
+      First Name:
+      %input{ 'type' => 'text', 'ng-model' => 'account.firstName' }
+    %label
+      Last Name:
+      %input{ 'type' => 'text', 'ng-model' => 'account.lastName' }
+
+    %label
+      School:
+      %input{ 'type' => 'text', 'disabled' => 'disabled', 'value' => '{{ account.school }}' }
+
+    %label
+      Graduation Year:
+      %select{ 'ng-model' => 'account.graduationYear' }
+        %option{ 'value' => 2015 } 2015
+        %option{ 'value' => 2016 } 2016
+        %option{ 'value' => 2017 } 2017
+        %option{ 'value' => 2018 } 2018
+
+    .button
+      %input{ 'type' => 'submit', 'value' => 'Save', 'ng-click' => 'save()' }
