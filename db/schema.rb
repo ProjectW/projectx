@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920200252) do
+ActiveRecord::Schema.define(version: 20140926000730) do
 
   create_table "cities", force: true do |t|
     t.string  "name",                  null: false
@@ -91,16 +91,15 @@ ActiveRecord::Schema.define(version: 20140920200252) do
     t.integer  "student_account_id",                 null: false
     t.integer  "company_id"
     t.boolean  "contactable",        default: false, null: false
-    t.integer  "city_id",                            null: false
     t.integer  "season",                             null: false
     t.integer  "number_hours",                       null: false
     t.boolean  "recommend",                          null: false
     t.text     "story",                              null: false
     t.text     "culture",                            null: false
     t.text     "extra"
+    t.string   "location"
   end
 
-  add_index "reviews", ["city_id"], name: "index_on_city_id", using: :btree
   add_index "reviews", ["company_id", "student_account_id"], name: "index_on_company_id_and_student_account_id", using: :btree
 
   create_table "schools", force: true do |t|
