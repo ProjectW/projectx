@@ -10,7 +10,12 @@
                 Search for a Company
                 %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search($event)', 'ng-keydown' => 'select($event)'}
 
-      .results
-        .result{ 'ng-repeat' => 'company in companies', 'ng-class' => '{ selected: company.id == companies[selected].id }' }
-          %a{ 'ng-href' => '#/{{ company.id }}'}
-            {{ company.name }} {{ company.reviewsCount }} # Reviews
+.row.results
+  .medium-12
+    %div
+      {{ companies.length }} companies found
+    .result{ 'ng-repeat' => 'company in companies', 'ng-class' => '{ selected: company.id == companies[selected].id }' }
+      %a{ 'ng-href' => '#/{{ company.id }}'}
+        {{ company.name }}
+      %div{ 'ng-if' => 'company.id == companies[selected].id' }
+        {{ company.reviewsCount }} reviews
