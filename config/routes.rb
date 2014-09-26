@@ -33,11 +33,11 @@ Projectx::Application.routes.draw do
       end
     end
 
-    resources :schools, :only => [] do
-      collection do
-        get :search
-      end
-    end
+    # resources :schools, :only => [] do
+    #   collection do
+    #     get :search
+    #   end
+    # end
 
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews

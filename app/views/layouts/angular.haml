@@ -6,9 +6,11 @@
     = render partial: "student/shared/open_graph"
     %title= content_for?(:title) ? yield(:title): "pinpeg"
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'angular.min'
+    = stylesheet_link_tag 'angucomplete'
+    = javascript_include_tag 'angular.min' # OPTIMIZE put all of these in one
     = javascript_include_tag 'angular-resource.min'
     = javascript_include_tag 'angular-route.min'
+    = javascript_include_tag 'angucomplete'
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
