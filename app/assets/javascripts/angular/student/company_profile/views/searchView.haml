@@ -8,8 +8,9 @@
             .large-12.columns
               %label
                 Search for a Company
-                %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()', 'ng-keydown' => 'select()'}
+                %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search($event)', 'ng-keydown' => 'select($event)'}
 
-        %div{ 'ng-repeat' => 'company in companies' }
+      .results
+        .result{ 'ng-repeat' => 'company in companies', 'ng-class' => '{ selected: company.id == companies[selected].id }' }
           %a{ 'ng-href' => '#/{{ company.id }}'}
-            {{ company.name }}
+            {{ company.name }} {{ company.reviewsCount }} # Reviews
