@@ -4,7 +4,8 @@ studentDashboardApp = angular.module 'studentDashboardApp',
     'studentDashboardControllers',
     'resources.resumes',
     'resources.reviews',
-    'resources.account'
+    'resources.account',
+    'angucomplete'
   ]
 
 studentDashboardApp.config ["$httpProvider", ($httpProvider) ->
@@ -15,10 +16,14 @@ studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
     .when('/',
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/dashboardView") %>',
-      controller: 'StudentDashboardCtrl'
+      controller: 'DashboardCtrl'
     )
-    .when('/resumes/:resumeId',
-      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/resumeView") %>',
-      controller: 'ResumeCtrl'
+    .when('/review',
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/reviewView") %>',
+      controller: 'ReviewCtrl'
+    )
+    .when('/edit'
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/editView") %>',
+      controller: 'EditCtrl'
     )
 ]

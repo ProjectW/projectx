@@ -26,7 +26,7 @@ companies = [
 
 ]
 
-def seed_database(model, records)
+def seed_ruby_objects(model, records)
   records.each do |record|
     model_instance = model.send(:where, { :id => record[:id] }).first
     if model_instance.nil?
@@ -37,13 +37,12 @@ def seed_database(model, records)
   end
 end
 
-seed_database(School, schools)
-seed_database(Company, companies)
+puts "Seeding schools ... "
+seed_ruby_objects(School, schools)
+puts "Done."
 
-# schools.each do |school|
-#   School.create(school) if School.where(school).empty?
-# end
+puts "Seeding companies..."
+seed_ruby_objects(Company, companies)
+puts "Done."
 
-# companies.each do |company|
-#   Company.create(company) if Company.where(company).empty?
-# end
+puts "Please download http://download.maxmind.com/download/worldcities/worldcitiespop.txt.gz to seed"

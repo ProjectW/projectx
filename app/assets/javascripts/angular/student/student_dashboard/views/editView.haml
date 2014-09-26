@@ -1,0 +1,8 @@
+%input{ 'type' => 'text', 'ng-model' => 'account.firstName' }
+%input{ 'type' => 'text', 'ng-model' => 'account.lastName' }
+{{ account.school }}
+%select{ 'ng-model' => 'account.graduationYear' }
+  %option{ 'value' => 2015 } 2015
+  %option{ 'value' => 2016 } 2016
+  %option{ 'value' => 2017 } 2017
+  %option{ 'value' => 2018 } 2018
