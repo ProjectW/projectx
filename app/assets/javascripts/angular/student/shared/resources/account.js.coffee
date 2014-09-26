@@ -6,4 +6,7 @@ account.factory 'Account', ['$resource', ($resource) ->
       url: 'account/company_views'
       method: 'GET'
       isArray: true
+    save:
+      url: 'account/info'
+      method: 'PUT'
 ]
