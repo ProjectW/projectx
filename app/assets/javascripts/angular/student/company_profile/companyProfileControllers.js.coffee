@@ -13,13 +13,15 @@ companyProfileControllers.controller 'CompanySearchCtrl', ['$scope', '$http', 'C
   $scope.select = (e) ->
     switch e.keyCode
       when KEY_UP
-        $scope.selected = $scope.selected - 1
+        $scope.selected = Math.max($scope.selected - 1, 0)
       when KEY_DOWN
-        $scope.selected = $scope.selected + 1
-      else
+        $scope.selected = Math.min($scope.selected + 1, $scope.companies.length - 1)
 
   # TODO debounce me
-  $scope.search = () ->
+  $scope.search = (e) ->
+    if e.keyCode == KEY_UP or e.keyCode == KEY_DOWN
+      return
+
     $scope.selected = 0
 
     if not $scope.searchText
