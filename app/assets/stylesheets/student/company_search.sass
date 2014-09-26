@@ -1,7 +1,3 @@
-div[ng-app]
-  background-image: image-url('search.jpg')
-  background-size: cover
-
 div[ng-repeat]
   background-color: transparent
   border: 1px solid #bbb
@@ -23,14 +19,26 @@ div[ng-repeat] a:hover
 div[ng-repeat]:hover
   background-color: #ccc
 
-.search
-  position: absolute
-  margin-top: 15%
-  margin-left: 25%
-  width: 45%
-
 label
   font-size: 2rem
+  color: white
 
 input[type="text"]
   margin-bottom: 0
+  padding: inherit !important
+  margin: inherit  !important
+
+.search
+  padding-top: 20px
+  padding-bottom: 30px
+
+
+.ng-scope
+  min-height: 100%
+
+.searching
+  padding: 0
+  background-color: #ff8547
+
+hr
+  margin: 0

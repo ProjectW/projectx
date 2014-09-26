@@ -1,13 +1,15 @@
-.row
-  .large-12
-    .search
-      %form
-        .row
-          .large-12.columns
-            %label
-              Search for a company:
-              %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()', 'ng-keydown' => 'select()'}
+%hr
+.searching
+  .row
+    .medium-12
+      .search
+        %form
+          .row
+            .large-12.columns
+              %label
+                Search for a Company
+                %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()', 'ng-keydown' => 'select()'}
 
-      %div{ 'ng-repeat' => 'company in companies' }
-        %a{ 'ng-href' => '#/{{ company.id }}'}
-          {{ company.name }}
+        %div{ 'ng-repeat' => 'company in companies' }
+          %a{ 'ng-href' => '#/{{ company.id }}'}
+            {{ company.name }}
