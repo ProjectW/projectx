@@ -1,22 +1,3 @@
-/ #company{"data-stellar-background-ratio" => "0.5"}
-/   %div{"data-stellar-background-ratio" => "1.5" }
-
-/ .company
-/ #wrapper{"data-stellar-background-ratio" => "1.0"}
-/   .col
-/     .row
-/       .medium-6.columns.left-column
-/         %h1
-/           {{ company.name }}
-/         %h3
-/           New York City, NY, United States
-/         %h4
-/           Type: Architecture
-/         %h4
-/           Founded: 2009
-/         %h4
-/           Founded: Series A
-
 %hr
 .company-name
   .row
@@ -25,9 +6,9 @@
         %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
           {{ company.name | uppercase}}
       %h2
-        {{ reviews.length }} REVIEWS 
-      %h2.recent
-        MOST RECENT BY: 
+        {{ reviews.length }} REVIEWS
+      %h2.recent{ 'ng-if' => 'reviews.length' }
+        MOST RECENT BY: {{ mostRecentReviews() }}
 .row
   .medium-12.columns
     .slider{ 'ng-show' => 'reviews.length' }
@@ -35,9 +16,9 @@
         %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()', 'ng-show' => 'currentIndex > 0'}
       %div.slide.panel{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
         %h3
-          {{ review.student.name }}  
+          {{ review.student.name }}
         / %h3.message{'ng-show' => 'review.contactable == True'}
-        /   \- Message Me 
+        /   \- Message Me
         %h6.student-info
           {{ review.student.school }} Class of {{ review.student.graduationYear }}
         %h6.student-info
