@@ -1,0 +1,61 @@
+!!!
+%html{lang: "en"}
+  %head
+  %meta{:charset => "utf-8"}
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title
+      pinpeg
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'vendor/modernizr'
+    = csrf_meta_tags
+
+  .contain-to-grid.sticky
+    %nav.top-bar{"data-options" => "sticky_on: large", "data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "/home/index"} pinpeg
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"}
+            %span Menu
+      %section.top-bar-section
+        %ul.right
+          %li
+            %a{href: "/about_us"} About Us
+          %li
+            %a{href: "#"} For Companies
+          %li
+            %a{href: "/student/account/login"} Login
+  %body{"data-stellar-background-ratio" => "0.5"}
+    = yield
+    = javascript_include_tag "application"
+    .footer.home
+      .row
+        .medium-6.columns
+          %h4.footerLabel
+            2014 PINPEG
+          %ul.small-block-grid-1 
+            %li
+              %a{href: "/about_us"} About Us
+            %li
+              %a{href: "#"} For Students
+            %li
+              %a{href: "#"} For Companies
+            %li
+              %a{href: "#"} Terms of Use
+            %li
+              %a{href: "#"} Privacy Policy
+        .medium-3.columns
+          %h4.footerLabel
+            Contact Us
+          %ul.small-block-grid-4
+            %li.footer
+              = link_to image_tag("twitter3.png", class: "social"), "http://twitter.com/pinpegio", target: '_blank'
+            %li.footer
+              = image_tag('facebook3.png', class: "social")
+            %li.footer
+              = image_tag('linkedin.png', class: "social")
+            %li.footer
+              = image_tag('google+.png', class: "social")
+
+    = render partial: "shared/google_analytics"
