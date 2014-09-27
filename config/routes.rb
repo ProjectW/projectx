@@ -1,6 +1,10 @@
 # use rake routes to see the routing
 Projectx::Application.routes.draw do
 
+  get 'home/index'
+  get '/about_us' => 'home#about_us'
+  get '/privacy' => 'home#privacy'
+
   namespace :student do
     get '/dashboard' => 'student_dashboard#show'
     get '/company' => 'company_profile#show'
@@ -62,9 +66,6 @@ Projectx::Application.routes.draw do
 
   #   get 'payment/index'
   # end
-
-  get 'home/index'
-  get '/about_us' => 'home#about_us'
 
   # root to: 'student/reviews#index'
   root to: 'home#index'
