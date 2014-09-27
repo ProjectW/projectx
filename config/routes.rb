@@ -6,25 +6,19 @@ Projectx::Application.routes.draw do
   get '/privacy' => 'home#privacy'
 
   namespace :student do
+
+    # angular apps
     get '/dashboard' => 'student_dashboard#show'
     get '/company' => 'company_profile#show'
 
-    # match 'dashboard/(:action)', 
-    #   :controller => :student_dashboard, 
-    #   :via => [:get], 
-    #   :defaults => { :action => 'show' }, 
-    #   :as => :dashboard
-
-    # match 'company/(:action/(:id))',
-    #   :controller => :company_profile,
-    #   :via => [:get], 
-    #   :defaults => { :action => 'show'}
-
+    # devise
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
       :sign_in => 'login',
       :sign_out => 'logout',
       :sign_up => 'register'
     }
+
+    # api
     resource :account, :only => [:show,] do
       member do
         get :company_views
@@ -49,17 +43,15 @@ Projectx::Application.routes.draw do
         post :view
       end
     end
+
+    root to: redirect('/student/dashboard')
   end
 
-  # namespace :company do
-  #   match 'dashboard/(:action)',
-  #     :controller => :company_dashboard, 
-  #     :via => [:get],
-  #     :defaults => { :action => 'show' }
+  namespace :company do
+    get '/dashboard' => 'company_dashboard#show'
 
-  #   get 'payment/index'
-  # end
+    root to: redirect('/company/dashboard')
+  end
 
-  # root to: 'student/reviews#index'
   root to: 'home#index'
 end
