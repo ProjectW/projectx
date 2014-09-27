@@ -1,14 +1,24 @@
-.row
-  .large-12
+%hr
+.searching
+  .row
+    .medium-12.columns
+      .search
+        %form
+          .row
+            .large-12.columns
+              %label
+                Search for a Company
+                %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search($event)', 'ng-keydown' => 'select($event)'}
 
-    %form
-      .row
-        .large-12.columns
-          %label
-            Search for a company:
-            %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search()'}
-
-    %div{ 'ng-repeat' => 'company in companies' }
-      {{ company.id }} :
-      %a{ 'ng-href' => '#/{{ company.id }}'}
-        {{ company.name }}
+.row.results
+  .medium-12.columns
+    %div.count
+      {{ companies.length }} companies found
+    .result{ 'ng-repeat' => 'company in companies', 'ng-class' => '{ selected: company.id == companies[selected].id }' }
+      %a.links{ 'ng-href' => '#/{{ company.id }}'}
+        .medium-10.columns.company
+          {{ company.name }}
+        .medium-2.columns
+          .numReviews
+            {{ company.reviewsCount }} reviews
+        .clear

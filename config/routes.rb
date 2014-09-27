@@ -21,9 +21,10 @@ Projectx::Application.routes.draw do
       :sign_out => 'logout',
       :sign_up => 'register'
     }
-    resource :account, :only => [:show] do
+    resource :account, :only => [:show,] do
       member do
         get :company_views
+        put :info
       end
     end
 
@@ -33,8 +34,14 @@ Projectx::Application.routes.draw do
       end
     end
 
+    # resources :schools, :only => [] do
+    #   collection do
+    #     get :search
+    #   end
+    # end
+
     get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
-    resources :reviews
+    resources :reviews, :except => [:new, :show]
     resources :companies, :only => [:show] do
       collection do
         get :search

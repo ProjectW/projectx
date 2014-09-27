@@ -1,10 +1,12 @@
 studentDashboardApp = angular.module 'studentDashboardApp',
   [
     'ngRoute',
+    'sharedDirectives',
     'studentDashboardControllers',
     'resources.resumes',
     'resources.reviews',
-    'resources.account'
+    'resources.account',
+    'angucomplete'
   ]
 
 studentDashboardApp.config ["$httpProvider", ($httpProvider) ->
@@ -20,5 +22,9 @@ studentDashboardApp.config ['$routeProvider', ($routeProvider) ->
     .when('/review',
       templateUrl: '<%= asset_path("angular/student/student_dashboard/views/reviewView") %>',
       controller: 'ReviewCtrl'
+    )
+    .when('/edit'
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/editView") %>',
+      controller: 'EditCtrl'
     )
 ]

@@ -8,18 +8,16 @@ class Student::ReviewsController < Student::StudentBaseController
     render :json => @current_student.reviews.map{ |review| get_review_json(review) }
   end
 
-  def new
-    @review = Review.new
-  end
-
   def create
-    @review = Review.new(review_params)
+    to_save = review_params.keep_if{ |key, value| Review.attribute_names.include?(key.to_s) }
+    @review = Review.new(to_save)
+
     @review.student_account = @current_student
 
     if !@review.save
       raise "Review did not save correctly"
     else
-      redirect_to "/student/reviews/submit"
+      render_success
     end
   end
 
@@ -39,25 +37,26 @@ class Student::ReviewsController < Student::StudentBaseController
     render :json => get_review_json(@review)
   end
 
-  def show
-  end
-
   private
 
   def review_params
     params.require(:review).permit(
-      :company_id,
-      :position_title,
+      :companyId,
+      :positionTitle,
       :salary,
       :projects,
       :mentorship,
-      :number_interns,
-      :net_promoter,
+      :numberInterns,
+      :numberHours,
       :year,
       :season,
-      :end,
-      :hours
+      :recommend,
+      :story,
+      :culture,
+      :location,
+      :extra
     )
+    snakefy_symbolize_keys(params)
   end
 
   def get_review_json(review)
