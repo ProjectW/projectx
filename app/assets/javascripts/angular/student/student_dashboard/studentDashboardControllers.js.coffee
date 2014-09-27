@@ -28,8 +28,9 @@ studentDashboardControllers.controller 'ReviewCtrl',
     'Review',
     ($scope, $location, Review) ->
       $scope.review = {}
+      $scope.errors = []
 
-      requiredInputs = [
+      REQUIRED_INPUTS = [
         'positionTitle',
         'numberInterns',
         'numberHours',
@@ -42,20 +43,27 @@ studentDashboardControllers.controller 'ReviewCtrl',
         'location'
       ]
 
+      EARLIEST_YEAR = 2000
+      LATEST_YEAR = getFullYear()
+
+      isValid = (review) ->
+        errors = []
+
+        for requiredInput in REQUIRED_INPUTS
+          if not review[requiredInput]
+            errors[errors.length] = "Missing " + requiredInput + " field"
+
+        if not typeof(review.company) == 'object'
+          errors[errors.length] = "Please start typing your company's name and then select one from the dropdown."
+
+        if review.year < EARLIEST_YEAR || LATEST_YEAR < review.year
+          errors[errors.length] = "The year you entered is invalid."
+
+        $scope.errors = errors
+        $scope.errors.length == 0
+
       $scope.submit = () ->
-        missing = []
-        for requiredInput in requiredInputs
-          if not $scope.review[requiredInput]
-            missing[missing.length] = requiredInput
-        if missing.length
-          errors = []
-          for field in missing
-            errors[errors.length] = "Missing " + field + " field"
-          $scope.errors = errors
-        else if not typeof($scope.review.company) == 'object'
-          errors = ["Please start typing your company's name and then select one from the dropdown."]
-          $scope.errors = errors
-        else
+        if isValid($scope.review)
           $scope.review.companyId = $scope.review.company.id
           Review.save $scope.review, (() -> $location.path("/")), (v, r) ->
             alert "Error: " + if v.data then v.data.message else v
