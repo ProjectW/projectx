@@ -46,11 +46,13 @@ companies = [
   { id: 33, name: 'goldman', display_name: 'Goldman Sachs', url: 'http://www.goldmansachs.com/careers/students-and-graduates/' },
   { id: 34, name: 'stripe', display_name: 'Stripe', url: 'https://stripe.com/jobs/' },
   { id: 35, name: 'five_stars', display_name: 'Five Stars', url: 'http://www.fivestars.com/team/careers/' },
-  { id: 31, name: 'yahoo', display_name: 'Yahoo', url: 'https://careers.yahoo.com/us/students' },
-  { id: 32, name: '3red', display_name: '3Red', url: 'http://www.3redgroup.com/campus/'},
-  { id: 33, name: 'slack', display_name: 'Slack', url: 'https://slack.com/jobs' },
-  { id: 34, name: 'nextdoor', display_name: 'Nextdoor', url: 'https://nextdoor.com/jobs/' },
-  { id: 35, name: 'evernote', display_name: 'Evernote', url: 'https://evernote.com/careers/?utm_source=twitter' }
+  { id: 36, name: 'yahoo', display_name: 'Yahoo', url: 'https://careers.yahoo.com/us/students' },
+  { id: 37, name: '3red', display_name: '3Red', url: 'http://www.3redgroup.com/campus/'},
+  { id: 38, name: 'slack', display_name: 'Slack', url: 'https://slack.com/jobs' },
+  { id: 39, name: 'nextdoor', display_name: 'Nextdoor', url: 'https://nextdoor.com/jobs/' },
+  { id: 40, name: 'evernote', display_name: 'Evernote', url: 'https://evernote.com/careers/?utm_source=twitter' },
+  { id: 41, name: 'putnam', display_name: 'Putnam Investments', url: 'https://www.putnam.com/careers/' },
+  { id: 42, name: 'salesforce', display_name: 'Salesforce', url: 'http://www.salesforce.com/company/careers/futureforce/' }
 
 ]
 
