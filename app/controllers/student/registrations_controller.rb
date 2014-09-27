@@ -6,9 +6,9 @@ class Student::RegistrationsController < Devise::RegistrationsController
     raise "Can't delete student accounts"
   end
 
-  protected 
+  protected
 
-  # TODO remove hard-coded Harvard  
+  # TODO remove hard-coded Harvard
   def sign_up_params
     super.merge(:school_id => 1)
   end

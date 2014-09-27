@@ -11,11 +11,10 @@
       .row
         .medium-12.columns
           %h5.wish
-            Change your information 
-            %a
+            Change your information
+            %a{ 'href' => '#/edit' }
               %strong
                 here.
-      
       / .row
       /   .medium-12.columns{:style => "padding-bottom: 20px;"}
       /     .connect.fs1{"aria-hidden" => "true", "data-icon" => "\"}
@@ -36,8 +35,14 @@
         .resumes{ 'ng-switch' => 'resume.id' }
           %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
             + Upload a New Resume
-          %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
-            Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
+          .button-bar{'ng-switch-default' => ''}
+            %ul.button-group.even.two-up
+              %li.old
+                %a.button.sd{'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank'}
+                  Resume {{ resume.uploadFileName | limitTo: 30 }} uploaded
+              %li.new
+                %a.button.sd{'ng-href' => 'resumes/new'}
+                  Upload New
         .reviews      
           %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
             %li{:style => "padding:20px !important; font-size: 1.2rem"} My Reviews
@@ -63,7 +68,8 @@
                         %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
                           NO
             %li
-              %a.button.sd{ :href => "reviews/new", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
+              %a.button.sd{ :href => "#/review", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
                 + WRITE A REVIEW
-          %div{ 'ng-if' => 'reviews.length == 0' }
-            You don't have any reviews yet, please write one!
+            %div{ 'ng-if' => 'reviews.length == 0', style: "margin-left: 20px" }
+              You don't have any reviews yet, please write one!
+            %br

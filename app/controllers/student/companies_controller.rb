@@ -16,12 +16,10 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-    reviews = Review.includes(:student_account).where(:company_id => @company.id).map do |review|
-      {
-        id: review.id,
-        student_name: review.student_account.first_name + " " + review.student_account.last_name
-      }
-    end
+    reviews = Review.
+                includes(student_account: [:school]).
+                where(:company_id => @company.id).
+                map{ |review| get_review_json(review) }
 
     render :json => camelize_symbolize_keys(reviews)
   end
@@ -30,7 +28,8 @@ class Student::CompaniesController < Student::StudentBaseController
     search_text = params[:searchText]
     companies = Company.where('display_name LIKE ?', '%' + search_text + '%')
 
-    render :json => companies.map{|company| get_company_json(company) }
+    # Optimize N + 1 queries now
+    render :json => camelize_symbolize_keys(companies.map{|company| get_company_json(company) })
   end
 
   def view
@@ -44,7 +43,7 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def show
-    render :json => get_company_json(@company)
+    render :json => camelize_symbolize_keys(get_company_json(@company))
   end
 
   private
@@ -53,11 +52,24 @@ class Student::CompaniesController < Student::StudentBaseController
     @company = Company.find(params.fetch(:id))
   end
 
+  def get_review_json(review)
+    review.
+      as_json(:except => [:updated_at, :student_account_id, :company_id]).
+      merge({
+        student: {
+          name: review.student_account.first_name + " " + review.student_account.last_name,
+          school: review.student_account.school.display_name,
+          graduation_year: review.student_account.graduation_year
+        }
+      })
+  end
+
   def get_company_json(company)
     {
       id: company.id,
       name: company.display_name,
-      url: company.url
+      url: company.url,
+      reviews_count: company.reviews.count
     }
   end
 
