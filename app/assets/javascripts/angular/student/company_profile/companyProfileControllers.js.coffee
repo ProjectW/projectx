@@ -44,24 +44,25 @@ companyProfileControllers.controller 'CompanySearchCtrl',
 
   ]
 
-companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routeParams', '$http', 'Company', ($scope, $routeParams, $http, Company) ->
-  companyId = $routeParams.companyId
-  company = Company.get({ id: companyId }, (company) ->
-    $scope.company = company
-    Company.view({ id: companyId }) # TODO handle errors
-  )
-  $scope.reviews = Company.reviews({ id: companyId })
+companyProfileControllers.controller 'CompanyProfileCtrl',
+  [
+    '$scope',
+    '$routeParams',
+    '$http',
+    'Company',
+    ($scope, $routeParams, $http, Company) ->
+      companyId = $routeParams.companyId
+      company = Company.get({ id: companyId }, (company) ->
+        $scope.company = company
+        Company.view({ id: companyId }) # TODO handle errors
+      )
+      $scope.reviews = Company.reviews({ id: companyId })
 
-  $scope.currentIndex = 0;
+      $scope.currentIndex = 0;
 
-  $scope.next = () ->
-    (if $scope.currentIndex < $scope.company.reviews.count - 1 then $scope.currentIndex++ else $scope.currentIndex = 0)
+      $scope.next = () ->
+        $scope.currentIndex = Math.min $scope.company.reviewsCount - 1, $scope.currentIndex + 1
 
-  $scope.prev = () -> 
-    (if $scope.currentIndex > 0 then $scope.currentIndex-- else $scope.currentIndex = $scope.reviews)
-
-  $scope.$watch 'currentIndex', () ->
-    $scope.reviews.forEach (review) -> 
-      review.visible = false
-    $scope.reviews[$scope.currentIndex].visible = true;
-]
+      $scope.prev = () ->
+        $scope.currentIndex = Math.max 0, $scope.currentIndex - 1
+  ]

@@ -23,12 +23,10 @@
       %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
         {{ company.name }}
     .slider
-      %div.slide{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.visible' }
-        {{ review.studentName }}
-        {{ review.studentSchool }} 
-        {{ review.studentYear }}
-      %div.arrows
-        %a{:href => "#", 'ng-click' => "prev()"}
-          %img{:src => "/images/left-arrow.png"}
-        %a.right{:href => "#", 'ng-click' => "next()"}
-          %img{:src => "/images/right-arrow.png"}
+      %div.slide{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
+        {{ review.student.name }}
+        {{ review.student.school }}
+        {{ review.student.graduationYear }}
+      %div.arrows{ 'ng-show' => 'reviews.length > 1' }
+        %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()' }
+        %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()' }

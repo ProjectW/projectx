@@ -19,9 +19,11 @@ class Student::CompaniesController < Student::StudentBaseController
     reviews = Review.includes(student_account: [:school]).where(:company_id => @company.id).map do |review|
       {
         id: review.id,
-        student_name: review.student_account.first_name + " " + review.student_account.last_name,
-        student_school: review.student_account.school.display_name,
-        student_year: review.student_account.graduation_year
+        student: {
+          name: review.student_account.first_name + " " + review.student_account.last_name,
+          school: review.student_account.school.display_name,
+          graduation_year: review.student_account.graduation_year
+        }
       }
     end
 
@@ -47,7 +49,7 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def show
-    render :json => get_company_json(@company)
+    render :json => camelize_symbolize_keys(get_company_json(@company))
   end
 
   private
