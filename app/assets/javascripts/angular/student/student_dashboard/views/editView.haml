@@ -1,5 +1,11 @@
 .row
-  .medium-12
+  %h1.head{style:"color:$teal"}Your Information 
+
+  .medium-12.columns{style:"margin-top: 15px"}
+    %label{style:"text-align:center"}
+      To edit your email or password, click
+      %a{ 'href' => 'account/edit' } here.
+
     %label
       First Name:
       %input{ 'type' => 'text', 'ng-model' => 'account.firstName' }
@@ -19,8 +25,5 @@
         %option{ 'value' => 2017 } 2017
         %option{ 'value' => 2018 } 2018
 
-    .button
+    .button.postfix
       %input{ 'type' => 'submit', 'value' => 'Save', 'ng-click' => 'save()' }
-
-    To edit your email or password, click
-    %a{ 'href' => 'account/edit' } here
