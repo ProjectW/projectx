@@ -1,17 +1,24 @@
-.row
-  .medium-12.columns.medium-centered
-    %h1
-      Contact Us
+= stylesheet_link_tag 'application'
 
 .row
-  .medium-12.columns
-    = form_tag '/contact', method: 'post' do
-      %div
-        = label_tag :email, "Your email address:"
-        = email_field_tag :email, nil, autofocus: true
-      %div
-        = label_tag :message, "Message: "
-        = text_area_tag :message, nil, placeholder: "Type your message here.", rows: 10, cols: 10
-      %div
-        .button
-          = submit_tag 'Send'
+  .medium-1.columns
+  .medium-10.columns.medium-centered
+    %h1
+      Hey there! We're pinpeg. :)
+    %h1
+      What's on your mind?
+
+    .row
+      .medium-12.columns
+        = form_tag '/contact', method: 'post' do
+          %div
+            = label_tag :email, "Your email address:"
+            = email_field_tag :email, nil, autofocus: true, required: true
+          %div
+            = label_tag :message, "Message: "
+            = text_area_tag :message, nil, placeholder: "Type your message here.", rows: 10, cols: 10, required: true
+          .text-right
+            .button.postfix
+              = submit_tag 'Send'
+
+  .medium-1.columns

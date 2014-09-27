@@ -15,11 +15,15 @@ class HomeController < ApplicationController
   end
 
   def post_contact
-    # do stuff
+    email = params.fetch(:email)
+    message = params.fetch(:message)
+
+    AdminMailer.contact_us(email, message)
+
     redirect_to "/"
   end
 
   def partners
   end
-  
+
 end
