@@ -20,10 +20,10 @@
         .medium-3.columns
           %select{ 'ng-model' => 'review.season' }
             %option{ 'value' => '', 'disabled' => 'disabled' } Season
-            %option{ 'value' => 1 } Spring
-            %option{ 'value' => 2 } Summer
-            %option{ 'value' => 3 } Fall
-            %option{ 'value' => 4 } Winter
+            %option{ 'value' => :spring } Spring
+            %option{ 'value' => :summer } Summer
+            %option{ 'value' => :fall } Fall
+            %option{ 'value' => :winter } Winter
         .medium-3.columns
           %input{ 'type' => 'number', 'placeholder' => 'Year', 'value' => 2014 }
       .row

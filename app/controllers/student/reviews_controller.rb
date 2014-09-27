@@ -13,7 +13,8 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def create
-    @review = Review.new(review_params)
+    to_save = review_params.keep_if{ |key, value| Review.attribute_names.include?(key.to_s) }
+    @review = Review.new(to_save)
 
     @review.student_account = @current_student
 
@@ -53,11 +54,15 @@ class Student::ReviewsController < Student::StudentBaseController
       :projects,
       :mentorship,
       :numberInterns,
-      :numberHours
+      :numberHours,
       :netPromoter,
       :year,
       :season,
-      :extra,
+      :recommend,
+      :story,
+      :culture,
+      :location,
+      :extra
     )
     snakefy_symbolize_keys(params)
   end

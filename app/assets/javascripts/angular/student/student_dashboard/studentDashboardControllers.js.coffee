@@ -51,7 +51,7 @@ studentDashboardControllers.controller 'ReviewCtrl',
         if missing.length
           alert("You're missing some fields!")
         else
-          $scope.review.companyId = 
+          $scope.review.companyId = $scope.review.company.id
           Review.save $scope.review, (() -> $location.path("/")), (v, r) ->
             alert "Error: " + if v.data then v.data.message else v
   ]
