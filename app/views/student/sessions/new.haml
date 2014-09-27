@@ -15,7 +15,7 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %div
       = f.label :email, 'Email Address'
-      = f.email_field :email, autofocus: true, placeholder: 'Text input'
+      = f.email_field :email, autofocus: true, placeholder: 'Text Input'
     %div
       = f.label :password, 'Password'
       = f.password_field :password, autocomplete: "off", placeholder: 'Text input'
@@ -29,8 +29,6 @@
         %br
         %br
         = link_to 'Forgot password?', new_password_path(resource_name)
-
-      
 
     %br
     %br

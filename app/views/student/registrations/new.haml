@@ -4,7 +4,7 @@
 
 .row.join
   .subs
-    Already have an account? 
+    Already have an account?
     = link_to "Login here.", new_session_path(resource_name)
 .row.join
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -21,7 +21,7 @@
     %div
       = f.label :password_confirmation, 'Confirm'
       = f.password_field :password_confirmation, autocomplete: "off"
-    
+
     %div.fullname
       = f.label :first_name
       = f.text_field :first_name
@@ -40,5 +40,4 @@
 
     .end
       %div.button.postfix
-        = f.submit "Sign Up"
-
+        = f.submit "Send Confirmation Email"
