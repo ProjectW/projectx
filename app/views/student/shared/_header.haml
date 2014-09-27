@@ -11,9 +11,9 @@
       %ul.right
         - if student_account_signed_in?
           %li
-            %a{ href: "dashboard" } Dashboard
+            %a{ href: "/student/dashboard" } Dashboard
           %li
-            %a{ href: "company" } Reviews
+            %a{ href: "/student/company" } Reviews
           %li
             = link_to('Logout', destroy_student_account_session_path)
         - else
