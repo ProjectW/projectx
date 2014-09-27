@@ -8,10 +8,6 @@ class Student::ReviewsController < Student::StudentBaseController
     render :json => @current_student.reviews.map{ |review| get_review_json(review) }
   end
 
-  def new
-    @review = Review.new
-  end
-
   def create
     to_save = review_params.keep_if{ |key, value| Review.attribute_names.include?(key.to_s) }
     @review = Review.new(to_save)
@@ -39,9 +35,6 @@ class Student::ReviewsController < Student::StudentBaseController
     end
 
     render :json => get_review_json(@review)
-  end
-
-  def show
   end
 
   private
