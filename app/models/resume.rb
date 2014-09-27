@@ -5,10 +5,12 @@ class Resume < ActiveRecord::Base
 
   # https://github.com/thoughtbot/paperclip
   PATH_TO_RESUME = '/resumes/account:student_account_id/:style:updated_at.:extension'
+  BASE_PATH = Rails.env.production? ? '/var/pinpeg' : ':rails_root/tmp'
+
   has_attached_file :upload, {
     :preserve_files => 'true',
     :url => PATH_TO_RESUME,
-    :path => ':rails_root/tmp' + PATH_TO_RESUME
+    :path => BASE_PATH + PATH_TO_RESUME
   }
   validates_attachment_content_type :upload, :content_type => ['application/pdf', 'application/x-pdf']
 
