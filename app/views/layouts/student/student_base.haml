@@ -14,5 +14,7 @@
 
   %body
     = render partial: "student/shared/header"
-    = yield
-    = render partial: "student/shared/footer"
+    .container
+      %div.app-wrapper
+        = yield
+      = render partial: "student/shared/footer"

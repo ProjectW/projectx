@@ -26,10 +26,14 @@
       %div.arrow{ 'ng-show' => 'reviews.length > 1' }
         %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()', 'ng-show' => 'currentIndex > 0'}
       %div.slide.panel{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
-        {{ review.student.name }}
-        {{ review.student.school }}
-        {{ review.student.graduationYear }}
-        {{ review.positionTitle }}
+        %h3
+          {{ review.student.name }}
+        %h6
+          {{ review.student.school }} Class of {{ review.student.graduationYear }}
+        %h6
+          {{ review.Season }} {{ review.year }} {{company.name}} {{review.location}} {{ review.positionTitle }}
+        %h6.title
+          Company Stats 
       %div.arrow.r{'ng-show' => 'reviews.length >1'}
         %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()', 'ng-show' => 'currentIndex < reviews.length -1' }
     .notification{ 'ng-show' => '!reviews.length' }
