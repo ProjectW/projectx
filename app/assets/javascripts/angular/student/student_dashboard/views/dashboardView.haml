@@ -35,8 +35,14 @@
         .resumes{ 'ng-switch' => 'resume.id' }
           %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
             + Upload a New Resume
-          %a.button.expand.sd{ 'ng-switch-default' => '', 'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank' }
-            Resume {{ resume.uploadFileName | limitTo: 15 }} uploaded on {{ resume.updatedAt | date }}
+          .button-bar{'ng-switch-default' => ''}
+            %ul.button-group.even.two-up
+              %li.old
+                %a.button.sd{'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank'}
+                  Resume {{ resume.uploadFileName | limitTo: 30 }} uploaded
+              %li.new
+                %a.button.sd{'ng-href' => 'resumes/new'}
+                  Upload New
         .reviews      
           %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
             %li{:style => "padding:20px !important; font-size: 1.2rem"} My Reviews
