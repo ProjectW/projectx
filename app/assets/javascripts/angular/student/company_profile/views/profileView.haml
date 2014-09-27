@@ -27,6 +27,9 @@
         {{ review.student.name }}
         {{ review.student.school }}
         {{ review.student.graduationYear }}
+        {{ review.positionTitle }}
+        %div{ 'ng-show' => '!review.recommend' }
+          WEEEEE
       %div.arrows{ 'ng-show' => 'reviews.length > 1' }
         %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()' }
         %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()' }
