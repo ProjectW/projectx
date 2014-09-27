@@ -3,9 +3,9 @@
 .row
   .medium-1.columns
   .medium-10.columns.medium-centered
-    %h1
-      Hey there! We're pinpeg. :)
-    %h1
+    %h1.contact
+      Hey there! We're pinpeg :)
+    %h2.contact
       What's on your mind?
 
     .row
@@ -18,7 +18,7 @@
             = label_tag :message, "Message: "
             = text_area_tag :message, nil, placeholder: "Type your message here.", rows: 10, cols: 10, required: true
           .text-right
-            .button.postfix
+            .button.postfix.send
               = submit_tag 'Send'
 
   .medium-1.columns

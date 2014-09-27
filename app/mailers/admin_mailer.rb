@@ -2,6 +2,7 @@ class AdminMailer < ActionMailer::Base
   ADMIN_EMAIL = "pinpeg.io@gmail.com"
   ERROR_NOTIFICATION_SUBJECT = '[pinpeg] Error'
   CONTACT_US_SUBJECT = '[pinpeg] Contact Us: '
+  RECRUITER_SUBJECT = '[pinpeg] Recruiter Sign Up'
 
   self.delivery_method = :sendmail
 
@@ -18,6 +19,16 @@ class AdminMailer < ActionMailer::Base
     @params = params
     @msg = msg
     mail(to: ADMIN_EMAIL, subject: ERROR_NOTIFICATION_SUBJECT)
+  end
+
+  def recruiter_email(firstName, lastName, email, cName, cURL)
+    @firstName = firstName
+    @lastName = lastName
+    @email = email
+    @cName = cName
+    @cURL = cURL
+
+    mail(to: ADMIN_EMAIL, subject: RECRUITER_SUBJECT)
   end
 
 end
