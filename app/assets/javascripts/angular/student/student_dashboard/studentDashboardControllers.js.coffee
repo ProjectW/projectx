@@ -44,7 +44,7 @@ studentDashboardControllers.controller 'ReviewCtrl',
       ]
 
       EARLIEST_YEAR = 2000
-      LATEST_YEAR = getFullYear()
+      LATEST_YEAR = 2014
 
       isValid = (review) ->
         errors = []
