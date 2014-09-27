@@ -1,6 +1,10 @@
 # use rake routes to see the routing
 Projectx::Application.routes.draw do
 
+  get 'home/index'
+  get '/about_us' => 'home#about_us'
+  get '/privacy' => 'home#privacy'
+
   namespace :student do
     get '/dashboard' => 'student_dashboard#show'
     get '/company' => 'company_profile#show'
@@ -34,13 +38,6 @@ Projectx::Application.routes.draw do
       end
     end
 
-    # resources :schools, :only => [] do
-    #   collection do
-    #     get :search
-    #   end
-    # end
-
-    get '/student/reviews/submit' => 'student/reviews#submit' # FIXME change the way this path is required
     resources :reviews, :except => [:new, :show]
     resources :companies, :only => [:show] do
       collection do
@@ -62,9 +59,6 @@ Projectx::Application.routes.draw do
 
   #   get 'payment/index'
   # end
-
-  get 'home/index'
-  get '/about_us' => 'home#about_us'
 
   # root to: 'student/reviews#index'
   root to: 'home#index'

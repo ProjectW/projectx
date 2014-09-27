@@ -63,6 +63,7 @@
         .medium-12.columns
           %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Is there anything else you'd like to tell us? (Optional)", 'required' => 'required' }
       .row
+        .medium-10.columns
         .medium-2.columns
-          .button{ 'ng-click' => 'submit()' }
+          .button.postfix{ 'ng-click' => 'submit()' }
             Submit

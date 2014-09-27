@@ -8,4 +8,8 @@ class HomeController < ApplicationController
   def create
     redirect_to :student_login
   end
+
+  def privacy
+  end
+
 end
