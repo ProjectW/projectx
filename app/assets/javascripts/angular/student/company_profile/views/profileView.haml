@@ -22,14 +22,17 @@
     %h1
       %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
         {{ company.name }}
-    .slider
+    .slider{ 'ng-show' => 'reviews.length' }
       %div.slide{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
         {{ review.student.name }}
         {{ review.student.school }}
         {{ review.student.graduationYear }}
         {{ review.positionTitle }}
-        %div{ 'ng-show' => '!review.recommend' }
+        %div{ 'ng-show' => 'review.recommend' }
           WEEEEE
+        %div{ 'ng-show' => '!review.recommend' }
+          BOOOO
       %div.arrows{ 'ng-show' => 'reviews.length > 1' }
-        %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()' }
-        %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()' }
+        %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()', 'ng-show' => 'currentIndex > 0'}
+        %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()', 'ng-show' => 'currentIndex < reviews.length -1' }
+    .notification{ 'ng-show' => '!reviews.length' }
