@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     email = params.fetch(:email)
     message = params.fetch(:message)
 
-    AdminMailer.contact_us(email, message)
+    AdminMailer.contact_us(email, message).deliver
 
     redirect_to "/"
   end
