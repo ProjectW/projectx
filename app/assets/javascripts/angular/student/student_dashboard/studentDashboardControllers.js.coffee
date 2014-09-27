@@ -25,9 +25,12 @@ studentDashboardControllers.controller 'ReviewCtrl',
   [
     '$scope',
     '$location',
+    '$window',
     '$anchorScroll',
     'Review',
-    ($scope, $location, $anchorScroll, Review) ->
+    ($scope, $location, $window, $anchorScroll, Review) ->
+      $window.onbeforeunload = () -> "Your changes will not be saved."
+
       $scope.review = {}
       $scope.errors = []
 
