@@ -4,6 +4,8 @@ Projectx::Application.routes.draw do
   get 'home/index'
   get '/about_us' => 'home#about_us'
   get '/privacy' => 'home#privacy'
+  get '/contact' => 'home#get_contact'
+  post '/contact' => 'home#post_contact'
 
   namespace :student do
 

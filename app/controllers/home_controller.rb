@@ -10,4 +10,13 @@ class HomeController < ApplicationController
   def privacy
   end
 
+  def get_contact
+    render 'contact'
+  end
+
+  def post_contact
+    # do stuff
+    redirect_to "/"
+  end
+
 end
