@@ -1,4 +1,5 @@
-= # need to make own sass file for this
+= stylesheet_link_tag 'application'
+
 %link{href: "/assets/mobile.sass", media: "screen and (max-device-width: 700px)", rel: "stylesheet"}
 
 .row.join
@@ -10,6 +11,12 @@
     Are you a recruiter?
     %a
       Click Here.
+
+.row
+  .medium-12.columns
+    = content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
+    = content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
+    = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
 
 .row.join
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
