@@ -4,6 +4,7 @@
   .medium-12.columns
     %h1
       Review Your Internship
+    .errors{ 'pp-show-errors' => '' }
 .row
   %form
     .medium-12.columns
@@ -11,7 +12,12 @@
         First, some general info:
       .row
         .medium-6.columns
-          %angucomplete{ 'id' => 'company', 'placeholder' => 'Company', 'pause' => 400, 'selectedObject' => 'review.company', 'url' => 'companies/search?searchText=', 'titlefield' => 'name'}
+          .company-select-notifier
+            %span.label.secondary{ 'ng-if' => '!review.company' } Please select a company from the dropdown
+            %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
+      .row
+        .medium-6.columns
+          %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 250, 'selectedObject' => 'review.company', 'url' => 'companies/search?searchText=', 'titlefield' => 'name', 'minlength' => '1' }
         .medium-6.columns
           %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location', 'required' => 'required' }
       .row
@@ -28,11 +34,11 @@
           %input{ 'type' => 'number', 'placeholder' => 'Year', 'value' => 2014 }
       .row
         .medium-6.columns
-          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'ng-model' => 'review.salary' }
+          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
         .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'required' => 'required' }
+          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0, 'required' => 'required' }
         .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'required' => 'required' }
+          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0, 'required' => 'required' }
       %h3
         Now, about that internship...
       .row
@@ -55,8 +61,9 @@
         Finally...
       .row
         .medium-12.columns
-          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Is there anything else you'd like to tell us?", 'required' => 'required' }
+          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Is there anything else you'd like to tell us? (Optional)", 'required' => 'required' }
       .row
+        .medium-10.columns
         .medium-2.columns
-          .button{ 'ng-click' => 'submit()' }
+          .button.postfix{ 'ng-click' => 'submit()' }
             Submit

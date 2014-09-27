@@ -48,7 +48,13 @@ studentDashboardControllers.controller 'ReviewCtrl',
           if not $scope.review[requiredInput]
             missing[missing.length] = requiredInput
         if missing.length
-          alert("You're missing some fields!")
+          errors = []
+          for field in missing
+            errors[errors.length] = "Missing " + field + " field"
+          $scope.errors = errors
+        else if not typeof($scope.review.company) == 'object'
+          errors = ["Please start typing your company's name and then select one from the dropdown."]
+          $scope.errors = errors
         else
           $scope.review.companyId = $scope.review.company.id
           Review.save $scope.review, (() -> $location.path("/")), (v, r) ->
