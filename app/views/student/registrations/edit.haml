@@ -1,13 +1,9 @@
 .row.join
   %h1.head
-    Edit #{resource_name.to_s.humanize}
+    Change Password
 
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = devise_error_messages!
-    
-    %div
-      = f.label :email
-      = f.email_field :email, autofocus: true
     
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %div
@@ -15,14 +11,10 @@
     
     %div
       = f.label :current_password
-      %i (We need your current password to confirm your changes.)
-      %br
-      = f.password_field :current_password, autocomplete: "off"
+      = f.password_field :current_password, autocomplete: "off", autofocus: true
 
     %div
       = f.label :password
-      %i (Leave this blank if you don't want to change it.)
-      %br
       = f.password_field :password, autocomplete: "off"
     
     %div
