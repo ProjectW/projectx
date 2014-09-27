@@ -19,6 +19,7 @@ class Student::CompaniesController < Student::StudentBaseController
     reviews = Review.
                 includes(student_account: [:school]).
                 where(:company_id => @company.id).
+                order(created_at: :desc).
                 map{ |review| get_review_json(review) }
 
     render :json => camelize_symbolize_keys(reviews)
