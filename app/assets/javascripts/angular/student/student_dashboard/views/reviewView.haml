@@ -34,11 +34,11 @@
           %input{ 'type' => 'number', 'placeholder' => 'Year', 'value' => 2014 }
       .row
         .medium-6.columns
-          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'ng-model' => 'review.salary' }
+          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
         .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'required' => 'required' }
+          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0, 'required' => 'required' }
         .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'required' => 'required' }
+          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0, 'required' => 'required' }
       %h3
         Now, about that internship...
       .row
@@ -61,7 +61,7 @@
         Finally...
       .row
         .medium-12.columns
-          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Is there anything else you'd like to tell us?", 'required' => 'required' }
+          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Is there anything else you'd like to tell us? (Optional)", 'required' => 'required' }
       .row
         .medium-2.columns
           .button{ 'ng-click' => 'submit()' }
