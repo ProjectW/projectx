@@ -12,15 +12,10 @@
         Share your job experiences and discover new companies and student reviews to find your next internship. 
     .signForm
       %form{"name"  => "emailSignUp", "action" => "/student/account/register", "method" => "get"}
-        .medium-5.columns
+        .medium-9.columns
           %input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
           /= f.email_field :email, autofocus: true, :placeholder => "Email Address"
-
-        .medium-5.columns
-          %input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-          /= f.password_field :password, autocomplete: "off", :placeholder => "Password"
-
-        .medium-2.columns
+        .medium-3.columns
           .button.postfix.enter
             %input{"type" => "submit", "value" => "Sign Up"}
 .imageYay{"data-stellar-background-ratio" => "0.5"} 
@@ -88,11 +83,9 @@
       %h1.title Get Started 
       .signForm
         %form{"name"  => "emailSignUp", "action" => "/student/account/register", "method" => "get"}
-          .medium-5.columns
+          .medium-9.columns
             %input.email{"type" => "email", "name" => "email", "placeholder" => "Email Address"}
-          .medium-5.columns
-            %input.password{"type" => "password", "name" => "password", "placeholder" => "Password"}
-          .medium-2.columns
+          .medium-3.columns
             .button.postfix.enter
               %input{"type" => "submit", "value" => "Sign Up"}
 
