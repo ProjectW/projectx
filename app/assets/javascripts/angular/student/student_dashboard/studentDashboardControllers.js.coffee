@@ -24,8 +24,36 @@ studentDashboardControllers.controller 'DashboardCtrl',
 studentDashboardControllers.controller 'ReviewCtrl',
   [
     '$scope',
-    ($scope) ->
+    '$location',
+    'Review',
+    ($scope, $location, Review) ->
       $scope.review = {}
+
+      requiredInputs = [
+        'positionTitle',
+        'numberInterns',
+        'numberHours',
+        'salary',
+        'projects',
+        'mentorship',
+        'season',
+        'recommend',
+        'story',
+        'culture',
+        'location'
+      ]
+
+      $scope.submit = () ->
+        missing = []
+        for requiredInput in requiredInputs
+          if not $scope.review[requiredInput]
+            missing[missing.length] = requiredInput
+        if missing.length
+          alert("You're missing some fields!")
+        else
+          $scope.review.companyId = 
+          Review.save $scope.review, (() -> $location.path("/")), (v, r) ->
+            alert "Error: " + if v.data then v.data.message else v
   ]
 
 studentDashboardControllers.controller 'EditCtrl',

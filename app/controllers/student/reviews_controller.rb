@@ -14,6 +14,7 @@ class Student::ReviewsController < Student::StudentBaseController
 
   def create
     @review = Review.new(review_params)
+
     @review.student_account = @current_student
 
     if !@review.save
@@ -46,18 +47,19 @@ class Student::ReviewsController < Student::StudentBaseController
 
   def review_params
     params.require(:review).permit(
-      :company_id,
-      :position_title,
+      :companyId,
+      :positionTitle,
       :salary,
       :projects,
       :mentorship,
-      :number_interns,
-      :net_promoter,
+      :numberInterns,
+      :numberHours
+      :netPromoter,
       :year,
       :season,
-      :end,
-      :hours
+      :extra,
     )
+    snakefy_symbolize_keys(params)
   end
 
   def get_review_json(review)
