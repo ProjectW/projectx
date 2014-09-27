@@ -59,10 +59,11 @@ studentDashboardControllers.controller 'ReviewCtrl',
 studentDashboardControllers.controller 'EditCtrl',
   [
     '$scope',
+    '$location',
     'Account',
-    ($scope, Account) ->
+    ($scope, $location, Account) ->
       $scope.account = Account.get()
       $scope.save = () ->
-        Account.save $scope.account, (->), (v,r) ->
+        Account.save $scope.account, (=> $location.path("/")), (v,r) ->
           alert "Error: " + if v.data then v.data.message else v
   ]
