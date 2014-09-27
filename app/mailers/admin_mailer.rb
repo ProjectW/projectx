@@ -1,5 +1,6 @@
 class AdminMailer < ActionMailer::Base
   ADMIN_EMAIL = "pinpeg.io@gmail.com"
+  ERROR_NOTIFICATION_SUBJECT = '[pinpeg] Error'
   CONTACT_US_SUBJECT = '[pinpeg] Contact Us: '
 
   self.delivery_method = :sendmail
@@ -12,4 +13,11 @@ class AdminMailer < ActionMailer::Base
     @msg = msg
     mail(to: ADMIN_EMAIL, subject: CONTACT_US_SUBJECT + " " + email)
   end
+
+  def error_notification(params, msg = nil)
+    @params = params
+    @msg = msg
+    mail(to: ADMIN_EMAIL, subject: ERROR_NOTIFICATION_SUBJECT)
+  end
+
 end

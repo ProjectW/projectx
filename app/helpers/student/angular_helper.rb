@@ -34,6 +34,7 @@ module Student::AngularHelper
     begin
       yield
     rescue Exception => e
+      # AdminMailer.error_notification(params, "with_render_exception error").deliver
       logger.fatal e.message
       render :json => { :success => false, :message => e.message }, :status => 422
     end
