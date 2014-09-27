@@ -4,10 +4,12 @@ studentDashboardControllers.controller 'DashboardCtrl',
   [
     '$scope',
     '$http',
+    '$window',
     'Resume',
     'Review',
     'Account',
-    ($scope, $http, Resume, Review, Account) ->
+    ($scope, $http, $window, Resume, Review, Account) ->
+      $window.onbeforeunload = null
       $scope.account = Account.get()
       $scope.resume = Resume.current()
       $scope.reviews = Review.query()
@@ -79,8 +81,10 @@ studentDashboardControllers.controller 'EditCtrl',
   [
     '$scope',
     '$location',
+    '$window',
     'Account',
-    ($scope, $location, Account) ->
+    ($scope, $location, $window, Account) ->
+      $window.onbeforeunload = null
       $scope.account = Account.get()
       $scope.save = () ->
         Account.save $scope.account, (=> $location.path("/")), (v,r) ->
