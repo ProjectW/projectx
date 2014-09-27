@@ -25,8 +25,9 @@ studentDashboardControllers.controller 'ReviewCtrl',
   [
     '$scope',
     '$location',
+    '$anchorScroll',
     'Review',
-    ($scope, $location, Review) ->
+    ($scope, $location, $anchorScroll, Review) ->
       $scope.review = {}
       $scope.errors = []
 
@@ -67,6 +68,8 @@ studentDashboardControllers.controller 'ReviewCtrl',
           $scope.review.companyId = $scope.review.company.id
           Review.save $scope.review, (() -> $location.path("/")), (v, r) ->
             alert "Error: " + if v.data then v.data.message else v
+        else
+          $anchorScroll()
   ]
 
 studentDashboardControllers.controller 'EditCtrl',
