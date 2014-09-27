@@ -6,24 +6,28 @@
       To edit your email or password, click
       %a{ 'href' => 'account/edit' } here.
 
+  .medium-6.columns{style:"margin-top: 15px"}
     %label
-      First Name:
+      First Name
       %input{ 'type' => 'text', 'ng-model' => 'account.firstName' }
     %label
-      Last Name:
+      School
+      %input{ 'type' => 'text', 'disabled' => 'disabled', 'value' => '{{ account.school }}' }
+  .medium-6.columns{style:"margin-top: 15px"}
+    %label
+      Last Name
       %input{ 'type' => 'text', 'ng-model' => 'account.lastName' }
 
     %label
-      School:
-      %input{ 'type' => 'text', 'disabled' => 'disabled', 'value' => '{{ account.school }}' }
-
-    %label
-      Graduation Year:
+      Graduation Year
       %select{ 'ng-model' => 'account.graduationYear' }
         %option{ 'value' => 2015 } 2015
         %option{ 'value' => 2016 } 2016
         %option{ 'value' => 2017 } 2017
         %option{ 'value' => 2018 } 2018
-
+  .medium-9.columns
+  .medium-3.columns{style:"margin-bottom:20px"}
     .button.postfix
       %input{ 'type' => 'submit', 'value' => 'Save', 'ng-click' => 'save()' }
+  
+    
