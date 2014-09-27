@@ -10,4 +10,20 @@ class HomeController < ApplicationController
   def privacy
   end
 
+  def get_contact
+    render 'contact'
+  end
+
+  def post_contact
+    email = params.fetch(:email)
+    message = params.fetch(:message)
+
+    AdminMailer.contact_us(email, message).deliver
+
+    redirect_to "/"
+  end
+
+  def partners
+  end
+
 end

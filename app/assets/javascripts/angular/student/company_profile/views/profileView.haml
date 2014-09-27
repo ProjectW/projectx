@@ -31,7 +31,7 @@
             %li
               Number of Interns:
             %li
-              Salary: 
+              Salary:
             %li
               Number of Hours:
           %ul.answers
@@ -64,3 +64,7 @@
       %div.arrow.r{'ng-show' => 'reviews.length >1'}
         %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()', 'ng-show' => 'currentIndex < reviews.length -1' }
     .notification{ 'ng-show' => '!reviews.length' }
+      %h3
+        Do you see that? It says...0 reviews!
+      %h3
+        If you know someone who has interned at {{ company.name }}, please ask them to review their internship!

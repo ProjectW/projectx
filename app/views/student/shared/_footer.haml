@@ -11,9 +11,11 @@
         %li
           %a{href: "/company"} For Companies
         %li
+          %a{href: "/partners"} Partners
+        %li
           %a{href: "/privacy"} Privacy Policy
-    .medium-3.columns
-      %h4.footerLabel{:style => 'text-align: right'}
+    .medium-6.columns
+      %a.footerLabel.text-right{ 'href' => '/contact' }
         Contact Us
 
 = render partial: "shared/google_analytics"
