@@ -41,6 +41,7 @@ companyProfileControllers.controller 'CompanySearchCtrl',
         Company.search({ searchText: $scope.searchText}, (r, v) ->
           $scope.companies = r
         )
+
   ]
 
 companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routeParams', '$http', 'Company', ($scope, $routeParams, $http, Company) ->
@@ -50,4 +51,17 @@ companyProfileControllers.controller 'CompanyProfileCtrl', ['$scope', '$routePar
     Company.view({ id: companyId }) # TODO handle errors
   )
   $scope.reviews = Company.reviews({ id: companyId })
+
+  $scope.currentIndex = 0;
+
+  $scope.next = () ->
+    (if $scope.currentIndex < $scope.company.reviews.count - 1 then $scope.currentIndex++ else $scope.currentIndex = 0)
+
+  $scope.prev = () -> 
+    (if $scope.currentIndex > 0 then $scope.currentIndex-- else $scope.currentIndex = $scope.reviews)
+
+  $scope.$watch 'currentIndex', () ->
+    $scope.reviews.forEach (review) -> 
+      review.visible = false
+    $scope.reviews[$scope.currentIndex].visible = true;
 ]

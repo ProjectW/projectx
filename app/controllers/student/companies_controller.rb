@@ -16,10 +16,12 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def reviews
-    reviews = Review.includes(:student_account).where(:company_id => @company.id).map do |review|
+    reviews = Review.includes(student_account: [:school]).where(:company_id => @company.id).map do |review|
       {
         id: review.id,
-        student_name: review.student_account.first_name + " " + review.student_account.last_name
+        student_name: review.student_account.first_name + " " + review.student_account.last_name,
+        student_school: review.student_account.school.display_name,
+        student_year: review.student_account.graduation_year
       }
     end
 

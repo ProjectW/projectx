@@ -1,17 +1,3 @@
-= javascript_include_tag 'jquery.stellar.min'
-
-:javascript
-  $(document).ready(function(){
-    if(!Modernizr.touch){
-      $.stellar();
-    }
-  });
-
-:css
-  div[ng-app]{
-    background-image: none;
-  }
-
 / #company{"data-stellar-background-ratio" => "0.5"}
 /   %div{"data-stellar-background-ratio" => "1.5" }
 
@@ -32,10 +18,17 @@
 /           Founded: Series A
 
 .row
-  .large-12
+  .medium-12.columns
     %h1
       %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
         {{ company.name }}
-    %div{ 'ng-repeat' => 'review in reviews' }
-      Review with id: {{ review.id }} by {{ review.studentName }}
-
+    .slider
+      %div.slide{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.visible' }
+        {{ review.studentName }}
+        {{ review.studentSchool }} 
+        {{ review.studentYear }}
+      %div.arrows
+        %a{:href => "#", 'ng-click' => "prev()"}
+          %img{:src => "/images/left-arrow.png"}
+        %a.right{:href => "#", 'ng-click' => "next()"}
+          %img{:src => "/images/right-arrow.png"}
