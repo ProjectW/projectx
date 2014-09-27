@@ -51,14 +51,25 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
     '$http',
     'Company',
     ($scope, $routeParams, $http, Company) ->
+      RECENT_TO_SHOW = 4
+
       companyId = $routeParams.companyId
       company = Company.get({ id: companyId }, (company) ->
         $scope.company = company
         Company.view({ id: companyId }) # TODO handle errors
       )
+
+
       $scope.reviews = Company.reviews({ id: companyId })
 
       $scope.currentIndex = 0;
+
+      $scope.mostRecentReviews = () ->
+        names = []
+        iterLim = Math.min($scope.reviews.length, RECENT_TO_SHOW) - 1
+        for i in [0..iterLim]
+          names[names.length] = $scope.reviews[i].student.name
+        names.join(", ")
 
       $scope.next = () ->
         $scope.currentIndex = Math.min $scope.company.reviewsCount - 1, $scope.currentIndex + 1

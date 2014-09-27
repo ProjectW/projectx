@@ -31,7 +31,7 @@
             %option{ 'value' => :fall } Fall
             %option{ 'value' => :winter } Winter
         .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => 'Year', 'value' => 2014 }
+          %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'value' => 2014 }
       .row
         .medium-6.columns
           %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
