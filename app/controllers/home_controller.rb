@@ -19,4 +19,7 @@ class HomeController < ApplicationController
     redirect_to "/"
   end
 
+  def partners
+  end
+  
 end

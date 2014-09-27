@@ -7,6 +7,8 @@ Projectx::Application.routes.draw do
   get '/contact' => 'home#get_contact'
   post '/contact' => 'home#post_contact'
 
+  get '/partners' => 'home#partners'
+
   namespace :student do
 
     # angular apps
