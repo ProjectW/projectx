@@ -1,7 +1,7 @@
 %hr
 .searching
   .row
-    .medium-12
+    .medium-12.columns
       .search
         %form
           .row
@@ -11,11 +11,14 @@
                 %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search($event)', 'ng-keydown' => 'select($event)'}
 
 .row.results
-  .medium-12
-    %div
+  .medium-12.columns
+    %div.count
       {{ companies.length }} companies found
     .result{ 'ng-repeat' => 'company in companies', 'ng-class' => '{ selected: company.id == companies[selected].id }' }
-      %a{ 'ng-href' => '#/{{ company.id }}'}
-        {{ company.name }}
-      %div{ 'ng-if' => 'company.id == companies[selected].id' }
-        {{ company.reviewsCount }} reviews
+      %a.links{ 'ng-href' => '#/{{ company.id }}'}
+        .medium-10.columns.company
+          {{ company.name }}
+        .medium-2.columns
+          .numReviews
+            {{ company.reviewsCount }} reviews
+        .clear
