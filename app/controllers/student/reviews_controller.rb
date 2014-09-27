@@ -48,7 +48,6 @@ class Student::ReviewsController < Student::StudentBaseController
       :mentorship,
       :numberInterns,
       :numberHours,
-      :netPromoter,
       :year,
       :season,
       :recommend,
