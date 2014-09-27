@@ -33,7 +33,7 @@ companies = [
   { id: 20, name: 'A9', display_name: 'A9', url: 'https://a9.com/careers/' },
   { id: 21, name: 'asana', display_name: 'Asana', url: 'https://asana.com/jobs'},
   { id: 22, name: 'twitter', display_name: 'Twitter', url: 'https://about.twitter.com/careers/teams/university' },
-  { id: 23, name: 'kensho', display_name: 'Kensho', url: 'https://kensho.recruiterbox.com/' },
+  { id: 23, name: 'handy', display_name: 'Handy', url: 'http://www.handybook.com/careers' },
   { id: 24, name: 'pinterest', display_name: 'Pinterest', url: 'https://about.pinterest.com/en/careers' },
   { id: 25, name: 'jane_street', display_name: 'Jane Street', url: 'http://www.amazon.jobs/team/university-internships#jobresults' }, 
   { id: 26, name: 'fidelity_investments', display_name: 'Fidelity Investments', url: 'http://jobs.fidelity.com/students/undergraduate.html' },
@@ -52,7 +52,10 @@ companies = [
   { id: 39, name: 'nextdoor', display_name: 'Nextdoor', url: 'https://nextdoor.com/jobs/' },
   { id: 40, name: 'evernote', display_name: 'Evernote', url: 'https://evernote.com/careers/?utm_source=twitter' },
   { id: 41, name: 'putnam', display_name: 'Putnam Investments', url: 'https://www.putnam.com/careers/' },
-  { id: 42, name: 'salesforce', display_name: 'Salesforce', url: 'http://www.salesforce.com/company/careers/futureforce/' }
+  { id: 42, name: 'salesforce', display_name: 'Salesforce', url: 'http://www.salesforce.com/company/careers/futureforce/' },
+  { id: 43, name: 'jawbone', display_name: 'Jawbone', url: 'https://jawbone.com/careers' },
+  { id: 44, name: 'fitbit', display_name: 'Fitbit', url: 'http://www.fitbit.com/jobs' },
+  { id: 45, name: '76', display_name: 'Philadelphia 76ers', url: 'http://www.nba.com/careers/' }
 
 ]
 
