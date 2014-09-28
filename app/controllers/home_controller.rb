@@ -26,4 +26,6 @@ class HomeController < ApplicationController
   def partners
   end
 
+  def about
+  end
 end
