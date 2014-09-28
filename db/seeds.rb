@@ -42,7 +42,7 @@ companies = [
   { id: 29, name: 'blackstone', display_name: 'Blackstone', url: 'http://www.blackstone.com/careers/campus-recruiting/summer-internships' },
   { id: 30, name: 'bessemer', display_name: 'Bessemer Venture Partners', url: 'http://jobs.bvp.com/' },
   { id: 31, name: 'jpmorgan', display_name: 'J.P.Morgan', url: 'http://careers.jpmorgan.com/student/jpmorgan/careers' },
-  { id: 32, name: 'morgan_stanley', display_name: 'Morgan Stanley', url: 'http://www.morganstanley.com/about/careers/internships.html'},
+  { id: 32, name: 'shmoop', display_name: 'Shmoop', url: 'http://www.shmoop.com/public/jobs/'},
   { id: 33, name: 'goldman', display_name: 'Goldman Sachs', url: 'http://www.goldmansachs.com/careers/students-and-graduates/' },
   { id: 34, name: 'stripe', display_name: 'Stripe', url: 'https://stripe.com/jobs/' },
   { id: 35, name: 'five_stars', display_name: 'Five Stars', url: 'http://www.fivestars.com/team/careers/' },
@@ -58,7 +58,13 @@ companies = [
   { id: 45, name: '76', display_name: 'Philadelphia 76ers', url: 'http://www.nba.com/careers/' },
   { id: 46, name: 'two_sigma', display_name: 'Two Sigma Investments', url: 'http://www.twosigma.com/careers.html'},
   { id: 47, name: 'floored', display_name: 'Floored', url: 'http://floored.com/jobs/'},
-  { id: 48, name: 'apple', display_name: 'Apple', url: 'https://www.apple.com/jobs/us/students.html#internship_undergraduate'}
+  { id: 48, name: 'apple', display_name: 'Apple', url: 'https://www.apple.com/jobs/us/students.html#internship_undergraduate'},
+  { id: 49, name: 'lek', display_name: 'LEK Consulting', url: 'http://www.lek.com/join-lek/career-paths/undergraduate' },
+  { id: 50, name: 'novantas', display_name: 'Novantas', url: 'http://novantas.com/careers/'},
+  { id: 51, name: 'athenahealth', display_name: 'athenahealth', url: 'http://www.athenahealth.com/careers/'},
+  { id: 52, name: 'bcg', display_name: 'BCG', url: 'http://careers.bcg.com/path/internships.aspx'},
+  { id: 53, name: 'localytics', display_name: 'localytics', url: 'http://www.localytics.com/company/localytics-jobs/'},
+  { id: 54, name: 'wearhaus', display_name: 'Wearhaus', url: 'http://jobs.wearhaus.com/'}
 
 ]
 
