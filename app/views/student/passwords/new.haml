@@ -1,14 +1,16 @@
 = stylesheet_link_tag 'student/resume'
 
-%h1.head
-  Forgot your password?
 .row
-= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f|
-  = devise_error_messages!
-  %div.email
-    = f.label :email
-    = f.email_field :email, autofocus: true
+  .medium-12.columns
+    %h1.head
+      Forgot your password?
 
-  %div.button.postfix.big
-    = f.submit "Send me reset password instructions"
-  
+    .row
+      .medium-4.columns.medium-centered
+        = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f|
+          = devise_error_messages!
+          %div.email
+            = f.label :email
+            = f.email_field :email, autofocus: true
+
+          = f.submit "Send me reset instructions", class: 'button center'

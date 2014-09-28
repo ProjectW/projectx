@@ -18,7 +18,6 @@
             = label_tag :message, "Message: "
             = text_area_tag :message, nil, placeholder: "Type your message here.", rows: 10, cols: 10, required: true
           .text-right
-            .button.postfix.send
-              = submit_tag 'Send'
+            = submit_tag 'Send', class: 'button'
 
   .medium-1.columns

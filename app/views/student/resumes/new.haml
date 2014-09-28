@@ -1,19 +1,13 @@
 = stylesheet_link_tag 'student/resume'
 
 .row
-  %h4.drop Drop Your Resume
-  %h1.middle
-    Upload it here to share with our partnering companies. 
+  .medium-12.columns
+    %h4.drop Drop Your Resume
+    %h1.middle
+      Upload it here to share with our partnering companies. 
 
-  = form_for [:student, @resume], :html => { :multipart => true } do |f|
-    = f.file_field :upload
-    .button.postfix
-      %a{:href => ''}
-        = f.submit "Submit"
-       
-
-  / %ul.small-block-grid-3{style:"margin:50px"}
-  /   = image_tag('home/localytics2.jpg', class: "biopic")
-  /   = image_tag('home/rothenberg.jpg', class: "biopic")
-  /   = image_tag('home/levelup.jpg', class: "biopic")
-  /   = image_tag('home/fivestars.jpg', class: "biopic")
+    = form_for [:student, @resume], :html => { :multipart => true } do |f|
+      = f.file_field :upload
+      .row
+        .medium-4.columns.medium-centered
+          = f.submit "Submit", class: 'button'
