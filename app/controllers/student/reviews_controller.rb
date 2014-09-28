@@ -38,7 +38,7 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @review = Review.includes(:student_account).find(params[:id])
     render :json => get_review_full_json(@review)
   end
 
@@ -65,7 +65,17 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   def get_review_full_json(review)
-    camelize_symbolize_keys(review.as_json)
+    camelize_symbolize_keys(
+      review.
+        as_json.
+        merge({
+          student: {
+            name: review.student_account.first_name + " " + review.student_account.last_name,
+            school: review.student_account.school.display_name,
+            graduation_year: review.student_account.graduation_year
+          }
+        })
+    )
   end
 
   def get_review_summary_json(review)
