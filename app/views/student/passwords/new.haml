@@ -4,7 +4,8 @@
   .medium-12.columns
     %h1.head
       Forgot your password?
-
+    %h2.head.text-center
+      No Sweat.
     .row
       .medium-4.columns.medium-centered
         = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f|
