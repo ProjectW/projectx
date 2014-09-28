@@ -1,0 +1,23 @@
+= stylesheet_link_tag 'application'
+
+.row
+  .medium-1.columns
+  .medium-10.columns.medium-centered
+    %h1.contact
+      Hey there! We're pinpeg :)
+    %h2.contact
+      What's on your mind?
+
+    .row
+      .medium-12.columns
+        = form_tag '/contact', method: 'post' do
+          %div
+            = label_tag :email, "Your email address:"
+            = email_field_tag :email, nil, autofocus: true, required: true
+          %div
+            = label_tag :message, "Message: "
+            = text_area_tag :message, nil, placeholder: "Type your message here.", rows: 10, cols: 10, required: true
+          .text-right
+            = submit_tag 'Send', class: 'button'
+
+  .medium-1.columns

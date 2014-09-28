@@ -1,9 +1,13 @@
 = stylesheet_link_tag 'student/resume'
 
-.wrapper
-  %h1
-    Dang, that resume is looking fine. Upload it here and share with companies. 
-  %row
-  = form_for [:student, @resume], :html => { :multipart => true } do |f|
-    = f.file_field :upload
-    = f.submit "Submit"
+.row
+  .medium-12.columns
+    %h4.drop Drop Your Resume
+    %h1.middle
+      Upload it here to share with our partnering companies. 
+
+    = form_for [:student, @resume], :html => { :multipart => true } do |f|
+      = f.file_field :upload
+      .row
+        .medium-4.columns.medium-centered
+          = f.submit "Submit", class: 'button'

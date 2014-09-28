@@ -19,6 +19,7 @@ class Student::CompaniesController < Student::StudentBaseController
     reviews = Review.
                 includes(student_account: [:school]).
                 where(:company_id => @company.id).
+                order(created_at: :desc).
                 map{ |review| get_review_json(review) }
 
     render :json => camelize_symbolize_keys(reviews)
@@ -54,8 +55,9 @@ class Student::CompaniesController < Student::StudentBaseController
 
   def get_review_json(review)
     review.
-      as_json(:except => [:updated_at, :student_account_id, :company_id]).
+      as_json(:except => [:updated_at, :student_account_id, :company_id, :season]).
       merge({
+        season: review.season.capitalize,
         student: {
           name: review.student_account.first_name + " " + review.student_account.last_name,
           school: review.student_account.school.display_name,

@@ -1,38 +1,70 @@
-/ #company{"data-stellar-background-ratio" => "0.5"}
-/   %div{"data-stellar-background-ratio" => "1.5" }
-
-/ .company
-/ #wrapper{"data-stellar-background-ratio" => "1.0"}
-/   .col
-/     .row
-/       .medium-6.columns.left-column
-/         %h1
-/           {{ company.name }}
-/         %h3
-/           New York City, NY, United States
-/         %h4
-/           Type: Architecture
-/         %h4
-/           Founded: 2009
-/         %h4
-/           Founded: Series A
-
+%hr
+.company-name
+  .row
+    .medium-12.columns
+      %h1
+        %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
+          {{ company.name | uppercase}}
+      %h2
+        {{ reviews.length }} REVIEWS
+      %h2.recent{ 'ng-if' => 'reviews.length' }
+        MOST RECENT BY: {{ mostRecentReviews() }}
 .row
   .medium-12.columns
-    %h1
-      %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
-        {{ company.name }}
     .slider{ 'ng-show' => 'reviews.length' }
-      %div.slide{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
-        {{ review.student.name }}
-        {{ review.student.school }}
-        {{ review.student.graduationYear }}
-        {{ review.positionTitle }}
-        %div{ 'ng-show' => 'review.recommend' }
-          WEEEEE
-        %div{ 'ng-show' => '!review.recommend' }
-          BOOOO
-      %div.arrows{ 'ng-show' => 'reviews.length > 1' }
+      %div.arrow{ 'ng-show' => 'reviews.length > 1' }
         %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()', 'ng-show' => 'currentIndex > 0'}
+      %div.slide.panel{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
+        %h3
+          {{ review.student.name }}
+        / %h3.message{'ng-show' => 'review.contactable == True'}
+        /   \- Message Me
+        %h6.student-info
+          {{ review.student.school }} Class of {{ review.student.graduationYear }}
+        %h6.student-info
+          {{ review.Season }} {{ review.year }} {{company.name}} ({{review.location}}) {{ review.positionTitle }}
+
+        %h6.title
+          Company Stats
+        .stats
+          %ul.labels
+            %li
+              Number of Interns:
+            %li
+              Salary:
+            %li
+              Number of Hours:
+          %ul.answers
+            %li
+              {{ review.numberInterns}}
+            %li{'ng-show' => 'review.salary == null'}
+              N/A
+            %li{'ng-show' => 'review.salary != null'}
+              {{ review.salary }}
+            %li
+              {{ review.numberHours}}
+        .clear
+        %h6.title
+          Culture
+        %h6
+          {{ review.culture }}
+        %h6.title
+          Projects
+        %h6
+          {{ review.projects }}
+        %h6.title
+          Mentorship
+        %h6
+          {{ review.mentorship }}
+        %h6.title
+          Work Story
+        %h6
+          {{ review.story }}
+
+      %div.arrow.r{'ng-show' => 'reviews.length >1'}
         %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()', 'ng-show' => 'currentIndex < reviews.length -1' }
     .notification{ 'ng-show' => '!reviews.length' }
+      %h3
+        Do you see that? It says...0 reviews!
+      %h3
+        If you know someone who has interned at {{ company.name }}, please ask them to review their internship!

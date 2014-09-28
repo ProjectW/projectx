@@ -3,4 +3,5 @@ class Company::CompanyBaseController < ApplicationController
 
 	def index
 	end
+
 end

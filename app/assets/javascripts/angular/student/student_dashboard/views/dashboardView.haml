@@ -28,14 +28,16 @@
         %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit"}
           %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
           %hr
+          %li{ 'ng-show' => '!companyViews.length' }
+            %a{ 'href' => 'company#/' } Search for a company.
           %li{ 'ng-repeat' => 'companyView in companyViews' }
             %a{ 'ng-href' => 'company#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
               {{ companyView.companyName }}
       .medium-8.columns
-        .resumes{ 'ng-switch' => 'resume.id' }
-          %a.button.expand.sd{ 'ng-switch-when' => 'null', :href => "resumes/new"} 
+        .resumes
+          %a.button.expand.sd{ 'ng-if' => 'resume.id == null', :href => "resumes/new"}
             + Upload a New Resume
-          .button-bar{'ng-switch-default' => ''}
+          .button-bar{'ng-if' => 'resume.id' }
             %ul.button-group.even.two-up
               %li.old
                 %a.button.sd{'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank'}
@@ -43,7 +45,9 @@
               %li.new
                 %a.button.sd{'ng-href' => 'resumes/new'}
                   Upload New
-        .reviews      
+          .text-center{ 'ng-if' => 'resume.id && !reviews.length', style: 'margin-top: 10px;' }
+            Your resume will not be sent to any of our partners unless you submit a review.
+        .reviews
           %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
             %li{:style => "padding:20px !important; font-size: 1.2rem"} My Reviews
             %hr
@@ -67,9 +71,9 @@
                       %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
                         %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
                           NO
+            %li.text-center{ 'ng-if' => '!reviews.length', style: 'margin-bottom: 10px' }
+              You have not reviewed any internships yet. Please write one!
             %li
               %a.button.sd{ :href => "#/review", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
                 + WRITE A REVIEW
-            %div{ 'ng-if' => 'reviews.length == 0', style: "margin-left: 20px" }
-              You don't have any reviews yet, please write one!
             %br

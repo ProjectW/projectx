@@ -1,2 +1,36 @@
-%h1
-	company dashboard
+.row
+  .medium-12.columns
+    %h1
+      Welcome Recruiter!
+.row
+  .medium-12.columns
+    %h3
+      If you would like to become a partner company, please fill out the following form, and we'll be in touch.  
+    %h3
+      Or if you have any questions, email us at pinpeg.io@gmail.com
+.recruiter
+  = form_tag '#post', method: 'post' do
+    .row 
+      .medium-12.columns
+        = label_tag :firstName, "Your First Name"
+        = text_field_tag :firstName, nil, autofocus:true, required: true
+    .row 
+      .medium-12.columns
+        = label_tag :lastName,"Your Last Name"
+        = text_field_tag :lastName, nil, required: true
+    .row 
+      .medium-12.columns
+        = label_tag :email, "Your Email Address"
+        = email_field_tag :email, nil, required: true
+    .row 
+      .medium-12.columns
+        = label_tag :cName, "Company Name"
+        = text_field_tag :cName, nil, required: true
+    .row 
+      .medium-12.columns
+        = label_tag :cURL, "Company URL"
+        = text_field_tag :cURL, nil, required: true
+    .row
+      .medium-9.columns
+      .medium-3.columns
+        = submit_tag 'Submit', class: 'button'

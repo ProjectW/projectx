@@ -3,28 +3,19 @@
     .medium-6.columns
       %h4.footerLabel
         2014 PINPEG
-      %ul.small-block-grid-1 
+      %ul.small-block-grid-1
+        / %li
+        /   %a{href: "/about_us"} About Us
         %li
-          %a{href: "/about_us"} About Us
+          %a{href: "/student"} For Students
         %li
-          %a{href: "#"} For Students
+          %a{href: "/company"} For Companies
         %li
-          %a{href: "#"} For Companies
+          %a{href: "/partners"} Partners
         %li
-          %a{href: "#"} Terms of Use
-        %li
-          %a{href: "#"} Privacy Policy
-    .medium-3.columns
-      %h4.footerLabel
+          %a{href: "/privacy"} Privacy Policy
+    .medium-6.columns
+      %a.footerLabel.text-right{ 'href' => '/contact' }
         Contact Us
-      %ul.small-block-grid-4
-        %li.footer
-          = link_to image_tag("twitter3.png", class: "social"), "http://twitter.com/pinpegio", target: '_blank'
-        %li.footer
-          = image_tag('facebook3.png', class: "social")
-        %li.footer
-          = image_tag('linkedin.png', class: "social")
-        %li.footer
-          = image_tag('google+.png', class: "social")
 
 = render partial: "shared/google_analytics"
