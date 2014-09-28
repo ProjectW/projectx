@@ -31,13 +31,8 @@
       = f.text_field :last_name
 
     %div
-      / = f.label :school_id
-      / = f.text_field :school_id # will need some work here with auto-completes + limited inputs
-
-    %div
       = f.label :graduation_year
       = f.select :graduation_year, [2015, 2016, 2017, 2018]
 
     .end
-      %div.button.postfix
-        = f.submit "Send Confirmation Email"
+      = f.submit "Send Confirmation Email", class: 'button'
