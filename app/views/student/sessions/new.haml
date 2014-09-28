@@ -37,8 +37,7 @@
 
       %div
         .endLogin
-          %div.button.postfix
-            = f.submit "Login"
+          = f.submit "Login", class: 'button'
         .register
           = link_to "New? Create an account here.", new_registration_path(resource_name)
           %br

@@ -53,6 +53,7 @@ Projectx::Application.routes.draw do
 
   namespace :company do
     get '/dashboard' => 'company_dashboard#show'
+    post '/dashboard' => 'company_dashboard#post'
 
     root to: redirect('/company/dashboard')
   end
