@@ -1,4 +1,10 @@
-companyProfileApp = angular.module 'companyProfileApp', ['ngRoute','companyProfileControllers', 'resources.companies']
+companyProfileApp = angular.module 'companyProfileApp',
+  [
+    'ngRoute',
+    'companyProfileControllers',
+    'resources.companies',
+    'resources.reviews'
+  ]
 
 companyProfileApp.config ["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')

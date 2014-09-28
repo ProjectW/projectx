@@ -50,7 +50,8 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
     '$routeParams',
     '$http',
     'Company',
-    ($scope, $routeParams, $http, Company) ->
+    'Review',
+    ($scope, $routeParams, $http, Company, Review) ->
       RECENT_TO_SHOW = 4
 
       companyId = $routeParams.companyId
@@ -70,6 +71,28 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
         for i in [0..iterLim]
           names[names.length] = $scope.reviews[i].student.name
         names.join(", ")
+
+      $scope.positiveReviews = () ->
+        pos = 0
+        for review in $scope.reviews
+          if review.recommend
+            pos = pos + 1
+        pos
+
+      $scope.expand = (review) ->
+        $scope.reviews[$scope.currentIndex].expanded = false
+        $scope.currentIndex = $scope.reviews.indexOf(review)
+
+        if not review.loaded
+          Review.get  { id: review.id },
+                      (review) ->
+                        review.loaded = true
+                        review.expanded = true
+                        $scope.reviews[$scope.currentIndex] = review
+                      (r, v) ->
+                        alert "Error: " + if v.data then v.data.message else v
+        else
+          review.expanded = true
 
       $scope.next = () ->
         $scope.currentIndex = Math.min $scope.company.reviewsCount - 1, $scope.currentIndex + 1

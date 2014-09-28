@@ -55,7 +55,7 @@ class Student::CompaniesController < Student::StudentBaseController
 
   def get_review_json(review)
     review.
-      as_json(:except => [:updated_at, :student_account_id, :company_id, :season]).
+      as_json(:only => [:id, :created_at, :number_interns, :number_hours, :position_title, :year, :recommend, :salary]).
       merge({
         season: review.season.capitalize,
         student: {

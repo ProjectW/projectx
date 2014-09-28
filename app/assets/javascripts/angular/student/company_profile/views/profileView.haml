@@ -5,66 +5,55 @@
       %h1
         %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
           {{ company.name | uppercase}}
-      %h2
-        {{ reviews.length }} REVIEWS
-      %h2.recent{ 'ng-if' => 'reviews.length' }
-        MOST RECENT BY: {{ mostRecentReviews() }}
+      .row
+        .medium-6.columns
+          %h2
+            {{ reviews.length }} REVIEWS
+        .medium-6.columns
+          %h2
+            {{ positiveReviews() }} of {{ reviews.length }} would recommend
 .row
   .medium-12.columns
-    .slider{ 'ng-show' => 'reviews.length' }
-      %div.arrow{ 'ng-show' => 'reviews.length > 1' }
-        %img{:src => "/images/left-arrow.png", 'ng-click' => 'prev()', 'ng-show' => 'currentIndex > 0'}
-      %div.slide.panel{ 'ng-repeat' => 'review in reviews', 'ng-show'=> 'review.id == reviews[currentIndex].id' }
-        %h3
-          {{ review.student.name }}
-        / %h3.message{'ng-show' => 'review.contactable == True'}
-        /   \- Message Me
-        %h6.student-info
-          {{ review.student.school }} Class of {{ review.student.graduationYear }}
-        %h6.student-info
-          {{ review.season }} {{ review.year }} {{company.name}} ({{review.location}}) {{ review.positionTitle }}
-
-        %h6.title
-          Company Stats
-        .stats
-          %ul.labels
-            %li
-              Number of Interns:
-            %li
-              Salary:
-            %li
-              Number of Hours:
-          %ul.answers
-            %li
-              {{ review.numberInterns}}
-            %li{'ng-show' => 'review.salary == null'}
-              N/A
-            %li{'ng-show' => 'review.salary != null'}
-              {{ review.salary }}
-            %li
-              {{ review.numberHours}}
-        .clear
-        %h6.title
-          Culture
-        %h6
-          {{ review.culture }}
-        %h6.title
-          Projects
-        %h6
-          {{ review.projects }}
-        %h6.title
-          Mentorship
-        %h6
-          {{ review.mentorship }}
-        %h6.title
-          Work Story
-        %h6
-          {{ review.story }}
-
-      %div.arrow.r{'ng-show' => 'reviews.length >1'}
-        %img.right{:src => "/images/right-arrow.png", 'ng-click' => 'next()', 'ng-show' => 'currentIndex < reviews.length -1' }
-    .notification{ 'ng-show' => '!reviews.length' }
+    .notification{ 'ng-if' => '!reviews.length' }
       %h3
         Do you see that? It says...0 reviews!
       %h3
         If you know someone who has interned at {{ company.name }}, please ask them to review their internship!
+
+    .reviews
+      .row.review{ 'ng-repeat' => 'review in reviews', 'ng-click' => 'expand(review)' }
+        .medium-12.columns
+          .row
+            .medium-4.columns
+              %h3
+                {{ review.student.name }}
+              %h6.student-info
+                {{ review.student.school }} Class of {{ review.student.graduationYear }}
+              %h6.student-info
+                {{ review.season }} {{ review.year }} ({{review.location}}) {{ review.positionTitle }}
+            .medium-2.columns.approval{ 'ng-if' => 'review.recommend' }
+              [&#x2713]
+            .medium-2.columns.approval{ 'ng-if' => '!review.recommend' }
+              [&#x2717]
+            .medium-6.columns
+              %h6.student-info
+                Total # interns: {{ review.numberInterns }}
+              %h6.student-info
+                Hours worked per week: {{ review.numberHours }}
+              %h6.student-info{ 'ng-if' => 'review.salary' }
+                Salary per month: {{ review.salary | currency }}
+
+          .matrix{ 'ng-if' => 'review.expanded' }
+            .row
+              .medium-4.columns
+                {{ review.projects }}
+              .medium-4.columns
+                {{ review.story }}
+            .row
+              .medium-4.columns
+                {{ review.mentorship }}
+              .medium-4.columns
+                {{ review.culture }}
+            .row
+              .medium-12.columns
+                {{ review.extra }}
