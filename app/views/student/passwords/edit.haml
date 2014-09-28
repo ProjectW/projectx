@@ -4,7 +4,7 @@
 .row
   .medium-12.columns
     %h1.head
-      Change your password
+      Change Your Password
 
 .row
   .medium-12.columns
@@ -17,12 +17,10 @@
 
       %div
         = f.label :password, "New password"
-        %br
         = f.password_field :password, autofocus: true, autocomplete: "off"
 
       %div
         = f.label :password_confirmation, "Confirm new password"
-        %br
         = f.password_field :password_confirmation, autocomplete: "off"
 
       %div

@@ -1,3 +1,15 @@
+:css
+	ul li{
+		list-style-position: outside;
+		}
+	p.q, p.a{
+		width: 50%;
+		float: left;
+	}
+	.faqs{
+		padding-bottom: 40px
+	}
+
 %h1.head
 	Privacy Policy + FAQs
 
@@ -13,18 +25,19 @@
 		%h3 Information We Collect
 		%br
 		%p We collect the following personal information that you submit to us voluntarily when you register and when you submit internship reviews.
-		%li Registration process includes name, email address, and school.
-		%li You can submit your resume at any time but will have to provide an internship review in order to have your resume sent to our partnering companies. If you have not had an internship experience, we hope you will find our site useful and write a review once you have had an internship. Please be aware that while some pieces of information that you provide to us might not sufficiently identify you when seen by another User without any context, the combination of different information that you have provided may allow other Users to identify you.
-		%li When you contact us via our contact forms, we will collect any information that is contained in (and/or attached to) your email.
+		%ul
+			%li Registration process includes name, email address, and school.
+			%li You can submit your resume at any time but will have to provide an internship review in order to have your resume sent to our partnering companies. If you have not had an internship experience, we hope you will find our site useful and write a review once you have had an internship. Please be aware that while some pieces of information that you provide to us might not sufficiently identify you when seen by another User without any context, the combination of different information that you have provided may allow other Users to identify you.
+			%li When you contact us via our contact forms, we will collect any information that is contained in (and/or attached to) your email.
 		%br
 .row
 	.medium-12.columns
 		%h3 What do we use this information for?
-		%p We use the information in the following ways.
-		
-		%li To allow you to create an account and profile
-		%li To provide information about you to companies so that we can help find employers that fit your interests
-		%li To connect students with you, if you choose, so that we can facilitate a better understanding of internships before the internship
+		%p We use the information in the following ways:
+		%ul
+			%li To allow you to create an account and profile
+			%li To provide information about you to companies so that we can help find employers that fit your interests
+			%li To connect students with you, if you choose, so that we can facilitate a better understanding of internships before the internship
 		%br
 .row
 	.medium-12.columns
@@ -40,11 +53,18 @@
 		%p We reserve the right to make changes to our Privacy Policy so please review it frequently. We will post those changes to this statement and any other places we deem appropriate so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we disclose it. If you do not intend to accept this Policy, please do not use this site. 
 		%p If you have any questions about our privacy policy, please contact us.
 .row
-	.medium-12.columns
+	.medium-12.columns.faqs
 		%h3 FAQs
-		%p Q: Why submit a review? A: If you submit a review, you will then be able to submit a resume to our partnering companies for another internship. 
+		.question
+			%p.q Q: Why submit a review? 
+			%p.a A: If you submit a review, you will then be able to submit a resume to our partnering companies for another internship.
+		.question
+			%p.q Q: Will companies see my review?
+			%p.a A: No, they will not see your review. Only students with @college.harvard.edu email accounts will be able to see your review.
+		.question
+			%p.q Q: Are my reviews anonymous?
+			%p.a A: No, reviews are not anonymous. We want to create a transparent, trusting community, and believe that students should be able to connect with past interns. 
+		 
 
-		%p Q: Will companies see my review? A: No, they will not see your review. Only students with @college.harvard.edu email accounts will be able to see your review.
-
-		%p Q: Are my reviews anonymous? A: No, reviews are not anonymous. We want to create a transparent, trusting community, and believe that students should be able to connect with past interns. 
+		
 
