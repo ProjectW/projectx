@@ -61,7 +61,8 @@
                 %tbody
                   %tr{ 'ng-repeat' => 'review in reviews' }
                     %td
-                      {{ review.companyName }}
+                      %a{ 'ng-href' => 'company#/{{ review.companyId }}', 'style' => 'color: #29bbbb' }
+                        {{ review.companyName }}
                     %td
                       {{ review.createdAt | date : 'short' }}
                     %td{'style' => 'padding:0 ; margin: 0'}
