@@ -2,10 +2,10 @@ class Student::ReviewsController < Student::StudentBaseController
   include Student::AngularHelper
 
   before_action :set_current_student
-  around_action :with_render_exception, :only => [:index, :update]
+  around_action :with_render_exception, :only => [:index, :update, :show]
 
   def index
-    render :json => @current_student.reviews.map{ |review| get_review_json(review) }
+    render :json => @current_student.reviews.map{ |review| get_review_summary_json(review) }
   end
 
   def create
@@ -34,7 +34,12 @@ class Student::ReviewsController < Student::StudentBaseController
       raise 'Could not save review'
     end
 
-    render :json => get_review_json(@review)
+    render :json => get_review_summary_json(@review)
+  end
+
+  def show
+    @review = Review.find(params[:id])
+    render :json => get_review_full_json(@review)
   end
 
   private
@@ -59,7 +64,11 @@ class Student::ReviewsController < Student::StudentBaseController
     snakefy_symbolize_keys(params)
   end
 
-  def get_review_json(review)
+  def get_review_full_json(review)
+    camelize_symbolize_keys(review.as_json)
+  end
+
+  def get_review_summary_json(review)
     camelize_symbolize_keys({
       id: review.id,
       company_id: review.company_id,

@@ -36,7 +36,7 @@ Projectx::Application.routes.draw do
       end
     end
 
-    resources :reviews, :except => [:new, :show]
+    resources :reviews, :except => [:new]
     resources :companies, :only => [:show] do
       collection do
         get :search
