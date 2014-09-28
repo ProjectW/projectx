@@ -55,7 +55,10 @@ companies = [
   { id: 42, name: 'salesforce', display_name: 'Salesforce', url: 'http://www.salesforce.com/company/careers/futureforce/' },
   { id: 43, name: 'jawbone', display_name: 'Jawbone', url: 'https://jawbone.com/careers' },
   { id: 44, name: 'fitbit', display_name: 'Fitbit', url: 'http://www.fitbit.com/jobs' },
-  { id: 45, name: '76', display_name: 'Philadelphia 76ers', url: 'http://www.nba.com/careers/' }
+  { id: 45, name: '76', display_name: 'Philadelphia 76ers', url: 'http://www.nba.com/careers/' },
+  { id: 46, name: 'two_sigma', display_name: 'Two Sigma Investments', url: 'http://www.twosigma.com/careers.html'},
+  { id: 47, name: 'floored', display_name: 'Floored', url: 'http://floored.com/jobs/'},
+  { id: 48, name: 'apple', display_name: 'Apple', url: 'https://www.apple.com/jobs/us/students.html#internship_undergraduate'}
 
 ]
 
