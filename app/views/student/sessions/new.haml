@@ -19,9 +19,6 @@
     = content_tag(:div, flash[:error], :id => "flash_error", :class => 'errors') if flash[:error]
     = content_tag(:div, flash[:notice], :id => "flash_notice", :class => 'errors') if flash[:notice]
     = content_tag(:div, flash[:alert], :id => "flash_alert", :class => 'errors') if flash[:alert]
-    - if flash[:error] || flash[:notice] || flash[:alert]
-      .errors
-        If you just signed up, your email may be unconfirmed. Check your inbox for an email from pinpeg!
 
 %br
 
