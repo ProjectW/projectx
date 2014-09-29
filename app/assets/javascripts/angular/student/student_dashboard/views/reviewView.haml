@@ -17,7 +17,7 @@
             %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
       .row
         .medium-6.columns
-          %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 250, 'selectedObject' => 'review.company', 'url' => 'companies/search?searchText=', 'titlefield' => 'name', 'minlength' => '1' }
+          %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 0, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2' }
         .medium-6.columns
           %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location', 'required' => 'required' }
       .row
