@@ -1,1 +1,61 @@
-hello, world
+:css
+  ul li{
+    list-style-position: outside;
+    }
+  p.q, p.a{
+    width: 50%;
+    float: left;
+  }
+  h1.about{
+    background: #fff
+    color: $orange
+    margin-top: 100px
+    opacity: 0.8
+    width: 350px
+    font-size: 3.5rem
+    padding: 15px
+  }
+
+  .about_us{
+    background-image: image-url("105H.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 180%;
+  }
+  .faqs{
+    padding-bottom: 40px
+  }
+
+.about_us
+  .row
+    .medium-12.columns
+      %h1.about We've been in your shoes. 
+
+.row 
+  %h2 Mission Statement: 
+  %p We've been on the side of. pinpeg helps students connect with top students and recruiters.
+
+.row
+  .medium-12.columns.faqs
+    %h3 FAQs
+    .question
+      %p.q Q: Why submit a review? 
+      %p.a A: If you submit a review, you will then be able to submit a resume to our partnering companies for another internship.
+    .question
+      %p.q Q: Will companies see my review?
+      %p.a A: No, they will not see your review. Only students with @college.harvard.edu email accounts will be able to see your review.
+    .question
+      %p.q Q: Are my reviews anonymous?
+      %p.a A: No, reviews are not anonymous. We want to create a transparent, trusting community, and believe that students should be able to connect with past interns. 
+    .question
+      %p.q Q: Will others be able to see my resume? 
+      %p.a A: No, only employers will be able to see your resume. For other questions about privacy, please check out our 
+      %a{ 'href' => 'privacy/' } Privacy Policy.
+    .question
+      %p.q Q: More questions? 
+      %p.a A: Contact us and we'll help you out. 
+
+
+     
+
+     
