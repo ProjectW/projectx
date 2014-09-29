@@ -12,7 +12,7 @@ companyProfileControllers.controller 'CompanySearchCtrl',
       ENTER = 13
 
       NAME = 'name'
-      REVIEWS = '-reviewsCount'
+      REVIEWS = ['-reviewsCount', 'name']
 
       $scope.searchText
 
