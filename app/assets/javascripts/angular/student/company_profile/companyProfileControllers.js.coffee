@@ -94,6 +94,11 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
         pos
 
       $scope.expand = (review) ->
+        if review.expanded
+          review.expanded = false
+          $scope.currentIndex = 0
+          return
+
         $scope.reviews[$scope.currentIndex].expanded = false
         $scope.currentIndex = $scope.reviews.indexOf(review)
 

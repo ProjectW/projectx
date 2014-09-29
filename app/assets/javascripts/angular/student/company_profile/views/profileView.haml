@@ -32,12 +32,12 @@
           %h6.student-info
             {{ review.season }} {{ review.year }} ({{review.location}}) {{ review.positionTitle }}
         .medium-6.columns.approval.yes{ 'ng-if' => 'review.recommend' }
-          [&#x2713] 
-          %h3 
+          [&#x2713]
+          %h3
             Recommended
         .medium-6.columns.approval.no{ 'ng-if' => '!review.recommend' }
-          [&#x2717] 
-          %h3 
+          [&#x2717]
+          %h3
             Not Recommended
 
       .matrix{ 'ng-if' => 'review.expanded' }
