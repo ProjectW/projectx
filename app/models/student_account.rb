@@ -13,6 +13,8 @@ class StudentAccount < ActiveRecord::Base
   validates :school_id, presence: true
   validates :graduation_year, presence: true
 
+  after_create :notify_admin
+
   def set_current_resume!(resume)
     if resume.student_account_id != self.id 
       raise 'Resume does not belong to current student account'
@@ -29,6 +31,18 @@ class StudentAccount < ActiveRecord::Base
 
   def undeleted_resumes
     self.resumes.where( deleted: false )
+  end
+
+  private
+
+  def notify_admin
+    subject = "New account created by: " + self.email
+    name = "Name: " + self.first_name + " " + self.last_name
+    year = "Graduation Year: " + self.graduation_year.to_s
+
+    AdminMailer.
+      raw_admin_email(subject, name + "\n" + year).
+      deliver
   end
 
 end
