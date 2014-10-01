@@ -25,7 +25,7 @@ companies = [
   { id: 12, name: 'vivint', display_name: 'Vivint', url: 'https://vivintjobs.silkroad.com/' }, 
   { id: 13, name: 'bridgewater_associates', display_name: 'Bridgewater Associates', url: 'http://www.bwater.com/home/careers.aspx' },
   { id: 14, name: 'bain', display_name: 'Bain & Company', url: 'http://www.joinbain.com/'},
-  { id: 15, name: 'mckinsey', display_name: 'Mckinsey & Company', url: 'http://www.mckinsey.com/careers.aspx' },
+  { id: 15, name: 'mckinsey', display_name: 'McKinsey & Company', url: 'http://www.mckinsey.com/careers.aspx' },
   { id: 16, name: 'kensho', display_name: 'Kensho', url: 'https://kensho.recruiterbox.com/' },
   { id: 17, name: 'square', display_name: 'Square', url: 'http://hire.jobvite.com/CompanyJobs/Careers.aspx?c=q8Z9VfwV' },
   { id: 18, name: 'paypal', display_name: 'Paypal', url: 'http://www.ebaycareers.com/home.aspx' },
