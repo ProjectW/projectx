@@ -7,38 +7,52 @@
     float: left;
   }
   h1.about{
-    background: #fff
-    color: $orange
-    margin-top: 100px
-    opacity: 0.8
-    width: 350px
-    font-size: 3.5rem
-    padding: 15px
+    background-color: transparent;
+    font-weight: 900;
+    margin-top: 120px;
+    opacity: 0.8;
+    width: 38%;
+    font-size: 3.5rem;
+    padding-bottom: 100px;
+    margin-left: 0;
+    padding-left: 0;
   }
 
   .about_us{
     background-image: image-url("105H.jpg");
     background-size: cover;
     width: 100%;
-    height: 180%;
+    height: 200%;
   }
   .faqs{
     padding-bottom: 40px
+  }
+  strong{
+    display: inline;
+  }
+  .row{
+    padding-bottom: 20px;
   }
 
 .about_us
   .row
     .medium-12.columns
-      %h1.about We've been in your shoes. 
+      %h1.about 
+        %strong
+          We've been in your shoes. 
 
 .row 
-  %br
-  %h2 About Us
-  %p We are building a trusting community for students to learn more about internships and find internships. We've all been on the side of finding internships, and we truly hope to make the process more transparent and less stressful than it currently is. 
+  .medium-12.columns
+    %br
+    %h2 About Us
+    %p{:style => "display: inline"} We are building a trusted community for students to find and learn more about internships. We've experienced the recruiting process and truly hope we help make the process more transparent and less stressful for 
+    %strong
+      you. 
 
 .row 
-  %h2 How it Works
-  %p You're looking for an internship at a startup. To learn more about what's out there, you can look through reviews of companies your friends have worked at, and even connect with past interns to ask more questions. If you write a review of a company you've worked at, you can then submit your resume to pinpeg.io, and we will share it with top startup CEOs and recruiters. They will reach out to you if they find a good fit. 
+  .medium-12.columns
+    %h2 How it Works
+    %p You're looking for an internship at a startup. To learn more about what's out there, you can look through reviews of companies your friends have worked at and  connect with past interns to ask more in-depth questions. If you write a review of a company you've worked at, we will share your resume with top startup CEOs and recruiters. Explore the world beyond what you know. 
 
 .row
   .medium-12.columns.faqs
