@@ -72,8 +72,8 @@ companies = [
   { id: 59, name: 'earnest', display_name: 'Earnest', url: 'https://www.meetearnest.com/meet-earnest'},
   { id: 60, name: 'qfpay', display_name: 'QFPay', url:''},
   { id: 61, name: 'spark_capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'},
-  { id: 62, name: 'ashoka', display_name: 'Ashoka', url: 'https://www.ashoka.org/careers'}
-  { id: 63, name: 'bloomberg', display_name: 'Bloomberg', url: 'http://jobs.bloomberg.com/'}
+  { id: 62, name: 'ashoka', display_name: 'Ashoka', url: 'https://www.ashoka.org/careers'},
+  { id: 63, name: 'bloomberg', display_name: 'Bloomberg', url: 'http://jobs.bloomberg.com/'},
   { id: 64, name: 'quantlab', display_name: 'Quantlab Financial', url: 'http://www.quantlab.com/' }
 ]
 
