@@ -73,9 +73,6 @@ companies = [
   { id: 60, name: 'qfpay', display_name: 'QFPay', url:''},
   { id: 61, name: 'spark_capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'}
   
-
->>>>>>> 8aa51f9f0f1a54acbb1d157acb43936a7cb1f445
-
 ]
 
 def seed_ruby_objects(model, records)
