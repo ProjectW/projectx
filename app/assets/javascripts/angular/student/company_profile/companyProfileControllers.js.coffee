@@ -93,6 +93,22 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
             pos = pos + 1
         pos
 
+      $scope.completed = (review) ->
+        COMPLETED_INPUTS = [
+          'numberInterns',
+          'numberHours',
+          'projects',
+          'mentorship',
+          'story',
+          'culture'
+        ]
+
+        for input in COMPLETED_INPUTS
+          if review[input]
+            return true
+
+        false
+
       $scope.expand = (review) ->
         if review.expanded
           review.expanded = false

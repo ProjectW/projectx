@@ -40,7 +40,7 @@
           %h3
             Not Recommended
 
-      .matrix{ 'ng-if' => 'review.expanded' }
+      .matrix{ 'ng-if' => 'review.expanded && completed(review)' }
         .row
           .medium-6.columns
             %h6.student-info
@@ -51,24 +51,30 @@
               Salary per month: {{ review.salary | currency }}
         .row.box-text
           .medium-6.columns
-            %h3.name 
+            %h3.name
               Projects
             {{ review.projects }}
           .medium-6.columns
-            %h3.name 
+            %h3.name
               Work Story
             {{ review.story }}
         .row.box-text
           .medium-6.columns
-            %h3.name 
+            %h3.name
               Mentorship
             {{ review.mentorship }}
           .medium-6.columns
-            %h3.name 
+            %h3.name
               Culture
             {{ review.culture }}
         .row.box-text
           .medium-12.columns
-            %h3.name 
+            %h3.name
               Final Thoughts
             {{ review.extra }}
+
+      .matrix{ 'ng-if' => 'review.expanded && !completed(review)' }
+        Ask
+        %a{ 'href' => 'mailto:' }
+          {{ review.student.name }}
+        to write a review!
