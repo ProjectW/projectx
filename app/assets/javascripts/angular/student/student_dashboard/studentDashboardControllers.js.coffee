@@ -38,14 +38,8 @@ studentDashboardControllers.controller 'ReviewCtrl',
 
       REQUIRED_INPUTS = [
         'positionTitle',
-        'numberInterns',
-        'numberHours',
-        'projects',
-        'mentorship',
         'season',
         'recommend',
-        'story',
-        'culture',
         'location'
       ]
 
