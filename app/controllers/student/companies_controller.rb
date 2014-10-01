@@ -29,8 +29,14 @@ class Student::CompaniesController < Student::StudentBaseController
     search_text = params[:searchText]
     companies = Company.where('display_name LIKE ?', '%' + search_text + '%')
 
+    companies_json = companies.map{|company| get_company_json(company) }
+
+    if params[:sort]
+      companies_json = companies_json.sort_by{ |co| co[:name] }
+    end
+
     # Optimize N + 1 queries now
-    render :json => camelize_symbolize_keys(companies.map{|company| get_company_json(company) })
+    render :json => camelize_symbolize_keys(companies_json)
   end
 
   def view

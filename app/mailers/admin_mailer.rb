@@ -21,6 +21,13 @@ class AdminMailer < ActionMailer::Base
     mail(to: ADMIN_EMAIL, subject: ERROR_NOTIFICATION_SUBJECT)
   end
 
+  def raw_admin_email(subject, body)
+    mail(
+      :to => ADMIN_EMAIL,
+      :subject => subject,
+      :body => body)
+  end
+
   def recruiter_email(firstName, lastName, email, cName, cURL)
     @firstName = firstName
     @lastName = lastName

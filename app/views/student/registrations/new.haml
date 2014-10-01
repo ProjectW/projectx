@@ -15,7 +15,7 @@
       = f.email_field :email, :value => params[:email], autofocus: true
 
     %div
-      = f.label :password
+      = f.label :password, 'Password (minimum 8 characters)'
       = f.password_field :password, autocomplete: "off", :value => params[:password]
 
     %div
