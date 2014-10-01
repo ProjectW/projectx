@@ -1,8 +1,9 @@
 !!!
 %html{lang: "en"}
   %head
-  %meta{:charset => "utf-8"}
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    = render partial: "student/shared/open_graph"
     %title
       pinpeg
     = stylesheet_link_tag 'application'
