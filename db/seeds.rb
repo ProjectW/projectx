@@ -71,8 +71,8 @@ companies = [
   { id: 58, name: 'nutraclick', display_name: 'Nutraclick', url: 'http://www.nutraclick.com/join/internship-program'},
   { id: 59, name: 'earnest', display_name: 'Earnest', url: 'https://www.meetearnest.com/meet-earnest'},
   { id: 60, name: 'qfpay', display_name: 'QFPay', url:''},
-  { id: 61, name: 'spark_capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'}
-  
+  { id: 61, name: 'spark_capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'},
+  { id: 62, name: 'ashoka', display_name: 'Ashoka', url: 'https://www.ashoka.org/careers'}
 ]
 
 def seed_ruby_objects(model, records)
