@@ -64,7 +64,9 @@ companies = [
   { id: 51, name: 'athenahealth', display_name: 'athenahealth', url: 'http://www.athenahealth.com/careers/'},
   { id: 52, name: 'bcg', display_name: 'BCG', url: 'http://careers.bcg.com/path/internships.aspx'},
   { id: 53, name: 'localytics', display_name: 'localytics', url: 'http://www.localytics.com/company/localytics-jobs/'},
-  { id: 54, name: 'wearhaus', display_name: 'Wearhaus', url: 'http://jobs.wearhaus.com/'}
+  { id: 54, name: 'wearhaus', display_name: 'Wearhaus', url: 'http://jobs.wearhaus.com/'},
+  { id: 55, name: 'capital_group', display_name: 'Capital Group', url: 'https://www.thecapitalgroup.com'},
+  { id: 56, name: 'yelp', display_name: 'Yelp', url: 'http://www.yelp.com/careers'},
 
 ]
 
