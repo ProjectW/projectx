@@ -2,11 +2,7 @@
 Projectx::Application.routes.draw do
 
   get 'home/index'
-  # get '/about_us' => 'home#about_us'
-  get '/hmmmm' => 'home#about'
-  get '/hmmm' => 'home#about'
-  get '/hmm' => 'home#about'
-  get '/hm' => 'home#about'
+  get '/about' => 'home#about'
   get '/privacy' => 'home#privacy'
   get '/contact' => 'home#get_contact'
   post '/contact' => 'home#post_contact'
