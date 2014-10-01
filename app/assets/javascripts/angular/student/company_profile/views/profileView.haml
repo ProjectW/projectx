@@ -74,4 +74,7 @@
             {{ review.extra }}
 
       .matrix{ 'ng-if' => 'review.expanded && !completed(review)' }
-        Please ask {{ review.student.name }} to write a review!
+        Ask
+        %a{ 'href' => 'mailto:' }
+          {{ review.student.name }}
+        to write a review!

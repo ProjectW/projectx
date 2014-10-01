@@ -37,10 +37,12 @@ studentDashboardControllers.controller 'ReviewCtrl',
       $scope.errors = []
 
       REQUIRED_INPUTS = [
+        'company',
+        'location',
         'positionTitle',
         'season',
-        'recommend',
-        'location'
+        'year',
+        'recommend'
       ]
 
       EARLIEST_YEAR = 2000
