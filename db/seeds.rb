@@ -69,8 +69,12 @@ companies = [
   { id: 56, name: 'yelp', display_name: 'Yelp', url: 'http://www.yelp.com/careers'},
   { id: 57, name: 'riotgames', display_name: 'Riot Games', url: 'http://www.riotgames.com/NAinternships'},
   { id: 58, name: 'nutraclick', display_name: 'Nutraclick', url: 'http://www.nutraclick.com/join/internship-program'},
-  { id: 59, name: 'qfpay', display_name: 'QFPay', url:''},
-  { id: 60, name: 'Spark Capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'}
+  { id: 59, name: 'earnest', display_name: 'Earnest', url: 'https://www.meetearnest.com/meet-earnest'},
+  { id: 60, name: 'qfpay', display_name: 'QFPay', url:''},
+  { id: 61, name: 'Spark Capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'}
+  
+
+>>>>>>> 8aa51f9f0f1a54acbb1d157acb43936a7cb1f445
 
 ]
 
