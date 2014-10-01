@@ -10,7 +10,7 @@
                 Search for a Company
                 %input{ 'type' => 'text', 'ng-model' => 'searchText', 'ng-keyup' => 'search($event)', 'autofocus' => 'autofocus' }
 
-.row.results{ 'style' => 'min-height: 100px' }
+.row.results{ 'style' => 'min-height: 100px; padding-bottom: 50px' }
   .medium-12.columns
     .count{ 'ng-if' => 'companies.length != 1' }
       {{ companies.length }} companies found
@@ -18,7 +18,7 @@
       1 company found
 
     .row{'ng-if' => 'companies.length' }
-      .medium-6.columns.medium-centered
+      .medium-6.columns
         %ul.button-group
           %li.button{ 'ng-mouseover' => 'sort(1)', 'ng-click' => 'sort(1)' }
             Sort by name
