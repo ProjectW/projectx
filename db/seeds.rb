@@ -69,7 +69,8 @@ companies = [
   { id: 56, name: 'yelp', display_name: 'Yelp', url: 'http://www.yelp.com/careers'},
   { id: 57, name: 'riotgames', display_name: 'Riot Games', url: 'http://www.riotgames.com/NAinternships'},
   { id: 58, name: 'nutraclick', display_name: 'Nutraclick', url: 'http://www.nutraclick.com/join/internship-program'},
-
+  { id: 59, name: 'qfpay', display_name: 'QFPay', url:''},
+  { id: 60, name: 'Spark Capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'}
 
 ]
 
