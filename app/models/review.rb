@@ -18,11 +18,25 @@ class Review < ActiveRecord::Base
   validates :story, presence: true
   validates :culture, presence: true
 
+  after_create :notify_admin
+
   enum season: {
     spring: 1,
     summer: 2,
     fall: 3,
     winter: 4
   }
+
+  private
+
+  def notify_admin
+    subject = "New review written by:" + self.student_account.email
+    company = "Company: " + self.company.display_name
+    review = self.to_json
+
+    AdminMailer.
+      raw_admin_email(subject, company + "\n" + review).
+      deliver
+  end
 
 end

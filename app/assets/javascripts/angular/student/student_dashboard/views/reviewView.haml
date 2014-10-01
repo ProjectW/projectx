@@ -4,6 +4,8 @@
   .medium-12.columns
     %h1
       Review Your Internship
+    %h2.subtitle
+      These are only public to other Harvard students.
     .errors{ 'pp-show-errors' => '' }
 .row
   %form
@@ -17,7 +19,7 @@
             %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
       .row
         .medium-6.columns
-          %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 250, 'selectedObject' => 'review.company', 'url' => 'companies/search?searchText=', 'titlefield' => 'name', 'minlength' => '1' }
+          %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 0, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2' }
         .medium-6.columns
           %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location', 'required' => 'required' }
       .row
@@ -32,36 +34,41 @@
             %option{ 'value' => :winter } Winter
         .medium-3.columns
           %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'value' => 2014 }
+      
       .row
-        .medium-6.columns
-          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
-        .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0, 'required' => 'required' }
-        .medium-3.columns
-          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0, 'required' => 'required' }
-      %h3
-        Now, about that internship...
-      .row
-        .medium-6.columns
+        .medium-12.columns
           %select{ 'ng-model' => 'review.recommend' }
             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
             %option{ 'value' => 1 } Yes
             %option{ 'value' => 0 } No
+      %br
+      %br
+      %br
+      %h3
+        (optional!) Now, about that internship...
       .row
         .medium-6.columns
-          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.projects', 'placeholder' => 'Describe what projects you worked on.', 'required' => 'required' }
-        .medium-6.columns
-          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.story', 'placeholder' => 'Tell us a story about your most memorable experience. We like stories.', 'required' => 'required' }
+          %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
+        .medium-3.columns
+          %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0 }
+        .medium-3.columns
+          %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0 }
+      
       .row
         .medium-6.columns
-          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.mentorship', 'placeholder' => 'Who did you work closely with? How was the mentorship and guidance you received?', 'required' => 'required' }
+          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.projects', 'placeholder' => 'Describe what projects you worked on.' }
         .medium-6.columns
-          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.culture', 'placeholder' => 'How was the culture of the company?', 'required' => 'required' }
+          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.story', 'placeholder' => 'Tell us a story about your most memorable experience. We like stories.' }
+      .row
+        .medium-6.columns
+          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.mentorship', 'placeholder' => 'Who did you work closely with? How was the mentorship and guidance you received?' }
+        .medium-6.columns
+          %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.culture', 'placeholder' => 'How was the culture of the company?' }
       %h3
         Finally...
       .row
         .medium-12.columns
-          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Why or why not would you recommend this internship? Think about personal growth, pro/cons, and etc.", 'required' => 'required' }
+          %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Why or why not would you recommend this internship? Think about personal growth, pro/cons, and etc." }
       .row
         .medium-10.columns
         .medium-2.columns
