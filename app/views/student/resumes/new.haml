@@ -5,6 +5,8 @@
     %h4.drop Drop Your Resume
     %h1.middle
       Upload it here to share with our partnering companies. 
+    %h1.middle
+      We won't share your resume with anyone else. 
 
     = form_for [:student, @resume], :html => { :multipart => true } do |f|
       = f.file_field :upload

@@ -20,40 +20,61 @@
       %h3
         If you know someone who has interned at {{ company.name }}, please ask them to review their internship!
 
-    .reviews
-      .row.review{ 'ng-repeat' => 'review in reviews', 'ng-click' => 'expand(review)' }
-        .medium-12.columns
-          .row
-            .medium-4.columns
-              %h3
-                {{ review.student.name }}
-              %h6.student-info
-                {{ review.student.school }} Class of {{ review.student.graduationYear }}
-              %h6.student-info
-                {{ review.season }} {{ review.year }} ({{review.location}}) {{ review.positionTitle }}
-            .medium-2.columns.approval{ 'ng-if' => 'review.recommend' }
-              [&#x2713]
-            .medium-2.columns.approval{ 'ng-if' => '!review.recommend' }
-              [&#x2717]
-            .medium-6.columns
-              %h6.student-info
-                Total # interns: {{ review.numberInterns }}
-              %h6.student-info
-                Hours worked per week: {{ review.numberHours }}
-              %h6.student-info{ 'ng-if' => 'review.salary' }
-                Salary per month: {{ review.salary | currency }}
+.reviews
+  .row.review{ 'ng-repeat' => 'review in reviews', 'ng-click' => 'expand(review)' }
+    .medium-12.columns
+      .row
+        .medium-6.columns
+          %h3.name
+            {{ review.student.name }}
+          %h6.student-info
+            {{ review.student.school }} Class of {{ review.student.graduationYear }}
+          %h6.student-info
+            {{ review.season }} {{ review.year }} ({{review.location}}) {{ review.positionTitle }}
+        .medium-6.columns.approval.yes{ 'ng-if' => 'review.recommend' }
+          [&#x2713]
+          %h3
+            Recommended
+        .medium-6.columns.approval.no{ 'ng-if' => '!review.recommend' }
+          [&#x2717]
+          %h3
+            Not Recommended
 
-          .matrix{ 'ng-if' => 'review.expanded' }
-            .row
-              .medium-4.columns
-                {{ review.projects }}
-              .medium-4.columns
-                {{ review.story }}
-            .row
-              .medium-4.columns
-                {{ review.mentorship }}
-              .medium-4.columns
-                {{ review.culture }}
-            .row
-              .medium-12.columns
-                {{ review.extra }}
+      .matrix{ 'ng-if' => 'review.expanded && completed(review)' }
+        .row
+          .medium-6.columns
+            %h6.student-info
+              Total # interns: {{ review.numberInterns }}
+            %h6.student-info
+              Hours worked per week: {{ review.numberHours }}
+            %h6.student-info{ 'ng-if' => 'review.salary' }
+              Salary per month: {{ review.salary | currency }}
+        .row.box-text
+          .medium-6.columns
+            %h3.name
+              Projects
+            {{ review.projects }}
+          .medium-6.columns
+            %h3.name
+              Work Story
+            {{ review.story }}
+        .row.box-text
+          .medium-6.columns
+            %h3.name
+              Mentorship
+            {{ review.mentorship }}
+          .medium-6.columns
+            %h3.name
+              Culture
+            {{ review.culture }}
+        .row.box-text
+          .medium-12.columns
+            %h3.name
+              Final Thoughts
+            {{ review.extra }}
+
+      .matrix{ 'ng-if' => 'review.expanded && !completed(review)' }
+        Ask
+        %a{ 'href' => 'mailto:' }
+          {{ review.student.name }}
+        to write a review!

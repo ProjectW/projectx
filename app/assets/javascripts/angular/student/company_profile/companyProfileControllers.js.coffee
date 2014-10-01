@@ -11,20 +11,34 @@ companyProfileControllers.controller 'CompanySearchCtrl',
       KEY_DOWN = 40
       ENTER = 13
 
+      NAME = 'name'
+      REVIEWS = ['-reviewsCount', 'name']
+
       $scope.searchText
 
       $scope.companies = []
 
-      $scope.selected = 0
+      # $scope.selected = 0
 
-      $scope.select = (e) ->
-        switch e.keyCode
-          when KEY_UP
-            $scope.selected = Math.max($scope.selected - 1, 0)
-          when KEY_DOWN
-            $scope.selected = Math.min($scope.selected + 1, $scope.companies.length - 1)
-          when ENTER
-            $location.path "/" + $scope.companies[$scope.selected].id
+      $scope.pred = NAME
+
+      # $scope.select = (e) ->
+      #   switch e.keyCode
+      #     when KEY_UP
+      #       $scope.selected = Math.max($scope.selected - 1, 0)
+      #     when KEY_DOWN
+      #       $scope.selected = Math.min($scope.selected + 1, $scope.companies.length - 1)
+      #     when ENTER
+      #       $location.path "/" + $scope.companies[$scope.selected].id
+
+      $scope.sort = (pred) ->
+        $scope.pred = switch pred
+          when 1
+            NAME
+          when 2
+            REVIEWS
+          else
+            NAME
 
       # TODO debounce me
       $scope.search = (e) ->
@@ -32,7 +46,7 @@ companyProfileControllers.controller 'CompanySearchCtrl',
           when KEY_UP, KEY_DOWN, ENTER
             return
 
-        $scope.selected = 0
+        # $scope.selected = 0
 
         if not $scope.searchText
           $scope.companies = []
@@ -79,7 +93,28 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
             pos = pos + 1
         pos
 
+      $scope.completed = (review) ->
+        COMPLETED_INPUTS = [
+          'numberInterns',
+          'numberHours',
+          'projects',
+          'mentorship',
+          'story',
+          'culture'
+        ]
+
+        for input in COMPLETED_INPUTS
+          if review[input]
+            return true
+
+        false
+
       $scope.expand = (review) ->
+        if review.expanded
+          review.expanded = false
+          $scope.currentIndex = 0
+          return
+
         $scope.reviews[$scope.currentIndex].expanded = false
         $scope.currentIndex = $scope.reviews.indexOf(review)
 

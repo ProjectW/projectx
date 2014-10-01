@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926000730) do
+ActiveRecord::Schema.define(version: 20141001011545) do
 
   create_table "cities", force: true do |t|
     t.string  "name",                  null: false
@@ -81,21 +81,21 @@ ActiveRecord::Schema.define(version: 20140926000730) do
 
   create_table "reviews", force: true do |t|
     t.string   "position_title",                     null: false
-    t.integer  "number_interns",     default: 0,     null: false
+    t.integer  "number_interns",     default: 0
     t.integer  "year",               default: 0,     null: false
     t.integer  "salary"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "projects",                           null: false
-    t.text     "mentorship",                         null: false
+    t.text     "projects"
+    t.text     "mentorship"
     t.integer  "student_account_id",                 null: false
     t.integer  "company_id"
     t.boolean  "contactable",        default: false, null: false
     t.integer  "season",                             null: false
-    t.integer  "number_hours",                       null: false
+    t.integer  "number_hours"
     t.boolean  "recommend",                          null: false
-    t.text     "story",                              null: false
-    t.text     "culture",                            null: false
+    t.text     "story"
+    t.text     "culture"
     t.text     "extra"
     t.string   "location"
   end
