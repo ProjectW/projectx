@@ -71,8 +71,9 @@ class Student::ReviewsController < Student::StudentBaseController
   def get_review_full_json(review)
     camelize_symbolize_keys(
       review.
-        as_json.
+        as_json(:except => :season).
         merge({
+          season: review.season.capitalize,
           student: {
             name: review.student_account.first_name + " " + review.student_account.last_name,
             school: review.student_account.school.display_name,
