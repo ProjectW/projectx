@@ -44,7 +44,7 @@
             %a{ 'ng-href' => '#/{{ review.companyId }}' }
               .companyName
                 {{ review.companyName }}: 
-              {{ review.createdAt | date:'short' }}
+              {{ review.createdAt | date:'MMM-d ha' }}
       .medium-4.columns
         %h3.columnTitle Most reviewed companies
         %ul
