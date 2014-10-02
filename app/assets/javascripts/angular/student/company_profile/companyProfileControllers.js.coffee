@@ -81,6 +81,15 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
 
       $scope.currentIndex = 0;
 
+      disqus_shortname = 'pinpeg'
+      disqus_identifier = company.id
+      disqus_title = company.name
+      (() ->
+        dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      )()
+
       $scope.mostRecentReviews = () ->
         names = []
         iterLim = Math.min($scope.reviews.length, RECENT_TO_SHOW) - 1
