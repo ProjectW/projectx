@@ -44,15 +44,14 @@ companyProfileControllers.controller 'CompanySearchCtrl',
           $scope.companies = r
         )
 
-      mostRecentReviews = []
-      $scope.mostRecentReviews = () ->
-        if !mostRecentReviews.length
-          Review.recent {},
-            (reviews) -> mostRecentReviews = reviews,
-            (->)
-        mostRecentReviews
+      $scope.mostRecentReviews = []
+      Review.recent {},
+        (reviews) -> $scope.mostRecentReviews = reviews
 
-      $scope.mostReviewed = () ->
+      $scope.mostReviewed = []
+      Company.mostReviewed {},
+        (companies) -> $scope.mostReviewed = companies
+
       $scope.mostViewed = () ->
       $scope.mostCommonSearch = () ->
 

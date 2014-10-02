@@ -42,7 +42,7 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def most_reviewed
-    
+    render :json => camelize_symbolize_keys(Company.most_reviewed.map{ |c| get_company_json(c) })
   end
 
   def view

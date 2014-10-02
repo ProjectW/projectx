@@ -40,19 +40,19 @@
       .medium-6.columns
         %h3 Most recent reviews
         %ul
-          %li{ 'ng-repeat' => 'review in mostRecentReviews()' }
+          %li{ 'ng-repeat' => 'review in mostRecentReviews' }
             %a{ 'ng-href' => '#/{{ review.companyId }}' }
               {{ review.companyName }}
       .medium-6.columns
         %h3 Most reviewed companies
         %ul
-          %li{ 'ng-repeat' => 'company in mostReviewed()' }
+          %li{ 'ng-repeat' => 'company in mostReviewed' }
             %a{ 'ng-href' => '#/{{ company.id }}' }
               {{ company.name }}: {{ company.reviewsCount }}
-    .row
-      .medium-6.columns
-        %h3 Most viewed companies
-        {{ mostViewed() }}
-      .medium-6.columns
-        %h3 Most common search terms
-        {{ mostCommonSearch() }}
+    / .row
+    /   .medium-6.columns
+    /     %h3 Most viewed companies
+    /     {{ mostViewed() }}
+    /   .medium-6.columns
+    /     %h3 Most common search terms
+    /     {{ mostCommonSearch() }}
