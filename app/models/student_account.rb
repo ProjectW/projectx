@@ -3,6 +3,7 @@ class StudentAccount < ActiveRecord::Base
 
   has_many :resumes
   has_many :reviews
+  has_many :company_search_terms
   has_one :attribute_list, :class_name => "StudentAttributeList"
   belongs_to :school
   belongs_to :current_resume, :class_name => "Resume"

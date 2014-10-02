@@ -6,7 +6,8 @@ companyProfileControllers.controller 'CompanySearchCtrl',
     '$location',
     '$http',
     'Company',
-    ($scope, $location, $http, Company) ->
+    'Review',
+    ($scope, $location, $http, Company, Review) ->
       KEY_UP = 38
       KEY_DOWN = 40
       ENTER = 13
@@ -18,18 +19,7 @@ companyProfileControllers.controller 'CompanySearchCtrl',
 
       $scope.companies = []
 
-      # $scope.selected = 0
-
       $scope.pred = NAME
-
-      # $scope.select = (e) ->
-      #   switch e.keyCode
-      #     when KEY_UP
-      #       $scope.selected = Math.max($scope.selected - 1, 0)
-      #     when KEY_DOWN
-      #       $scope.selected = Math.min($scope.selected + 1, $scope.companies.length - 1)
-      #     when ENTER
-      #       $location.path "/" + $scope.companies[$scope.selected].id
 
       $scope.sort = (pred) ->
         $scope.pred = switch pred
@@ -46,8 +36,6 @@ companyProfileControllers.controller 'CompanySearchCtrl',
           when KEY_UP, KEY_DOWN, ENTER
             return
 
-        # $scope.selected = 0
-
         if not $scope.searchText
           $scope.companies = []
           return
@@ -55,6 +43,20 @@ companyProfileControllers.controller 'CompanySearchCtrl',
         Company.search({ searchText: $scope.searchText}, (r, v) ->
           $scope.companies = r
         )
+
+      $scope.mostRecentReviews = []
+      Review.recent {},
+        (reviews) -> $scope.mostRecentReviews = reviews
+
+      $scope.mostReviewed = []
+      Company.mostReviewed {},
+        (companies) -> $scope.mostReviewed = companies
+
+      $scope.mostViewed = []
+      Company.mostViewed {},
+        (companyViews) -> $scope.mostViewed = companyViews
+
+      $scope.mostCommonSearch = () ->
 
   ]
 

@@ -1,4 +1,6 @@
 class Review < ActiveRecord::Base
+  RECENT_LIMIT = 50
+
   belongs_to :student_account
   belongs_to :company
 
@@ -26,6 +28,10 @@ class Review < ActiveRecord::Base
     fall: 3,
     winter: 4
   }
+
+  def self.recent(limit = RECENT_LIMIT)
+    Review.order(:created_at => :desc).limit(limit)
+  end
 
   private
 

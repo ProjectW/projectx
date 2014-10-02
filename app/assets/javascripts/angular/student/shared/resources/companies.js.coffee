@@ -15,4 +15,12 @@ company.factory 'Company', ['$resource', ($resource) ->
     view:
       url: 'companies/:id/view'
       method: 'POST'
+    mostReviewed:
+      url: 'companies/most_reviewed'
+      method: 'GET'
+      isArray: true
+    mostViewed:
+      url: 'companies/most_viewed'
+      method: 'GET'
+      isArray: true
 ]
