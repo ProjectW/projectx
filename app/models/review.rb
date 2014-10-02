@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  RECENT_LIMIT = 3
+  RECENT_LIMIT = 50
 
   belongs_to :student_account
   belongs_to :company

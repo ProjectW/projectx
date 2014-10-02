@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
-  MOST_REVIEWED_LIMIT = 3
-  MOST_VIEWED_LIMIT = 3
+  MOST_REVIEWED_LIMIT = 50
+  MOST_VIEWED_LIMIT = 50
 
   has_many :company_accounts
   has_many :reviews

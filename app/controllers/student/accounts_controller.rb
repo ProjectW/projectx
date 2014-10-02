@@ -4,7 +4,7 @@ class Student::AccountsController < Student::StudentBaseController
   before_action :set_current_student
   around_action :with_render_exception
 
-  VIEWS_LIMIT = 4
+  VIEWS_LIMIT = 5
 
   def company_views
     views = CompanyProfileView.
