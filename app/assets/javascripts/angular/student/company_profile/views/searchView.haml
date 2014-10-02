@@ -42,7 +42,7 @@
         %ul
           %li{ 'ng-repeat' => 'review in mostRecentReviews' }
             %a{ 'ng-href' => '#/{{ review.companyId }}' }
-              {{ review.companyName }}
+              {{ review.companyName }}: {{ review.createdAt | date:'short' }}
       .medium-6.columns
         %h3 Most reviewed companies
         %ul
