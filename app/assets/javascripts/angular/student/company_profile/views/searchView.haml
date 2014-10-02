@@ -49,10 +49,13 @@
           %li{ 'ng-repeat' => 'company in mostReviewed' }
             %a{ 'ng-href' => '#/{{ company.id }}' }
               {{ company.name }}: {{ company.reviewsCount }}
-    / .row
-    /   .medium-6.columns
-    /     %h3 Most viewed companies
-    /     {{ mostViewed() }}
-    /   .medium-6.columns
-    /     %h3 Most common search terms
-    /     {{ mostCommonSearch() }}
+    .row
+      .medium-6.columns
+        %h3 Most viewed companies
+        %ul
+          %li{ 'ng-repeat' => 'companyView in mostViewed' }
+            %a{ 'ng-href' => '#/{{ companyView.id }}' }
+              {{ companyView.name }}: {{ companyView.viewsCount }}
+      / .medium-6.columns
+      /   %h3 Most common search terms
+      /   {{ mostCommonSearch() }}

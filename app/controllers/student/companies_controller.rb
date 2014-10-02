@@ -45,6 +45,10 @@ class Student::CompaniesController < Student::StudentBaseController
     render :json => camelize_symbolize_keys(Company.most_reviewed.map{ |c| get_company_json(c) })
   end
 
+  def most_viewed
+    render :json => camelize_symbolize_keys(Company.most_viewed.map{ |c| get_company_views_json(c) })
+  end
+
   def view
     company_id = params[:id]
     if not CompanyProfileView.create(company_id: company_id, student_account_id: @current_student.id)
@@ -76,6 +80,14 @@ class Student::CompaniesController < Student::StudentBaseController
           graduation_year: review.student_account.graduation_year
         }
       })
+  end
+
+  def get_company_views_json(company)
+    {
+      id: company.id,
+      name: company.display_name,
+      views_count: company.views.count
+    }
   end
 
   def get_company_json(company)

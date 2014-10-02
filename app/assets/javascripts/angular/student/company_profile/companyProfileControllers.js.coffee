@@ -52,7 +52,10 @@ companyProfileControllers.controller 'CompanySearchCtrl',
       Company.mostReviewed {},
         (companies) -> $scope.mostReviewed = companies
 
-      $scope.mostViewed = () ->
+      $scope.mostViewed = []
+      Company.mostViewed {},
+        (companyViews) -> $scope.mostViewed = companyViews
+
       $scope.mostCommonSearch = () ->
 
   ]

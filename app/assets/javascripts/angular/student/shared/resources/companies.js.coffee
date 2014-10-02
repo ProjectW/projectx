@@ -19,4 +19,8 @@ company.factory 'Company', ['$resource', ($resource) ->
       url: 'companies/most_reviewed'
       method: 'GET'
       isArray: true
+    mostViewed:
+      url: 'companies/most_viewed'
+      method: 'GET'
+      isArray: true
 ]

@@ -46,6 +46,7 @@ Projectx::Application.routes.draw do
       collection do
         get :search
         get :most_reviewed
+        get :most_viewed
       end
 
       member do
