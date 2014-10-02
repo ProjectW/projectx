@@ -74,8 +74,9 @@ companies = [
   { id: 61, name: 'spark_capital', display_name: 'Spark Capital', url: 'http://sparkcapital.com'},
   { id: 62, name: 'ashoka', display_name: 'Ashoka', url: 'https://www.ashoka.org/careers'},
   { id: 63, name: 'bloomberg', display_name: 'Bloomberg', url: 'http://jobs.bloomberg.com/'},
-  { id: 64, name: 'quantlab', display_name: 'Quantlab Financial', url: 'http://www.quantlab.com/' }
-  { id: 65, name: 'appnexus', display_name: 'AppNexus', url: 'http://careers.appnexus.com/' }
+  { id: 64, name: 'quantlab', display_name: 'Quantlab Financial', url: 'http://www.quantlab.com/' },
+  { id: 65, name: 'appnexus', display_name: 'AppNexus', url: 'http://careers.appnexus.com/' },
+  { id: 66, name: 'imc', display_name: 'IMC', url: 'http://www.imc.nl/yourcareer' }
 ]
 
 def seed_ruby_objects(model, records)
