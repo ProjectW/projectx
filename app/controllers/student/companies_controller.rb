@@ -29,6 +29,8 @@ class Student::CompaniesController < Student::StudentBaseController
     search_text = params[:searchText]
     companies = Company.where('display_name LIKE ?', '%' + search_text + '%')
 
+    CompanySearchTerm.create(:student_account => @current_student, :term => search_text)
+
     companies_json = companies.map{|company| get_company_json(company) }
 
     if params[:sort]
