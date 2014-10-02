@@ -76,7 +76,7 @@ companies = [
   { id: 63, name: 'bloomberg', display_name: 'Bloomberg', url: 'http://jobs.bloomberg.com/'},
   { id: 64, name: 'quantlab', display_name: 'Quantlab Financial', url: 'http://www.quantlab.com/' },
   { id: 65, name: 'interactive_intelligence', display_name: 'Interactive Intelligence', url: 'http://www.inin.com/careers/pages/default.aspx'},
-  { id: 66, name: 'dyknow', display_name: 'DyKnow', url: 'http://www.dyknow.com/about-dyknow-software/careers/'}
+  { id: 66, name: 'dyknow', display_name: 'DyKnow', url: 'http://www.dyknow.com/about-dyknow-software/careers/'},
   { id: 67, name: 'appnexus', display_name: 'AppNexus', url: 'http://careers.appnexus.com/' },
   { id: 68, name: 'imc', display_name: 'IMC', url: 'http://www.imc.nl/yourcareer' }
 ]
