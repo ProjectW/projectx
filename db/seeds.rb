@@ -75,6 +75,7 @@ companies = [
   { id: 62, name: 'ashoka', display_name: 'Ashoka', url: 'https://www.ashoka.org/careers'},
   { id: 63, name: 'bloomberg', display_name: 'Bloomberg', url: 'http://jobs.bloomberg.com/'},
   { id: 64, name: 'quantlab', display_name: 'Quantlab Financial', url: 'http://www.quantlab.com/' }
+  { id: 65, name: 'appnexus', display_name: 'AppNexus', url: 'http://careers.appnexus.com/' }
 ]
 
 def seed_ruby_objects(model, records)
