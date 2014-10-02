@@ -42,19 +42,25 @@
         %ul
           %li{ 'ng-repeat' => 'review in mostRecentReviews' }
             %a{ 'ng-href' => '#/{{ review.companyId }}' }
-              {{ review.companyName }}: {{ review.createdAt | date:'short' }}
+              .companyName
+                {{ review.companyName }}: 
+              {{ review.createdAt | date:'short' }}
       .medium-4.columns
         %h3.columnTitle Most reviewed companies
         %ul
           %li{ 'ng-repeat' => 'company in mostReviewed' }
             %a{ 'ng-href' => '#/{{ company.id }}' }
-              {{ company.name }}: {{ company.reviewsCount }} reviews
+              .companyName
+                {{ company.name }}: 
+              {{ company.reviewsCount }} reviews
       .medium-4.columns
         %h3.columnTitle Most viewed companies
         %ul
           %li{ 'ng-repeat' => 'companyView in mostViewed' }
             %a{ 'ng-href' => '#/{{ companyView.id }}' }
-              {{ companyView.name }}: {{ companyView.viewsCount }} views
+              .companyName
+                {{ companyView.name }}: 
+              {{ companyView.viewsCount }} views
       / .medium-6.columns
       /   %h3 Most common search terms
       /   {{ mostCommonSearch() }}
