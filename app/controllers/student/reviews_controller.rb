@@ -2,7 +2,7 @@ class Student::ReviewsController < Student::StudentBaseController
   include Student::AngularHelper
 
   before_action :set_current_student
-  around_action :with_render_exception, :only => [:index, :update, :show]
+  around_action :with_render_exception, :only => [:index, :update, :show, :recent]
 
   def index
     render :json => @current_student.reviews.map{ |review| get_review_summary_json(review) }
@@ -40,6 +40,10 @@ class Student::ReviewsController < Student::StudentBaseController
   def show
     @review = Review.includes(:student_account).find(params[:id])
     render :json => get_review_full_json(@review)
+  end
+
+  def recent
+    render :json => Review.recent.map{ |r| get_review_summary_json(r) }
   end
 
   private

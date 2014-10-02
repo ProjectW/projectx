@@ -36,10 +36,16 @@ Projectx::Application.routes.draw do
       end
     end
 
-    resources :reviews, :except => [:new]
+    resources :reviews, :except => [:new] do
+      collection do
+        get :recent
+      end
+    end
+
     resources :companies, :only => [:show] do
       collection do
         get :search
+        get :most_reviewed
       end
 
       member do

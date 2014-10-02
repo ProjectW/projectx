@@ -41,6 +41,10 @@ class Student::CompaniesController < Student::StudentBaseController
     render :json => camelize_symbolize_keys(companies_json)
   end
 
+  def most_reviewed
+    
+  end
+
   def view
     company_id = params[:id]
     if not CompanyProfileView.create(company_id: company_id, student_account_id: @current_student.id)
