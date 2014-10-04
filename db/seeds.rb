@@ -81,7 +81,8 @@ companies = [
   { id: 68, name: 'imc', display_name: 'IMC', url: 'http://www.imc.nl/yourcareer' },
   { id: 69, name: 'betterment', display_name: 'Betterment', url: 'https://www.betterment.com/' },
   { id: 70, name: 'cringle', display_name: 'Cringle GmbH', url: 'http://www.cringle.net/' },
-  { id: 71, name: 'statestreet', display_name: 'State Street', url: 'http://statestreet.com/' }
+  { id: 71, name: 'statestreet', display_name: 'State Street', url: 'http://statestreet.com/' },
+  { id: 72, name: 'booz', display_name: 'Booz Allen Hamilton', url: 'http://www.boozallen.com/' }
 ]
 
 def seed_ruby_objects(model, records)
