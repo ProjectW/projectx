@@ -1,4 +1,10 @@
 class StudentAccount < ActiveRecord::Base
+  ADMIN_EMAILS =[
+    'karinehsu@college.harvard.edu',
+    'lisawang01@college.harvard.edu',
+    'wxiao@college.harvard.edu'
+  ]
+
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
   has_many :resumes
@@ -25,13 +31,12 @@ class StudentAccount < ActiveRecord::Base
     self.save
   end
 
-  # TODO rollback_current_resume
-  # def rollback_current_resume
-  #   self.undeleted_resumes.
-  # end
-
   def undeleted_resumes
     self.resumes.where( deleted: false )
+  end
+
+  def self.get_admins
+    StudentAccount.where(:email => ADMIN_EMAILS)
   end
 
   private
