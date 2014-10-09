@@ -9,6 +9,10 @@ Projectx::Application.routes.draw do
 
   get '/partners' => 'home#partners'
 
+  namespace :admin do
+    root to: 'stats#index'
+  end
+
   namespace :student do
 
     # angular apps

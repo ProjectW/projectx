@@ -16,9 +16,14 @@
   .medium-12.columns
     .notification{ 'ng-if' => '!reviews.length' }
       %h3
-        Do you see that? It says...0 reviews!
+        Bummer! No reviews yet.
       %h3
         If you know someone who has interned at {{ company.name }}, please ask them to review their internship!
+      %h3
+        If you interned at {{ company.name }}, write a review
+        %a{ 'href' => 'dashboard#/review' } here
+        \.
+
 
 .reviews
   .row.review{ 'ng-repeat' => 'review in reviews', 'ng-click' => 'expand(review)' }
