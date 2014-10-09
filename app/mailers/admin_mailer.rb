@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  ADMIN_EMAIL = "pinpeg.io@gmail.com"
+  ADMIN_EMAIL = "hello@pinpeg.io"
   ERROR_NOTIFICATION_SUBJECT = '[pinpeg] Error'
   CONTACT_US_SUBJECT = '[pinpeg] Contact Us: '
   RECRUITER_SUBJECT = '[pinpeg] Recruiter Sign Up'
