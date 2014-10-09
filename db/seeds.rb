@@ -80,7 +80,8 @@ companies = [
   { id: 67, name: 'appnexus', display_name: 'AppNexus', url: 'http://careers.appnexus.com/' },
   { id: 68, name: 'imc', display_name: 'IMC', url: 'http://www.imc.nl/yourcareer' },
   { id: 69, name: 'betterment', display_name: 'Betterment', url: 'https://www.betterment.com/' },
-  { id: 70, name: 'cringle', display_name: 'Cringle GmbH', url: 'http://www.cringle.net/' }
+  { id: 70, name: 'cringle', display_name: 'Cringle GmbH', url: 'http://www.cringle.net/' },
+  { id: 71, name: 'state_street', display_name: 'State Street', url: 'http://www.statestreet.com/wps/portal/internet/corporate/home/aboutstatestreet/careers/' }
 ]
 
 def seed_ruby_objects(model, records)
