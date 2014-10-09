@@ -113,12 +113,16 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
 
       $scope.expand = (review) ->
         if review.expanded
-          review.expanded = false
-          $scope.currentIndex = 0
+          sel = getSelection().toString()
+          unless sel
+            review.expanded = false 
+            $scope.currentIndex = 0 
           return
 
         $scope.reviews[$scope.currentIndex].expanded = false
         $scope.currentIndex = $scope.reviews.indexOf(review)
+
+
 
         if not review.loaded
           Review.get  { id: review.id },
@@ -129,7 +133,7 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
                       (r, v) ->
                         alert "Error: " + if v.data then v.data.message else v
         else
-          review.expanded = true
+          review.expanded = true 
 
       $scope.next = () ->
         $scope.currentIndex = Math.min $scope.company.reviewsCount - 1, $scope.currentIndex + 1
