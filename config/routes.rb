@@ -10,7 +10,7 @@ Projectx::Application.routes.draw do
   get '/partners' => 'home#partners'
 
   namespace :admin do
-    root to: 'stats#index'
+    root to: 'admin_app#index'
   end
 
   namespace :student do

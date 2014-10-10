@@ -1,4 +1,4 @@
-module Student::AngularHelper
+module Shared::AngularHelper
 
   def snakefy_symbolize_keys(jsonable)
     case jsonable

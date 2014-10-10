@@ -1,5 +1,5 @@
 class Student::ResumesController < Student::StudentBaseController
-  include Student::AngularHelper
+  include Shared::AngularHelper
 
   before_action :set_current_student
   before_action :set_resume_from_id, only: [:show, :destroy]

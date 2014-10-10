@@ -1,5 +1,5 @@
 class Admin::AdminBaseController < ApplicationController
-  layout "home"
+  layout "angular"
 
   before_action :authenticate_student_account!
   before_action :authenticate_admin_account!

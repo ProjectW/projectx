@@ -1,0 +1,17 @@
+adminApp = angular.module 'adminApp',
+  [
+    'ngRoute',
+    'adminControllers',
+  ]
+
+adminApp.config ["$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
+
+adminApp.config ['$routeProvider', ($routeProvider) ->
+  $routeProvider
+    .when('/',
+      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/dashboardView") %>',
+      controller: 'DashboardCtrl'
+    )
+]
