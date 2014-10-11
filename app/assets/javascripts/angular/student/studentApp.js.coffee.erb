@@ -1,0 +1,40 @@
+studentApp = angular.module 'studentApp',
+  [
+    'ngRoute',
+    'sharedDirectives',
+    'studentDashboardControllers',
+    'companyProfileControllers',
+    'resources.companies',
+    'resources.reviews',
+    'resources.resumes',
+    'resources.account',
+    'angucomplete'
+  ]
+
+studentApp.config ["$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
+
+studentApp.config ['$routeProvider', ($routeProvider) ->
+  $routeProvider
+    .when('/',
+      templateUrl: '<%= asset_path("angular/student/views/dashboardView") %>',
+      controller: 'DashboardCtrl'
+    )
+    .when('/review',
+      templateUrl: '<%= asset_path("angular/student/views/reviewView") %>',
+      controller: 'ReviewCtrl'
+    )
+    .when('/edit_account'
+      templateUrl: '<%= asset_path("angular/student/views/editAccountView") %>',
+      controller: 'EditCtrl'
+    )
+    .when('/search',
+      templateUrl: '<%= asset_path("angular/student/views/searchView") %>',
+      controller: 'CompanySearchCtrl'
+    )
+    .when('/:companyId',
+      templateUrl: '<%= asset_path("angular/student/views/companyProfileView") %>',
+      controller: 'CompanyProfileCtrl',
+    )
+]

@@ -12,7 +12,7 @@
         .medium-12.columns
           %h5.wish
             Change your information
-            %a{ 'href' => '#/edit' }
+            %a{ 'href' => '#/edit_account' }
               %strong
                 here.
       / .row
@@ -29,9 +29,9 @@
           %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
           %hr
           %li{ 'ng-show' => '!companyViews.length' }
-            %a{ 'href' => 'company#/' } Search for a company.
+            %a{ 'href' => '#/search' } Search for a company.
           %li{ 'ng-repeat' => 'companyView in companyViews' }
-            %a{ 'ng-href' => 'company#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
+            %a{ 'ng-href' => '#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
               {{ companyView.companyName }}
       .medium-8.columns
         .resumes
@@ -61,7 +61,7 @@
                 %tbody
                   %tr{ 'ng-repeat' => 'review in reviews' }
                     %td
-                      %a{ 'ng-href' => 'company#/{{ review.companyId }}', 'style' => 'color: #29bbbb' }
+                      %a{ 'ng-href' => '#/{{ review.companyId }}', 'style' => 'color: #29bbbb' }
                         {{ review.companyName }}
                     %td
                       {{ review.createdAt | date : 'short' }}

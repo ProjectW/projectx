@@ -23,9 +23,8 @@ Projectx::Application.routes.draw do
 
   namespace :student do
 
-    # angular apps
-    get '/dashboard' => 'student_dashboard#show'
-    get '/company' => 'company_profile#show'
+    # angular app
+    get '/app' => 'student_app#index'
 
     # devise
     devise_for :account, :class_name => 'StudentAccount', :path => 'account', :path_names => {
@@ -67,7 +66,7 @@ Projectx::Application.routes.draw do
       end
     end
 
-    root to: redirect('/student/dashboard')
+    root to: redirect('/student/app')
   end
 
   namespace :company do
