@@ -39,7 +39,7 @@
     .row{ 'ng-if' => '!searchText' }
       .medium-4.columns
         %h3.columnTitle Most recent reviews
-        %ul
+        %ul.banner
           %li{ 'ng-repeat' => 'review in mostRecentReviews' }
             %a{ 'ng-href' => '#/{{ review.companyId }}' }
               .companyName
@@ -47,7 +47,7 @@
               {{ review.createdAt | date:'MMM d, ha' }}
       .medium-4.columns
         %h3.columnTitle Most reviewed companies
-        %ul
+        %ul.banner
           %li{ 'ng-repeat' => 'company in mostReviewed' }
             %a{ 'ng-href' => '#/{{ company.id }}' }
               .companyName
@@ -55,7 +55,7 @@
               {{ company.reviewsCount }} reviews
       .medium-4.columns
         %h3.columnTitle Most viewed companies
-        %ul
+        %ul.banner
           %li{ 'ng-repeat' => 'companyView in mostViewed' }
             %a{ 'ng-href' => '#/{{ companyView.id }}' }
               .companyName
