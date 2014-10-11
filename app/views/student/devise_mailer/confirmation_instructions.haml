@@ -1,17 +1,21 @@
-= image_tag root_url + '/images/email_header.png', style: "width: 100%"
-.wrapper{:style => "font-family: 'Proxima Nova'; text-align: center; width: 100%; font-size: 1rem;"}
-  %h3
-    Welcome
-    = @email
-    !
+!!!
+%html{ lang: 'en' }
+  %head
+    %title pinpeg
+  %body
+    = image_tag root_url + '/images/email_header.png', style: "width: 100%"
+    .wrapper{:style => "font-family: 'Proxima Nova'; text-align: center; width: 100%; font-size: 1rem;"}
+      %h3
+        Welcome
+        = @email
+        !
 
-  %p
-    Thanks for joining pinpeg.io! 
-  %p 
-    Confirm your account email through the link below:
+      %p
+        Thanks for joining pinpeg.io! 
+      %p 
+        Confirm your account email through the link below:
 
-  %p
-    = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
-  %p
-    If you have questions or concerns, email us at hello@pinpeg.io.
-
+      %p
+        = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+      %p
+        If you have questions or concerns, email us at hello@pinpeg.io.
