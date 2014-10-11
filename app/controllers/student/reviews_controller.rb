@@ -2,7 +2,7 @@ class Student::ReviewsController < Student::StudentBaseController
   include Shared::AngularHelper
 
   before_action :set_current_student
-  around_action :with_render_exception, :only => [:index, :update, :show, :recent]
+  around_action :with_render_exception, :only => [:index, :update, :show, :recent, :contactable]
 
   def index
     render :json => @current_student.reviews.map{ |review| get_review_summary_json(review) }
@@ -16,17 +16,20 @@ class Student::ReviewsController < Student::StudentBaseController
 
     if !@review.save
       raise "Review did not save correctly"
-    else
-      render_success
     end
+
+    render_success
   end
 
   def update
-    @review = Review.find(params[:id])
-
-    if @review.student_account != @current_student
-      raise "Unauthorized, review not owned by student id: #{current_student.id}"
+    with_standard_render do
+      set_review!(params[:id])
+      #TODO
     end
+  end
+
+  def contactable
+    set_review!(params[:id])
 
     @review.contactable = params[:contactable]
 
@@ -47,6 +50,13 @@ class Student::ReviewsController < Student::StudentBaseController
   end
 
   private
+
+  def set_review!(id)
+    @review = Review.find(id)
+    if @review.student_account != @current_student
+      raise "Unauthorized, review not owned by student id: #{current_student.id}"
+    end
+  end
 
   def review_params
     params.require(:review).permit(
