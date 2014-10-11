@@ -1,76 +1,12 @@
-.row
-  .medium-6.medium-centered.columns
-    %h1
-      Hello
-      = @current_admin.first_name
+- content_for :title do
+  Admin
 
-    %ul
-      %li
-        Confirmed Accounts:
-        = @confirmed_accounts
-      %li
-        Unconfirmed Accounts:
-        = @unconfirmed_accounts
-      %li
-        At least one view:
-        = @one_page_view
-      %li
-        At least three views:
-        = @three_page_view
-      %li
-        At least ten views:
-        = @ten_page_view
-      %li
-        Total page views:
-        = @total_page_views
-      %li
-        Reviews:
-        = @reviews.length
-      %li
-        Unique Resumes:
-        = @uniq_resumes
-
-.row
-  .medium-6.medium-centered.columns
-    %h1 Reviews
-
-    - for review in @reviews
-      %h2
-        By
-        = review.student_account.first_name + " " + review.student_account.last_name
-      %h3
-        On
-        = review.created_at.strftime("%B %d, %Y")
-        , 
-        = review.location
-        = " " + review.season.to_s + " " + review.year.to_s
-      %ul.no-bullet
-        %li
-          Recommend:
-          = review.recommend.to_s + ", "
-          Contactable:
-          = review.contactable
-        %li
-          Company:
-          = review.company.display_name
-        %li
-          Position Title:
-          = review.position_title
-        %li
-          Salary:
-          = review.salary
-        %li
-          Projects:
-          = review.projects
-        %li
-          Mentorship:
-          = review.mentorship
-        %li
-          Story:
-          = review.story
-        %li
-          Culture:
-          = review.culture
-        %li
-          Extra:
-          = review.extra
+/ = stylesheet_link_tag 'student/student_account'
+/ = stylesheet_link_tag 'student/student_dashboard'
+/ = javascript_include_tag 'angular/student/shared/directives/sharedDirectives'
+/ = javascript_include_tag 'angular/student/shared/resources/resume'
+= javascript_include_tag 'angular/admin/resources/stats'
+= javascript_include_tag 'angular/admin/adminApp'
+= javascript_include_tag 'angular/admin/adminControllers'
+%div.app-wrapper{ 'ng-app' => 'adminApp' }
+  %div.app-view{ 'ng-view' => '' }

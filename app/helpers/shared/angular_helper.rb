@@ -40,6 +40,12 @@ module Shared::AngularHelper
     end
   end
 
+  def with_standard_render
+    with_render_exception do
+      render :json => camelize_symbolize_keys(yield)
+    end
+  end
+
   def render_success
     render :json => { :success => true }
   end

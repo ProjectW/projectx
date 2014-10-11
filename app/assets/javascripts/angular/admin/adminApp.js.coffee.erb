@@ -2,6 +2,7 @@ adminApp = angular.module 'adminApp',
   [
     'ngRoute',
     'adminControllers',
+    'resources.stats'
   ]
 
 adminApp.config ["$httpProvider", ($httpProvider) ->
@@ -11,7 +12,7 @@ adminApp.config ["$httpProvider", ($httpProvider) ->
 adminApp.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
     .when('/',
-      templateUrl: '<%= asset_path("angular/student/student_dashboard/views/dashboardView") %>',
-      controller: 'DashboardCtrl'
+      templateUrl: '<%= asset_path("angular/admin/views/statsView") %>',
+      controller: 'StatsCtrl'
     )
 ]

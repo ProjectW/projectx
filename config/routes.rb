@@ -10,7 +10,12 @@ Projectx::Application.routes.draw do
   get '/partners' => 'home#partners'
 
   namespace :admin do
-    root to: 'admin_app#index'
+    get '/app' => 'admin_app#index'
+
+    resources :stats, :only => [:index]
+
+    # angular app
+    root to: redirect('/admin/app')
   end
 
   namespace :student do
