@@ -12,6 +12,9 @@ Projectx::Application.routes.draw do
   namespace :admin do
     get '/app' => 'admin_app#index'
 
+    get '/all_resumes' => 'admin_app#all_resumes'
+    get '/current_resumes' => 'admin_app#current_resumes'
+
     resources :stats, :only => [:index]
 
     # angular app

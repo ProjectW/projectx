@@ -2,6 +2,10 @@
   .medium-6.medium-centered.columns
     %h1
       Hello {{ stats.adminName }}
+    %a.button{ 'ng-href' => 'all_resumes' }
+      Download All Resumes
+    %a.button{ 'ng-href' => 'current_resumes' }
+      Download Current Resumes
     %ul
       %li
         Confirmed Accounts: {{ stats.confirmedAccounts }}
