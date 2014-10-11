@@ -1,5 +1,5 @@
 class Student::ReviewsController < Student::StudentBaseController
-  include Student::AngularHelper
+  include Shared::AngularHelper
 
   before_action :set_current_student
   around_action :with_render_exception, :only => [:index, :update, :show, :recent]

@@ -1,0 +1,12 @@
+- content_for :title do
+  Admin
+
+/ = stylesheet_link_tag 'student/student_account'
+/ = stylesheet_link_tag 'student/student_dashboard'
+/ = javascript_include_tag 'angular/student/shared/directives/sharedDirectives'
+/ = javascript_include_tag 'angular/student/shared/resources/resume'
+= javascript_include_tag 'angular/admin/resources/stats'
+= javascript_include_tag 'angular/admin/adminApp'
+= javascript_include_tag 'angular/admin/adminControllers'
+%div.app-wrapper{ 'ng-app' => 'adminApp' }
+  %div.app-view{ 'ng-view' => '' }

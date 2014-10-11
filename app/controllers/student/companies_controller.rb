@@ -1,5 +1,5 @@
 class Student::CompaniesController < Student::StudentBaseController
-  include Student::AngularHelper
+  include Shared::AngularHelper
 
   before_action :set_current_student
   before_action :set_current_company, only: [:reviews, :show]

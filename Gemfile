@@ -16,6 +16,8 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'devise', '~> 3.2.4' # login authentication
 gem 'paperclip', '~> 4.1' # attachments on models
 
+gem 'rubyzip', '~> 1.1.6'
+
 # for rake secrets
 gem 'therubyracer', platforms: :ruby
 

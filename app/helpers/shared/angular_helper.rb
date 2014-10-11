@@ -1,4 +1,4 @@
-module Student::AngularHelper
+module Shared::AngularHelper
 
   def snakefy_symbolize_keys(jsonable)
     case jsonable
@@ -37,6 +37,12 @@ module Student::AngularHelper
       # AdminMailer.error_notification(params, "with_render_exception error").deliver
       logger.fatal e.message
       render :json => { :success => false, :message => e.message }, :status => 422
+    end
+  end
+
+  def with_standard_render
+    with_render_exception do
+      render :json => camelize_symbolize_keys(yield)
     end
   end
 

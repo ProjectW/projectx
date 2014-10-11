@@ -1,0 +1,18 @@
+adminApp = angular.module 'adminApp',
+  [
+    'ngRoute',
+    'adminControllers',
+    'resources.stats'
+  ]
+
+adminApp.config ["$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
+
+adminApp.config ['$routeProvider', ($routeProvider) ->
+  $routeProvider
+    .when('/',
+      templateUrl: '<%= asset_path("angular/admin/views/statsView") %>',
+      controller: 'StatsCtrl'
+    )
+]
