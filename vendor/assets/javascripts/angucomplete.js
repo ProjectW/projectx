@@ -12,6 +12,8 @@ angular.module('angucomplete', [] )
             "id": "@id",
             "placeholder": "@placeholder",
             "selectedObject": "=selectedobject",
+            "transform": "=transform",
+            "autofocus": "=autofocus",
             "url": "@url",
             "dataField": "@datafield",
             "titleField": "@titlefield",
@@ -189,7 +191,7 @@ angular.module('angucomplete', [] )
                     result.title = result.title.toString().replace(/(<([^>]+)>)/ig, '');
                 }
                 $scope.searchStr = $scope.lastSearchTerm = result.title;
-                $scope.selectedObject = result.originalObject;
+                $scope.selectedObject = $scope.transform ? $scope.transform(result) : result;
                 $scope.showDropdown = false;
                 $scope.results = [];
                 //$scope.$apply();
@@ -198,6 +200,10 @@ angular.module('angucomplete', [] )
             var inputField = elem.find('input');
 
             inputField.on('keyup', $scope.keyPressed);
+
+            if ($scope.autofocus) {
+                inputField.attr("autofocus", "autofocus")
+            }
 
             elem.on("keyup", function (event) {
                 if(event.which === 40) {
