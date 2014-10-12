@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002003058) do
+ActiveRecord::Schema.define(version: 20141012143020) do
 
   create_table "cities", force: true do |t|
     t.string  "name",                  null: false
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20141002003058) do
   end
 
   add_index "company_profile_views", ["company_id", "student_account_id"], name: "index_on_company_student_account_id", using: :btree
+
+  create_table "company_profile_watches", force: true do |t|
+    t.integer  "company_id",                        null: false
+    t.integer  "student_account_id",                null: false
+    t.boolean  "watching",           default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "company_search_terms", force: true do |t|
     t.integer  "student_account_id", null: false
