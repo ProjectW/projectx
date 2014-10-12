@@ -6,12 +6,18 @@
         %a{ 'ng-href' => '{{ company.url }}', 'target' => '_blank' }
           {{ company.name | uppercase}}
       .row
-        .medium-6.columns
+        .medium-4.columns
           %h2
             {{ reviews.length }} REVIEWS
-        .medium-6.columns
+        .medium-4.columns
           %h2
             {{ positiveReviews() }} of {{ reviews.length }} would recommend
+        .medium-4.columns
+          .button{ 'ng-if' => 'company.watching', 'ng-click' => 'watch(false)' }
+            Unwatch
+          .button{ 'ng-if' => '!company.watching', 'ng-click' => 'watch(true)' }
+            Watch this Company
+
 .row
   .medium-12.columns
     .notification{ 'ng-if' => '!reviews.length' }

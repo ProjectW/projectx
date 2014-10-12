@@ -63,6 +63,7 @@ Projectx::Application.routes.draw do
       member do
         get :reviews
         post :view
+        post :watch
       end
     end
 

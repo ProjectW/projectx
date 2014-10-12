@@ -2,7 +2,7 @@ class Student::CompaniesController < Student::StudentBaseController
   include Shared::AngularHelper
 
   before_action :set_current_student
-  before_action :set_current_company, only: [:reviews, :show]
+  before_action :set_current_company, only: [:reviews, :show, :watch, :view]
   around_action :with_render_exception
 
   def index
@@ -50,17 +50,23 @@ class Student::CompaniesController < Student::StudentBaseController
   end
 
   def view
-    company_id = params[:id]
-    if not CompanyProfileView.create(company_id: company_id, student_account_id: @current_student.id)
+    if not CompanyProfileView.create(company_id: @company.id, student_account_id: @current_student.id)
       raise "Error saving profile view"
-    else
-      render_success
     end
 
+    render_success
+  end
+
+  def watch
+    with_standard_render do
+      watching = params.fetch(:watching)
+      @company.watch(@current_student.id, watching)
+      { watching: watching }
+    end
   end
 
   def show
-    render :json => camelize_symbolize_keys(get_company_json(@company))
+    render :json => camelize_symbolize_keys(get_company_json(@company, true))
   end
 
   private
@@ -90,13 +96,14 @@ class Student::CompaniesController < Student::StudentBaseController
     }
   end
 
-  def get_company_json(company)
-    {
+  def get_company_json(company, watches = false)
+    res = {
       id: company.id,
       name: company.display_name,
       url: company.url,
-      reviews_count: company.reviews.count
-    }
+      reviews_count: company.reviews.count}
+
+    watches ? res.merge({ watching: company.watching?(@current_student.id) }) : res
   end
 
 end

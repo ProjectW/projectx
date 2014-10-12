@@ -95,6 +95,13 @@ companyProfileControllers.controller 'CompanyProfileCtrl',
             pos = pos + 1
         pos
 
+      $scope.watch = (watching) ->
+        Company.watch { id: $scope.company.id, watching: watching },
+          () ->
+            $scope.company.watching = watching
+          (r, v) ->
+            $scope.errors[$scope.errors.length] = r
+
       $scope.completed = (review) ->
         COMPLETED_INPUTS = [
           'numberInterns',
