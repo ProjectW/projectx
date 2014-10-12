@@ -35,11 +35,15 @@
                 %option{ 'value' => :winter } Winter
 
       .row{ 'ng-switch-when' => '3' }
-        .medium-12.columns
+        .medium-6.columns
           %select{ 'ng-model' => 'review.recommend' }
             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
             %option{ 'value' => 1 } Yes
             %option{ 'value' => 0 } No
+
+      .row
+        .medium-6.columns
+          %input{ 'type' => 'submit', 'class' => 'button', 'value' => 'Next', 'ng-click' => 'moveStep()' }
 
 / .row
 /   .medium-12.columns
