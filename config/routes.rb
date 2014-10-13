@@ -52,6 +52,9 @@ Projectx::Application.routes.draw do
       collection do
         get :recent
       end
+      member do
+        put :contactable
+      end
     end
 
     resources :companies, :only => [:show] do

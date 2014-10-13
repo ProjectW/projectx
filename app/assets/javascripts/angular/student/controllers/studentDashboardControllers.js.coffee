@@ -18,8 +18,7 @@ studentDashboardControllers.controller 'DashboardCtrl',
 
       $scope.toggleContactable = (review) ->
         review.contactable = !review.contactable
-        review.$update {}, (->) , (v, r) ->
-          # FIXME shouldn't have to get response from server
+        review.$contactable {}, (->) , (v, r) ->
           review.contactable = !review.contactable
           alert "Error: " + if v.data then v.data.message else v
 
@@ -42,6 +41,9 @@ studentDashboardControllers.controller 'ReviewCtrl',
 
       $scope.review = {}
       $scope.errors = []
+
+      $scope.step = 0
+      MAX_STEP = 3
 
       REQUIRED_INPUTS = [
         'company',
@@ -70,6 +72,12 @@ studentDashboardControllers.controller 'ReviewCtrl',
 
         $scope.errors = errors
         $scope.errors.length == 0
+
+      $scope.selectOriginal = (result) ->
+        result.originalObject
+
+      $scope.moveStep = () ->
+        $scope.step = Math.min($scope.step + 1, MAX_STEP)
 
       $scope.submit = () ->
         if isValid($scope.review)

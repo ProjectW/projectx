@@ -22,6 +22,14 @@ class Review < ActiveRecord::Base
     Review.order(:created_at => :desc).limit(limit)
   end
 
+  def reviewed?
+    self.projects.present? ||
+    self.mentorship.present? ||
+    self.story.present? ||
+    self.culture.present? ||
+    self.extra.present?
+  end
+
   private
 
   def notify_admin
