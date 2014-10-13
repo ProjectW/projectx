@@ -96,14 +96,14 @@ class Student::CompaniesController < Student::StudentBaseController
     }
   end
 
-  def get_company_json(company, watches = false)
+  def get_company_json(company, watching = false)
     res = {
       id: company.id,
       name: company.display_name,
       url: company.url,
       reviews_count: company.reviews.count}
 
-    watches ? res.merge({ watching: company.watching?(@current_student.id) }) : res
+    watching ? res.merge({ watching: company.watching?(@current_student.id) }) : res
   end
 
 end

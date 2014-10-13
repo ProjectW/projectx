@@ -37,6 +37,7 @@ Projectx::Application.routes.draw do
     resource :account, :only => [:show,] do
       member do
         get :company_views
+        get :company_watches
         put :info
       end
     end

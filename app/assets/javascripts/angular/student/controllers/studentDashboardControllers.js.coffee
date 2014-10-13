@@ -10,6 +10,7 @@ studentDashboardControllers.controller 'DashboardCtrl',
     'Account',
     ($scope, $http, $window, Resume, Review, Account) ->
       $window.onbeforeunload = null
+      $scope.errors = []
       $scope.account = Account.get()
       $scope.resume = Resume.current()
       $scope.reviews = Review.query()
@@ -21,6 +22,12 @@ studentDashboardControllers.controller 'DashboardCtrl',
           # FIXME shouldn't have to get response from server
           review.contactable = !review.contactable
           alert "Error: " + if v.data then v.data.message else v
+
+      Account.companyWatches {},
+        (r, v) ->
+          $scope.companyWatches = r
+        (r, v) ->
+          $scope.errors[$scope.errors.length] = r
   ]
 
 studentDashboardControllers.controller 'ReviewCtrl',

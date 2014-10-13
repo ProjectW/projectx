@@ -4,7 +4,8 @@ class Student::AccountsController < Student::StudentBaseController
   before_action :set_current_student
   around_action :with_render_exception
 
-  VIEWS_LIMIT = 5
+  VIEWS_LIMIT = 3
+  WATCH_LIMIT = 5
 
   def company_views
     views = CompanyProfileView.
@@ -14,7 +15,18 @@ class Student::AccountsController < Student::StudentBaseController
       to_a.
       uniq(&:company_id).
       slice(0, VIEWS_LIMIT)
-    render :json => camelize_symbolize_keys(views.map{ |view| get_view_json(view) })
+    render :json => camelize_symbolize_keys(views.map{ |view| get_company_json(view) })
+  end
+
+  def company_watches
+    with_standard_render do
+      CompanyProfileWatch.
+        student_watches(@current_student.id).
+        includes(:company).
+        order(created_at: :desc).
+        limit(WATCH_LIMIT).
+        map{ |watch| get_company_json(watch) }
+    end
   end
 
   def show
@@ -45,7 +57,7 @@ class Student::AccountsController < Student::StudentBaseController
     }
   end
 
-  def get_view_json(view)
+  def get_company_json(view)
     {
       :company_id => view.company.id,
       :company_name => view.company.display_name
