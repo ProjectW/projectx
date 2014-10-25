@@ -2,7 +2,8 @@ class StudentAccount < ActiveRecord::Base
   ADMIN_EMAILS =[
     'karinehsu@college.harvard.edu',
     'lisawang01@college.harvard.edu',
-    'wxiao@college.harvard.edu'
+    'wxiao@college.harvard.edu',
+    'raynorkuang@college.harvard.edu'
   ]
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
