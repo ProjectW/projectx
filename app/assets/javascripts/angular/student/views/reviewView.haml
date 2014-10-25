@@ -2,9 +2,9 @@
 .row
   .medium-12.columns
     %form{ 'ng-switch' => 'step' }
-      %h1 Review your internship
+      %h1.middle Review your internship
       .row{ 'ng-switch-when' => '0' }
-        .medium-6.columns
+        .medium-6.medium-centered.columns
           .row
             .medium-12.columns
               .company-select-notifier
@@ -16,12 +16,12 @@
               %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
 
       .row{ 'ng-switch-when' => '1' }
-        .medium-6.columns
+        .medium-6.medium-centered.columns
           %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle', 'autofocus' => "" }
 
 
       .row{ 'ng-switch-when' => '2' }
-        .medium-6.columns
+        .medium-6.medium-centered.columns
           .row
             .medium-12.columns
               %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'autofocus' => ''}
@@ -35,14 +35,14 @@
                 %option{ 'value' => :winter } Winter
 
       .row{ 'ng-switch-when' => '3' }
-        .medium-6.columns
+        .medium-6.medium-centered.columns
           %select{ 'ng-model' => 'review.recommend' }
             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
             %option{ 'value' => 1 } Yes
             %option{ 'value' => 0 } No
 
       .row
-        .medium-6.columns
+        .medium-6.medium-centered.columns
           %input{ 'type' => 'submit', 'class' => 'button', 'value' => 'Next', 'ng-click' => 'moveStep()' }
 
 / .row
