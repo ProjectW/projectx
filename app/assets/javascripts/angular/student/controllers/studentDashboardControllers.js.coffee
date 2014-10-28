@@ -1,4 +1,4 @@
-studentDashboardControllers = angular.module 'studentDashboardControllers', []
+studentDashboardControllers = angular.module 'studentDashboardControllers', ['ngAnimate']
 
 studentDashboardControllers.controller 'DashboardCtrl',
   [
