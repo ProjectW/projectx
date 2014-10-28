@@ -21,7 +21,7 @@ class Student::ResumesController < Student::StudentBaseController
     end
 
     if @current_student.set_current_resume!(@resume)
-      redirect_to :student_dashboard
+      redirect_to :student_app
     else
       raise "Resume was not set as current"
     end
