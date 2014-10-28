@@ -72,24 +72,34 @@ h2.sub
   font-size: 1rem
   padding: 0
 
-.animate-switch.ng-animate 
-  -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s
-  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s
-  position:absolute
-  top: 0
+.ng-animate 
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  position: absolute
   left: 0
   right: 0
-  bottom: 0
+  width: 90%
+  height: 100%
+  overflow: hidden
 
+.ng-enter 
+  left: 200%
 
-.animate-switch.ng-leave.ng-leave-active,
-.animate-switch.ng-enter 
-  left: -50px
+.ng-enter.ng-enter-active 
+  left: 0
 
-.animate-switch.ng-leave,
-.animate-switch.ng-enter.ng-enter-active 
-  left: 20%
+.ng-leave 
+  left: 0
 
+.ng-leave.ng-leave-active 
+  left: -100%
+  opacity: 0
 
+.s
+  position: absolute
+  width: 100% !important 
+  bottom: 200px
+
+.animate-switch-container
+  height: 500px
 
 
