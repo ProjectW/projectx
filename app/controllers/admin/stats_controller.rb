@@ -35,8 +35,8 @@ class Admin::StatsController < Admin::AdminBaseController
       email: account.email,
       reviews: account.reviews.count,
       resumes: account.resumes.count,
-      company_profile_views: account.company_profile_views.count
-
+      company_profile_views: account.company_profile_views.count,
+      uniq_views: account.company_profile_views.select("DISTINCT company_id").count
     }
   end
 
