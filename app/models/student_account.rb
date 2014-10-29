@@ -14,6 +14,8 @@ class StudentAccount < ActiveRecord::Base
   belongs_to :school
   belongs_to :current_resume, :class_name => "Resume"
 
+  has_many :company_profile_views
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, format: { with: /\A([^@\s]+)@college\.harvard\.edu\Z/i }
