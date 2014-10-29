@@ -19,7 +19,26 @@ class Admin::StatsController < Admin::AdminBaseController
     end
   end
 
+  def users
+    with_standard_render do
+      StudentAccount.all.map{ |account| get_account_json(account) }
+    end
+  end
+
   private
+
+  def get_account_json(account)
+    {
+      id: account.id,
+      first_name: account.first_name,
+      last_name: account.last_name,
+      email: account.email,
+      reviews: account.reviews.count,
+      resumes: account.resumes.count,
+      company_profile_views: account.company_profile_views.count
+
+    }
+  end
 
   def get_review_json(review)
     review.as_json.merge({

@@ -1,0 +1,8 @@
+.row
+  .medium-6.medium-centered.columns
+    %ul
+      %li{ 'ng-repeat' => 'user in users | orderBy : companyProfileViews' }
+        %p {{ user.firstName + " " + user.lastName }}: {{ user.email }}
+        %p Reviews: {{ user.reviews }}
+        %p Resumes: {{ user.resumes }}
+        %p Views: {{ user.companyProfileViews }}
