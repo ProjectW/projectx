@@ -15,4 +15,8 @@ adminApp.config ['$routeProvider', ($routeProvider) ->
       templateUrl: '<%= asset_path("angular/admin/views/statsView") %>',
       controller: 'StatsCtrl'
     )
+    .when('/users',
+      templateUrl: '<%= asset_path("angular/admin/views/usersView") %>',
+      controller: 'UsersCtrl'
+    )
 ]
