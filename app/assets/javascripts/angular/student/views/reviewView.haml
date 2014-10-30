@@ -4,9 +4,9 @@
 
 .row
   .medium-12.columns
-    %form.animate-switch-container{ 'ng-switch' => 'step', 'ng-animate' => "'slide'", 'class' => 'slide-frame' }
+    %form.animate-switch-container{ 'ng-switch' => 'step', 'class' => 'slide-frame' }
       %h1.middle Review your internship
-      .row{ 'ng-switch-when' => '0' }
+      .row.animate-switch{ 'ng-switch-when' => '0' }
         .medium-6.medium-centered.columns
           .row
             .medium-12.columns
@@ -18,12 +18,12 @@
             .medium-12.columns
               %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
 
-      .row{ 'ng-switch-when' => '1' }
+      .row.animate-switch{ 'ng-switch-when' => '1' }
         .medium-6.medium-centered.columns
           %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle', 'autofocus' => "" }
 
 
-      .row{ 'ng-switch-when' => '2' }
+      .row.animate-switch{ 'ng-switch-when' => '2' }
         .medium-6.medium-centered.columns
           .row
             .medium-12.columns
@@ -37,7 +37,7 @@
                 %option{ 'value' => :fall } Fall
                 %option{ 'value' => :winter } Winter
 
-      .row{ 'ng-switch-when' => '3' }
+      .row.animate-switch{ 'ng-switch-when' => '3' }
         .medium-6.medium-centered.columns
           %select{ 'ng-model' => 'review.recommend' }
             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
@@ -45,7 +45,7 @@
             %option{ 'value' => 0 } No
 
       .row.s
-        .medium-6.medium-centered.columns
+        .enter.medium-6.medium-centered.columns
           %input{ 'type' => 'submit', 'class' => 'button', 'value' => 'Next', 'ng-click' => 'moveStep()' }
 
 / .row
