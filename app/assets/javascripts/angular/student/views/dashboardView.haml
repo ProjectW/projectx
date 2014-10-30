@@ -1,87 +1,87 @@
-.wrapper
-  %hr{:style => "margin: 0;"}
-  .profile
-    .prof-info
-      .row
-        .medium-12.columns
-          %h1 {{ account.firstName }} {{ account.lastName }}
-      .row
-        .medium-12.columns
-          %h2 {{ account.school }}, Class of {{ account.graduationYear }}
-      .row
-        .medium-12.columns
-          %h5.wish
-            Change your information
-            %a{ 'href' => '#/edit_account' }
-              %strong
-                here.
+
+%hr{:style => "margin: 0;"}
+.profile
+  .prof-info
     .row
       .medium-12.columns
-        .row
-          .medium-12.columns
-            %h5
-              Hi {{ account.firstName }}, you look great today.
-        .row
-          .medium-4.columns.company_list
-            %ul.small-block-grid-1{ style: "background-color: #fff; margin: inherit" }
-              %li{ style: 'padding: 20px !important; font-size: 1.2rem;" '} Watched Companies
+        %h1 {{ account.firstName }} {{ account.lastName }}
+    .row
+      .medium-12.columns
+        %h2 {{ account.school }}, Class of {{ account.graduationYear }}
+    .row
+      .medium-12.columns
+        %h5.wish
+          Change your information
+          %a{ 'href' => '#/edit_account' }
+            %strong
+              here.
+  .row
+    .medium-12.columns
+      .row
+        .medium-12.columns
+          %h5
+            Hi {{ account.firstName }}, you look great today.
+      .row
+        .medium-4.columns.company_list
+          %ul.small-block-grid-1{ style: "background-color: #fff; margin: inherit" }
+            %li{ style: 'padding: 20px !important; font-size: 1.2rem;" '} Watched Companies
+            %hr
+            %li{ 'ng-if' => '!companyWatches.length' }
+              Hit the watch button on a company, and we'll tell you when someone reviews them!
+            %li{ 'ng-repeat' => 'companyWatch in companyWatches' }
+              %a{ 'ng-href' => '#/{{ companyWatch.companyId}}', :style => 'width:100%; height:100%; display:block;'}
+                {{ companyWatch.companyName }}
+          %br
+          %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit"}
+            %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
+            %hr
+            %li{ 'ng-if' => '!companyViews.length' }
+              %a{ 'href' => '#/search' } Search for a company.
+            %li{ 'ng-repeat' => 'companyView in companyViews' }
+              %a{ 'ng-href' => '#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
+                {{ companyView.companyName }}
+        .medium-8.columns
+          .resumes
+            %a.button.expand.sd{ 'ng-if' => 'resume.id == null', :href => "resumes/new"}
+              + Upload a New Resume
+            .button-bar{'ng-if' => 'resume.id' }
+              %ul.button-group.even.two-up
+                %li.old
+                  %a.button.sd{'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank'}
+                    Resume {{ resume.uploadFileName | limitTo: 30 }} uploaded
+                %li.new
+                  %a.button.sd{'ng-href' => 'resumes/new'}
+                    Upload New
+            .text-center{ 'ng-if' => 'resume.id && !reviews.length', style: 'margin-top: 10px;' }
+              Your resume will not be sent to any of our partners unless you submit a review.
+          .reviews
+            %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
+              %li{:style => "padding:20px !important; font-size: 1.2rem"} My Past Internships
               %hr
-              %li{ 'ng-if' => '!companyWatches.length' }
-                Hit the watch button on a company, and we'll tell you when someone reviews them!
-              %li{ 'ng-repeat' => 'companyWatch in companyWatches' }
-                %a{ 'ng-href' => '#/{{ companyWatch.companyId}}', :style => 'width:100%; height:100%; display:block;'}
-                  {{ companyWatch.companyName }}
-            %br
-            %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit"}
-              %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
-              %hr
-              %li{ 'ng-if' => '!companyViews.length' }
-                %a{ 'href' => '#/search' } Search for a company.
-              %li{ 'ng-repeat' => 'companyView in companyViews' }
-                %a{ 'ng-href' => '#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
-                  {{ companyView.companyName }}
-          .medium-8.columns
-            .resumes
-              %a.button.expand.sd{ 'ng-if' => 'resume.id == null', :href => "resumes/new"}
-                + Upload a New Resume
-              .button-bar{'ng-if' => 'resume.id' }
-                %ul.button-group.even.two-up
-                  %li.old
-                    %a.button.sd{'ng-href' => 'resumes/{{ resume.id }}.pdf', 'target' => '_blank'}
-                      Resume {{ resume.uploadFileName | limitTo: 30 }} uploaded
-                  %li.new
-                    %a.button.sd{'ng-href' => 'resumes/new'}
-                      Upload New
-              .text-center{ 'ng-if' => 'resume.id && !reviews.length', style: 'margin-top: 10px;' }
-                Your resume will not be sent to any of our partners unless you submit a review.
-            .reviews
-              %ul.small-block-grid-1{style: "background-color: #fff; margin: inherit; margin-bottom: 20px"} 
-                %li{:style => "padding:20px !important; font-size: 1.2rem"} My Past Internships
-                %hr
-                %li
-                  %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
-                    %thead
-                      %tr
-                        %th Company
-                        %th Submitted
-                        %th{ 'style' => 'width: 30%' } Available to Message?
-                    %tbody
-                      %tr{ 'ng-repeat' => 'review in reviews' }
-                        %td
-                          %a{ 'ng-href' => '#/{{ review.companyId }}', 'style' => 'color: #29bbbb' }
-                            {{ review.companyName }}
-                        %td
-                          {{ review.createdAt | date : 'short' }}
-                        %td{'style' => 'padding:0 ; margin: 0'}
-                          %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
-                            %span{ 'style' => 'display:inline-block;vertical-align:middle; padding-top: 5px;' }
-                              YES
-                          %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
-                            %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
-                              NO
-                %li.text-center{ 'ng-if' => '!reviews.length', style: 'margin-bottom: 10px' }
-                  You have not reviewed any internships yet. Please add one!
-                %li
-                  %a.button.sd{ :href => "#/review", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
-                    + ADD AN INTERNSHIP
-                %br
+              %li
+                %table{ 'ng-if' => 'reviews.length > 0', :role => 'grid', 'width' => '100%' }
+                  %thead
+                    %tr
+                      %th Company
+                      %th Submitted
+                      %th{ 'style' => 'width: 30%' } Available to Message?
+                  %tbody
+                    %tr{ 'ng-repeat' => 'review in reviews' }
+                      %td
+                        %a{ 'ng-href' => '#/{{ review.companyId }}', 'style' => 'color: #29bbbb' }
+                          {{ review.companyName }}
+                      %td
+                        {{ review.createdAt | date : 'short' }}
+                      %td{'style' => 'padding:0 ; margin: 0'}
+                        %a.button{ 'ng-if' => 'review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0'}
+                          %span{ 'style' => 'display:inline-block;vertical-align:middle; padding-top: 5px;' }
+                            YES
+                        %a.button.expand{ 'ng-if' => '!review.contactable', 'ng-click' => 'toggleContactable(review)', 'style' => 'width: 100%; height: 100%; padding:0; margin: 0;background-color:#ff8547'}
+                          %span{ 'style' => 'display:inline-block;margin:auto;vertical-align:middle; padding-top: 5px;' }
+                            NO
+              %li.text-center{ 'ng-if' => '!reviews.length', style: 'margin-bottom: 10px' }
+                You have not reviewed any internships yet. Please add one!
+              %li
+                %a.button.sd{ :href => "#/review", :style => 'margin-bottom: 10px; margin-left:auto; margin-right:auto; vertical-align: middle;' }
+                  + ADD AN INTERNSHIP
+              %br
