@@ -84,7 +84,10 @@ companies = [
   { id: 71, name: 'state_street', display_name: 'State Street', url: 'http://www.statestreet.com/wps/portal/internet/corporate/home/aboutstatestreet/careers/' },
   { id: 72, name: 'booz', display_name: 'Booz Allen Hamilton', url: 'http://www.boozallen.com/' },
   { id: 73, name: 'visa', display_name: 'Visa', url: 'http://usa.visa.com/careers/university-recruiting/undergraduates.jsp' },
-  { id: 74, name: 'financial_engines', display_name: 'Financial Engines', url: 'http://usa.visa.com/careers/university-recruiting/undergraduates.jsp' }
+  { id: 74, name: 'financial_engines', display_name: 'Financial Engines', url: 'http://usa.visa.com/careers/university-recruiting/undergraduates.jsp' },
+  { id: 75, name: 'hullabalu', display_name: 'Hullabalu', url: 'https://hullabalu.com/' }
+  
+
 ]
 
 def seed_ruby_objects(model, records)
