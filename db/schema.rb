@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012145155) do
+ActiveRecord::Schema.define(version: 20141101170006) do
 
   create_table "cities", force: true do |t|
     t.string  "name",                  null: false
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20141012145155) do
     t.text     "culture"
     t.text     "extra"
     t.string   "location"
+    t.boolean  "anonymous",          default: false, null: false
   end
 
   add_index "reviews", ["company_id", "student_account_id"], name: "index_on_company_id_and_student_account_id", using: :btree
