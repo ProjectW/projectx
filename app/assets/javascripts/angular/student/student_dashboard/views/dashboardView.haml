@@ -29,7 +29,7 @@
           %li{:style => "padding: 20px !important; font-size: 1.2rem;"} Recently Viewed Companies
           %hr
           %li{ 'ng-show' => '!companyViews.length' }
-            %a{ 'href' => 'company#/' } Search for a company.
+            %a{ 'href' => 'company#/' } Search for a workplace.
           %li{ 'ng-repeat' => 'companyView in companyViews' }
             %a{ 'ng-href' => 'company#/{{ companyView.companyId}}', :style => 'width:100%; height:100%; display:block;'}
               {{ companyView.companyName }}
