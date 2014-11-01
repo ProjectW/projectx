@@ -85,8 +85,21 @@ companies = [
   { id: 72, name: 'booz', display_name: 'Booz Allen Hamilton', url: 'http://www.boozallen.com/' },
   { id: 73, name: 'visa', display_name: 'Visa', url: 'http://usa.visa.com/careers/university-recruiting/undergraduates.jsp' },
   { id: 74, name: 'financial_engines', display_name: 'Financial Engines', url: 'http://usa.visa.com/careers/university-recruiting/undergraduates.jsp' },
-  { id: 75, name: 'hullabalu', display_name: 'Hullabalu', url: 'https://hullabalu.com/' }
-  
+  { id: 75, name: 'hullabalu', display_name: 'Hullabalu', url: 'https://hullabalu.com/' },
+  { id: 76, name: 'white_house', display_name: 'White House', url: 'http://www.whitehouse.gov/about/internships'},
+  { id: 77, name: 'state_department', display_name: 'State Department', url: 'http://careers.state.gov/intern'},
+  { id: 78, name: 'department_of_labor', display_name: 'Department of Labor', url:'http://www.dol.gov/oasam/programs/internship'},
+  { id: 79, name: 'department_of_education', display_name: 'Department of Education', url: 'http://www2.ed.gov/students/prep/job/intern/index.html?exp=1'},
+  { id: 80, name: 'senate', display_name: 'Senate', url: 'http://www.senate.gov/employment/po/positions.htm'},
+  { id: 81, name: 'house_of_representatives', display_name: 'House of Representatives', url: 'http://www.house.gov/content/educate/internships.php'},
+  { id: 82, name: 'democratic_governors_association', display_name: 'Democratic Governors Association', url: 'http://democraticgovernors.org/jobs/#~oUo6FP8cyA3Tpa'},
+  { id: 83, name: 'democratic_congressional_campaign_committee', display_name: 'Democratic Congressional Campaign Committee', url: 'http://archive.dccc.org/pages/internships/'},
+  { id: 84, name: 'democratic_national_committee', display_name: 'Democratic National Committee', url: 'http://internships.democrats.org/internships/add'},
+  { id: 85, name: 'republican_national_committee', display_name: 'Republican National Committee', url: 'https://gop.com/get-involved/jobs/'},
+  { id: 86, name: 'national_republican_congressional_committee', display_name: 'National Republican Congressional Committee', url: 'https://www.nrcc.org/intern-application/'},
+  { id: 87, name: 'republican_governors_association', display_name: 'Republican Governors Association', url: 'http://www.rga.org/homepage/about/intern/'},
+  { id: 88, name: 'emilys_list', display_name: "Emily's List", url: 'http://www.emilyslist.org/pages/entry/jobs-internships'},
+  { id: 89, name: 'teach_for_america', display_name: 'Teach for America: Four Weeks for America', url: ''}
 
 ]
 
