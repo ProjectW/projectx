@@ -99,7 +99,8 @@ companies = [
   { id: 86, name: 'national_republican_congressional_committee', display_name: 'National Republican Congressional Committee', url: 'https://www.nrcc.org/intern-application/'},
   { id: 87, name: 'republican_governors_association', display_name: 'Republican Governors Association', url: 'http://www.rga.org/homepage/about/intern/'},
   { id: 88, name: 'emilys_list', display_name: "Emily's List", url: 'http://www.emilyslist.org/pages/entry/jobs-internships'},
-  { id: 89, name: 'teach_for_america', display_name: 'Teach for America: Four Weeks for America', url: ''}
+  { id: 89, name: 'teach_for_america', display_name: 'Teach for America: Four Weeks for America', url: ''},
+  { id: 90, name: 'department_of_justice', display_name: 'Department of Justice', url: 'http://www.justice.gov/legal-careers/interns-recent-graduates-and-fellows'}
 
 ]
 
