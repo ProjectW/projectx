@@ -43,7 +43,7 @@ studentDashboardControllers.controller 'ReviewCtrl',
       $scope.errors = []
 
       $scope.step = 0
-      MAX_STEP = 3
+      MAX_STEP = 10
 
       REQUIRED_INPUTS = [
         'company',
@@ -78,7 +78,7 @@ studentDashboardControllers.controller 'ReviewCtrl',
 
       $scope.moveStep = () ->
         $scope.step = Math.min($scope.step + 1, MAX_STEP)
-
+        
       $scope.submit = () ->
         if isValid($scope.review)
           $scope.review.companyId = $scope.review.company.id
@@ -86,6 +86,9 @@ studentDashboardControllers.controller 'ReviewCtrl',
             alert "Error: " + if v.data then v.data.message else v
         else
           $anchorScroll()
+
+      $scope.go = (path) ->
+        $location.path( path )
   ]
 
 studentDashboardControllers.controller 'EditCtrl',

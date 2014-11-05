@@ -1,124 +1,167 @@
 = stylesheet_link_tag "student/review"
 
-.row
-  .medium-12.columns
-    %form.animate-switch-container{ 'ng-switch' => 'step'}
-      %h1.middle Review your internship
-      .row.animate-switch{ 'ng-switch-when' => '0' }
-        .medium-6.medium-centered.columns
-          .row
-            .medium-12.columns
-              .company-select-notifier
-                %span.label.secondary{ 'ng-if' => '!review.company' } Please select a company from the dropdown
-                %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
-              %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 100, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2', "autofocus" => 'true', 'transform' => 'selectOriginal'}
-          .row
-            .medium-12.columns
-              %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
+.wrapper
+  .row
+    .medium-12.columns
+      %form.animate-switch-container{ 'ng-switch' => 'step'}
+        .row.animate-switch{ 'ng-switch-when' => '0' }
+          %h1.middle Where did you work?
+          .medium-6.medium-centered.columns
+            .row
+              .medium-12.columns
+                .company-select-notifier
+                  %span.label.secondary{ 'ng-if' => '!review.company' } Please select a company from the dropdown
+                  %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
+                %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 100, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2', "autofocus" => 'true', 'transform' => 'selectOriginal'}
 
-      .row.animate-switch{ 'ng-switch-when' => '1' }
-        .medium-6.medium-centered.columns
-          %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle', 'autofocus' => "" }
+        .row.animate-switch{ 'ng-switch-when' => '1' }
+          %h1.middle.small That's awesome - where and what position? 
+          .medium-6.medium-centered.columns
+            %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
+            %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle', 'autofocus' => "" }
 
 
-      .row.animate-switch{ 'ng-switch-when' => '2' }
-        .medium-6.medium-centered.columns
-          .row
-            .medium-12.columns
-              %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'autofocus' => ''}
-          .row
-            .medium-12.columns
-              %select{ 'ng-model' => 'review.season'}
-                %option{ 'value' => '', 'disabled' => 'disabled' } Season
-                %option{ 'value' => :spring } Spring
-                %option{ 'value' => :summer } Summer
-                %option{ 'value' => :fall } Fall
-                %option{ 'value' => :winter } Winter
+        .row.animate-switch{ 'ng-switch-when' => '2' }
+          %h1.middle.small When did you intern?
+          .medium-6.medium-centered.columns
+            .row
+              .medium-12.columns
+                %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'autofocus' => ''}
+            .row
+              .medium-12.columns
+                %select{ 'ng-model' => 'review.season'}
+                  %option{ 'value' => '', 'disabled' => 'disabled' } Season
+                  %option{ 'value' => :spring } Spring
+                  %option{ 'value' => :summer } Summer
+                  %option{ 'value' => :fall } Fall
+                  %option{ 'value' => :winter } Winter
 
-      .row.animate-switch{ 'ng-switch-when' => '3' }
-        .medium-6.medium-centered.columns
-          %select{ 'ng-model' => 'review.recommend' }
-            %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
-            %option{ 'value' => 1 } Yes
-            %option{ 'value' => 0 } No
+        .row.animate-switch{ 'ng-switch-when' => '3' }
+          %h1.middle.small Would you recommend this internship to a friend?
+          .medium-6.medium-centered.columns
+            %select{ 'ng-model' => 'review.recommend' }
+              %option{ 'value' => 1 } Yes
+              %option{ 'value' => 0 } No
 
-      .row.s
-        .enter.medium-6.medium-centered.columns
-          %input{ 'type' => 'submit', 'class' => 'button', 'value' => 'Next', 'ng-click' => 'moveStep()' }
+        .row.animate-switch{ 'ng-switch-when' => '4'}
+          %h1.middle.small The next part is optional! It's chill if you don't have time to fill this out,
+          %h1.middle.small but we only send your resume to our partner companies if you do!
+          .medium-6.medium-centered.columns
+            %input{ 'type' => 'submit', 'class' => 'button', 'value' => "Stop Here", 'ng-click' => "go('/')"}
 
-/ .row
-/   .medium-12.columns
-/     %h1
-/       Review Your Internship
-/     %h2.subtitle
-/       These are only public to other Harvard students.
-/     .errors{ 'pp-show-errors' => '' }
-/ .row
-/   %form
-/     .medium-12.columns
-/       %h3
-/         First, some general info:
-/       .row
-/         .medium-6.columns
-/           .company-select-notifier
-/             %span.label.secondary{ 'ng-if' => '!review.company' } Please select a company from the dropdown
-/             %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
-/       .row
-/         .medium-6.columns
-/           %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 100, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2' }
-/         .medium-6.columns
-/           %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
-/       .row
-/         .medium-6.columns
-/           %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle' }
-/         .medium-3.columns
-/           %select{ 'ng-model' => 'review.season' }
-/             %option{ 'value' => '', 'disabled' => 'disabled' } Season
-/             %option{ 'value' => :spring } Spring
-/             %option{ 'value' => :summer } Summer
-/             %option{ 'value' => :fall } Fall
-/             %option{ 'value' => :winter } Winter
-/         .medium-3.columns
-/           %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'value' => 2014 }
-      
-/       .row
-/         .medium-12.columns
-/           %select{ 'ng-model' => 'review.recommend' }
-/             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
-/             %option{ 'value' => 1 } Yes
-/             %option{ 'value' => 0 } No
-/       %br
-/       %br
-/       %br
-/       %h3
-/         (optional!) Now, about that internship...
-/       %h2.sub
-/         It's chill if you don't have time to fill this out - but we only send your resume to our partner companies if you do. 
-/       .row
-/         .medium-6.columns
-/           %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
-/         .medium-3.columns
-/           %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0 }
-/         .medium-3.columns
-/           %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0 }
-      
-/       .row
-/         .medium-6.columns
-/           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.projects', 'placeholder' => 'Describe what projects you worked on.' }
-/         .medium-6.columns
-/           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.story', 'placeholder' => 'Tell us a story about your most memorable experience. We like stories.' }
-/       .row
-/         .medium-6.columns
-/           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.mentorship', 'placeholder' => 'Who did you work closely with? How was the mentorship and guidance you received?' }
-/         .medium-6.columns
-/           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.culture', 'placeholder' => 'How was the culture of the company?' }
-/       %h3
-/         Finally...
-/       .row
-/         .medium-12.columns
-/           %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Why or why not would you recommend this internship? Think about personal growth, pro/cons, and etc." }
-/       .row
-/         .medium-10.columns
-/         .medium-2.columns
-/           .button.postfix{ 'ng-click' => 'submit()' }
-/             Submit
+        .row.animate-switch{ 'ng-switch-when' => '5' }
+          %h1.middle.small How 'bout some basic info?
+          .medium-6.medium-centered.columns
+            %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
+          .medium-6.medium-centered.columns
+            .row
+              .medium-6.columns
+                %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0 }
+              .medium-6.columns
+                %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0 }
+        
+        .row.animate-switch{ 'ng-switch-when' => '6' }
+          %h1.middle.small On to the good stuff - what projects did you work on?
+          .medium-6.medium-centered.columns
+            %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.projects' }
+
+        .row.animate-switch{ 'ng-switch-when' => '7' }
+          %h1.middle.small That's sick. Tell us a memorable story - we like stories. 
+          .medium-6.medium-centered.columns
+            %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.story'}
+
+        .row.animate-switch{ 'ng-switch-when' => '8' }
+          %h1.middle.small What were the people like? Work flexibility? Fun events?
+          .medium-6.medium-centered.columns
+            %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.culture'}
+
+        .row.animate-switch{ 'ng-switch-when' => '9' }
+          %h1.middle.small Who did you work closely with and were you able to learn from them?
+          .medium-6.medium-centered.columns
+            %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.mentorship'}
+
+        .row.animate-switch{ 'ng-switch-when' => '10' }
+          %h1.middle.small You're a champ. Anything you want to leave us with?
+          .medium-6.medium-centered.columns
+            %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Why or why not would you recommend this internship? Think about personal growth, pro/cons, and etc." }
+
+        .row.s
+          .medium-6.medium-centered.columns
+            %input{ 'type' => 'submit', 'class' => 'button', 'value' => 'Next', 'ng-click' => 'moveStep()' }
+
+  / .row
+  /   .medium-12.columns
+  /     %h1
+  /       Review Your Internship
+  /     %h2.subtitle
+  /       These are only public to other Harvard students.
+  /     .errors{ 'pp-show-errors' => '' }
+  / .row
+  /   %form
+  /     .medium-12.columns
+  /       %h3
+  /         First, some general info:
+  /       .row
+  /         .medium-6.columns
+  /           .company-select-notifier
+  /             %span.label.secondary{ 'ng-if' => '!review.company' } Please select a company from the dropdown
+  /             %span.label.success{ 'ng-if' => 'review.company' } Please select a company from the dropdown &#x2713
+  /       .row
+  /         .medium-6.columns
+  /           %angucomplete{ 'id' => 'company', 'placeholder' => 'Start typing company name...', 'pause' => 100, 'selectedObject' => 'review.company', 'url' => 'companies/search?sort=1&searchText=', 'titlefield' => 'name', 'minlength' => '2' }
+  /         .medium-6.columns
+  /           %input{ 'type' => 'text', 'placeholder' => 'City, State', 'ng-model' => 'review.location' }
+  /       .row
+  /         .medium-6.columns
+  /           %input{ 'type' => 'text', 'placeholder' => 'Position Title', 'ng-model' => 'review.positionTitle' }
+  /         .medium-3.columns
+  /           %select{ 'ng-model' => 'review.season' }
+  /             %option{ 'value' => '', 'disabled' => 'disabled' } Season
+  /             %option{ 'value' => :spring } Spring
+  /             %option{ 'value' => :summer } Summer
+  /             %option{ 'value' => :fall } Fall
+  /             %option{ 'value' => :winter } Winter
+  /         .medium-3.columns
+  /           %input{ 'type' => 'number', 'ng-model' => 'review.year', 'placeholder' => 'Year', 'min' => 2000, 'max' => 2014, 'value' => 2014 }
+        
+  /       .row
+  /         .medium-12.columns
+  /           %select{ 'ng-model' => 'review.recommend' }
+  /             %option{ 'value' => '', 'disabled' => 'disabled' } Would you recommend this internship to a friend?
+  /             %option{ 'value' => 1 } Yes
+  /             %option{ 'value' => 0 } No
+  /       %br
+  /       %br
+  /       %br
+  /       %h3
+  /         (optional!) Now, about that internship...
+  /       %h2.sub
+  /         It's chill if you don't have time to fill this out - but we only send your resume to our partner companies if you do. 
+  /       .row
+  /         .medium-6.columns
+  /           %input{ 'type' => 'number', 'placeholder' => 'Salary per Month (Optional)', 'min' => 0, 'ng-model' => 'review.salary' }
+  /         .medium-3.columns
+  /           %input{ 'type' => 'number', 'placeholder' => '# Hours Per Week', 'ng-model' => 'review.numberHours', 'min' => 0 }
+  /         .medium-3.columns
+  /           %input{ 'type' => 'number', 'placeholder' => '# of Interns', 'ng-model' => 'review.numberInterns', 'min' => 0 }
+        
+  /       .row
+  /         .medium-6.columns
+  /           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.projects', 'placeholder' => 'Describe what projects you worked on.' }
+  /         .medium-6.columns
+  /           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.story', 'placeholder' => 'Tell us a story about your most memorable experience. We like stories.' }
+  /       .row
+  /         .medium-6.columns
+  /           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.mentorship', 'placeholder' => 'Who did you work closely with? How was the mentorship and guidance you received?' }
+  /         .medium-6.columns
+  /           %textarea.no-resize{ 'rows' => 4, 'cols' => 20, 'ng-model' => 'review.culture', 'placeholder' => 'How was the culture of the company?' }
+  /       %h3
+  /         Finally...
+  /       .row
+  /         .medium-12.columns
+  /           %textarea.no-resize{ 'rows' => 3, 'ng-model' => 'review.extra', 'placeholder' => "Why or why not would you recommend this internship? Think about personal growth, pro/cons, and etc." }
+  /       .row
+  /         .medium-10.columns
+  /         .medium-2.columns
+  /           .button.postfix{ 'ng-click' => 'submit()' }
+  /             Submit
